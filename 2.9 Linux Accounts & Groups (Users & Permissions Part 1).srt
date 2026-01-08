@@ -1,0 +1,1164 @@
+1
+00:00:00,000 --> 00:00:07,880
+In this lecture, you will learn one of the core concepts in Linux and generally operating
+
+2
+00:00:07,880 --> 00:00:12,560
+systems, which is operating system users and their permissions.
+
+3
+00:00:12,560 --> 00:00:18,880
+We will see Linux commands for creating users and groups as well as understand how permissions
+
+4
+00:00:18,880 --> 00:00:25,560
+work and how to give users and groups in Linux different permissions to work with files and
+
+5
+00:00:25,560 --> 00:00:32,000
+do things on the system.
+
+6
+00:00:32,000 --> 00:00:38,280
+First of all, there are three categories of users that we may have on a Linux system.
+
+7
+00:00:38,280 --> 00:00:40,580
+First one is the root user.
+
+8
+00:00:40,580 --> 00:00:48,960
+This is a special type of user that has unrestricted access and permissions to the whole system.
+
+9
+00:00:48,960 --> 00:00:52,760
+Also called a super user, because it can do anything.
+
+10
+00:00:52,760 --> 00:00:59,320
+Whether you want to do some administrative tasks or access restricted files, for example,
+
+11
+00:00:59,320 --> 00:01:06,120
+on your system, you need to log in as a root user or you need to execute commands as a
+
+12
+00:01:06,120 --> 00:01:07,120
+root user.
+
+13
+00:01:07,120 --> 00:01:11,600
+A second type of user are regular or standard users.
+
+14
+00:01:11,600 --> 00:01:17,240
+These are the users that we create to log in to the system.
+
+15
+00:01:17,240 --> 00:01:24,040
+So if I want to use a computer or a server, I will have some standard user that I can
+
+16
+00:01:24,040 --> 00:01:28,280
+use to log into the system and then do stuff there.
+
+17
+00:01:28,280 --> 00:01:34,640
+And each regular or standard user will have its own dedicated space that we already saw
+
+18
+00:01:34,640 --> 00:01:40,720
+in the slash home directory in a folder that has the same name as that user.
+
+19
+00:01:40,720 --> 00:01:44,160
+And the third type is service user.
+
+20
+00:01:44,160 --> 00:01:51,400
+The service user is relevant on Linux server distributions, because Linux is widely used
+
+21
+00:01:51,400 --> 00:01:59,480
+for servers and servers run different services, like a database server or a web application
+
+22
+00:01:59,480 --> 00:02:01,200
+server, etc.
+
+23
+00:02:01,200 --> 00:02:03,720
+And it can run multiple of those services.
+
+24
+00:02:03,720 --> 00:02:10,200
+So you may have an Apache server application running on a server, as well as MySQL database,
+
+25
+00:02:10,200 --> 00:02:11,600
+etc.
+
+26
+00:02:11,600 --> 00:02:17,080
+And each such service or application will actually get its own user.
+
+27
+00:02:17,080 --> 00:02:22,760
+So they will not be started by a standard user or a root user, but rather they will
+
+28
+00:02:22,760 --> 00:02:29,200
+have a dedicated, for example, MySQL user or Apache user that will start the application.
+
+29
+00:02:29,200 --> 00:02:30,200
+Why?
+
+30
+00:02:30,200 --> 00:02:35,440
+Because this makes sure that each application is isolated in terms of permissions from each
+
+31
+00:02:35,440 --> 00:02:39,400
+other and ensures better security.
+
+32
+00:02:39,400 --> 00:02:46,480
+And this is a best practice in server management and DevOps to run the services with their
+
+33
+00:02:46,480 --> 00:02:53,440
+own dedicated user running a service with a root user is very bad because this will
+
+34
+00:02:53,440 --> 00:02:56,200
+create a lot of security issues.
+
+35
+00:02:56,200 --> 00:03:02,760
+So no service should be run with root user because then that service will get actually
+
+36
+00:03:02,760 --> 00:03:04,920
+root user privileges.
+
+37
+00:03:04,920 --> 00:03:10,560
+And it may accidentally disrupt the system, or if someone would hack into our system and
+
+38
+00:03:10,560 --> 00:03:17,160
+that application, specifically, they will be able to do more damage to the whole system
+
+39
+00:03:17,160 --> 00:03:19,280
+with a root user privilege.
+
+40
+00:03:19,280 --> 00:03:23,760
+So these are the three types of users that you will have on a system.
+
+41
+00:03:23,760 --> 00:03:29,080
+And on one machine, you may have multiple of those users.
+
+42
+00:03:29,080 --> 00:03:35,600
+You always have one root user obviously per computer or server, but you may have multiple
+
+43
+00:03:35,600 --> 00:03:39,400
+regular users in addition and multiple service users.
+
+44
+00:03:39,400 --> 00:03:45,240
+Now why do we need multiple standard user accounts, for example, on one machine?
+
+45
+00:03:45,240 --> 00:03:52,160
+Let's say we have a personal laptop or computer that use at work or university.
+
+46
+00:03:52,160 --> 00:03:54,360
+Why would you need multiple accounts?
+
+47
+00:03:54,360 --> 00:03:58,840
+Well, the main reason is to be able to share your computer.
+
+48
+00:03:58,840 --> 00:04:06,640
+For example, many companies use Windows operating system for personal computers or laptops that
+
+49
+00:04:06,640 --> 00:04:08,680
+the employees would use.
+
+50
+00:04:08,680 --> 00:04:15,640
+And each personal computer or laptop can actually be accessed by any of the employees.
+
+51
+00:04:15,640 --> 00:04:19,760
+So if you change your hardware, if you change your laptop in the company, you will still
+
+52
+00:04:19,760 --> 00:04:22,360
+be able to access that laptop.
+
+53
+00:04:22,360 --> 00:04:25,720
+You will be able to log in with your user.
+
+54
+00:04:25,720 --> 00:04:27,120
+Same thing at universities.
+
+55
+00:04:27,120 --> 00:04:32,640
+And universities have computer labs that can be accessed with computers, and each computer
+
+56
+00:04:32,640 --> 00:04:39,200
+can be accessed by any student in the university with their own personal login credentials.
+
+57
+00:04:39,200 --> 00:04:41,120
+So how does this work?
+
+58
+00:04:41,120 --> 00:04:44,400
+Does every computer have a copy of all the accounts?
+
+59
+00:04:44,400 --> 00:04:51,120
+Well, for Windows, and that is actually a difference between Windows and Linux, Windows
+
+60
+00:04:51,120 --> 00:04:55,800
+has a possibility to centrally manage the users.
+
+61
+00:04:55,800 --> 00:05:03,440
+So the administrators at Workspace or the university, they will usually configure a
+
+62
+00:05:03,440 --> 00:05:09,360
+system with a list of all the students or all the employees with the user accounts
+
+63
+00:05:09,360 --> 00:05:14,960
+for each one of them, and then all the computers will be connected to the system.
+
+64
+00:05:14,960 --> 00:05:22,440
+So whenever someone tries to log in to a computer at work, for example, then the operating system
+
+65
+00:05:22,440 --> 00:05:29,200
+will ask that centrally managed system, hey, there is this user that is trying to log in,
+
+66
+00:05:29,200 --> 00:05:34,960
+please check the credentials and give an access if the credentials are correct, or if you
+
+67
+00:05:34,960 --> 00:05:36,880
+have that kind of user.
+
+68
+00:05:36,880 --> 00:05:41,720
+So when you log in to such computer, you will see your home folder, and that's it.
+
+69
+00:05:41,720 --> 00:05:47,520
+You don't have access to restricted folders or system folders, and you will have no access
+
+70
+00:05:47,520 --> 00:05:52,000
+to other users' folders, so everything is nicely isolated.
+
+71
+00:05:52,000 --> 00:05:57,520
+And depending on permissions, if the permissions are strict, you may not be able to change
+
+72
+00:05:57,520 --> 00:05:59,720
+anything outside your home directory.
+
+73
+00:05:59,720 --> 00:06:05,560
+For example, you will not be able to just install software on your computer, because
+
+74
+00:06:05,560 --> 00:06:10,440
+as we saw, these installation files end up outside your home directory.
+
+75
+00:06:10,440 --> 00:06:17,400
+So in Windows systems, the centrally managed user permissions allows you as an employee,
+
+76
+00:06:17,400 --> 00:06:22,480
+for example, to log into any hardware, any computer that is connected to the system at
+
+77
+00:06:22,480 --> 00:06:27,080
+work, and basically see your home directory with all the files and everything that you
+
+78
+00:06:27,080 --> 00:06:32,040
+have there, and continue working from there so you're not tied to the hardware.
+
+79
+00:06:32,040 --> 00:06:37,960
+But as I said, this is specific to Windows, and Linux actually doesn't have that capability.
+
+80
+00:06:37,960 --> 00:06:44,080
+That's one of the reasons why in many companies or universities, Windows is used as an operating
+
+81
+00:06:44,080 --> 00:06:45,080
+system.
+
+82
+00:06:45,080 --> 00:06:51,520
+However, on Linux machines, you still have a possibility to register multiple users.
+
+83
+00:06:51,520 --> 00:06:57,360
+However, these users will be managed on that specific hardware, that specific computer.
+
+84
+00:06:57,360 --> 00:07:02,200
+If you're logging on another computer, you're going to have users that are registered on
+
+85
+00:07:02,200 --> 00:07:03,480
+that specific computer.
+
+86
+00:07:03,480 --> 00:07:06,120
+So it's different from one computer to another.
+
+87
+00:07:06,120 --> 00:07:12,640
+And again, this is a use case if you want to share the same computer with many users,
+
+88
+00:07:12,640 --> 00:07:13,640
+for example.
+
+89
+00:07:14,280 --> 00:07:25,160
+In Linux, however, this multiple user accounts is more relevant when we're talking about
+
+90
+00:07:25,160 --> 00:07:33,760
+servers, because usually servers are managed by teams of administrators or engineers.
+
+91
+00:07:33,760 --> 00:07:37,680
+So multiple people need access to the same servers.
+
+92
+00:07:37,720 --> 00:07:45,040
+Now you may be asking, why can't all the team members just have one account, or one user,
+
+93
+00:07:45,040 --> 00:07:49,160
+and then basically access the server with that user?
+
+94
+00:07:49,160 --> 00:07:53,840
+So have a shared user, basically, instead of having their personal files.
+
+95
+00:07:53,840 --> 00:07:58,960
+Because it's a server, so they're just going to be managing some services there anyways.
+
+96
+00:07:58,960 --> 00:08:05,200
+Well, let's say an example of why giving each team member their own user is actually important.
+
+97
+00:08:05,200 --> 00:08:10,760
+Let's say we have two servers in the company maintained by a system administrator's team
+
+98
+00:08:10,760 --> 00:08:12,320
+of three people.
+
+99
+00:08:12,320 --> 00:08:16,160
+First of all, you don't want to give them all root password, right?
+
+100
+00:08:16,160 --> 00:08:18,960
+So they need to have a non-root user.
+
+101
+00:08:18,960 --> 00:08:25,520
+Because again, root user should be just used by the system, and whenever you need to access
+
+102
+00:08:25,520 --> 00:08:30,480
+a restricted file or do something that needs a super user privilege.
+
+103
+00:08:30,480 --> 00:08:34,280
+But other than that, you should be always working with a non-root user.
+
+104
+00:08:34,400 --> 00:08:38,840
+Also, you can decide per team member what permissions they get.
+
+105
+00:08:38,840 --> 00:08:44,240
+Because someone may be a senior administrator, another person may be a junior.
+
+106
+00:08:44,240 --> 00:08:50,960
+So they may actually get less privileges and less permissions to change stuff on the system
+
+107
+00:08:50,960 --> 00:08:54,040
+or to access certain locations.
+
+108
+00:08:54,040 --> 00:09:01,400
+Also, with multiple people working on the server, you want to track who did what on the system.
+
+109
+00:09:01,400 --> 00:09:05,320
+So you want the traceability on the system.
+
+110
+00:09:05,320 --> 00:09:10,840
+Because if it's an important server, like a production server, for example, and you want to know what happened
+
+111
+00:09:10,840 --> 00:09:19,000
+by which user at a specific time, not for blaming, but just knowing who can help resolve that issue.
+
+112
+00:09:19,000 --> 00:09:24,240
+So these are the reasons why you would want to give each team member their own user accounts
+
+113
+00:09:24,240 --> 00:09:25,680
+to work on servers.
+
+114
+00:09:25,680 --> 00:09:31,120
+So when you get a fresh new server, an admin will usually create those users.
+
+115
+00:09:31,120 --> 00:09:34,920
+So that the team members have access to it.
+
+116
+00:09:34,920 --> 00:09:42,160
+And in the next section, we're going to see how creating users and giving them permissions actually works.
+
+117
+00:09:47,320 --> 00:09:52,440
+Now, how do we manage permissions for users on Linux systems?
+
+118
+00:09:52,440 --> 00:09:55,600
+We can manage permissions on two different levels.
+
+119
+00:09:55,600 --> 00:10:01,000
+The first one is we can give permissions to users directly.
+
+120
+00:10:01,000 --> 00:10:08,680
+So we can say a new user, Nana, will have a permission to install applications on the system.
+
+121
+00:10:08,680 --> 00:10:14,560
+She will have a permission to execute commands with super user privilege, etc.
+
+122
+00:10:14,560 --> 00:10:17,520
+So we can do that per user.
+
+123
+00:10:17,520 --> 00:10:25,120
+Another way of managing user permissions is by grouping users into Linux groups
+
+124
+00:10:25,120 --> 00:10:29,280
+and then giving that group certain permissions.
+
+125
+00:10:29,280 --> 00:10:35,120
+And this is actually the best way of doing it, especially if you're managing multiple users
+
+126
+00:10:35,120 --> 00:10:38,760
+by defining a group on a Linux system.
+
+127
+00:10:38,760 --> 00:10:46,280
+For example, if you have a DevOps team, then you would have DevOps group or you may have an admin group.
+
+128
+00:10:46,280 --> 00:10:48,760
+You may also have a group for developers.
+
+129
+00:10:48,760 --> 00:10:57,440
+And then you would add all those users to the group and then you would have permissions defined for that group
+
+130
+00:10:57,480 --> 00:10:59,480
+and not directly for the user.
+
+131
+00:10:59,480 --> 00:11:06,880
+And this is actually super convenient and way easier to manage if you have tens or hundreds of users.
+
+132
+00:11:06,880 --> 00:11:12,680
+If you have 50 users, you don't want to set permission for each one of them one by one.
+
+133
+00:11:12,680 --> 00:11:18,520
+And then when they're not in the team anymore, then take permissions from them and so on.
+
+134
+00:11:18,520 --> 00:11:21,960
+Way easier is to just add the user to the group.
+
+135
+00:11:21,960 --> 00:11:27,280
+So we'll get all the permissions that the group has and then remove the user from the group
+
+136
+00:11:27,280 --> 00:11:30,640
+and it will lose all the permissions that it had from the group.
+
+137
+00:11:30,640 --> 00:11:36,520
+And that's why usually when we're working with users, we also work with groups.
+
+138
+00:11:36,520 --> 00:11:43,720
+So each user will be part of a group by default and then you can add a user to multiple groups even.
+
+139
+00:11:43,720 --> 00:11:48,560
+So they will get all the permissions from all the groups that they are part of.
+
+140
+00:11:48,560 --> 00:11:53,240
+And this is actually a very important concept in Linux systems.
+
+141
+00:11:53,240 --> 00:12:02,120
+So now that we know all this theoretically, let's actually see how managing users and groups on Linux actually works in practice.
+
+142
+00:12:06,600 --> 00:12:14,240
+So back on our Ubuntu system, where we're going to see how to create new users and how to give them permissions.
+
+143
+00:12:14,240 --> 00:12:22,800
+First of all, let's see where all the users that the system has is actually stored and how we can access that list.
+
+144
+00:12:22,800 --> 00:12:28,520
+That information is actually stored in slashetc slash password file.
+
+145
+00:12:28,520 --> 00:12:34,320
+And since it's a file, we can just print the contents of the file.
+
+146
+00:12:34,320 --> 00:12:41,160
+Again, if you remember, slashetc is the system configuration location.
+
+147
+00:12:41,200 --> 00:12:45,000
+And that's where we have the users that are registered on the system.
+
+148
+00:12:45,000 --> 00:12:51,680
+So if I print the contents, you see this not very user friendly list.
+
+149
+00:12:51,680 --> 00:12:54,280
+However, it's not very complex.
+
+150
+00:12:54,280 --> 00:13:04,240
+Actually, each line here represents a user like this one right here, which is my user that I created.
+
+151
+00:13:04,240 --> 00:13:07,800
+And let's see what all this information actually means.
+
+152
+00:13:07,840 --> 00:13:11,760
+First of all, we have the name of the user, then we have X.
+
+153
+00:13:11,760 --> 00:13:14,400
+And you see that there is X for all the other users.
+
+154
+00:13:14,400 --> 00:13:18,200
+And this is actually a placeholder for the user's password.
+
+155
+00:13:18,200 --> 00:13:23,800
+Obviously, it's not displayed here in plain text because it's a password, it's a sensitive data.
+
+156
+00:13:23,800 --> 00:13:26,640
+So we just see a placeholder X.
+
+157
+00:13:26,640 --> 00:13:31,600
+The password itself is actually stored in another file for security.
+
+158
+00:13:31,600 --> 00:13:37,640
+Then we have a number here that actually represents the unique ID of the user.
+
+159
+00:13:37,640 --> 00:13:46,160
+So my user, Nana has ID of 1000 and root user on the system always has an ID of zero.
+
+160
+00:13:46,160 --> 00:13:52,200
+The second number that we see here is the primary group ID for that user.
+
+161
+00:13:52,200 --> 00:13:56,880
+So groups also have their IDs and each user will have a primary group,
+
+162
+00:13:56,880 --> 00:14:03,800
+which that user is part of and that primary group ID will be stored here as well.
+
+163
+00:14:03,800 --> 00:14:08,080
+Then we have the user description and full name, etc.
+
+164
+00:14:08,080 --> 00:14:16,120
+This is the user's home directory and this is user's default shell,
+
+165
+00:14:16,120 --> 00:14:25,280
+slash bin slash pesh, which is actually the shell that we're using here to execute different commands.
+
+166
+00:14:25,280 --> 00:14:27,400
+And as I said, this is a file.
+
+167
+00:14:27,400 --> 00:14:29,840
+So how do we add a new user?
+
+168
+00:14:29,840 --> 00:14:31,480
+It's actually pretty easy.
+
+169
+00:14:31,480 --> 00:14:37,160
+We already saw that command add user and username.
+
+170
+00:14:37,160 --> 00:14:39,000
+And let's call this one Tom.
+
+171
+00:14:39,000 --> 00:14:44,760
+However, adding a user in a system is administrative task.
+
+172
+00:14:44,760 --> 00:14:50,200
+So we are going to need super user privilege here.
+
+173
+00:14:50,200 --> 00:14:57,280
+And if I execute and enter my password, this will create a new user.
+
+174
+00:14:57,280 --> 00:15:03,400
+And we have to set the initial password for the user
+
+175
+00:15:03,400 --> 00:15:15,120
+and the full name, room name, whatever.
+
+176
+00:15:15,120 --> 00:15:16,520
+And confirm.
+
+177
+00:15:16,520 --> 00:15:25,200
+And again, if we now print out the list of users, we should see Tom right here.
+
+178
+00:15:25,200 --> 00:15:30,880
+And this information that we entered, they're all listed here comma separated.
+
+179
+00:15:30,880 --> 00:15:33,920
+And Tom also got its own user ID.
+
+180
+00:15:33,920 --> 00:15:37,800
+And this is the primary group ID of the user.
+
+181
+00:15:37,800 --> 00:15:41,200
+Now, where does this primary group actually come from?
+
+182
+00:15:41,200 --> 00:15:47,160
+Well, whenever we create a user using user add by default,
+
+183
+00:15:47,160 --> 00:15:55,000
+it also creates a group with the same name as the user and sets that as a primary group ID
+
+184
+00:15:55,040 --> 00:15:55,920
+of the user.
+
+185
+00:15:55,920 --> 00:16:01,120
+So this is the group called Tom and its ID here.
+
+186
+00:16:01,120 --> 00:16:03,560
+And that's the default behavior.
+
+187
+00:16:03,560 --> 00:16:14,640
+You can also change the password of a user using password command and username.
+
+188
+00:16:14,640 --> 00:16:18,320
+And of course, this is also an administrative task.
+
+189
+00:16:18,320 --> 00:16:24,160
+And now we can set a new password.
+
+190
+00:16:24,160 --> 00:16:25,720
+And there you go.
+
+191
+00:16:25,720 --> 00:16:27,200
+Password updated.
+
+192
+00:16:27,200 --> 00:16:33,280
+Now we could actually log out from the virtual machine and log in as Tom user.
+
+193
+00:16:33,280 --> 00:16:38,320
+Or we can do that directly on the command line as well.
+
+194
+00:16:38,320 --> 00:16:50,200
+Using command SU dash and username that we want to log in as and their password.
+
+195
+00:16:50,240 --> 00:16:56,400
+And right here, as you see, we're logged in as Tom user.
+
+196
+00:16:56,400 --> 00:17:05,240
+This is just a name of the computer, but we are in Tom's home directory right now.
+
+197
+00:17:05,240 --> 00:17:14,480
+And the same way we can switch back to my user like this.
+
+198
+00:17:14,560 --> 00:17:21,200
+Using the same command, you can actually log in to the system as a root user.
+
+199
+00:17:21,200 --> 00:17:26,120
+So without specifying any username here by default, this will be root.
+
+200
+00:17:26,120 --> 00:17:31,720
+So SU dash will log you in as a root user.
+
+201
+00:17:31,720 --> 00:17:38,800
+Of course, you will have to specify the password of the root user.
+
+202
+00:17:38,800 --> 00:17:44,920
+Now let's say we want to create a new group called DevOps, where all our team members
+
+203
+00:17:44,920 --> 00:17:47,480
+or engineers will be added.
+
+204
+00:17:47,480 --> 00:17:52,520
+And then we can add the permission to that DevOps group instead of adding permission
+
+205
+00:17:52,520 --> 00:17:55,400
+individually to each user.
+
+206
+00:17:55,400 --> 00:17:57,360
+So how can we add a group?
+
+207
+00:17:57,360 --> 00:18:04,040
+Also super easy, sudo group add and the group name.
+
+208
+00:18:04,040 --> 00:18:07,000
+And we're going to add a new group called DevOps.
+
+209
+00:18:07,000 --> 00:18:12,520
+And of course, if you want to verify the group was added, we can print the list of
+
+210
+00:18:12,520 --> 00:18:19,440
+groups from slash etc slash group file.
+
+211
+00:18:19,440 --> 00:18:20,440
+And there you go.
+
+212
+00:18:20,440 --> 00:18:26,640
+At the end, we have the name of the group and the ID of the group, a small note here
+
+213
+00:18:26,640 --> 00:18:30,400
+on the commands for creating users and groups.
+
+214
+00:18:30,400 --> 00:18:36,280
+If you noticed, I used a command add user to create a user, and group add to create
+
+215
+00:18:36,280 --> 00:18:37,520
+a group.
+
+216
+00:18:37,520 --> 00:18:43,000
+So basically in most Linux distributions, we have the following command pairs when creating
+
+217
+00:18:43,000 --> 00:18:45,080
+users or groups.
+
+218
+00:18:45,080 --> 00:18:51,120
+We have add user and user add, add group and group add.
+
+219
+00:18:51,120 --> 00:18:55,440
+And if you see examples with these commands on internet, it may get confusing.
+
+220
+00:18:55,440 --> 00:18:57,720
+So what is the difference here?
+
+221
+00:18:57,720 --> 00:19:04,520
+On most distributions, add user and add group are interactive, more user friendly options
+
+222
+00:19:04,520 --> 00:19:07,480
+of the commands user add and group add.
+
+223
+00:19:07,480 --> 00:19:12,600
+What does interactive and user friendly mean in this case, it's easier to use and all
+
+224
+00:19:12,600 --> 00:19:20,800
+the info you need to create a user or a group, like ID or home directory, etc, gets set automatically.
+
+225
+00:19:20,800 --> 00:19:25,800
+Or it asks you for an input in interactive mode, like with password.
+
+226
+00:19:25,800 --> 00:19:32,320
+Whereas for user add and group add, you need to provide all the needed information as parameters,
+
+227
+00:19:32,320 --> 00:19:36,080
+since these are more low level commands.
+
+228
+00:19:36,080 --> 00:19:38,320
+So which one should you use?
+
+229
+00:19:38,320 --> 00:19:44,760
+As a rule of thumb, use user add group add commands in scripts when you are executing
+
+230
+00:19:44,760 --> 00:19:52,000
+these commands in an automated way, and use add user and add group commands when executing
+
+231
+00:19:52,000 --> 00:19:53,720
+them manually.
+
+232
+00:19:53,720 --> 00:20:01,280
+The same goes for user deal or delete and deal user as well as group del and del group
+
+233
+00:20:01,280 --> 00:20:02,920
+command pairs.
+
+234
+00:20:02,920 --> 00:20:08,800
+Now let's say we want to change the primary group of user Tom to DevOps.
+
+235
+00:20:08,800 --> 00:20:10,560
+How do we do that?
+
+236
+00:20:10,560 --> 00:20:16,920
+Using a command called user mod, which modifies or changes the user.
+
+237
+00:20:16,920 --> 00:20:25,320
+So we can do user mod minus or dash g, the primary group that we want the user to be
+
+238
+00:20:25,320 --> 00:20:27,840
+in and the username.
+
+239
+00:20:27,840 --> 00:20:35,240
+And if I execute this, this will make DevOps the primary group of user Tom.
+
+240
+00:20:35,240 --> 00:20:42,440
+And now since we don't need the Tom group anymore, we can remove it using del group
+
+241
+00:20:42,440 --> 00:20:45,400
+or group del command.
+
+242
+00:20:45,400 --> 00:20:53,400
+So we can do del group Tom, and this will remove the group called Tom.
+
+243
+00:20:53,400 --> 00:20:57,280
+Now we can add a user to multiple groups, right?
+
+244
+00:20:57,280 --> 00:21:03,400
+So in addition to one primary group, a user can have multiple secondary groups.
+
+245
+00:21:03,400 --> 00:21:10,120
+And as a result, user will get all the permissions that the groups have, which it belongs to.
+
+246
+00:21:10,120 --> 00:21:19,360
+To add a user to multiple secondary groups, we can use user mod dash capital G and then
+
+247
+00:21:19,360 --> 00:21:23,920
+list of the groups that we want the user to be added to.
+
+248
+00:21:23,920 --> 00:21:29,480
+So we can do admin and some other group here and username.
+
+249
+00:21:29,480 --> 00:21:33,960
+In our case, let's just add Tom to admin group.
+
+250
+00:21:33,960 --> 00:21:40,040
+But know that capital G option will override the whole secondary groups list.
+
+251
+00:21:40,040 --> 00:21:43,320
+So it always sets the new list of groups for the user.
+
+252
+00:21:43,320 --> 00:21:48,720
+If you want to add user to a new secondary group in addition to the existing ones it
+
+253
+00:21:48,720 --> 00:21:55,520
+already belongs to, we use an option A in addition.
+
+254
+00:21:55,520 --> 00:22:02,800
+So using this command, we can basically append a new group to the existing groups.
+
+255
+00:22:02,800 --> 00:22:09,360
+So as you see, Linux commands accept different options to change their default behavior,
+
+256
+00:22:09,360 --> 00:22:11,920
+which is an example with the user mod command.
+
+257
+00:22:11,920 --> 00:22:17,480
+But for other commands as well, like add user, add group, et cetera, you can use different
+
+258
+00:22:17,480 --> 00:22:23,600
+options to set a custom ID and change the defaults for the user or group when creating
+
+259
+00:22:23,600 --> 00:22:26,680
+them by adding options to the command.
+
+260
+00:22:26,680 --> 00:22:32,080
+You can check the documentation or what's called main pages or manual pages for any
+
+261
+00:22:32,080 --> 00:22:36,000
+Linux command to see all the options you can use with it.
+
+262
+00:22:36,000 --> 00:22:37,000
+Great.
+
+263
+00:22:37,000 --> 00:22:40,160
+So we have added user to multiple groups.
+
+264
+00:22:40,160 --> 00:22:45,600
+How do we actually print out or see all the groups a user belongs to in an easy way?
+
+265
+00:22:45,600 --> 00:22:53,640
+Well, there's a command for that too called groups, which displays the groups that currently
+
+266
+00:22:53,640 --> 00:22:56,200
+logged in user belongs to.
+
+267
+00:22:56,200 --> 00:23:02,800
+But with groups username, like groups Tom, for example, we can display the groups of
+
+268
+00:23:02,800 --> 00:23:04,360
+any other user.
+
+269
+00:23:04,360 --> 00:23:11,000
+We can also log in as Tom user to Tom's account and display the groups there as well.
+
+270
+00:23:11,000 --> 00:23:25,480
+And if we switch to user Tom and groups, right here, you see that Tom is in DevOps and admin
+
+271
+00:23:25,480 --> 00:23:26,640
+groups.
+
+272
+00:23:26,640 --> 00:23:31,600
+And if you want to move back to the previous user, we can also do exit.
+
+273
+00:23:31,600 --> 00:23:39,000
+So this will log out to the user and I'm back in my previous users session.
+
+274
+00:23:39,000 --> 00:23:45,560
+We can also add users by specifying the group at the creation time instead of going through
+
+275
+00:23:45,560 --> 00:23:47,000
+all these steps.
+
+276
+00:23:47,000 --> 00:23:55,400
+So when adding a user user add command with a name like Nicole, for example, we can actually
+
+277
+00:23:55,400 --> 00:23:58,680
+specify the group right here.
+
+278
+00:23:58,680 --> 00:24:00,480
+Let's say this is the DevOps group.
+
+279
+00:24:00,480 --> 00:24:05,480
+So this will add Nicole user to DevOps group.
+
+280
+00:24:05,480 --> 00:24:10,760
+However, it will still create a default group with the same name.
+
+281
+00:24:10,760 --> 00:24:24,800
+So if we check now the users list, we have a new user here with a primary group ID of
+
+282
+00:24:24,800 --> 00:24:26,240
+this group.
+
+283
+00:24:26,600 --> 00:24:30,600
+However, it's also added to the DevOps group.
+
+284
+00:24:30,600 --> 00:24:36,440
+Now if you want to remove a user from a group, for that you would execute a command called
+
+285
+00:24:36,440 --> 00:24:40,880
+g password.
+
+286
+00:24:40,880 --> 00:24:47,680
+And then you have a flag for delete user and the group.
+
+287
+00:24:47,680 --> 00:24:51,480
+So this will remove the user from the specified group.
+
+288
+00:24:51,840 --> 00:24:58,160
+I'm going to execute and we have removing username call from group DevOps.
+
+289
+00:24:58,160 --> 00:25:00,000
+And there you go.
+
+290
+00:25:00,000 --> 00:25:04,720
+So this is how you work with users and groups in Linux.
+
+291
+00:25:04,720 --> 00:25:08,680
+In the next part, we're going to see permissions for users and groups.
+

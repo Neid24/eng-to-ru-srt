@@ -1,0 +1,772 @@
+1
+00:00:00,000 --> 00:00:08,720
+In the databases world, there are different types of databases that have emerged and are
+
+2
+00:00:08,720 --> 00:00:10,320
+still emerging.
+
+3
+00:00:10,320 --> 00:00:17,680
+You may have heard their names like CassandraDB, InflexDB, MongoDB, Cockroach, DB, Elasticsearch,
+
+4
+00:00:17,680 --> 00:00:24,480
+Redis, Memcached and the more popular ones you probably already worked with like MySQL,
+
+5
+00:00:24,480 --> 00:00:28,040
+Postgres, Oracle, DB, etc.
+
+6
+00:00:28,040 --> 00:00:32,920
+So why are so many databases out there and what differentiates them?
+
+7
+00:00:32,920 --> 00:00:39,800
+And which one should I use for my application or should I use multiple of them at once?
+
+8
+00:00:39,800 --> 00:00:45,520
+In this video, we will go through these different types of databases and explain when to use
+
+9
+00:00:45,520 --> 00:00:48,000
+each.
+
+10
+00:00:48,000 --> 00:00:53,800
+The first type and probably the simplest of the types is KeyValley databases.
+
+11
+00:00:53,800 --> 00:00:58,960
+Other ones being Redis, Memcached and HCD from Kubernetes.
+
+12
+00:00:58,960 --> 00:01:05,400
+Each KeyValue pair is like a JavaScript object in a KeyValue database.
+
+13
+00:01:05,400 --> 00:01:10,160
+Every key is unique and points to some specific value.
+
+14
+00:01:10,160 --> 00:01:16,400
+You can write data by adding KeyValue pair and you can read the data using the key.
+
+15
+00:01:16,400 --> 00:01:22,320
+Data model is very simple so you have no joins or some other complex concepts from the relational
+
+16
+00:01:22,320 --> 00:01:26,800
+database, for example, but these databases are very fast.
+
+17
+00:01:26,800 --> 00:01:27,800
+Why?
+
+18
+00:01:27,800 --> 00:01:32,000
+Because Redis and Memcached, for example, they store all their data in memory unlike
+
+19
+00:01:32,000 --> 00:01:37,400
+the most traditional databases which persist data on the hard drive.
+
+20
+00:01:37,400 --> 00:01:43,440
+This means you can't store much data because the memory storage is limited, but accessing
+
+21
+00:01:43,440 --> 00:01:45,480
+data is super fast.
+
+22
+00:01:45,480 --> 00:01:51,320
+And this also means that these types of databases are not fit as a primary database for your
+
+23
+00:01:51,320 --> 00:01:57,360
+application where you need long-term data persistence, but rather they're used as a
+
+24
+00:01:57,360 --> 00:02:02,520
+cache to make application faster and more real-time.
+
+25
+00:02:02,520 --> 00:02:09,800
+So for example, Twitter and Snapchat and some other similar applications use Redis for real-time
+
+26
+00:02:09,800 --> 00:02:14,200
+delivery of data to make the application faster.
+
+27
+00:02:14,200 --> 00:02:19,960
+Sometimes it could also be used as a message queue for some message broker applications,
+
+28
+00:02:19,960 --> 00:02:29,160
+but mostly as cache database on top of another primary database that persists the data long-term.
+
+29
+00:02:29,160 --> 00:02:34,960
+And as I mentioned, beginning at CD is also one of such databases which is used in Kubernetes
+
+30
+00:02:34,960 --> 00:02:37,840
+to store cluster state in real-time.
+
+31
+00:02:37,840 --> 00:02:45,400
+So every single small change in Kubernetes cluster related to any component gets immediately
+
+32
+00:02:45,400 --> 00:02:50,440
+updated in the HCD store, so it needs to be fast as well.
+
+33
+00:02:50,440 --> 00:02:55,440
+The second database type is wide-column databases.
+
+34
+00:02:55,440 --> 00:03:02,480
+Now the key value databases as you've probably already guessed are pretty limited in its schema.
+
+35
+00:03:02,480 --> 00:03:07,640
+There is so much you can do with the key-value database structures.
+
+36
+00:03:07,640 --> 00:03:14,040
+So if you need to store more complex key-value data, column databases are alternative.
+
+37
+00:03:14,040 --> 00:03:19,360
+You have the same key, but the value is divided into multiple columns instead of just being
+
+38
+00:03:19,360 --> 00:03:21,240
+one column.
+
+39
+00:03:21,240 --> 00:03:27,800
+Popular implementations of column databases are Cassandra and Apache HBase.
+
+40
+00:03:27,800 --> 00:03:33,800
+Unlike relational databases, it doesn't have a predefined schema, so you can have any number
+
+41
+00:03:33,800 --> 00:03:36,280
+of columns of any data type.
+
+42
+00:03:36,280 --> 00:03:43,680
+So it means it can handle unstructured data with dynamic number of columns per key.
+
+43
+00:03:43,680 --> 00:03:49,320
+It's also very scalable and can be easily distributed across multiple servers.
+
+44
+00:03:49,320 --> 00:03:53,200
+Its query language is very similar to SQL, but it's much simpler.
+
+45
+00:03:53,200 --> 00:03:59,760
+Also there are no joins or some similar complex concepts from relational databases here, which
+
+46
+00:03:59,760 --> 00:04:06,280
+makes it a simpler database type, but also more limited in comparison.
+
+47
+00:04:06,280 --> 00:04:13,160
+So its main use case is handling large amounts of unstructured data, mostly used for time
+
+48
+00:04:13,160 --> 00:04:20,040
+series data, like records from IoT devices, like smart cars and sensors, etc.
+
+49
+00:04:20,040 --> 00:04:24,840
+So just like the key-value databases, they should be used on top of a primary database
+
+50
+00:04:24,840 --> 00:04:31,640
+for use case, like storing a history of events or time series data, as I mentioned before.
+
+51
+00:04:31,640 --> 00:04:39,120
+Now if you need something which is more general purpose, then the third type of databases is
+
+52
+00:04:39,120 --> 00:04:42,400
+a document-oriented databases.
+
+53
+00:04:42,400 --> 00:04:49,200
+LongDB, DynamoDB, CouchDB are some of the popular implementations of document-oriented
+
+54
+00:04:49,200 --> 00:04:55,240
+databases, and here you have documents which are containers for key-value pairs.
+
+55
+00:04:55,240 --> 00:05:01,080
+These are also unstructured data, so you don't need a schema to be created before you add
+
+56
+00:05:01,080 --> 00:05:02,720
+the data.
+
+57
+00:05:02,720 --> 00:05:08,440
+Documents are grouped in collections, and collections can be organized into a relational
+
+58
+00:05:08,440 --> 00:05:10,000
+hierarchy.
+
+59
+00:05:10,000 --> 00:05:16,640
+And this mimics a little bit the relational database model, but still you have no joints
+
+60
+00:05:16,640 --> 00:05:17,840
+here as well.
+
+61
+00:05:17,840 --> 00:05:23,280
+Compared to relational database, it's slower in updates because the data here can be nested
+
+62
+00:05:23,280 --> 00:05:28,640
+within the hierarchy of documents, so more difficult to update small bits of data within
+
+63
+00:05:28,640 --> 00:05:34,040
+the documents, but faster to read the data because the data is already structured as
+
+64
+00:05:34,040 --> 00:05:38,340
+a collection of all related information into one document.
+
+65
+00:05:38,340 --> 00:05:44,060
+So no need to put them together by reading multiple tables like you would do in a normalized
+
+66
+00:05:44,060 --> 00:05:46,500
+relational database.
+
+67
+00:05:46,500 --> 00:05:50,980
+It's pretty intuitive to use actually for developers, and it's also very easy to get
+
+68
+00:05:50,980 --> 00:05:54,500
+started with and to use for your application.
+
+69
+00:05:54,500 --> 00:06:01,180
+Some of its use cases can be using it for mobile applications, for games, content management
+
+70
+00:06:01,180 --> 00:06:06,580
+is a perfect use case for that, and many more other use cases, because as I said, this is
+
+71
+00:06:06,580 --> 00:06:11,180
+much more general purpose than the column or key value databases.
+
+72
+00:06:11,180 --> 00:06:13,380
+So you can do it for more stuff.
+
+73
+00:06:13,380 --> 00:06:20,820
+And compared to the column and key value databases, this can actually be used as a primary database
+
+74
+00:06:20,820 --> 00:06:22,980
+for your application data.
+
+75
+00:06:22,980 --> 00:06:25,520
+And as I mentioned, it is schema less.
+
+76
+00:06:25,520 --> 00:06:30,100
+So if you don't know how your data will be structured, and how it's going to end up
+
+77
+00:06:30,100 --> 00:06:36,060
+looking, so to say, then this is also a very good fit because you can get started without
+
+78
+00:06:36,060 --> 00:06:37,060
+a schema.
+
+79
+00:06:37,060 --> 00:06:43,700
+Now, where it shouldn't be used is if you have a bunch of correlated data like graphs
+
+80
+00:06:43,700 --> 00:06:49,500
+which require frequent updates, this could be examples like social media applications
+
+81
+00:06:49,500 --> 00:06:54,060
+where users have friends and they have posts and comments.
+
+82
+00:06:54,060 --> 00:07:00,380
+So all these data pieces are or records are correlated with each other and connected.
+
+83
+00:07:00,380 --> 00:07:05,660
+This will not be an ideal case for document based databases.
+
+84
+00:07:05,660 --> 00:07:11,180
+For such cases where things are interconnected and related in lots of different directions,
+
+85
+00:07:11,180 --> 00:07:13,380
+we have the relational database type.
+
+86
+00:07:13,380 --> 00:07:19,260
+MySQL, PostgreSQL are some of the implementations of relational database.
+
+87
+00:07:19,260 --> 00:07:25,300
+Relational databases are the most widely used and popular and have been around for a long
+
+88
+00:07:25,300 --> 00:07:26,300
+time.
+
+89
+00:07:26,300 --> 00:07:28,720
+It is a structured database.
+
+90
+00:07:28,720 --> 00:07:37,040
+So you can use it to store unstructured data and it requires a strict schema up front.
+
+91
+00:07:37,040 --> 00:07:41,960
+So before you write anything into the database, you first need to create a schema of how the
+
+92
+00:07:41,960 --> 00:07:47,360
+data will look like, how many attributes it will have, which attributes, what data types
+
+93
+00:07:47,360 --> 00:07:53,440
+they will have, as well as how the values, the actual values then will look like, like
+
+94
+00:07:53,440 --> 00:08:00,560
+maximum size, numeric value or maximum size of characters, whether it's optional or required.
+
+95
+00:08:00,560 --> 00:08:04,280
+So you should define basically all of these up front.
+
+96
+00:08:04,280 --> 00:08:09,540
+And because it's used for structured data, its query format is called structured query
+
+97
+00:08:09,540 --> 00:08:16,040
+language or SQL for reading and writing to the database.
+
+98
+00:08:16,040 --> 00:08:21,840
+So what exactly is relational database and how does it look like?
+
+99
+00:08:21,840 --> 00:08:29,000
+In relational database, data is organized into tables, which have rows and columns.
+
+100
+00:08:29,000 --> 00:08:36,520
+So for example, so let's say we have an application with users who write comments on posts of
+
+101
+00:08:36,520 --> 00:08:40,660
+other users and who also publish their own posts.
+
+102
+00:08:40,660 --> 00:08:47,000
+So each one of those entities, so to say, will be stored separately in tables, each being
+
+103
+00:08:47,000 --> 00:08:49,640
+identified with a unique ID.
+
+104
+00:08:49,640 --> 00:08:54,440
+So you'll have user IDs, you'll have comment IDs, post IDs and so on.
+
+105
+00:08:54,440 --> 00:09:00,680
+But we can't relate a comment or post to a user without referencing, right?
+
+106
+00:09:00,680 --> 00:09:08,720
+So comments will reference the user who wrote that comment by using a user ID.
+
+107
+00:09:08,720 --> 00:09:13,520
+Comments will also reference the post they belong to using the post ID.
+
+108
+00:09:13,520 --> 00:09:17,800
+And posts will also reference the user who published it with user ID.
+
+109
+00:09:17,800 --> 00:09:19,920
+So they are all related.
+
+110
+00:09:19,920 --> 00:09:25,680
+Why don't we just throw them all in one big table, you may be asking at this point.
+
+111
+00:09:25,680 --> 00:09:30,520
+Well this way we avoid repeating the values over and over again.
+
+112
+00:09:30,520 --> 00:09:37,040
+Like if a user writes 1000 comments and posts, we don't want to add all the user information
+
+113
+00:09:37,040 --> 00:09:42,840
+like username, email, password, maybe address and some other data that we have gathered
+
+114
+00:09:42,840 --> 00:09:47,560
+about the user to each post and each comment.
+
+115
+00:09:47,560 --> 00:09:53,440
+So by adding just the ID as a reference, you can reference the whole user object but
+
+116
+00:09:53,440 --> 00:09:56,840
+without repeating all its values.
+
+117
+00:09:56,840 --> 00:10:01,000
+Note here that SQL databases are asset compliant.
+
+118
+00:10:01,000 --> 00:10:06,200
+This means atomic, consistent, isolated and durable.
+
+119
+00:10:06,200 --> 00:10:08,080
+So what does this actually mean?
+
+120
+00:10:08,080 --> 00:10:13,800
+Whenever there is a transaction in a relational database, like updating a data or multiple
+
+121
+00:10:13,800 --> 00:10:20,360
+pieces of data, data consistency and validity is guaranteed.
+
+122
+00:10:20,360 --> 00:10:25,200
+No matter what technical issues happen during that transaction.
+
+123
+00:10:25,200 --> 00:10:30,040
+These technical issues can be network or hardware failures, it could be software failure, like
+
+124
+00:10:30,040 --> 00:10:34,560
+a database itself crashes or the application itself and so on.
+
+125
+00:10:34,560 --> 00:10:40,720
+For example, if you have a transaction that is updating values in 10 different tables,
+
+126
+00:10:40,720 --> 00:10:48,280
+and let's say after 5 tables got updated, the network connectivity disrupted the transaction,
+
+127
+00:10:48,280 --> 00:10:53,040
+but the database will guarantee that no half changes were made.
+
+128
+00:10:53,040 --> 00:10:58,440
+And this is achieved by database mechanism that prepares all the changes, like all of
+
+129
+00:10:58,440 --> 00:11:07,320
+these 10 changes for example, and if successful, it commits all those changes at once, if disrupted
+
+130
+00:11:07,320 --> 00:11:10,800
+however, it rolls back all the changes.
+
+131
+00:11:10,800 --> 00:11:17,360
+So either all the changes of a single transaction get applied to the database or none of them
+
+132
+00:11:17,360 --> 00:11:18,880
+get applied.
+
+133
+00:11:18,880 --> 00:11:23,200
+And this is very important for banking and financial applications, right?
+
+134
+00:11:23,200 --> 00:11:28,440
+A classic example of this would be if the money got deducted from your account, then
+
+135
+00:11:28,440 --> 00:11:32,960
+it should appear on someone else's account or maybe your other account.
+
+136
+00:11:32,960 --> 00:11:39,160
+If something happens in between, after the money disappeared from your account, and let's
+
+137
+00:11:39,160 --> 00:11:46,080
+say a network error or database crashed or application stopped working, either it should
+
+138
+00:11:46,080 --> 00:11:52,920
+roll back the first change or it should execute the second part of the change, otherwise you
+
+139
+00:11:52,920 --> 00:11:54,760
+have inconsistency.
+
+140
+00:11:54,760 --> 00:12:00,040
+And in this exact scenario, it is very important to have that consistency.
+
+141
+00:12:00,040 --> 00:12:03,320
+So that's a huge advantage for such databases.
+
+142
+00:12:03,320 --> 00:12:09,040
+But this exact functionality also makes SQL databases very difficult to scale.
+
+143
+00:12:09,040 --> 00:12:16,480
+This means that running SQL relational databases in a distributed environment, like on containerized
+
+144
+00:12:16,480 --> 00:12:22,200
+clusters and so on, can be challenging exactly because of this mechanism.
+
+145
+00:12:22,200 --> 00:12:29,320
+However, I must note here that their modern SQL databases like CockroachDB, they're specifically
+
+146
+00:12:29,320 --> 00:12:35,920
+designed to solve that scalability issue that SQL databases have and run easily on modern
+
+147
+00:12:35,920 --> 00:12:36,920
+infrastructure.
+
+148
+00:12:36,920 --> 00:12:43,520
+And finally, I should mention here that because SQL has been so popular till now, we also
+
+149
+00:12:43,520 --> 00:12:50,400
+talk about that comparison between SQL and the rest of the database types as SQL versus
+
+150
+00:12:50,400 --> 00:12:52,920
+no SQL.
+
+151
+00:12:52,920 --> 00:13:01,120
+Now for two complex many to many relations, which in SQL requires multiple joins or an
+
+152
+00:13:01,120 --> 00:13:08,000
+intermediary table to connect such many to many relations, there is an alternative which
+
+153
+00:13:08,000 --> 00:13:10,720
+is graph type databases.
+
+154
+00:13:10,720 --> 00:13:13,400
+An example for this could be Reddit.
+
+155
+00:13:13,400 --> 00:13:19,800
+For example, you have a user that can be many Reddit groups, and one group can have multiple
+
+156
+00:13:19,800 --> 00:13:22,080
+users.
+
+157
+00:13:22,080 --> 00:13:28,480
+Or on YouTube, I may have many YouTube subscribers and I may be subscribed to many YouTube channels.
+
+158
+00:13:28,480 --> 00:13:34,440
+So for such cases, the graph databases are the best fit because they take away some of
+
+159
+00:13:34,440 --> 00:13:39,860
+the complexity, reduce the complexity of such correlated data.
+
+160
+00:13:39,860 --> 00:13:46,440
+Popular examples of such databases are Neo4j or Dgraph.
+
+161
+00:13:46,440 --> 00:13:52,920
+So in graph databases, instead of having an extra intermediate table to connect users
+
+162
+00:13:52,920 --> 00:13:59,640
+and channels or users and groups, for example, we can directly connect the records using
+
+163
+00:13:59,640 --> 00:14:01,880
+an edge as a connector.
+
+164
+00:14:01,880 --> 00:14:08,920
+And also it's easier to query such related data in graph databases than using multiple
+
+165
+00:14:08,920 --> 00:14:13,460
+joins like you would do in relational SQL databases.
+
+166
+00:14:13,460 --> 00:14:18,780
+And these database types are best used for detecting patterns in the application data
+
+167
+00:14:18,780 --> 00:14:26,740
+and detecting relations between records and also things like recommendation engines and
+
+168
+00:14:26,740 --> 00:14:28,060
+so on.
+
+169
+00:14:28,060 --> 00:14:33,140
+And one more database type is search databases.
+
+170
+00:14:33,140 --> 00:14:37,700
+Imagine a search engine like Google where you type a word or some words, a combination
+
+171
+00:14:37,700 --> 00:14:44,180
+of words and application must search the database of huge amounts of data for the most
+
+172
+00:14:44,180 --> 00:14:48,340
+relevant results for those words that you typed.
+
+173
+00:14:48,340 --> 00:14:54,140
+For that you would need a database that supports a full text search in an efficient and fast
+
+174
+00:14:54,140 --> 00:14:59,300
+way because users in Google search, for example, they don't want to wait for minutes to get
+
+175
+00:14:59,300 --> 00:15:01,660
+the search results.
+
+176
+00:15:01,660 --> 00:15:05,940
+Examples of such databases are Elasticsearch and Solar.
+
+177
+00:15:05,940 --> 00:15:11,220
+They work similar to document-oriented databases since you have a bunch of data objects there
+
+178
+00:15:11,220 --> 00:15:12,220
+as well.
+
+179
+00:15:12,220 --> 00:15:17,260
+The difference is that in the background, the search database will analyze all the text
+
+180
+00:15:17,260 --> 00:15:23,620
+from the data objects and create index of all the individual words or data pieces, just
+
+181
+00:15:23,620 --> 00:15:26,620
+like the classic index you know from the books.
+
+182
+00:15:26,620 --> 00:15:32,540
+So when user does the search, database only scans the index of the relevant results instead
+
+183
+00:15:32,540 --> 00:15:39,300
+of searching every document in the database, which of course makes it way faster to search
+
+184
+00:15:39,300 --> 00:15:42,700
+through large amounts of data sets.
+
+185
+00:15:42,700 --> 00:15:48,140
+Now these are the main database types and of course, as I mentioned, based on your application
+
+186
+00:15:48,140 --> 00:15:55,900
+needs or based on what your use case, specific use case is, you should go for the right database
+
+187
+00:15:55,900 --> 00:15:58,460
+to use for your application.
+
+188
+00:15:58,460 --> 00:16:03,580
+Or as you also saw, it could also be a combination of databases, like you could have relational
+
+189
+00:16:03,580 --> 00:16:08,100
+database which handles most of your data and stores most of your data.
+
+190
+00:16:08,100 --> 00:16:13,620
+And in addition to that, you can have a search database to handle the search part specifically
+
+191
+00:16:13,620 --> 00:16:20,300
+and you can also have a cache to make sure your application is fast and the users get
+
+192
+00:16:20,300 --> 00:16:28,020
+the real-time feeling when using your application and use the key value database like Redis
+
+193
+00:16:28,020 --> 00:16:29,500
+or Memcached for that.
+

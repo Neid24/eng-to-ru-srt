@@ -1,0 +1,1272 @@
+1
+00:00:00,000 --> 00:00:07,000
+Cool, we learned so far lots of awesome, very interesting concepts in operating systems
+
+2
+00:00:07,000 --> 00:00:09,760
+and specifically in Linux.
+
+3
+00:00:09,760 --> 00:00:13,600
+And I hope by now you already feel very knowledgeable in this area.
+
+4
+00:00:13,600 --> 00:00:18,600
+There is, however, a very important concept still missing in order to feel like a pro
+
+5
+00:00:18,600 --> 00:00:22,120
+in Linux, and that is networking.
+
+6
+00:00:22,120 --> 00:00:24,640
+How does computer networks work?
+
+7
+00:00:24,640 --> 00:00:27,420
+How do computers connect to the Internet?
+
+8
+00:00:27,420 --> 00:00:32,460
+What is an IP address and a port or a DNS and so on?
+
+9
+00:00:32,460 --> 00:00:37,660
+And we will learn all of this in this lecture where I will explain all the main concepts
+
+10
+00:00:37,660 --> 00:00:40,300
+step by step with examples.
+
+11
+00:00:40,300 --> 00:00:44,780
+So let's get started.
+
+12
+00:00:44,780 --> 00:00:49,700
+First of all, imagine your home network or your house where different devices like your
+
+13
+00:00:49,700 --> 00:00:54,620
+computer and laptop and phone are connected to that network.
+
+14
+00:00:54,620 --> 00:00:59,340
+Such a network is called a LAN or local area network.
+
+15
+00:00:59,340 --> 00:01:06,180
+So LAN is a network of a bunch of devices connected together in one physical location.
+
+16
+00:01:06,180 --> 00:01:12,580
+This can be as small as a private house LAN or LAN of a huge office building or a school
+
+17
+00:01:12,580 --> 00:01:15,500
+campus with hundreds of devices.
+
+18
+00:01:15,500 --> 00:01:23,420
+And each device on this network is identified by a unique IP address where IP stands for
+
+19
+00:01:23,420 --> 00:01:25,060
+Internet Protocol.
+
+20
+00:01:25,060 --> 00:01:31,340
+So devices can talk to each other on the network using this unique IP address.
+
+21
+00:01:31,340 --> 00:01:36,460
+For example, if your computer wants to send a printer something to print, it must know
+
+22
+00:01:36,460 --> 00:01:41,100
+the printer's IP address and send the information there.
+
+23
+00:01:41,100 --> 00:01:48,180
+This is an example of an IP address 172.16.0.0.
+
+24
+00:01:48,180 --> 00:01:53,820
+So IP address is basically a 32-bit value.
+
+25
+00:01:53,820 --> 00:01:57,620
+One bit is essentially a value of one or zero.
+
+26
+00:01:57,620 --> 00:02:02,780
+Now we don't need to go into details here, but it's important to know that an IP address
+
+27
+00:02:02,780 --> 00:02:08,700
+or IPv4 address is composed of 32 bits.
+
+28
+00:02:08,700 --> 00:02:12,540
+So basically 32 ones or zeros here.
+
+29
+00:02:12,540 --> 00:02:15,100
+And what are those dots between them?
+
+30
+00:02:15,100 --> 00:02:19,580
+So every eight bits are grouped into an octet.
+
+31
+00:02:19,580 --> 00:02:26,220
+And each octet can be represented as a decimal number that we humans can read.
+
+32
+00:02:26,220 --> 00:02:30,660
+Like this octet here represents 172.
+
+33
+00:02:30,660 --> 00:02:33,420
+This one represents 16 and so on.
+
+34
+00:02:33,420 --> 00:02:43,540
+So octet with all zeros, so eight zeros is just a zero, and an octet with all ones, so
+
+35
+00:02:43,540 --> 00:02:48,580
+eight ones is a number 255.
+
+36
+00:02:48,580 --> 00:03:02,580
+That means that IP address value can be any combination between 0.0.0.0 and 255.255.255.255.
+
+37
+00:03:02,580 --> 00:03:05,300
+So that's how IP address is made up.
+
+38
+00:03:05,300 --> 00:03:11,940
+But how do devices know each other's IP addresses or how can they send things to each other?
+
+39
+00:03:11,940 --> 00:03:17,740
+So that is a task of a special device on a local area network called a switch.
+
+40
+00:03:17,740 --> 00:03:25,060
+So switch sits within the LAN and knows all the IP addresses of all the devices and therefore
+
+41
+00:03:25,060 --> 00:03:29,980
+helps them communicate with each other within that local area network.
+
+42
+00:03:29,980 --> 00:03:35,620
+Great, so your laptop can talk to a phone or a printer in LAN using a switch.
+
+43
+00:03:35,620 --> 00:03:41,820
+But what if you want to talk to a server or some other device which is not in your LAN?
+
+44
+00:03:41,820 --> 00:03:46,660
+Like you want to open a Facebook website on your laptop so you need to connect to and
+
+45
+00:03:46,660 --> 00:03:53,580
+talk to a Facebook server which is obviously outside your LAN or essentially any website
+
+46
+00:03:53,580 --> 00:03:56,660
+which is hosted on a server outside your LAN.
+
+47
+00:03:56,660 --> 00:03:58,420
+Does switch help there too?
+
+48
+00:03:58,420 --> 00:03:59,420
+No.
+
+49
+00:03:59,420 --> 00:04:06,140
+For connecting to outside devices there is another special device in a LAN called a router.
+
+50
+00:04:06,140 --> 00:04:12,700
+Router is a network device that sits between the local area network and the outside network
+
+51
+00:04:12,700 --> 00:04:17,300
+which is also called a wide area network or WAN.
+
+52
+00:04:17,300 --> 00:04:23,100
+So the router connects devices on local area network and wide area network which means
+
+53
+00:04:23,100 --> 00:04:26,060
+the router connects you to the internet.
+
+54
+00:04:26,060 --> 00:04:30,700
+Back to our Facebook example, if you want to open Facebook app on your phone, your phone
+
+55
+00:04:30,700 --> 00:04:36,540
+will send a request to the router then router will send that request to Facebook server
+
+56
+00:04:36,540 --> 00:04:41,900
+over the internet and the IP address of the router is called a gateway.
+
+57
+00:04:41,900 --> 00:04:49,980
+So when you hear the term router and network gateway are basically the same thing.
+
+58
+00:04:49,980 --> 00:04:57,060
+Now the question is when a device in LAN sends a request to another device, how does it know
+
+59
+00:04:57,060 --> 00:05:04,660
+whether that other device is within the LAN or it's outside the LAN in the wide area network?
+
+60
+00:05:04,660 --> 00:05:09,340
+Well this is decided based on the IP address of the target device.
+
+61
+00:05:09,340 --> 00:05:14,140
+Remember as I said that every device on LAN has a unique IP address?
+
+62
+00:05:14,140 --> 00:05:17,260
+Well these IP addresses aren't random.
+
+63
+00:05:17,260 --> 00:05:24,860
+They all belong to the same range of IP addresses to identify devices in the same network.
+
+64
+00:05:24,860 --> 00:05:33,140
+And that IP address range is represented by a concept called subnet or subnetwork.
+
+65
+00:05:33,140 --> 00:05:38,580
+This is how an IP address range for a LAN can look like.
+
+66
+00:05:38,580 --> 00:05:44,860
+So the first part here is the IP address and that's the starting point of the IP address
+
+67
+00:05:44,860 --> 00:05:50,180
+range so that's the first IP address in the range and the second one is what's called
+
+68
+00:05:50,180 --> 00:05:52,260
+a subnet mask.
+
+69
+00:05:52,260 --> 00:05:59,420
+So subnet basically sets the range and it defines that whatever IP address of a device
+
+70
+00:05:59,420 --> 00:06:13,660
+starts with 192.168.0 so whenever an IP address starts with this it belongs to the LAN.
+
+71
+00:06:13,660 --> 00:06:28,340
+If we change the subnet mask value from 255.255.255.0 to 255.255.0.0 this will define an IP address
+
+72
+00:06:28,340 --> 00:06:39,380
+range that starts with 192.168 so all the IP addresses that starts with these two numbers
+
+73
+00:06:39,380 --> 00:06:41,340
+belong to the same LAN.
+
+74
+00:06:41,340 --> 00:06:52,900
+So as you see the value 255 fixates the IP block or octet and the value of zero means
+
+75
+00:06:52,900 --> 00:06:54,780
+a free range.
+
+76
+00:06:54,780 --> 00:07:04,980
+Why 255.0 because as you learned each IP decimal block can have values from zero to 255.
+
+77
+00:07:04,980 --> 00:07:07,660
+So anything within that range.
+
+78
+00:07:07,660 --> 00:07:15,260
+So basically subnet defines how many bits in the IP address are fixed making the rest
+
+79
+00:07:15,260 --> 00:07:17,060
+of them flexible.
+
+80
+00:07:17,060 --> 00:07:27,380
+So 255.255.0.0 means that half of it or 16 bits are fixed in the IP address this on
+
+81
+00:07:27,380 --> 00:07:34,900
+the other hand means that third of all the bits or 24 bits are fixed in the IP address.
+
+82
+00:07:34,900 --> 00:07:43,820
+So again when we're using this as a subnet mask it means that those first three octets
+
+83
+00:07:43,820 --> 00:07:51,300
+or decimal values cannot change right so the IP addresses of this LAN here will be between
+
+84
+00:07:51,300 --> 00:08:03,220
+192.168.0 so the first three cannot change they are fixated and the last one can change
+
+85
+00:08:03,220 --> 00:08:06,340
+and it could be all the way up to 255.
+
+86
+00:08:06,340 --> 00:08:12,700
+So your IP addresses will be within those ranges and right here we have only half of
+
+87
+00:08:12,700 --> 00:08:24,540
+it fixated so your IP addresses of this LAN will be from this IP address to 255.255.
+
+88
+00:08:24,540 --> 00:08:31,180
+So within this range that's how it works and as we said this subnet mask number basically
+
+89
+00:08:31,180 --> 00:08:36,780
+dictates how many bits in this 32-bit IP address are fixed.
+
+90
+00:08:36,780 --> 00:08:41,580
+So based on this logic there is actually a shorthand way of writing this which is also
+
+91
+00:08:41,580 --> 00:08:45,760
+called a cider block and is written like this.
+
+92
+00:08:45,760 --> 00:08:55,300
+So the same IP address as we have here slash 16 or slash 24 where 16 and 24 represent the
+
+93
+00:08:55,300 --> 00:09:00,940
+number of bits in the IP address range that are fixed.
+
+94
+00:09:00,940 --> 00:09:07,900
+Just to recap with subnet and a starting IP address we have a range of IP addresses that
+
+95
+00:09:07,900 --> 00:09:10,100
+are available in the LAN.
+
+96
+00:09:10,100 --> 00:09:17,660
+So every device in that local area network will get an IP address from that range.
+
+97
+00:09:17,660 --> 00:09:22,780
+So when we send a request to an IP address within our LAN the request will go to the
+
+98
+00:09:22,780 --> 00:09:26,900
+switch and it will forward it to the device within the LAN.
+
+99
+00:09:26,900 --> 00:09:32,740
+If the IP address is external it will go to the internet through the router and that means
+
+100
+00:09:32,740 --> 00:09:39,300
+any device on your network will need three pieces of data to communicate with other devices
+
+101
+00:09:39,300 --> 00:09:47,260
+both within its own network and to the outside networks devices and this is the IP address,
+
+102
+00:09:47,260 --> 00:09:52,300
+subnet and gateway.
+
+103
+00:09:52,300 --> 00:09:58,940
+Now we said that internally in a LAN we have an IP address range that a network administrator
+
+104
+00:09:58,940 --> 00:10:07,380
+of a company or school or in case of your own house your internet provider chooses and
+
+105
+00:10:07,380 --> 00:10:12,100
+that each device will get a unique IP address from that range.
+
+106
+00:10:12,100 --> 00:10:17,020
+And suppose a device in our LAN is talking to a device in another LAN.
+
+107
+00:10:17,020 --> 00:10:23,300
+Now how do we make sure not every network administrator selects the same range and that
+
+108
+00:10:23,300 --> 00:10:30,620
+the IP addresses in our LAN don't overlap or aren't the same as someone else's LAN?
+
+109
+00:10:30,620 --> 00:10:37,820
+Well the way it works is that the IP addresses of devices that belong to a LAN are not visible
+
+110
+00:10:37,820 --> 00:10:40,820
+to the outside network or internet.
+
+111
+00:10:40,820 --> 00:10:45,740
+So when you send a request to Facebook from your laptop your laptop's IP address from
+
+112
+00:10:45,740 --> 00:10:52,260
+the LAN range does not arrive at Facebook server instead it's replaced by the IP address
+
+113
+00:10:52,260 --> 00:10:58,700
+of the router and this functionality of router is called a network address translation or
+
+114
+00:10:58,700 --> 00:10:59,940
+net.
+
+115
+00:10:59,940 --> 00:11:05,180
+So basically when a laptop sends a request it goes to the router because router is the
+
+116
+00:11:05,180 --> 00:11:10,980
+connection to the outside network right to internet and router will then request that
+
+117
+00:11:10,980 --> 00:11:17,460
+on the device's behalf from internet and the response will then be sent back to the
+
+118
+00:11:17,460 --> 00:11:23,340
+device and that is a very important concept and has two main advantages.
+
+119
+00:11:23,340 --> 00:11:27,740
+One of them is security and protection of devices on the LAN because your IP address
+
+120
+00:11:27,740 --> 00:11:32,940
+isn't directly exposed and no one can talk to it directly and the second one is that
+
+121
+00:11:32,940 --> 00:11:40,060
+we can reuse IP address ranges multiple times without conflicting with each other.
+
+122
+00:11:40,060 --> 00:11:47,180
+So two huge companies can have the same IP address range within their own local area
+
+123
+00:11:47,180 --> 00:11:52,460
+network and they will basically not know about each other so there will be no conflict and
+
+124
+00:11:52,460 --> 00:11:59,420
+this is very efficient because there are a limited number of IP addresses you get from
+
+125
+00:11:59,420 --> 00:12:07,140
+the IPv4 address range which is as we saw four zeros and four two hundred fifty fives
+
+126
+00:12:07,260 --> 00:12:12,180
+and sure there are lots of combinations between them however there are also lots and lots
+
+127
+00:12:12,180 --> 00:12:19,100
+of devices in the world that need IP addresses.
+
+128
+00:12:19,100 --> 00:12:23,340
+Now what if an outside device wants to talk to your LAN directly?
+
+129
+00:12:23,340 --> 00:12:28,380
+Like you have a server that runs your application so you want to be able to accept requests
+
+130
+00:12:28,380 --> 00:12:31,060
+from devices outside your LAN.
+
+131
+00:12:31,060 --> 00:12:36,780
+Well by default this kind of communication will not be allowed because of a firewall.
+
+132
+00:12:36,780 --> 00:12:38,540
+So what is a firewall?
+
+133
+00:12:38,540 --> 00:12:45,380
+Firewall is a set of rules that protect a network from unauthorized access and you can explicitly
+
+134
+00:12:45,380 --> 00:12:52,260
+define what kind of communication you want to allow to your network using firewall rules.
+
+135
+00:12:52,260 --> 00:12:53,860
+So how does that work?
+
+136
+00:12:53,860 --> 00:12:59,900
+You define which device on your network with a specific IP address should be accessible.
+
+137
+00:12:59,900 --> 00:13:06,140
+You can also define which other devices or what IP addresses specifically can access
+
+138
+00:13:06,140 --> 00:13:11,820
+your server or you can say I allow any device on the internet to talk to my server.
+
+139
+00:13:11,820 --> 00:13:15,980
+And this is usually the case when you're running a web application because you want everyone
+
+140
+00:13:15,980 --> 00:13:18,540
+to be able to access your application.
+
+141
+00:13:18,540 --> 00:13:23,420
+So for most servers that are running some applications you will need to configure firewall
+
+142
+00:13:23,420 --> 00:13:27,700
+rules to manage the access configuration.
+
+143
+00:13:27,700 --> 00:13:33,660
+Now there is one more important thing that you always define in a firewall rule and that
+
+144
+00:13:33,660 --> 00:13:40,940
+is which ports are accessible on the server or generally on the device that you want to
+
+145
+00:13:40,940 --> 00:13:42,660
+allow access to.
+
+146
+00:13:42,660 --> 00:13:47,740
+So what is a port?
+
+147
+00:13:47,740 --> 00:13:53,740
+Every device has a set of ports and ports are like doors to the same building.
+
+148
+00:13:53,740 --> 00:14:01,100
+You unlock some doors so the guests or requests can enter and you keep others locked so no
+
+149
+00:14:01,100 --> 00:14:02,700
+one can enter there.
+
+150
+00:14:02,700 --> 00:14:10,900
+Or you unlock them only for specific guests like a specific IP address that can enter
+
+151
+00:14:10,900 --> 00:14:12,860
+the door so to say.
+
+152
+00:14:12,860 --> 00:14:19,180
+So with firewall configuration you define which doors of the building or your server in this
+
+153
+00:14:19,180 --> 00:14:25,500
+case you want to unlock and for which guests or for what requests.
+
+154
+00:14:25,500 --> 00:14:32,380
+And different applications and programs that run on the server will start or listen on
+
+155
+00:14:32,380 --> 00:14:38,700
+different ports meaning you can access that application on the device only on that specific
+
+156
+00:14:38,700 --> 00:14:39,700
+port.
+
+157
+00:14:39,700 --> 00:14:46,380
+And to keep this all standardized there are default or standard ports for many applications.
+
+158
+00:14:46,380 --> 00:14:53,660
+For example most web applications start on port 80 so they are accessible on that port
+
+159
+00:14:53,660 --> 00:14:56,860
+from the browser when you request the application.
+
+160
+00:14:56,860 --> 00:15:03,580
+That means when you type facebook.com or google.com in the browser by default this request goes
+
+161
+00:15:03,580 --> 00:15:09,260
+to a machine where Facebook or Google application is running on port 80.
+
+162
+00:15:09,260 --> 00:15:17,060
+So on those machines the firewall was configured to unlock the port 80 to accept browser requests.
+
+163
+00:15:17,060 --> 00:15:23,220
+Other applications like databases also have standard ports like a MySQL database is usually
+
+164
+00:15:23,220 --> 00:15:32,620
+accessible on port 3306, Postgresql on port 5432 and so on.
+
+165
+00:15:32,620 --> 00:15:39,220
+So for every application you need a port to communicate and each port is unique on a device.
+
+166
+00:15:39,460 --> 00:15:43,500
+So you can't have two applications listening on the same port.
+
+167
+00:15:43,500 --> 00:15:48,180
+If you try to start the second application on the same port you will get an error which
+
+168
+00:15:48,180 --> 00:15:50,980
+says port already in use.
+
+169
+00:15:50,980 --> 00:15:57,580
+So the firewall configuration allows a specific combination of device IP address and port
+
+170
+00:15:57,580 --> 00:15:59,300
+to be accessed.
+
+171
+00:15:59,300 --> 00:16:04,540
+So firewall is like a guard that is standing in front of the building and checks and verifies
+
+172
+00:16:04,540 --> 00:16:06,580
+who can enter which door.
+
+173
+00:16:06,580 --> 00:16:14,300
+And that configuration is also called port forwarding configuration.
+
+174
+00:16:14,300 --> 00:16:19,660
+Now when talking about networking there is one more concept that is essential to understand
+
+175
+00:16:19,660 --> 00:16:27,380
+and probably something you've heard very often and that is a DNS or the main name service.
+
+176
+00:16:27,380 --> 00:16:32,260
+DNS is basically the thing that the whole networking relies on.
+
+177
+00:16:32,260 --> 00:16:34,740
+So let's see exactly what a DNS is.
+
+178
+00:16:34,740 --> 00:16:41,220
+We know that every computer on the network is uniquely identified by its IP address.
+
+179
+00:16:41,220 --> 00:16:46,700
+And we saw that every device can talk to any other device using its IP address.
+
+180
+00:16:46,700 --> 00:16:52,500
+But when you visit Facebook application you type in the IP address in the browser or when
+
+181
+00:16:52,500 --> 00:16:57,620
+you visit any other website you never just type an IP address, right?
+
+182
+00:16:57,620 --> 00:16:58,820
+Why is that?
+
+183
+00:16:58,820 --> 00:17:07,140
+Because Facebook.com application runs on many computers which each have their own IP address.
+
+184
+00:17:07,140 --> 00:17:12,220
+A website of your favorite local restaurant is available on a specific computer with an
+
+185
+00:17:12,220 --> 00:17:13,580
+IP address.
+
+186
+00:17:13,580 --> 00:17:21,060
+So every single application that is running on a machine is accessible by an IP address.
+
+187
+00:17:21,060 --> 00:17:26,340
+So why do we use names of the application instead of the IP addresses?
+
+188
+00:17:26,340 --> 00:17:28,880
+Simply because we are not computers.
+
+189
+00:17:28,880 --> 00:17:33,140
+Humans remember words and names better than IP addresses and numbers.
+
+190
+00:17:33,140 --> 00:17:40,060
+So to make using the web easier for humans the concept of mapping the IP addresses to
+
+191
+00:17:40,060 --> 00:17:42,440
+names was introduced.
+
+192
+00:17:42,440 --> 00:17:45,940
+So we access every application by typing the name.
+
+193
+00:17:45,940 --> 00:17:52,420
+But the network as we saw doesn't understand the names, it understands numbers and IP addresses.
+
+194
+00:17:52,420 --> 00:18:00,100
+So under the hood that name gets translated into the actual IP address where that application
+
+195
+00:18:00,100 --> 00:18:04,100
+is running which then your computer can send the request to.
+
+196
+00:18:04,100 --> 00:18:07,960
+And the service that does this translation is DNS.
+
+197
+00:18:07,960 --> 00:18:13,020
+So using DNS we can give a unique name to any IP address.
+
+198
+00:18:13,020 --> 00:18:18,300
+So you can think of a DNS as an address book or yellow pages of internet.
+
+199
+00:18:18,300 --> 00:18:23,220
+But considering there are so many websites and applications in the world and new ones
+
+200
+00:18:23,220 --> 00:18:28,900
+being added daily and so many servers in this world connected to the internet.
+
+201
+00:18:28,900 --> 00:18:32,820
+How does DNS manage so many addresses and their names?
+
+202
+00:18:32,820 --> 00:18:39,260
+DNS uses a simple policy of dividing all these names into different domains or groups.
+
+203
+00:18:39,260 --> 00:18:42,340
+Main names follow a hierarchical structure.
+
+204
+00:18:42,340 --> 00:18:50,380
+There are around 13 root domains across the globe with names from A to M and under each
+
+205
+00:18:50,380 --> 00:18:56,460
+root domain you have a hierarchy of what's called top level domains or TLDs.
+
+206
+00:18:56,460 --> 00:19:02,020
+There are six original and most common top level domains and each domain has a specific
+
+207
+00:19:02,020 --> 00:19:03,540
+purpose.
+
+208
+00:19:03,540 --> 00:19:08,300
+We have .mil which is for military applications.
+
+209
+00:19:08,300 --> 00:19:11,860
+Then we have .edu or EDU.
+
+210
+00:19:11,860 --> 00:19:15,900
+This is for educational institutions and their websites.
+
+211
+00:19:15,900 --> 00:19:21,500
+Then we have .com which is more general purpose and usually used for businesses because .com
+
+212
+00:19:21,500 --> 00:19:23,460
+stands for commercial.
+
+213
+00:19:23,460 --> 00:19:28,860
+Then we have .org which is for non-profit organizations usually.
+
+214
+00:19:28,860 --> 00:19:31,260
+The next one is .net.
+
+215
+00:19:31,260 --> 00:19:36,820
+Originally for networking technologies like internet service providers or any other infrastructure
+
+216
+00:19:36,820 --> 00:19:38,500
+provider companies.
+
+217
+00:19:38,500 --> 00:19:44,020
+But today it's more general purpose and can be used by all types of businesses.
+
+218
+00:19:44,020 --> 00:19:47,620
+And finally we have .gov which is for government.
+
+219
+00:19:47,620 --> 00:19:53,300
+Apart from these original top level domains there are geographical domains which were
+
+220
+00:19:53,300 --> 00:19:54,900
+added later.
+
+221
+00:19:54,900 --> 00:19:57,420
+These are domains for each country.
+
+222
+00:19:57,420 --> 00:20:02,340
+This is used to also regulate domain names for companies that are registered in that
+
+223
+00:20:02,340 --> 00:20:03,340
+country.
+
+224
+00:20:03,340 --> 00:20:12,260
+Examples would be .de for Germany, .us for US, .uk, .fr for France etc.
+
+225
+00:20:12,260 --> 00:20:17,540
+This makes sense if your website is in the local language and your visitors are local
+
+226
+00:20:17,540 --> 00:20:22,780
+from that country like local restaurants, shops etc.
+
+227
+00:20:22,780 --> 00:20:29,580
+And finally a bunch of other domains were also added like .bis, .int, .dev etc.
+
+228
+00:20:29,580 --> 00:20:34,980
+So basically whenever someone creates a website they can buy a domain name that belongs to
+
+229
+00:20:34,980 --> 00:20:42,660
+one of these domains like mywebsite.com or mywebsite.uk and you may buy it for a year
+
+230
+00:20:42,660 --> 00:20:46,340
+and if you don't need it anymore someone else can buy the domain name later.
+
+231
+00:20:46,340 --> 00:20:51,980
+Now who actually manages these names or who can sell those domain names to you or keep
+
+232
+00:20:51,980 --> 00:20:58,020
+track of which ones are already taken and which ones are still available?
+
+233
+00:20:58,020 --> 00:21:01,700
+Or who decides how these domains are grouped or divided?
+
+234
+00:21:01,700 --> 00:21:07,860
+Well this is all regulated by a dedicated organization called the Internet Corporation
+
+235
+00:21:07,860 --> 00:21:17,380
+for Assigned Names and Numbers, ICANN, which basically manages all these domain name spaces
+
+236
+00:21:17,380 --> 00:21:23,740
+and it also authorizes domain name registers through which domain names may be registered
+
+237
+00:21:23,740 --> 00:21:25,220
+and reassigned.
+
+238
+00:21:25,220 --> 00:21:30,500
+Obviously you don't have to remember this organization's name but I think it's interesting
+
+239
+00:21:30,500 --> 00:21:35,020
+information to know that there is actually a dedicated organization that manages all
+
+240
+00:21:35,020 --> 00:21:36,540
+these domain names.
+
+241
+00:21:36,540 --> 00:21:43,460
+So as I said every domain name actually belongs to this root and one of its top level domains
+
+242
+00:21:43,460 --> 00:21:45,380
+or geographic domains.
+
+243
+00:21:45,380 --> 00:21:51,100
+Now suppose I want to create my own website and let people visit it like TechWorld with
+
+244
+00:21:51,100 --> 00:21:52,820
+NANA website.
+
+245
+00:21:52,820 --> 00:21:58,180
+Just I select the top level domain that I want for it, in my case dot com and create
+
+246
+00:21:58,180 --> 00:22:01,420
+a domain for TechWorld with NANA dot com.
+
+247
+00:22:01,420 --> 00:22:05,940
+Now let's say I have three servers with three different applications which all belong to
+
+248
+00:22:05,940 --> 00:22:06,940
+my company.
+
+249
+00:22:06,940 --> 00:22:10,060
+So they are in the TechWorld with NANA dot com domain.
+
+250
+00:22:10,060 --> 00:22:17,540
+I can assign each one its own domain name using a concept called subdomains like bootcamp
+
+251
+00:22:17,540 --> 00:22:23,340
+dot TechWorld with NANA dot com or workshops dot TechWorld with NANA dot com and then courses
+
+252
+00:22:23,340 --> 00:22:25,820
+dot TechWorld with NANA dot com.
+
+253
+00:22:25,820 --> 00:22:32,140
+And many companies and many organizations actually use these subdomains for different
+
+254
+00:22:32,140 --> 00:22:35,260
+applications that all belong to that organization.
+
+255
+00:22:35,260 --> 00:22:42,260
+So each application may run on its own dedicated server and each server that has its own IP
+
+256
+00:22:42,260 --> 00:22:47,740
+address will now have a full domain name with which you can access it.
+
+257
+00:22:47,740 --> 00:22:52,900
+There's also a fully qualified domain name which will be courses dot TechWorld with NANA
+
+258
+00:22:52,900 --> 00:22:57,820
+dot com dot where dot at the end is for root domain.
+
+259
+00:22:57,820 --> 00:23:02,580
+But we don't use the fully qualified domain names, it works without dot at the end as
+
+260
+00:23:02,580 --> 00:23:03,580
+well.
+
+261
+00:23:03,580 --> 00:23:08,820
+Great, so we understand what DNS is but how does your computer actually use the DNS service
+
+262
+00:23:08,820 --> 00:23:11,660
+to map the domain name to an IP address?
+
+263
+00:23:11,660 --> 00:23:17,660
+Your computer has a DNS client pre-installed, so when you open a browser and type in Facebook
+
+264
+00:23:17,660 --> 00:23:24,140
+dot com your operating system will make a DNS query asking DNS to resolve that Facebook
+
+265
+00:23:24,140 --> 00:23:29,660
+dot com address or find the IP address that maps to Facebook dot com.
+
+266
+00:23:29,660 --> 00:23:35,340
+The DNS request first goes to the recursive name server which is typically operated by
+
+267
+00:23:35,340 --> 00:23:40,660
+your internet service provider and your cursive name server might have the IP address already
+
+268
+00:23:40,660 --> 00:23:48,620
+stored but if it doesn't it will go to one of the 13 root servers which manage requests
+
+269
+00:23:48,620 --> 00:23:50,940
+for top level domains.
+
+270
+00:23:50,940 --> 00:23:56,980
+These root servers are redundantly available all over the world so that you get your response
+
+271
+00:23:56,980 --> 00:23:57,980
+quickly.
+
+272
+00:23:57,980 --> 00:24:04,020
+The root server will then look at the address and see dot com and it sends a response back
+
+273
+00:24:04,020 --> 00:24:09,100
+to the resolver saying I don't know what the address of Facebook dot com is but here's
+
+274
+00:24:09,100 --> 00:24:13,740
+the address of the dot coms domain server which you can ask.
+
+275
+00:24:13,740 --> 00:24:19,500
+The resolver then asks the dot com server, hey can you give me the IP address of facebook
+
+276
+00:24:19,500 --> 00:24:20,780
+dot com?
+
+277
+00:24:20,780 --> 00:24:26,420
+The dot com server sends a response, I don't know the IP address of facebook dot com but
+
+278
+00:24:26,420 --> 00:24:33,940
+here is a list of the IP addresses of the authoritative name servers for dot com domain.
+
+279
+00:24:33,940 --> 00:24:36,980
+They will know facebook dot coms IP address.
+
+280
+00:24:36,980 --> 00:24:43,540
+So finally resolver chooses the IP address of one of the authoritative name servers
+
+281
+00:24:43,540 --> 00:24:48,580
+from the list asking for facebook dot coms IP address.
+
+282
+00:24:48,580 --> 00:24:54,100
+And this time the name server responds with the actual IP address of facebook dot com.
+
+283
+00:24:54,100 --> 00:24:58,820
+So now your computer can send the request to facebook's IP address.
+
+284
+00:24:58,820 --> 00:25:03,700
+Now imagine this process happens every time you visit a website for the first time but
+
+285
+00:25:03,700 --> 00:25:09,500
+to save time in the future and make things more efficient both the recursive name server
+
+286
+00:25:09,500 --> 00:25:16,260
+and your computer will cache the DNS entries for a while so that the next time you want
+
+287
+00:25:16,260 --> 00:25:23,500
+to visit the same address it won't have to go through this whole process.
+
+288
+00:25:23,500 --> 00:25:29,260
+At this point you know all the essentials of networking and if you want to see the networking
+
+289
+00:25:29,260 --> 00:25:35,820
+information on your computer there are various useful programs or commands for that.
+
+290
+00:25:35,820 --> 00:25:42,500
+For example with if config command you can get your computer's IP address, subnet mask,
+
+291
+00:25:42,500 --> 00:25:48,100
+gateway address which is again the router IP address and a bunch of other information
+
+292
+00:25:48,100 --> 00:25:49,600
+about your network.
+
+293
+00:25:49,600 --> 00:25:55,180
+There is also a very useful command called netstat that shows you what active connections
+
+294
+00:25:55,180 --> 00:25:57,660
+you have on your machine.
+
+295
+00:25:57,660 --> 00:26:03,740
+Active connection means which applications are actively listening on their specific ports.
+
+296
+00:26:03,740 --> 00:26:08,980
+A typical use case can be even application on your server is not accessible and you're
+
+297
+00:26:08,980 --> 00:26:14,260
+getting connection refused error for example you can check with this command whether that
+
+298
+00:26:14,260 --> 00:26:20,140
+application is actively running or not and on which port it's listening.
+
+299
+00:26:20,140 --> 00:26:25,980
+You can also check current running processes and programs and their information including
+
+300
+00:26:25,980 --> 00:26:32,260
+on which ports they're running as well as how much computer resources they are consuming
+
+301
+00:26:32,260 --> 00:26:35,620
+using a psox command.
+
+302
+00:26:35,620 --> 00:26:41,120
+Using an nslookup command you can get an IP address of any domain name.
+
+303
+00:26:41,120 --> 00:26:46,820
+This command also displays the IP address of the DNS server your computer uses or you can
+
+304
+00:26:46,820 --> 00:26:54,460
+also do a reverse check with nslookup command to show what the main name is attached to a
+
+305
+00:26:54,540 --> 00:27:00,860
+specific IP address and last but not least a very simple command ping that basically
+
+306
+00:27:00,860 --> 00:27:05,260
+checks whether a service or application is accessible.
+
+307
+00:27:05,260 --> 00:27:11,540
+So you connect to or ping an IP address or the main name of an application and it shows
+
+308
+00:27:11,540 --> 00:27:14,620
+you whether that address is accessible or not.
+
+309
+00:27:14,620 --> 00:27:18,540
+You can use all these commands to basically troubleshoot your network when something is
+
+310
+00:27:18,540 --> 00:27:24,420
+not working and you can also use switches or different parameters for all these commands
+
+311
+00:27:24,420 --> 00:27:31,100
+to enhance the command capabilities and display more information or display information in
+
+312
+00:27:31,100 --> 00:27:32,980
+a different format for example.
+
+313
+00:27:32,980 --> 00:27:40,260
+For that you can reference the documentation of all these commands.
+
+314
+00:27:40,260 --> 00:27:45,580
+So as a DevOps engineer you don't need to be a networking expert obviously but with
+
+315
+00:27:45,580 --> 00:27:51,180
+this foundational knowledge you will understand a lot of things much better in your DevOps
+
+316
+00:27:51,180 --> 00:27:55,540
+tasks and it will make your learning path much easier.
+
+317
+00:27:55,540 --> 00:28:01,740
+And we will use some of these commands and many of these concepts throughout the bootcamp
+
+318
+00:28:01,740 --> 00:28:05,140
+so you will see some real use cases for that.
+

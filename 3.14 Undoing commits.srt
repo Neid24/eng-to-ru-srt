@@ -1,0 +1,548 @@
+1
+00:00:00,000 --> 00:00:18,620
+Now let's say I remove this one line here and here I just change the code, right?
+
+2
+00:00:18,620 --> 00:00:29,680
+So we make these changes and I add them and commit them, remove some log lines.
+
+3
+00:00:29,680 --> 00:00:33,800
+So now I have a commit to push the remote repository, right?
+
+4
+00:00:33,800 --> 00:00:37,760
+I have the commit locally, remote repository, doesn't know about that.
+
+5
+00:00:37,760 --> 00:00:44,520
+Now before I push that, let's say I realized that the change that I made was wrong.
+
+6
+00:00:44,520 --> 00:00:49,880
+So I want to revert the change and I want to revert the whole commit.
+
+7
+00:00:49,880 --> 00:00:55,640
+Since I have it only locally and not in remote repository, since no one else has checked it
+
+8
+00:00:55,640 --> 00:01:00,960
+out, I can actually pretty safely reset the last commit, right?
+
+9
+00:01:00,960 --> 00:01:07,640
+So if I do git log and next to the last commit hash, you see head, which is basically the
+
+10
+00:01:07,640 --> 00:01:10,240
+pointer to the last commit.
+
+11
+00:01:10,240 --> 00:01:17,320
+I see this is my last commit, removed some log lines and I want to revert this.
+
+12
+00:01:17,320 --> 00:01:23,720
+And I can do that using reset hard head.
+
+13
+00:01:23,720 --> 00:01:28,320
+And here I specify how many commits I want to reset.
+
+14
+00:01:28,320 --> 00:01:33,480
+So if I want to reset the last two commits or last three commits, I can write two or three
+
+15
+00:01:33,480 --> 00:01:34,480
+here.
+
+16
+00:01:34,480 --> 00:01:37,200
+I just want to reset the last commit.
+
+17
+00:01:37,200 --> 00:01:42,680
+So I'm going to do head till day one.
+
+18
+00:01:42,680 --> 00:01:49,800
+And now if I do git log, you see that the last commit is gone, disappeared.
+
+19
+00:01:49,800 --> 00:01:54,840
+And the current last commit is the previous one.
+
+20
+00:01:54,840 --> 00:01:58,160
+So if I do status, the changes are gone, right?
+
+21
+00:01:58,160 --> 00:02:00,520
+I don't have any changes now.
+
+22
+00:02:00,520 --> 00:02:03,520
+And the changes that I made got reverted.
+
+23
+00:02:03,520 --> 00:02:08,520
+I have these two lines back as it were before, like nothing happened.
+
+24
+00:02:08,520 --> 00:02:16,400
+So what this hard option here does is basically reverse the commit and also discard the changes
+
+25
+00:02:16,400 --> 00:02:18,160
+that were in commit.
+
+26
+00:02:18,160 --> 00:02:24,200
+But what if I didn't want to just revert the commit, but I wanted to correct the changes
+
+27
+00:02:24,200 --> 00:02:25,240
+that I made.
+
+28
+00:02:25,240 --> 00:02:43,040
+So again, let's remove the line here and let's do this and commit it again.
+
+29
+00:02:43,040 --> 00:02:44,040
+And commit that.
+
+30
+00:02:44,040 --> 00:02:47,560
+And again, I have a new commit in the log.
+
+31
+00:02:47,560 --> 00:02:53,800
+Now let's say I don't want to discard all the changes when I revert the commit.
+
+32
+00:02:53,800 --> 00:02:55,280
+I want to correct that.
+
+33
+00:02:55,280 --> 00:03:01,480
+I realized that I still need to do the commit and those changes, but I want to change something
+
+34
+00:03:01,480 --> 00:03:05,200
+or correct something in my changes and then commit again.
+
+35
+00:03:05,200 --> 00:03:10,840
+In this case, I can do reset head without hard.
+
+36
+00:03:10,840 --> 00:03:16,040
+This is the same as reset soft.
+
+37
+00:03:16,040 --> 00:03:18,280
+But soft is a default option.
+
+38
+00:03:18,280 --> 00:03:25,400
+So if I do not use it, it's going to default to reset soft.
+
+39
+00:03:25,400 --> 00:03:36,240
+If I execute and do status, you see that the change is still there, but the commit is gone.
+
+40
+00:03:36,240 --> 00:03:41,360
+So commit got reverted, but I still have the code changes locally.
+
+41
+00:03:41,360 --> 00:03:45,800
+So for example, deleting the last line was correct, but here it should be like this.
+
+42
+00:03:45,800 --> 00:03:47,880
+And now this is correct.
+
+43
+00:03:47,880 --> 00:03:58,480
+And I can read and recommit the changes again.
+
+44
+00:03:58,480 --> 00:04:06,120
+Now there is another way to update the commit, the last commit that I made in my local repository.
+
+45
+00:04:06,120 --> 00:04:13,320
+So for example, if I later decided, hey, you know what, this line should also be deleted
+
+46
+00:04:13,320 --> 00:04:14,320
+here.
+
+47
+00:04:14,320 --> 00:04:15,920
+That's one commit.
+
+48
+00:04:15,920 --> 00:04:23,760
+And that change actually belongs to the previous commit where I said do it in some long lines.
+
+49
+00:04:23,760 --> 00:04:30,880
+So I add those changes and now I can do get commit amend.
+
+50
+00:04:30,880 --> 00:04:37,120
+So this instead of creating a new commit will merge that change or this new commit into
+
+51
+00:04:37,120 --> 00:04:41,480
+the previous one into the last one and amend the change to that.
+
+52
+00:04:41,480 --> 00:04:51,640
+So if I do this, I actually have the description of my last commit and I can leave it as is
+
+53
+00:04:51,640 --> 00:04:55,720
+and save it.
+
+54
+00:04:55,720 --> 00:05:01,800
+It has been committed and if I see the logs, it has been merged into the last commit.
+
+55
+00:05:01,800 --> 00:05:04,000
+It hasn't created a new one.
+
+56
+00:05:04,000 --> 00:05:10,200
+So now I can actually push that to the remote repository.
+
+57
+00:05:10,200 --> 00:05:11,200
+And that's it.
+
+58
+00:05:11,440 --> 00:05:18,680
+Now, let's say I realized, you know what, that commit was extremely wrong.
+
+59
+00:05:18,680 --> 00:05:23,920
+I shouldn't have made it or it broke something and I realized, okay, I should have done it
+
+60
+00:05:23,920 --> 00:05:26,080
+in a different way.
+
+61
+00:05:26,080 --> 00:05:34,280
+Now I can just revert the commit locally using git reset because I have already pushed it
+
+62
+00:05:34,280 --> 00:05:36,080
+to the remote repository.
+
+63
+00:05:36,080 --> 00:05:39,520
+So the change is already here.
+
+64
+00:05:39,520 --> 00:05:40,920
+So what do I do now?
+
+65
+00:05:40,920 --> 00:05:47,040
+I have to change this commit, remove some log lines again, right here.
+
+66
+00:05:47,040 --> 00:05:54,240
+So what I want to achieve now is basically I want to revert or I want to undo the commit
+
+67
+00:05:54,240 --> 00:05:56,760
+in the remote repository as well.
+
+68
+00:05:56,760 --> 00:06:06,440
+And the way I can do this is git reset head like we did the last time.
+
+69
+00:06:06,440 --> 00:06:11,920
+I'm going to do it hard because I want to discard all the changes.
+
+70
+00:06:11,920 --> 00:06:13,240
+I want to revert the commit.
+
+71
+00:06:13,240 --> 00:06:14,560
+I want to start from scratch.
+
+72
+00:06:14,560 --> 00:06:20,600
+So this will remove the commit.
+
+73
+00:06:20,600 --> 00:06:27,520
+Now my local repository has the change, but the remote still has the commit right here.
+
+74
+00:06:27,520 --> 00:06:30,040
+So how do I remove that?
+
+75
+00:06:30,040 --> 00:06:37,280
+I can do that using git push dash dash force.
+
+76
+00:06:37,280 --> 00:06:38,480
+Why force?
+
+77
+00:06:38,480 --> 00:06:46,080
+Because we have created change or we have reverted something that remote repository already
+
+78
+00:06:46,080 --> 00:06:47,080
+has.
+
+79
+00:06:47,080 --> 00:06:53,300
+So just doing git push would not allow us to push our changes.
+
+80
+00:06:53,300 --> 00:06:55,520
+So let's actually try that.
+
+81
+00:06:55,520 --> 00:07:02,400
+And here you see, we're not allowed to do that because we have one commit less than
+
+82
+00:07:02,400 --> 00:07:04,560
+our remote branch.
+
+83
+00:07:04,560 --> 00:07:11,120
+So it tells us to update our local branch so to get the last commit.
+
+84
+00:07:11,120 --> 00:07:15,360
+Because now for git, we're actually behind the remote repository.
+
+85
+00:07:15,360 --> 00:07:17,760
+But we know that we want to override that behavior.
+
+86
+00:07:17,760 --> 00:07:22,400
+We want to remove that remote commit as well.
+
+87
+00:07:22,400 --> 00:07:23,880
+Basically we know what we're doing.
+
+88
+00:07:23,880 --> 00:07:27,480
+So in that case we can do force behavior.
+
+89
+00:07:27,480 --> 00:07:36,720
+If I do git push force, it actually still forces our changes to the remote repository.
+
+90
+00:07:36,720 --> 00:07:43,920
+And now if I go back and refresh this, see the commit is gone.
+
+91
+00:07:43,920 --> 00:07:48,080
+So we overwrote the commit in the remote repository.
+
+92
+00:07:48,080 --> 00:07:52,280
+Now there's very, very important note here.
+
+93
+00:07:52,280 --> 00:07:58,600
+And that is you should not do this in develop or master branch or in a branch where a lot
+
+94
+00:07:58,600 --> 00:08:02,240
+of people, a lot of other developers are also working in.
+
+95
+00:08:02,240 --> 00:08:03,240
+Why?
+
+96
+00:08:03,240 --> 00:08:08,800
+Because let's say you have added a new commit, you have committed it to the remote repository
+
+97
+00:08:08,800 --> 00:08:13,880
+and two other developers have pulled your commit.
+
+98
+00:08:13,880 --> 00:08:22,480
+Now you have forced remove that commit from the remote repository so it doesn't exist anymore.
+
+99
+00:08:22,480 --> 00:08:28,800
+So what happens now when other two developers who have that commit, that specific commit
+
+100
+00:08:28,800 --> 00:08:36,000
+that you just removed from the remote repository locally, when they try to add their changes
+
+101
+00:08:36,000 --> 00:08:43,720
+to the branch, they will have a problem because now their branch changes won't be accepted
+
+102
+00:08:43,720 --> 00:08:45,920
+by remote.
+
+103
+00:08:45,920 --> 00:08:52,240
+So when they try to push, the git will complain that something is wrong, the reference isn't
+
+104
+00:08:52,240 --> 00:08:56,000
+there, and the history is basically messed up.
+
+105
+00:08:56,000 --> 00:09:00,320
+So you shouldn't do this in a branch where you know that other people are also working
+
+106
+00:09:00,320 --> 00:09:04,720
+with you because you will break their git connection, so to say.
+
+107
+00:09:04,720 --> 00:09:10,720
+And of course you can fix this and resolve this, but it will be some effort on their
+
+108
+00:09:10,720 --> 00:09:11,720
+side.
+
+109
+00:09:11,720 --> 00:09:15,640
+However you can do it if you're working in a feature branch or bug fix branch where
+
+110
+00:09:15,640 --> 00:09:20,960
+it's just you, you are the only one making changes because then you can actually override
+
+111
+00:09:20,960 --> 00:09:22,300
+the commit.
+
+112
+00:09:22,300 --> 00:09:29,000
+So what is an alternative for undoing or resetting the commit in master branch, for example,
+
+113
+00:09:29,000 --> 00:09:31,240
+or in develop branch?
+
+114
+00:09:31,240 --> 00:09:34,560
+The alternative for that is revert.
+
+115
+00:09:34,560 --> 00:09:36,720
+So there is git revert.
+
+116
+00:09:36,720 --> 00:09:42,640
+So let's move to the master branch and let's make a change here.
+
+117
+00:09:42,640 --> 00:09:45,000
+Let's remove the last file.
+
+118
+00:09:45,000 --> 00:09:49,520
+Let's add that and commit.
+
+119
+00:09:49,520 --> 00:09:59,560
+Let's just do a test and push.
+
+120
+00:09:59,560 --> 00:10:06,260
+And now the master branch has a new commit and let's say this one commit has a lot of
+
+121
+00:10:06,260 --> 00:10:07,500
+code changes, right?
+
+122
+00:10:07,500 --> 00:10:14,000
+So it will be actually a lot of effort to go through each file and undo the changes
+
+123
+00:10:14,000 --> 00:10:15,860
+and then we commit.
+
+124
+00:10:15,860 --> 00:10:20,140
+Instead we just want to revert that specific commit.
+
+125
+00:10:20,140 --> 00:10:24,600
+So everything that's inside all the changes we just want them reverted.
+
+126
+00:10:24,600 --> 00:10:31,700
+So the way to do that is doing git revert, command and for git revert we need actually
+
+127
+00:10:31,700 --> 00:10:36,900
+the commit ID or commit hash of the commit that we want to revert.
+
+128
+00:10:36,900 --> 00:10:40,560
+And we can get the commit hash is here with git log.
+
+129
+00:10:40,560 --> 00:10:44,940
+This is the commit hash or we can also get it from the UI.
+
+130
+00:10:44,940 --> 00:10:47,180
+This is the same thing right here.
+
+131
+00:10:47,180 --> 00:10:58,260
+So let's copy that and to git revert the ID of the commit we are reverting.
+
+132
+00:10:58,260 --> 00:11:01,420
+The commit message automatically says revert.
+
+133
+00:11:01,420 --> 00:11:16,300
+The commit message of the commit we are reverting and if I push this and refresh you see revert.
+
+134
+00:11:16,300 --> 00:11:19,380
+So it doesn't overwrite the commit.
+
+135
+00:11:19,380 --> 00:11:25,900
+It creates a new commit that includes the code changes that are basically the reverse
+
+136
+00:11:25,900 --> 00:11:29,860
+of what these code changes here do.
+
+137
+00:11:29,860 --> 00:11:36,260
+So if I go inside you see server.js the line that we deleted has been added back.
+

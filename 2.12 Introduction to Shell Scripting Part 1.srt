@@ -1,0 +1,548 @@
+1
+00:00:00,000 --> 00:00:08,000
+In this lecture series, you're going to learn a very important concept, which is shell in Linux.
+
+2
+00:00:08,000 --> 00:00:15,000
+You will learn what is shell, what is bash, and what are the different shell program implementations.
+
+3
+00:00:15,000 --> 00:00:19,000
+And in the demo part, you will learn how to write bash scripts and execute them.
+
+4
+00:00:19,000 --> 00:00:28,000
+So you will learn bash programming and scripting basics so that you can automate DevOps tasks with them.
+
+5
+00:00:28,000 --> 00:00:31,000
+We can run all these commands here one by one.
+
+6
+00:00:31,000 --> 00:00:38,000
+Create a user, assign a user to a group, create a folder, create a file, write to a file,
+
+7
+00:00:38,000 --> 00:00:43,000
+change file permissions, install a software, start the application, etc.
+
+8
+00:00:43,000 --> 00:00:48,000
+So all these commands can be executed on the command line interface one by one.
+
+9
+00:00:48,000 --> 00:00:55,000
+So let's say we have configured a server with a new user and then we have installed an application
+
+10
+00:00:55,000 --> 00:01:00,000
+and started that application with the user, set all the file permissions, etc.
+
+11
+00:01:00,000 --> 00:01:08,000
+And now let's say we need to run the same commands in the same order on another server to configure that other server as well.
+
+12
+00:01:08,000 --> 00:01:14,000
+Do we want to execute the same commands one by one on the other server as well?
+
+13
+00:01:14,000 --> 00:01:18,000
+Let's say we have 10 servers where we need to do exactly the same thing.
+
+14
+00:01:18,000 --> 00:01:22,000
+So do we want to configure 10 different servers like this?
+
+15
+00:01:22,000 --> 00:01:28,000
+Or what about if you want to keep the history of how you actually configured the server
+
+16
+00:01:28,000 --> 00:01:32,000
+or how you installed the software in case you need it later?
+
+17
+00:01:32,000 --> 00:01:36,000
+Or maybe a colleague may need it for their own server.
+
+18
+00:01:36,000 --> 00:01:40,000
+Also, what if you need some logic when executing commands?
+
+19
+00:01:40,000 --> 00:01:44,000
+Like first you want to check whether a folder or file exists
+
+20
+00:01:44,000 --> 00:01:48,000
+or you want to check whether a user has some permissions.
+
+21
+00:01:48,000 --> 00:01:53,000
+Maybe you want to check a version of a program installed on your system, etc.
+
+22
+00:01:53,000 --> 00:01:55,000
+What about bulk actions?
+
+23
+00:01:55,000 --> 00:01:59,000
+Like you want to rename or move around 100 files at once.
+
+24
+00:01:59,000 --> 00:02:03,000
+Maybe you want to add 10 users to your system and set permissions for them.
+
+25
+00:02:03,000 --> 00:02:07,000
+Doing this one by one will be too much work.
+
+26
+00:02:07,000 --> 00:02:10,000
+And this will make your commands more complex.
+
+27
+00:02:10,000 --> 00:02:16,000
+Well, wouldn't it be convenient if we could write these commands into a file
+
+28
+00:02:16,000 --> 00:02:19,000
+instead of executing them one by one on a terminal?
+
+29
+00:02:19,000 --> 00:02:21,000
+And then we can execute that file.
+
+30
+00:02:21,000 --> 00:02:25,000
+So all the commands will be executed in order.
+
+31
+00:02:25,000 --> 00:02:29,000
+So advantage is that you can now move that file around.
+
+32
+00:02:29,000 --> 00:02:34,000
+You can copy it somewhere else on another server and execute it there as well.
+
+33
+00:02:34,000 --> 00:02:39,000
+You can share it with your teammates or with other colleagues in your company, etc.
+
+34
+00:02:39,000 --> 00:02:42,000
+And you can store it somewhere for a later use.
+
+35
+00:02:42,000 --> 00:02:47,000
+Well, that file with a bunch of shell commands is called a shell script.
+
+36
+00:02:47,000 --> 00:02:52,000
+And you can add more complex logic to your commands in shell scripts.
+
+37
+00:02:52,000 --> 00:02:56,000
+And shell script files have an extension of .sh.
+
+38
+00:02:56,000 --> 00:03:00,000
+Now, when we're talking about shell scripts, what is shell
+
+39
+00:03:00,000 --> 00:03:05,000
+and why do we call a file with a bunch of Linux commands, a shell script?
+
+40
+00:03:05,000 --> 00:03:10,000
+On a Unix like systems, which includes Linux and macOS,
+
+41
+00:03:10,000 --> 00:03:16,000
+shell is a program that takes commands that you type in the command line interface
+
+42
+00:03:16,000 --> 00:03:22,000
+and translates them to instructions that your operating system kernel can understand.
+
+43
+00:03:22,000 --> 00:03:28,000
+So it's a command interpreter and an interface between the user and the kernel.
+
+44
+00:03:28,000 --> 00:03:33,000
+So the file that has a bunch of shell commands that the shell program
+
+45
+00:03:33,000 --> 00:03:39,000
+can convert into instructions understandable for kernel is a shell script.
+
+46
+00:03:39,000 --> 00:03:45,000
+There are different shell programs out there or different implementations of a shell program.
+
+47
+00:03:45,000 --> 00:03:50,000
+There is a born shell program with a short name sh
+
+48
+00:03:50,000 --> 00:03:57,000
+and its path in the Unix file system hierarchy is slash bin slash sh.
+
+49
+00:03:57,000 --> 00:04:01,000
+So that's where the born shell program is located,
+
+50
+00:04:01,000 --> 00:04:07,000
+which used to be the default shell program of many Unix like systems,
+
+51
+00:04:07,000 --> 00:04:11,000
+including many older versions of Linux distributions.
+
+52
+00:04:11,000 --> 00:04:16,000
+The name born shell coming from its author, Stefan Born,
+
+53
+00:04:16,000 --> 00:04:20,000
+and newer versions of Linux distributions,
+
+54
+00:04:20,000 --> 00:04:26,000
+we have a shell program called bash, which stands for born again shell.
+
+55
+00:04:26,000 --> 00:04:29,000
+Based on the name of born shell,
+
+56
+00:04:29,000 --> 00:04:37,000
+because bash is actually a more improved and feature rich version of sh or born shell.
+
+57
+00:04:37,000 --> 00:04:43,000
+And as I said, bash is currently the default shell program for most Unix like systems.
+
+58
+00:04:43,000 --> 00:04:49,000
+So bash command syntax is a superset of born shell or sh command syntax.
+
+59
+00:04:49,000 --> 00:04:53,000
+There are many other shell programs like Z shell, etc.
+
+60
+00:04:53,000 --> 00:04:59,000
+But as I said, bash currently seems to be the standard on modern Unix systems.
+
+61
+00:04:59,000 --> 00:05:06,000
+And because of that, often shell and bash terms are actually used interchangeably.
+
+62
+00:05:06,000 --> 00:05:12,000
+So we're talking about bash scripting and bash commands in place of shell scripting or shell commands.
+
+63
+00:05:12,000 --> 00:05:17,000
+So in one summarized sentence, bash is a shell program,
+
+64
+00:05:17,000 --> 00:05:23,000
+meaning command interpreter, as well as a fully featured programming language
+
+65
+00:05:23,000 --> 00:05:26,000
+with which we can write shell scripts.
+
+66
+00:05:26,000 --> 00:05:28,000
+So now that we got that cleared up,
+
+67
+00:05:28,000 --> 00:05:37,000
+let's see how to actually write shell scripts using bash syntax.
+
+68
+00:05:37,000 --> 00:05:42,000
+Now let's say we want to write a bash script for configuring a server.
+
+69
+00:05:42,000 --> 00:05:49,000
+So let's create a file called setup and give it an extension of sh.
+
+70
+00:05:49,000 --> 00:06:02,000
+So this is going to be our setup.sh shell script or bash script written in bash syntax.
+
+71
+00:06:02,000 --> 00:06:07,000
+Now since all shell script files have the same extension of .sh,
+
+72
+00:06:07,000 --> 00:06:15,000
+how does the operating system know which shell to use to interpret and process that script file?
+
+73
+00:06:15,000 --> 00:06:20,000
+So we may actually have multiple shell programs on the system,
+
+74
+00:06:20,000 --> 00:06:27,000
+and maybe we wrote the shell script in sh or in bash or maybe in Z shell.
+
+75
+00:06:27,000 --> 00:06:28,000
+Who knows, right?
+
+76
+00:06:28,000 --> 00:06:31,000
+So how does the system actually know this?
+
+77
+00:06:31,000 --> 00:06:39,000
+Well, we tell the system ourselves which shell program to use to interpret that script.
+
+78
+00:06:39,000 --> 00:06:40,000
+How?
+
+79
+00:06:40,000 --> 00:06:46,000
+By writing what's called a shebang line as the very first line of the script.
+
+80
+00:06:46,000 --> 00:06:53,000
+So I'm going to open this file, the setup.sh using a vim editor.
+
+81
+00:06:53,000 --> 00:06:58,000
+You can of course use any text editor, any graphical editor that you want,
+
+82
+00:06:58,000 --> 00:07:01,000
+because it's just the file that you can edit.
+
+83
+00:07:01,000 --> 00:07:14,000
+And as the first line, we're going to write a shebang line that tells the operating system that this is going to be a bash syntax.
+
+84
+00:07:14,000 --> 00:07:18,000
+So please use bash program to process that file.
+
+85
+00:07:18,000 --> 00:07:22,000
+So this is a declaration of the syntax we're using here.
+
+86
+00:07:22,000 --> 00:07:29,000
+And this path here that you see slash bin slash bash is actually the location of the bash program.
+
+87
+00:07:29,000 --> 00:07:39,000
+So if I open a new terminal and do ls bin bash, you see that we have that program right there.
+
+88
+00:07:39,000 --> 00:07:51,000
+Or as we learned previously, basically list all the files in slash bin and then basically just filter anything that has bash in it using grab command.
+
+89
+00:07:51,000 --> 00:07:52,000
+And there you go.
+
+90
+00:07:52,000 --> 00:07:57,000
+We have the bash program's binary file right here.
+
+91
+00:07:57,000 --> 00:08:00,000
+And that's what we are referencing in this line.
+
+92
+00:08:00,000 --> 00:08:10,000
+So the shebang line points to the absolute path to the interpreter of your shell slash bin slash bash is the default one for bash program.
+
+93
+00:08:10,000 --> 00:08:17,000
+If you're using Windows, for example, git bash or something similar, the path will be different.
+
+94
+00:08:17,000 --> 00:08:21,000
+Now you're probably wondering why we call it shebang line.
+
+95
+00:08:21,000 --> 00:08:25,000
+And that's because of the first two characters right here.
+
+96
+00:08:25,000 --> 00:08:34,000
+The first character pound or hashtag is also called sharp and the exclamation mark here also called bank.
+
+97
+00:08:34,000 --> 00:08:41,000
+So these two characters are basically sharp bank and the short version of that is shebang.
+
+98
+00:08:41,000 --> 00:08:42,000
+There you go.
+
+99
+00:08:42,000 --> 00:08:48,000
+So using the shebang line, you can decide which shell you want to use.
+
+100
+00:08:48,000 --> 00:08:57,000
+And as I mentioned, bash is a more feature rich and improved version of board shell or SH.
+
+101
+00:08:57,000 --> 00:09:11,000
+However, one advantage of using SH instead, the board shell program is that it can be executed on any Unix-like system because there is always
+
+102
+00:09:11,000 --> 00:09:18,000
+the board shell installed, whether it's an earlier or later version of the distributions.
+
+103
+00:09:18,000 --> 00:09:28,000
+And this will basically point to the board shell program and tell the operating system that we are using board shell syntax here.
+
+104
+00:09:28,000 --> 00:09:31,000
+So in our case, we're going to be writing a bash script.
+
+105
+00:09:31,000 --> 00:09:42,000
+And that means if you're executing this file later on a server where bash is not installed, then you will actually get an error that this is not available on the system.
+
+106
+00:09:42,000 --> 00:09:50,000
+And of course, you can specify any other shell program like dash or Z, SH, etc.
+
+107
+00:09:50,000 --> 00:09:53,000
+So that's basically the first slide of our script.
+
+108
+00:09:53,000 --> 00:09:58,000
+And now we can actually write the commands and the actual logic here.
+
+109
+00:10:01,000 --> 00:10:09,000
+Now let's write basic script using just an echo command, which prints out whatever we type here.
+
+110
+00:10:09,000 --> 00:10:16,000
+So we're going to echo setup and configure server.
+
+111
+00:10:16,000 --> 00:10:19,000
+So that's going to be our simple script.
+
+112
+00:10:19,000 --> 00:10:26,000
+So I'm going to save this in beam, escape, then colon, write and quit.
+
+113
+00:10:26,000 --> 00:10:32,000
+And now we have our setup.sh file that we can execute.
+
+114
+00:10:32,000 --> 00:10:36,000
+So how do we actually execute such shell scripts?
+
+115
+00:10:36,000 --> 00:10:45,000
+On Unix-like systems, we can simply do dot, forward slash and name of the file like this.
+
+116
+00:10:45,000 --> 00:10:50,000
+And this will actually execute all the commands in that script.
+
+117
+00:10:50,000 --> 00:10:54,000
+However, if I hit enter, you see permission denied.
+
+118
+00:10:54,000 --> 00:11:01,000
+And that is because by default, when we create a new file, we don't have an execute permission on that file.
+
+119
+00:11:01,000 --> 00:11:05,000
+And this is what we learn in the user permissions lecture.
+
+120
+00:11:05,000 --> 00:11:21,000
+So if I do a long display with flag minus L and the name of the file, you see that we don't have an execute permission for any of the owners for the file.
+
+121
+00:11:21,000 --> 00:11:28,000
+And since I created the file, by default, my user is the owner of that file.
+
+122
+00:11:28,000 --> 00:11:31,000
+However, as I said, we don't have an execute permission.
+
+123
+00:11:31,000 --> 00:11:35,000
+So before we can execute, we need to add that permission.
+
+124
+00:11:35,000 --> 00:11:39,000
+So I'm going to do sudo for user owner.
+
+125
+00:11:39,000 --> 00:11:42,000
+And I can add this permission only for my user.
+
+126
+00:11:42,000 --> 00:11:50,000
+So user plus execute permission for setup.sh.
+
+127
+00:11:50,000 --> 00:11:55,000
+And I forgot change mode here.
+
+128
+00:11:55,000 --> 00:12:05,000
+And again, first of all, we see X as an execute permission for the user owner.
+
+129
+00:12:05,000 --> 00:12:12,000
+And also the color of that file changed because now this is an executable file.
+
+130
+00:12:12,000 --> 00:12:19,000
+So with that, let's try to execute the setup script again.
+
+131
+00:12:19,000 --> 00:12:20,000
+And there you go.
+
+132
+00:12:20,000 --> 00:12:27,000
+This is basically just the echo command that got executed and just echoed whatever we typed in.
+
+133
+00:12:27,000 --> 00:12:32,000
+And note that this way of executing shell scripts is universal.
+
+134
+00:12:32,000 --> 00:12:37,000
+This is how you can execute any show script, no matter which syntax it's written in.
+
+135
+00:12:37,000 --> 00:12:44,000
+However, for bash specifically, we can also do bash and then name of the script file.
+
+136
+00:12:44,000 --> 00:12:45,000
+And there you go.
+
+137
+00:12:45,000 --> 00:12:47,000
+That works as well.
+

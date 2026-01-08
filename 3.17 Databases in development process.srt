@@ -1,0 +1,704 @@
+1
+00:00:00,000 --> 00:00:06,360
+Applications use databases to persist data.
+
+2
+00:00:06,360 --> 00:00:12,800
+So let's see how database is integrated in the whole software development process.
+
+3
+00:00:12,800 --> 00:00:18,280
+Let's say you are a team of five developers developing Java application, which has a UI,
+
+4
+00:00:18,280 --> 00:00:22,560
+where users can create stuff, update, delete them, etc.
+
+5
+00:00:22,560 --> 00:00:27,360
+And all of these needs to be persisted in the database so that when users come back,
+
+6
+00:00:27,360 --> 00:00:28,840
+the data is still there.
+
+7
+00:00:28,840 --> 00:00:34,240
+So you connect database to your Java application, for example, it could be a MySQL database.
+
+8
+00:00:34,240 --> 00:00:41,320
+So your Java app will send requests to the MySQL database to create, update, or delete
+
+9
+00:00:41,320 --> 00:00:42,320
+stuff.
+
+10
+00:00:42,320 --> 00:00:48,560
+When you are developing locally, adding features, testing them, etc., you will need database
+
+11
+00:00:48,560 --> 00:00:50,240
+for development.
+
+12
+00:00:50,240 --> 00:00:54,160
+So how do you set this up as a developer?
+
+13
+00:00:54,160 --> 00:00:58,000
+Option one is you have database locally installed.
+
+14
+00:00:58,000 --> 00:01:05,480
+So in this case, with our Java MySQL application, each developer in the team will install MySQL
+
+15
+00:01:05,480 --> 00:01:11,680
+database locally on their machine, and then connect the Java application to that locally
+
+16
+00:01:11,680 --> 00:01:13,440
+installed MySQL.
+
+17
+00:01:13,440 --> 00:01:16,240
+In this case, you start with an empty database.
+
+18
+00:01:16,240 --> 00:01:21,160
+And as you test your application, you create stuff, you add stuff.
+
+19
+00:01:21,160 --> 00:01:25,720
+So each developer will have their own database with own test data.
+
+20
+00:01:25,720 --> 00:01:31,400
+Each of these is you can't mess up someone else's test data, and you can boldly try
+
+21
+00:01:31,400 --> 00:01:37,480
+out new things, you can update the database, you can execute SQL scripts without breaking
+
+22
+00:01:37,480 --> 00:01:39,640
+anything for anyone.
+
+23
+00:01:39,640 --> 00:01:43,880
+And if you get a messy state, for example, you can just clean up the database and start
+
+24
+00:01:43,880 --> 00:01:45,380
+from fresh.
+
+25
+00:01:45,380 --> 00:01:51,000
+This advantage, however, is that, as I said, you start with empty database, and maybe if
+
+26
+00:01:51,000 --> 00:01:56,880
+you want some realistic test data, then you have to manually set this up or maybe execute
+
+27
+00:01:56,880 --> 00:02:00,640
+a script to generate this data in the database.
+
+28
+00:02:00,640 --> 00:02:05,320
+And of course, an obvious disadvantage is that you have to install and set up database
+
+29
+00:02:05,320 --> 00:02:08,040
+locally on your computer.
+
+30
+00:02:08,040 --> 00:02:12,520
+So every developer will have to do that.
+
+31
+00:02:12,520 --> 00:02:19,920
+Option two to develop locally with a database is that you have database hosted remotely,
+
+32
+00:02:19,920 --> 00:02:26,920
+and you can access with endpoint from your application that's running on your computer.
+
+33
+00:02:26,920 --> 00:02:30,000
+Advantage is that you don't have to install it locally.
+
+34
+00:02:30,000 --> 00:02:34,680
+You can start coding right away, because you just need an endpoint and credentials, you
+
+35
+00:02:34,680 --> 00:02:39,320
+don't have to start database every time you start your application, maybe if you restart
+
+36
+00:02:39,320 --> 00:02:41,960
+your computer, etc.
+
+37
+00:02:41,960 --> 00:02:46,000
+And you get the data immediately, you don't have to import it, you don't have to create
+
+38
+00:02:46,000 --> 00:02:50,240
+them yourself, you have some test data already available.
+
+39
+00:02:50,240 --> 00:02:57,160
+Disadvantage is, however, that you can't play around with it without affecting others, because
+
+40
+00:02:57,160 --> 00:03:00,760
+then every developer will use the same remote database.
+
+41
+00:03:00,760 --> 00:03:03,880
+This will be, of course, a dev or test database.
+
+42
+00:03:03,880 --> 00:03:08,200
+But still, you will impact each other's test data.
+
+43
+00:03:08,200 --> 00:03:13,800
+So for example, when developing in feature branch and making changes to the database
+
+44
+00:03:14,040 --> 00:03:18,480
+with migration scripts, for example, you add a column in a table, an existing table,
+
+45
+00:03:18,480 --> 00:03:24,000
+you delete a column from an existing table, and you make some other changes, then you
+
+46
+00:03:24,000 --> 00:03:29,120
+probably break the code so the application can't run and other developers will be blocked.
+
+47
+00:03:29,120 --> 00:03:34,040
+So you have to be careful with changes when using shared remote database.
+
+48
+00:03:34,040 --> 00:03:40,080
+So ideal solution could be to have both have a local development database for each developer
+
+49
+00:03:40,240 --> 00:03:44,640
+and then have remote one in case you need to test with the real data.
+
+50
+00:03:44,640 --> 00:03:49,520
+So basically you have a choice which one to use depending on what you're doing.
+
+51
+00:03:49,520 --> 00:03:51,440
+So you can switch back and forth.
+
+52
+00:03:51,440 --> 00:03:55,920
+Now how does your application actually talk to the database?
+
+53
+00:03:55,920 --> 00:03:59,080
+Where do you configure that in your code?
+
+54
+00:03:59,080 --> 00:04:03,640
+Especially if you have two databases and you can optionally switch between them, how do
+
+55
+00:04:03,640 --> 00:04:05,000
+you configure this?
+
+56
+00:04:05,000 --> 00:04:09,040
+Well you configure database connectivity, so to say, in code.
+
+57
+00:04:09,040 --> 00:04:15,360
+You have a part where your application, where your Java application connects to database
+
+58
+00:04:15,360 --> 00:04:21,240
+and each programming language will have a library that knows how to talk to the database.
+
+59
+00:04:21,240 --> 00:04:25,200
+And for each database, there is a different library.
+
+60
+00:04:25,200 --> 00:04:30,320
+So for example, there's a library that lets Java talk to MySQL.
+
+61
+00:04:30,320 --> 00:04:34,160
+There's a library that lets Java talk to MongoDB database.
+
+62
+00:04:34,160 --> 00:04:38,840
+In the same way, there are libraries or modules as they are called for Node.js to talk to
+
+63
+00:04:38,840 --> 00:04:40,760
+MongoDB and MySQL.
+
+64
+00:04:40,760 --> 00:04:46,240
+So developers will find that library and implement some code with that library to connect to
+
+65
+00:04:46,240 --> 00:04:48,080
+the database.
+
+66
+00:04:48,080 --> 00:04:54,360
+But you have to tell that library which database to talk to and how to authenticate with that
+
+67
+00:04:54,360 --> 00:04:55,800
+database.
+
+68
+00:04:55,800 --> 00:05:01,960
+So if you have a local and remote development MySQL databases, you have to tell library
+
+69
+00:05:01,960 --> 00:05:03,680
+which one to talk to.
+
+70
+00:05:03,680 --> 00:05:07,840
+That's the database endpoint or database address.
+
+71
+00:05:07,840 --> 00:05:12,640
+And also these databases will be secured with username and password.
+
+72
+00:05:12,640 --> 00:05:16,520
+So you have to provide these credentials to the library.
+
+73
+00:05:16,520 --> 00:05:22,080
+And using the endpoint and the credentials, your application can establish connection
+
+74
+00:05:22,080 --> 00:05:23,640
+when needed.
+
+75
+00:05:23,640 --> 00:05:27,000
+And this is how this all looks in code.
+
+76
+00:05:27,000 --> 00:05:35,240
+So in Java application code, you have a place where you define or configure the connection,
+
+77
+00:05:35,240 --> 00:05:38,560
+endpoint and credentials to MySQL.
+
+78
+00:05:38,560 --> 00:05:46,360
+And this is an example of Node.js where it connects to the MongoDB using module for MongoDB
+
+79
+00:05:46,360 --> 00:05:47,440
+database.
+
+80
+00:05:47,440 --> 00:05:54,240
+However, it's best practice not to hard code these values in code, but rather to define
+
+81
+00:05:54,240 --> 00:06:00,640
+in one place as environmental variables so you can configure them from outside.
+
+82
+00:06:00,640 --> 00:06:05,300
+So if you want to switch the MySQL endpoint, we don't have to override the code.
+
+83
+00:06:05,300 --> 00:06:10,120
+Or first of all, find the exact position in the code where this endpoint is defined and
+
+84
+00:06:10,120 --> 00:06:16,360
+then override it, but just set different endpoint and credentials in the configuration file.
+
+85
+00:06:16,360 --> 00:06:22,040
+And other reason why this is better to be configured from outside and not in the code
+
+86
+00:06:22,040 --> 00:06:27,520
+directly is usually you would have development, test and prod databases.
+
+87
+00:06:27,520 --> 00:06:33,400
+So depending on where your application is running, it will connect to a different database.
+
+88
+00:06:33,400 --> 00:06:38,380
+So for example, if your application is running in the production server, of course, it has
+
+89
+00:06:38,380 --> 00:06:42,200
+to talk to the production database and not the test database, right?
+
+90
+00:06:42,200 --> 00:06:46,360
+So each will have different endpoints and credentials.
+
+91
+00:06:46,360 --> 00:06:49,560
+Production database again will be much more secured.
+
+92
+00:06:49,560 --> 00:06:55,520
+And so if you hard code values in the code, how do you change it based on the application
+
+93
+00:06:55,520 --> 00:06:56,520
+environment?
+
+94
+00:06:56,520 --> 00:07:01,880
+So with the configuration file, you just define the variable in code, like a placeholder,
+
+95
+00:07:01,880 --> 00:07:06,280
+and set the endpoint from outside for each environment.
+
+96
+00:07:06,280 --> 00:07:12,040
+And also you shouldn't check in credentials for the database in the code repository, but
+
+97
+00:07:12,040 --> 00:07:16,480
+rather pass on startup of the application because of security.
+
+98
+00:07:16,480 --> 00:07:21,640
+So the way we can configure these values is through environmental variables, as I mentioned,
+
+99
+00:07:21,640 --> 00:07:27,240
+and you can pass environmental variables on startup as parameters through environmental
+
+100
+00:07:27,240 --> 00:07:28,240
+variables.
+
+101
+00:07:28,240 --> 00:07:33,600
+And of course, you can pass those environmental variables on startup as parameters from a
+
+102
+00:07:33,600 --> 00:07:39,080
+command line, for example, or the editor in IntelliJ when starting them locally.
+
+103
+00:07:39,080 --> 00:07:44,080
+But it's very impractical because first of all, everyone will have to configure it in
+
+104
+00:07:44,080 --> 00:07:45,460
+their editor.
+
+105
+00:07:45,460 --> 00:07:49,280
+And also remember which parameters the application needs.
+
+106
+00:07:49,280 --> 00:07:54,960
+And second, if you have multiple such externally configurable values, it will be pretty messy
+
+107
+00:07:54,960 --> 00:07:59,280
+to pass them all on the command line or in the editor.
+
+108
+00:07:59,280 --> 00:08:05,640
+So alternative, or the actual solution for that is properties files or configuration
+
+109
+00:08:05,640 --> 00:08:07,320
+file for the application.
+
+110
+00:08:07,320 --> 00:08:12,200
+So for example, in Java spring application, this will be spring properties file, which
+
+111
+00:08:12,200 --> 00:08:15,040
+you can define for each environment.
+
+112
+00:08:15,040 --> 00:08:18,160
+So for each environment, there is its own properties file.
+
+113
+00:08:18,160 --> 00:08:22,600
+And we can define all the values that we need in those properties files.
+
+114
+00:08:22,600 --> 00:08:28,520
+And then Java application can reference the values in that properties file from the code
+
+115
+00:08:28,520 --> 00:08:29,520
+itself.
+
+116
+00:08:29,520 --> 00:08:35,240
+So we can tell Java on startup which of those properties files it should actually take.
+
+117
+00:08:35,240 --> 00:08:39,520
+And for JavaScript, for example, in Node.js, this will be a configuration file, maybe config
+
+118
+00:08:39,520 --> 00:08:42,440
+JSON or config JS.
+
+119
+00:08:42,440 --> 00:08:46,200
+And of course, as always, every other programming language will have something comparable to
+
+120
+00:08:46,200 --> 00:08:47,200
+that.
+
+121
+00:08:47,200 --> 00:08:52,680
+And with the file, where all the values can be grouped, it's much cleaner, more transparent,
+
+122
+00:08:52,680 --> 00:08:58,160
+you can add many values inside anything you want to configure depending on the environment.
+
+123
+00:08:58,160 --> 00:09:02,560
+Some things that you can also add to this configuration files is, for example, logging
+
+124
+00:09:02,560 --> 00:09:03,560
+level, right?
+
+125
+00:09:03,560 --> 00:09:08,280
+When you're developing locally, you may need to log a little bit more about the application
+
+126
+00:09:08,280 --> 00:09:09,360
+like debug mode.
+
+127
+00:09:09,360 --> 00:09:14,560
+For example, if the application is running on production, you may just want to log warnings
+
+128
+00:09:14,560 --> 00:09:15,840
+and errors.
+
+129
+00:09:15,840 --> 00:09:21,040
+So you can define that based on the environment database endpoint and credentials, as we said,
+
+130
+00:09:21,040 --> 00:09:26,480
+and in addition to that applications, very often talk to multiple other applications.
+
+131
+00:09:26,480 --> 00:09:32,040
+If it's a microservice application, then microservices will talk to each other through some kind of
+
+132
+00:09:32,040 --> 00:09:35,880
+a service bus or maybe some messaging application.
+
+133
+00:09:35,880 --> 00:09:43,440
+So all of these endpoints of the applications or services that the application needs to
+
+134
+00:09:43,440 --> 00:09:48,480
+talk to, along with their credentials, will be configured here.
+
+135
+00:09:48,480 --> 00:09:54,120
+And this is practical because you know exactly where to look for and change those endpoints
+
+136
+00:09:54,120 --> 00:09:55,560
+if you need to adjust them.
+
+137
+00:09:55,560 --> 00:09:57,840
+It's all defined in one place.
+
+138
+00:09:57,840 --> 00:09:58,840
+So cool.
+
+139
+00:09:58,840 --> 00:10:04,160
+Now we know how databases should be used in local development and how we can configure
+
+140
+00:10:04,160 --> 00:10:07,800
+the connection with any database from any application.
+
+141
+00:10:07,800 --> 00:10:12,520
+Now let's say application first version is ready, and we need to run it on the production
+
+142
+00:10:12,520 --> 00:10:13,520
+server.
+
+143
+00:10:13,520 --> 00:10:17,400
+Obviously, the application will need database to run.
+
+144
+00:10:17,400 --> 00:10:23,200
+So before we deploy the application, we need to install and configure database for production
+
+145
+00:10:23,200 --> 00:10:24,200
+environment.
+
+146
+00:10:24,200 --> 00:10:29,360
+Again, either on the same server where the application will run, or on a separately
+
+147
+00:10:29,360 --> 00:10:32,280
+managed server, a remote database.
+
+148
+00:10:32,280 --> 00:10:37,680
+So once the database is running, we can deploy the application and it will connect to it
+
+149
+00:10:37,680 --> 00:10:42,400
+on startup with endpoint and credentials from the properties file.
+
+150
+00:10:42,400 --> 00:10:46,560
+So how is it actually done in production in real projects?
+
+151
+00:10:46,560 --> 00:10:51,920
+Because data is so important and valuable in most of the applications, like if you think
+
+152
+00:10:51,920 --> 00:10:57,320
+about Facebook or LinkedIn, obviously you don't want to lose the data of the users,
+
+153
+00:10:57,320 --> 00:11:02,000
+and you want to replicate them and backup them as best as you can.
+
+154
+00:11:02,000 --> 00:11:07,240
+So you have to do regular backups as well as make sure it performs under pressure when
+
+155
+00:11:07,240 --> 00:11:13,640
+many users are accessing the application so that database can handle all the connections.
+
+156
+00:11:13,640 --> 00:11:19,040
+And all of these processes, like backup of the database, replication, making sure it
+
+157
+00:11:19,040 --> 00:11:22,680
+runs smoothly is important and challenging job.
+
+158
+00:11:22,680 --> 00:11:27,280
+So there's dedicated role for managing databases for a project.
+
+159
+00:11:27,280 --> 00:11:32,200
+Usually this is a system administrator or database engineer or DevOps engineers.
+
+160
+00:11:32,200 --> 00:11:37,960
+So developers themselves do not usually manage the databases, especially the ones that are
+
+161
+00:11:37,960 --> 00:11:40,080
+used for production environments.
+
+162
+00:11:40,080 --> 00:11:45,680
+And of course, in bigger projects and companies, you will have separate teams managing the databases
+
+163
+00:11:45,680 --> 00:11:51,960
+and giving access to developers carefully for staging and production databases.
+
+164
+00:11:51,960 --> 00:11:54,600
+In smaller projects, it's of course less strict.
+
+165
+00:11:54,600 --> 00:12:00,440
+So maybe developers have direct access to database and also in some cases, it may even
+
+166
+00:12:00,440 --> 00:12:04,280
+run on the same server as the application itself.
+
+167
+00:12:04,280 --> 00:12:12,560
+So overall, what you as a DevOps engineer would need to know about databases is how to configure
+
+168
+00:12:12,560 --> 00:12:18,640
+them, how to set them up, and how to manage them, including replicating them, doing regular
+
+169
+00:12:18,640 --> 00:12:19,800
+backups.
+
+170
+00:12:19,800 --> 00:12:25,480
+And if something happens to database services to restore the database as well.
+
+171
+00:12:25,480 --> 00:12:30,200
+And additionally, it's also good to have an understanding of how the connectivity between
+
+172
+00:12:30,200 --> 00:12:36,400
+the application and the databases is usually configured by developers.
+
+173
+00:12:36,400 --> 00:12:42,040
+So now you understand how databases work in combination with the application.
+
+174
+00:12:42,040 --> 00:12:47,920
+We will see databases in action in the containers module in which we learn Docker, where we
+
+175
+00:12:47,920 --> 00:12:54,000
+will connect our application to database through properties or config file and start
+
+176
+00:12:54,000 --> 00:12:54,960
+on a remote server.
+

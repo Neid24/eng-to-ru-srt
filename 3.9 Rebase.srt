@@ -1,0 +1,156 @@
+1
+00:00:00,000 --> 00:00:10,360
+Now, let's consider another case where we are working in a branch, let's say, in our
+
+2
+00:00:10,360 --> 00:00:30,960
+bugfix branch, and we make some changes in here, let's go with readme again. So, so
+
+3
+00:00:30,960 --> 00:00:36,680
+we make a change in readme. And let's say another developer is also working in the same
+
+4
+00:00:36,680 --> 00:00:43,080
+branch together with us, right? So they make some changes in the same branch. Let's go
+
+5
+00:00:43,080 --> 00:00:53,080
+to branch here. So I'm going to go to maybe app, and server.js, and change some thing
+
+6
+00:00:53,080 --> 00:01:09,440
+here, edit. And maybe I want some other log. log entry for testing. And I can commit those
+
+7
+00:01:09,440 --> 00:01:16,920
+changes to the branch. So now what happened is that my local repository doesn't know about
+
+8
+00:01:16,920 --> 00:01:24,400
+those changes. And repository or local repository of another developer doesn't know about my
+
+9
+00:01:24,400 --> 00:01:33,800
+changes. So now what happens if I want to add and commit my change, and push it, adjusted
+
+10
+00:01:33,800 --> 00:01:45,680
+something again. Right. So what happens, let's clear this up. What happens if I do it push?
+
+11
+00:01:45,680 --> 00:01:50,280
+You see, it says you can't push your changes because there are some other changes that
+
+12
+00:01:50,280 --> 00:01:57,560
+have been already pushed to the remote branch. So first I need to do git pull before I can
+
+13
+00:01:57,560 --> 00:02:07,560
+push my changes. So if I do git pull, what happened is that git pull basically pulls
+
+14
+00:02:07,560 --> 00:02:15,040
+the changes locally and creates a new commit that the remote branch got merged into my
+
+15
+00:02:15,040 --> 00:02:23,600
+local branch, right? So I can save it. And now if I push, if I do git push, I'm actually
+
+16
+00:02:23,600 --> 00:02:31,200
+pushing two commits. One was my commit and another one was this merge commit. So if I
+
+17
+00:02:31,200 --> 00:02:39,440
+refresh, and I'm in this bug fix branch, here I see adjusted something again. And so let's
+
+18
+00:02:39,440 --> 00:02:46,880
+say this was another user, adjusted something again, and merge branch commit. Now another
+
+19
+00:02:46,880 --> 00:02:53,480
+best practice with git is that imagine if you have to do that all the time, let's say
+
+20
+00:02:53,480 --> 00:02:58,520
+you are merging something into master and obviously there are some other developers who have
+
+21
+00:02:58,520 --> 00:03:05,400
+made some changes. So you have to pull those changes first. So it is actually pretty inconvenient
+
+22
+00:03:05,400 --> 00:03:11,480
+to have all those merge commits in your history because all they represent is basically that
+
+23
+00:03:11,480 --> 00:03:17,280
+you pulled the changes before you could push it, right? And there is a way to avoid those
+
+24
+00:03:17,280 --> 00:03:22,120
+merge branch commits every time we get the changes from the remote branch. And the way
+
+25
+00:03:22,120 --> 00:03:33,040
+to do that is using git pull rebase. So instead of git pull, we do git pull rebase. So what
+
+26
+00:03:33,040 --> 00:03:39,680
+that does is basically pulls the changes from remote branch. And then it stacks our changes
+
+27
+00:03:39,680 --> 00:03:46,440
+or our commit on top of that. So there is no merge branch commit in between. So we can
+
+28
+00:03:46,440 --> 00:03:54,640
+see that in action again, let's do our famous change in the read me, blah, blah, doesn't
+
+29
+00:03:54,640 --> 00:04:11,480
+really matter. And before we push that, we're going to back to files. And let's save the
+
+30
+00:04:11,480 --> 00:04:20,120
+server js again, for rebase. So we're going to commit this one first. So now remote branch
+
+31
+00:04:20,120 --> 00:04:25,480
+has something that we don't have locally. So we have to pull that. Right. So again,
+
+32
+00:04:25,480 --> 00:04:31,800
+let's try to do push. It says no, you can do that, you have to do git pull. And instead
+
+33
+00:04:31,800 --> 00:04:40,920
+of git pull, we're going to do git pull rebase. Right. So you see, the new commit didn't happen,
+
+34
+00:04:40,920 --> 00:04:48,280
+the merge commits. And here we see that our own commit basically got stacked on top. So
+
+35
+00:04:48,280 --> 00:04:54,520
+if I do git log, which is the history of the changes, I see the update server js with
+
+36
+00:04:54,520 --> 00:05:00,920
+the something that I just did as the first commit. And on top of that, this is our commit.
+
+37
+00:05:00,920 --> 00:05:13,840
+So now if I do git push and refresh, here you see update server, this is from developer
+
+38
+00:05:13,840 --> 00:05:20,480
+one. And this is my commit. There is no merge branch commit. So you can avoid this unnecessary
+
+39
+00:05:20,480 --> 00:05:22,920
+commits actually using rebase.
+

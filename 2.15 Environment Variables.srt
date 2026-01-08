@@ -1,0 +1,1176 @@
+1
+00:00:00,000 --> 00:00:08,260
+Till now, you have learned a lot of concepts.
+
+2
+00:00:08,260 --> 00:00:13,000
+You know many Linux commands we learn about scripting, etc.
+
+3
+00:00:13,000 --> 00:00:18,440
+We also learned that you can have multiple users in a Linux environment, and these users
+
+4
+00:00:18,440 --> 00:00:24,560
+can run programs and processes as well as execute different commands, etc.
+
+5
+00:00:24,560 --> 00:00:29,480
+In fact, you can have multiple users on other operating systems as well.
+
+6
+00:00:29,480 --> 00:00:31,560
+Like Windows or macOS.
+
+7
+00:00:31,560 --> 00:00:38,280
+So this multi-user environment is actually very common on all operating systems.
+
+8
+00:00:38,280 --> 00:00:44,480
+So each user has its own environment where it works and executes stuff.
+
+9
+00:00:44,480 --> 00:00:51,040
+And as you know, as a user you can configure your space, your account basically on an operating
+
+10
+00:00:51,040 --> 00:00:54,240
+system by setting different preferences.
+
+11
+00:00:54,240 --> 00:00:58,960
+Maybe you want a certain graphic user interface layout.
+
+12
+00:00:58,960 --> 00:01:02,120
+You want the font to be bigger, you want different colors.
+
+13
+00:01:02,120 --> 00:01:04,000
+You can configure all of that.
+
+14
+00:01:04,000 --> 00:01:10,440
+Maybe you also want to have a different shell program and not the default bash program.
+
+15
+00:01:10,440 --> 00:01:14,720
+You want to configure a default editor when opening files.
+
+16
+00:01:14,720 --> 00:01:19,240
+Or maybe you also want to set a web browser which is going to be a default for opening
+
+17
+00:01:19,240 --> 00:01:20,240
+websites.
+
+18
+00:01:20,240 --> 00:01:27,760
+You can configure all of that on an operating system, whether it's Linux or Windows or whatever.
+
+19
+00:01:27,760 --> 00:01:33,040
+So when you make changes in the operating system configuration and set preferences, of
+
+20
+00:01:33,040 --> 00:01:38,880
+course you don't want your configuration to influence other users on the system.
+
+21
+00:01:38,880 --> 00:01:42,120
+Because they might have their own preferences for all of this.
+
+22
+00:01:42,120 --> 00:01:48,120
+So these environments, the user environments and the configuration and settings should
+
+23
+00:01:48,120 --> 00:01:50,040
+be separate from each other.
+
+24
+00:01:50,040 --> 00:01:56,280
+So how does an operating system keep track of these users and their environments?
+
+25
+00:01:56,280 --> 00:02:03,160
+So where does it store all the information about how each user has configured their space?
+
+26
+00:02:03,160 --> 00:02:08,480
+Operating system stores this information in what's called environment variables, which
+
+27
+00:02:08,480 --> 00:02:14,240
+are basically pieces of information defined by key value pairs.
+
+28
+00:02:14,240 --> 00:02:17,280
+In the bash scripting you learn about variables.
+
+29
+00:02:17,280 --> 00:02:22,120
+We have a name of the variable and the value that name references.
+
+30
+00:02:22,120 --> 00:02:25,320
+That's exactly how environment variables are defined.
+
+31
+00:02:25,320 --> 00:02:31,000
+But these environment variables are available for the whole environment, not just for one
+
+32
+00:02:31,000 --> 00:02:32,920
+specific script.
+
+33
+00:02:32,920 --> 00:02:39,160
+And the keys or names of these environment variables, by standard, are defined with all
+
+34
+00:02:39,160 --> 00:02:40,800
+capital letters.
+
+35
+00:02:40,800 --> 00:02:46,520
+For example, each user has a set of environment variables that define the user's environment
+
+36
+00:02:46,520 --> 00:02:47,520
+settings.
+
+37
+00:02:47,520 --> 00:02:54,160
+For example, user variable that has a value of the currently logged in user.
+
+38
+00:02:54,160 --> 00:02:58,760
+Or home variable that points to the current user's home directory.
+
+39
+00:02:58,760 --> 00:03:03,560
+And you also have variables that define user's preferences, like editor, which is a default
+
+40
+00:03:03,560 --> 00:03:06,560
+file editor that's used when you open a file.
+
+41
+00:03:06,560 --> 00:03:10,520
+Or shell, which is user's default shell program.
+
+42
+00:03:10,520 --> 00:03:17,040
+And as we learned by default, Linux configures bash as a default shell program.
+
+43
+00:03:17,040 --> 00:03:23,280
+But a user can change that to another shell program, like ZShell, for example, right?
+
+44
+00:03:23,280 --> 00:03:30,000
+So the value of shell environment variable will point to the path of ZShell instead.
+
+45
+00:03:30,000 --> 00:03:35,840
+So as you see, a user can change these environment variable values.
+
+46
+00:03:35,840 --> 00:03:40,360
+So they are set by the operating system, but you can change them.
+
+47
+00:03:40,360 --> 00:03:41,880
+That's why we call them variables.
+
+48
+00:03:41,880 --> 00:03:45,680
+They have dynamic values that can be changed.
+
+49
+00:03:45,680 --> 00:03:53,560
+So let's see how you can access these variables in your system.
+
+50
+00:03:53,560 --> 00:04:00,280
+We have a command for displaying all the environment variables that the operating system sets for
+
+51
+00:04:00,280 --> 00:04:03,440
+that user's environment.
+
+52
+00:04:03,440 --> 00:04:13,400
+And that command is print and if I execute this, you can see a list of environment variables,
+
+53
+00:04:13,400 --> 00:04:17,920
+a bunch of them that system has set for us.
+
+54
+00:04:17,920 --> 00:04:21,560
+We can also open them using less program.
+
+55
+00:04:21,560 --> 00:04:25,680
+As we learned, we can basically view them like this.
+
+56
+00:04:25,680 --> 00:04:30,120
+And as you see there are a bunch of different environment variables, you don't have to understand
+
+57
+00:04:30,120 --> 00:04:31,880
+and know each one.
+
+58
+00:04:31,880 --> 00:04:34,620
+But here are some of them that I already mentioned.
+
+59
+00:04:34,620 --> 00:04:40,800
+We have a shell variable that points to the default shell program, which is set to bash.
+
+60
+00:04:40,800 --> 00:04:46,520
+We have the home environment variable that points to my user's home directory as well
+
+61
+00:04:46,520 --> 00:04:48,420
+as user name.
+
+62
+00:04:48,420 --> 00:04:54,360
+We have a language that I have configured for my account, which is English.
+
+63
+00:04:54,360 --> 00:05:00,520
+We also have the Linux user and so on.
+
+64
+00:05:00,520 --> 00:05:06,880
+We can also access individual environment variables using print and then the name of
+
+65
+00:05:06,880 --> 00:05:09,320
+the variable like user, for example.
+
+66
+00:05:09,320 --> 00:05:12,680
+And we get the value of that environment variable.
+
+67
+00:05:12,680 --> 00:05:18,760
+So this way we can check what is the current value of a specific environment variable.
+
+68
+00:05:18,760 --> 00:05:26,800
+If we have multiple environment variables that have similar name, we can print all them
+
+69
+00:05:26,800 --> 00:05:30,680
+by using grep command like this.
+
+70
+00:05:30,680 --> 00:05:31,840
+And there you go.
+
+71
+00:05:31,840 --> 00:05:36,840
+So this is basically how we can print environment variables using print and command.
+
+72
+00:05:36,840 --> 00:05:44,600
+However, the environment variables can also be used by Linux programs or commands by referencing
+
+73
+00:05:44,600 --> 00:05:51,920
+them with a syntax that we already learned in bash scripting, which is dollar sign and
+
+74
+00:05:51,920 --> 00:05:53,560
+variable name.
+
+75
+00:05:53,560 --> 00:05:59,040
+And as I said, we can use that variable reference in different commands.
+
+76
+00:05:59,040 --> 00:06:06,280
+For example, we can do echo and then variable name, and it will give us the value.
+
+77
+00:06:06,280 --> 00:06:11,600
+In the same way, we can use environment variables or can reference them in bash scripts, just
+
+78
+00:06:11,600 --> 00:06:20,080
+like you would a normal variable that you define inside the bash script.
+
+79
+00:06:20,080 --> 00:06:25,600
+As I said, operating system creates these environment variables to store information
+
+80
+00:06:25,600 --> 00:06:27,640
+about the environment.
+
+81
+00:06:27,640 --> 00:06:32,800
+But this is just one use case of environment variables in an operating system, because
+
+82
+00:06:32,800 --> 00:06:35,680
+they have many more usages.
+
+83
+00:06:35,680 --> 00:06:41,800
+For example, we can also create our own environment variables in addition to what system already
+
+84
+00:06:41,800 --> 00:06:43,360
+provides us with.
+
+85
+00:06:43,360 --> 00:06:45,200
+Now why would we want to do that?
+
+86
+00:06:45,200 --> 00:06:49,760
+What is the use case of creating our own environment variables?
+
+87
+00:06:49,760 --> 00:06:53,480
+Consider a program we want to run on an operating system.
+
+88
+00:06:53,480 --> 00:06:58,920
+Let's say I want to run a Java application or a Python application on a Linux server
+
+89
+00:06:58,920 --> 00:07:00,320
+with my user.
+
+90
+00:07:00,320 --> 00:07:07,120
+And that application needs to connect to a database or an external API like Google Maps,
+
+91
+00:07:07,120 --> 00:07:08,240
+for example.
+
+92
+00:07:08,240 --> 00:07:15,840
+Such external services like external databases, APIs, whatever, they usually need some kind
+
+93
+00:07:15,840 --> 00:07:20,480
+of authentication so that not everybody can connect to it.
+
+94
+00:07:20,480 --> 00:07:26,880
+So the application that I created that I want to run on the server will need username and
+
+95
+00:07:26,880 --> 00:07:30,080
+password to access the database.
+
+96
+00:07:30,080 --> 00:07:36,520
+Or it will need some kind of a secret token to connect to the Google Maps API so that
+
+97
+00:07:36,520 --> 00:07:42,640
+the service knows this is that application that it can trust.
+
+98
+00:07:42,640 --> 00:07:50,000
+Now how can we tell that application in a secure way what these secret values are?
+
+99
+00:07:50,000 --> 00:07:55,720
+What the credentials for a database or the secret token for the API is?
+
+100
+00:07:55,720 --> 00:08:00,880
+Because we can't just write these values in the code of the application and check that
+
+101
+00:08:00,880 --> 00:08:07,160
+into the code repository because then other people may easily see that in the repository
+
+102
+00:08:07,160 --> 00:08:09,960
+plus it will be in plain text.
+
+103
+00:08:09,960 --> 00:08:14,520
+That's not secure so we can't put this information inside the code.
+
+104
+00:08:14,520 --> 00:08:21,160
+So how do we store this sensitive data in a secure way but also in a way that the application
+
+105
+00:08:21,160 --> 00:08:25,760
+can access them when it runs on the server?
+
+106
+00:08:25,760 --> 00:08:33,720
+And one very common way to do this is by setting such data as environment variables so that
+
+107
+00:08:33,720 --> 00:08:38,040
+application can then read the values of those environment variables.
+
+108
+00:08:38,040 --> 00:08:39,040
+How does it work?
+
+109
+00:08:39,040 --> 00:08:44,960
+We basically create environment variables like database underscore username or database
+
+110
+00:08:44,960 --> 00:08:51,920
+underscore password and again that's a standard naming convention for environment variables,
+
+111
+00:08:51,920 --> 00:08:56,120
+all caps and underscore for separating the words.
+
+112
+00:08:56,120 --> 00:09:01,520
+So we set this environment variables and by creating these environment variables in Linux
+
+113
+00:09:01,520 --> 00:09:09,480
+on a server for example we make them available in our environment or in our user's environment.
+
+114
+00:09:09,480 --> 00:09:15,640
+And this means they become accessible for all the applications and processes that we
+
+115
+00:09:15,640 --> 00:09:17,880
+run in that environment.
+
+116
+00:09:17,880 --> 00:09:23,080
+Now you're probably wondering how does the application access those environment variables?
+
+117
+00:09:23,080 --> 00:09:24,440
+How can it actually read?
+
+118
+00:09:24,440 --> 00:09:25,840
+What is the code for that?
+
+119
+00:09:25,840 --> 00:09:33,400
+Well note that every programming language has a syntax or a library that allows it to
+
+120
+00:09:33,400 --> 00:09:39,080
+access or read these variables from the environment where it's running.
+
+121
+00:09:39,080 --> 00:09:42,340
+So every programming language basically supports that.
+
+122
+00:09:42,340 --> 00:09:47,880
+Now the environment variables we create for the application aren't only for storing sensitive
+
+123
+00:09:47,880 --> 00:09:53,480
+data but also for making the application more flexible.
+
+124
+00:09:53,480 --> 00:09:54,680
+What do I mean by that?
+
+125
+00:09:54,680 --> 00:09:58,960
+Our application will probably run in different servers.
+
+126
+00:09:58,960 --> 00:10:04,000
+We might have a development server which is our development environment for testing the
+
+127
+00:10:04,000 --> 00:10:07,760
+application maybe in development stage.
+
+128
+00:10:07,760 --> 00:10:13,040
+Then we may have a testing server and then we may have the production server and each
+
+129
+00:10:13,040 --> 00:10:19,280
+of these environments like develop, test and production will have their own database.
+
+130
+00:10:19,280 --> 00:10:23,520
+So we'll have a database for testing maybe and database for production.
+
+131
+00:10:23,520 --> 00:10:30,920
+So production database will have its own credentials and external services or external APIs.
+
+132
+00:10:30,920 --> 00:10:37,040
+They will also have production, access token and testing access token.
+
+133
+00:10:37,040 --> 00:10:40,380
+That's a basic standard when developing applications.
+
+134
+00:10:40,380 --> 00:10:45,600
+So instead of hard coding these values in the application using environment variables
+
+135
+00:10:45,600 --> 00:10:52,160
+you can dynamically set different values for your application and run it in different
+
+136
+00:10:52,160 --> 00:10:54,840
+environments without changing the code.
+
+137
+00:10:54,840 --> 00:11:01,200
+So when your application runs in a development environment you can give it credentials to
+
+138
+00:11:01,200 --> 00:11:02,880
+the development database.
+
+139
+00:11:02,880 --> 00:11:08,480
+When it runs in production you can give it or you can pass in environment variables
+
+140
+00:11:08,480 --> 00:11:12,760
+for production database and production API keys.
+
+141
+00:11:12,760 --> 00:11:18,160
+And this makes your application much more flexible while also storing all this sensitive
+
+142
+00:11:18,160 --> 00:11:25,840
+data in a secure way on that server where the application is running so no one can access
+
+143
+00:11:25,840 --> 00:11:26,840
+it.
+
+144
+00:11:26,840 --> 00:11:31,920
+It's like providing parameters to your application just like we provided parameters to our Bash
+
+145
+00:11:31,920 --> 00:11:32,960
+script.
+
+146
+00:11:32,960 --> 00:11:39,720
+So as you see environment variables are a very important concept in all operating systems
+
+147
+00:11:39,720 --> 00:11:45,200
+and it works pretty much the same whether you're Linux or Windows or macOS.
+
+148
+00:11:45,200 --> 00:11:50,720
+Now let's actually see how to create our own environment variables.
+
+149
+00:11:50,720 --> 00:11:55,820
+And this works pretty much the same on all Linux distributions so nothing specific to
+
+150
+00:11:55,820 --> 00:11:57,120
+Ubuntu here.
+
+151
+00:11:57,120 --> 00:12:05,080
+So first of all to create an environment variable like db username for example which is defined
+
+152
+00:12:05,080 --> 00:12:10,360
+a variable name again all caps and underscore and a value.
+
+153
+00:12:10,360 --> 00:12:17,520
+The value is the actual username in the database this could be called a db user or my app user
+
+154
+00:12:17,520 --> 00:12:18,520
+whatever.
+
+155
+00:12:18,520 --> 00:12:25,920
+However for this to be set or to be interpreted by the system as environment variable we need
+
+156
+00:12:25,920 --> 00:12:28,320
+to do something like export.
+
+157
+00:12:28,320 --> 00:12:36,520
+So we are exporting a variable as an environment variable and this is what makes it different
+
+158
+00:12:36,520 --> 00:12:41,040
+to standard variables that we defined in the Bash script for example because standard
+
+159
+00:12:41,040 --> 00:12:44,440
+variables are only available in that script.
+
+160
+00:12:44,440 --> 00:12:48,600
+Environment variables are available in the whole environment and for that we need to
+
+161
+00:12:48,600 --> 00:12:52,400
+do export and then variable.
+
+162
+00:12:52,400 --> 00:13:00,440
+We can also export db password for example let's say it's a secret value that nobody
+
+163
+00:13:00,440 --> 00:13:01,440
+should know.
+
+164
+00:13:01,960 --> 00:13:10,280
+It's also very common to set not so sensitive data like database name or URL also as environment
+
+165
+00:13:10,280 --> 00:13:17,200
+variables instead of hard coding that into the code and as I said because this way we
+
+166
+00:13:17,200 --> 00:13:23,960
+can run our application development production testing environments without hard coding these
+
+167
+00:13:23,960 --> 00:13:26,680
+values inside the code.
+
+168
+00:13:26,680 --> 00:13:34,320
+So db name because the database name and database URL will actually be different for production
+
+169
+00:13:34,320 --> 00:13:38,680
+database and for development or testing database.
+
+170
+00:13:38,680 --> 00:13:48,120
+So this sets environment variables in our Linux environment and now if I do print and
+
+171
+00:13:48,760 --> 00:13:58,960
+filter all my environment variables that have db in it using the grep command there
+
+172
+00:13:58,960 --> 00:14:05,480
+you go print and print environment variables and three of them that we defined here are
+
+173
+00:14:05,480 --> 00:14:06,880
+on the list.
+
+174
+00:14:06,880 --> 00:14:12,040
+Again if we want to use that in other Linux commands for example if we want to use that
+
+175
+00:14:12,040 --> 00:14:19,160
+in a bash script whatever we can access them using dollar sign and then name of that variable
+
+176
+00:14:19,160 --> 00:14:26,880
+like this and again because these are variables we can also change the values of those environment
+
+177
+00:14:26,880 --> 00:14:29,000
+variables once we define them.
+
+178
+00:14:29,000 --> 00:14:36,880
+So maybe we renamed the database so we can set db name to new db name whatever that is.
+
+179
+00:14:42,520 --> 00:14:49,400
+And we can also unset or basically remove the environment variable from the environment
+
+180
+00:14:49,400 --> 00:14:57,680
+using the unset command and name of the variable like this.
+
+181
+00:14:57,680 --> 00:15:02,680
+Again execute print and there you go.
+
+182
+00:15:02,680 --> 00:15:08,800
+So once we set those environment variables that application should read basically or
+
+183
+00:15:08,800 --> 00:15:16,520
+access to be able to connect to a database we can now run the application in this prepared
+
+184
+00:15:16,520 --> 00:15:23,240
+environment where we have created the variables and the application will be able to access
+
+185
+00:15:23,240 --> 00:15:24,640
+those values.
+
+186
+00:15:24,640 --> 00:15:30,120
+So right here you would run your Java application or Python application or whatever it is.
+
+187
+00:15:30,120 --> 00:15:35,680
+However there is one interesting point here when working with environment variables or
+
+188
+00:15:35,680 --> 00:15:37,480
+when setting them.
+
+189
+00:15:37,480 --> 00:15:49,840
+So I'm going to close this terminal and open it again and do print and filter for our db
+
+190
+00:15:49,840 --> 00:15:56,120
+values and you see all those environment variables that we set are actually gone.
+
+191
+00:15:56,120 --> 00:15:57,720
+They're not here anymore.
+
+192
+00:15:57,720 --> 00:16:04,600
+So basically and that is a very important concept to know is that whenever we set environment
+
+193
+00:16:04,600 --> 00:16:11,960
+variables using the export command on a command line interface they are only available in
+
+194
+00:16:11,960 --> 00:16:15,440
+this current session basically right.
+
+195
+00:16:15,440 --> 00:16:22,840
+So in the environment of this specific session and once we close that terminal or even if
+
+196
+00:16:22,840 --> 00:16:28,960
+we just open a new window in this terminal in the session that environment variable will
+
+197
+00:16:28,960 --> 00:16:30,720
+not be accessible.
+
+198
+00:16:30,720 --> 00:16:36,560
+So these are not permanent environment variables that we can set using the export command.
+
+199
+00:16:36,560 --> 00:16:44,320
+So how do we set environment variables permanently so that we don't lose them whenever we close
+
+200
+00:16:44,320 --> 00:16:45,320
+the session.
+
+201
+00:16:45,320 --> 00:16:52,520
+Well for that there is a file in each user's home directory.
+
+202
+00:16:52,520 --> 00:16:59,160
+This is home directory for my current user and the file is called dot it's a hidden file
+
+203
+00:16:59,160 --> 00:17:02,240
+bash RC.
+
+204
+00:17:02,240 --> 00:17:09,880
+So basically there is a file in the user's home directory created by or auto generated
+
+205
+00:17:09,880 --> 00:17:14,520
+for the shell program that your user is using by default.
+
+206
+00:17:14,520 --> 00:17:20,160
+In our case we're using bash program that's why it's bash RC if you're using for example
+
+207
+00:17:20,160 --> 00:17:25,000
+Z shell instead this will be Z shell RC.
+
+208
+00:17:25,000 --> 00:17:31,680
+So basically whatever your shell program name is it will have this RC file that holds the
+
+209
+00:17:31,680 --> 00:17:35,480
+environment variable specific to your user.
+
+210
+00:17:35,480 --> 00:17:40,320
+So if we open this you see a bunch of code here.
+
+211
+00:17:40,320 --> 00:17:47,040
+So whenever we want to permanently add variables that will be available in all the terminals
+
+212
+00:17:47,040 --> 00:17:55,960
+in all the sessions of our user we need to add them in this file or in this RC file of
+
+213
+00:17:55,960 --> 00:18:02,960
+whatever shell program is configured as the default shell for your user.
+
+214
+00:18:02,960 --> 00:18:16,560
+So right here at the end of the file we're going to do export DB username and then password
+
+215
+00:18:16,560 --> 00:18:22,720
+some secrets value doesn't matter.
+
+216
+00:18:22,720 --> 00:18:29,120
+Let's also set DB name and there you go.
+
+217
+00:18:29,120 --> 00:18:34,680
+Now we can close this and save the changes.
+
+218
+00:18:34,680 --> 00:18:40,560
+Now there is one more thing we need to do here because if we now do print and we don't
+
+219
+00:18:40,560 --> 00:18:42,440
+see the values yet.
+
+220
+00:18:42,440 --> 00:18:48,520
+So basically we have added those environment variables in our bash RC file however the
+
+221
+00:18:48,520 --> 00:18:51,640
+system doesn't know about the change yet.
+
+222
+00:18:51,640 --> 00:18:58,280
+So we are kind of reloading the system to take the changes from that file.
+
+223
+00:18:58,280 --> 00:19:04,480
+And for that we do source bash RC.
+
+224
+00:19:04,480 --> 00:19:08,840
+So we're telling the program hey we changed something in that bash RC file please apply
+
+225
+00:19:08,840 --> 00:19:10,160
+those changes.
+
+226
+00:19:10,160 --> 00:19:16,960
+And now if I do print and again there you go we have our environment variable values.
+
+227
+00:19:16,960 --> 00:19:25,840
+And now if I close the terminal and open it again and do print and we have the values
+
+228
+00:19:25,840 --> 00:19:27,120
+available.
+
+229
+00:19:27,120 --> 00:19:33,720
+Now whatever application or program you run in whichever session these environment variables
+
+230
+00:19:33,720 --> 00:19:41,760
+will always be accessible for all those programs.
+
+231
+00:19:41,760 --> 00:19:47,080
+Now in our examples we created environment variables for our user right.
+
+232
+00:19:47,080 --> 00:19:51,320
+So we configured environment for one specific user.
+
+233
+00:19:51,320 --> 00:19:56,840
+What if we want to set an environment variable for all the users on the system.
+
+234
+00:19:56,840 --> 00:20:04,800
+Well in addition to the user specific bash RC file or shell programs configuration file
+
+235
+00:20:04,800 --> 00:20:12,480
+in each user's home directory we also have a system wide environment variables file which
+
+236
+00:20:12,480 --> 00:20:21,160
+is located in slash ETC folder which is a directory where system configuration is stored
+
+237
+00:20:21,160 --> 00:20:24,480
+and the file is called environment.
+
+238
+00:20:24,480 --> 00:20:30,440
+If I open this file you see that we have one environment variable already configured here
+
+239
+00:20:30,440 --> 00:20:32,140
+called path.
+
+240
+00:20:32,140 --> 00:20:38,760
+So this is a globally set environment variable called path that has the same value for all
+
+241
+00:20:38,760 --> 00:20:40,920
+the users on the system.
+
+242
+00:20:40,920 --> 00:20:44,080
+So what is this path variable.
+
+243
+00:20:44,080 --> 00:20:50,800
+It's basically a list of directories with executable or binary files in them.
+
+244
+00:20:50,800 --> 00:20:55,960
+That's why you see the binary folders at the end of each path.
+
+245
+00:20:55,960 --> 00:21:03,400
+So we have user local S beam user local beam etc and each directory is separated by a column
+
+246
+00:21:03,400 --> 00:21:10,760
+so this is basically just a list and the way it works is that whenever we execute a command
+
+247
+00:21:10,760 --> 00:21:17,480
+or a program on a command line interface the system checks all of these locations configured
+
+248
+00:21:17,480 --> 00:21:24,320
+in the path variable to find that commands or programs binary file and execute it from
+
+249
+00:21:24,320 --> 00:21:25,320
+there.
+
+250
+00:21:25,320 --> 00:21:32,720
+And that means whenever we install a new software like Java or Python or Node.js whatever the
+
+251
+00:21:32,720 --> 00:21:38,820
+binary files of this software will get added into one of those locations and that's why
+
+252
+00:21:38,820 --> 00:21:46,320
+we're able to execute Java, Python etc commands on a command line interface because the system
+
+253
+00:21:46,320 --> 00:21:50,920
+knows where the binaries of that command is.
+
+254
+00:21:50,920 --> 00:21:58,520
+And let's actually leave this file without saving any changes column Q exclamation mark
+
+255
+00:21:58,520 --> 00:21:59,640
+we're just quitting.
+
+256
+00:21:59,640 --> 00:22:05,160
+So basically path is a very important variable because thanks to that path variable we don't
+
+257
+00:22:05,160 --> 00:22:14,800
+have to do this every time we want to use LS command for example instead we can just
+
+258
+00:22:14,800 --> 00:22:16,080
+do LS.
+
+259
+00:22:16,080 --> 00:22:24,960
+So whenever we do LS basically it looks inside the path variables list of directories for
+
+260
+00:22:24,960 --> 00:22:32,800
+the LS commands binary file and that means if we create an executable program and provide
+
+261
+00:22:32,800 --> 00:22:40,000
+path variable with its location so if we add the location here as well we can run command
+
+262
+00:22:40,000 --> 00:22:47,600
+to execute that program directly like this from anywhere in our file system and since
+
+263
+00:22:47,600 --> 00:22:54,160
+path is a global environment variable set for all the users it will be available for
+
+264
+00:22:54,160 --> 00:23:00,080
+all the users on the system.
+
+265
+00:23:00,080 --> 00:23:07,240
+And it will be fun to try out this one example so let's see how we can add our custom command
+
+266
+00:23:07,240 --> 00:23:16,840
+or program to the executable path so let's create a very simple welcome script and we
+
+267
+00:23:16,840 --> 00:23:28,200
+know the syntax already we have our shebang at the beginning and then we have let's just
+
+268
+00:23:28,200 --> 00:23:40,680
+add echo line here welcome to devops bootcamp and user environment variable and you see
+
+269
+00:23:40,680 --> 00:23:46,680
+that we don't have the syntax highlighting here this nice shell or bash syntax highlighting
+
+270
+00:23:46,680 --> 00:23:55,000
+because I created the file without extension just welcome without .sh so that's why but
+
+271
+00:23:55,000 --> 00:24:01,560
+it does matter because just a simple echo example and now as you remember we need to
+
+272
+00:24:01,560 --> 00:24:12,360
+make this welcome file executable so we add permission for all users for executing this
+
+273
+00:24:12,360 --> 00:24:23,320
+welcome script like this and now we can add this executable files location to path variable
+
+274
+00:24:23,320 --> 00:24:31,080
+either globally as we saw previously or and that's actually also an interesting use case
+
+275
+00:24:31,080 --> 00:24:37,320
+we can add this location to the path only for our user how can we do that instead of changing that
+
+276
+00:24:37,320 --> 00:24:43,800
+in the global environments environment file we're going to change that in our bash rc file
+
+277
+00:24:45,240 --> 00:24:52,600
+here we actually don't have a path variable so how do we do that simply by doing path equals
+
+278
+00:24:53,480 --> 00:24:59,320
+and then we can reference the existing path variable which is available for all the users
+
+279
+00:24:59,320 --> 00:25:08,040
+and we're gonna append slash home slash nano this is a directory where our welcome command or welcome
+
+280
+00:25:08,040 --> 00:25:17,400
+program is located so we always need the location to the directory so again we are taking the the
+
+281
+00:25:17,400 --> 00:25:23,400
+existing path variables value which is the list of all the directories and then we are
+
+282
+00:25:23,400 --> 00:25:30,760
+appending our custom scripts location at the end and we're setting that back as a path variable
+
+283
+00:25:30,760 --> 00:25:35,960
+for the system and we don't write export here because the variable path already exists and is
+
+284
+00:25:35,960 --> 00:25:45,000
+already exported we're just changing its value here so if I save this and quit and let's do source
+
+285
+00:25:45,880 --> 00:25:52,120
+bash rc and now let's actually move to somewhere else where we don't have
+
+286
+00:25:53,960 --> 00:26:02,840
+welcome script or welcome command and if I do welcome there you go welcome to devops bootcamp
+
+287
+00:26:02,840 --> 00:26:09,720
+and the linux user that we referenced from environment variable so again path or the
+
+288
+00:26:09,720 --> 00:26:17,640
+the purpose of path is that instead of me having to provide the full the absolute location
+
+289
+00:26:17,640 --> 00:26:25,000
+or path to my program like this I can just go wherever I want in my file system in the command
+
+290
+00:26:25,000 --> 00:26:32,040
+line and I can type in just the name of the program and it will find it in one of those
+
+291
+00:26:32,040 --> 00:26:38,360
+directories configured in the path so these are some of the use cases and some of the really
+
+292
+00:26:38,360 --> 00:26:45,640
+important usages of environment variables on an operating system and we're going to be working
+
+293
+00:26:45,640 --> 00:26:52,760
+with them throughout our bootcamp so you will see plenty of realistic use cases and examples
+
+294
+00:26:52,760 --> 00:26:59,160
+where we set and use environment variables for different applications
+

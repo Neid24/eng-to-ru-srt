@@ -1,0 +1,104 @@
+1
+00:00:00,000 --> 00:00:08,160
+Git is the most popular version control tools out there.
+
+2
+00:00:08,160 --> 00:00:14,160
+As an alternative tool there is SVN for example but it's older and maybe used in some older
+
+3
+00:00:14,160 --> 00:00:20,200
+projects but Git is definitely the way to go in modern projects.
+
+4
+00:00:20,200 --> 00:00:22,600
+Now how do you work with Git?
+
+5
+00:00:22,600 --> 00:00:24,620
+Git has multiple parts.
+
+6
+00:00:24,620 --> 00:00:29,520
+It has the remote, Git repository, this is where the code lives and where everyone can
+
+7
+00:00:29,520 --> 00:00:35,640
+fetch the code or pull the code and push their own changes too.
+
+8
+00:00:35,640 --> 00:00:41,120
+And this remote Git repository usually has UI so you can actually interact with this
+
+9
+00:00:41,120 --> 00:00:46,200
+code repository and do stuff with it through a user interface.
+
+10
+00:00:46,200 --> 00:00:49,140
+It also has local Git repository.
+
+11
+00:00:49,140 --> 00:00:54,880
+This is where you keep your local copy of the remote repository code and this is where
+
+12
+00:00:54,880 --> 00:01:00,240
+your changes are saved and kept until you push them to the remote.
+
+13
+00:01:00,240 --> 00:01:03,100
+It also has a history of the code changes.
+
+14
+00:01:03,100 --> 00:01:05,640
+This is a log, Git log.
+
+15
+00:01:05,640 --> 00:01:10,680
+It has the staging part, this is basically where your working changes are saved.
+
+16
+00:01:10,680 --> 00:01:17,720
+So whenever you deviate from the code that you just pulled from the remote repository
+
+17
+00:01:17,720 --> 00:01:23,680
+and you start making changes in your code, they are tracked by Git as current working
+
+18
+00:01:23,680 --> 00:01:31,880
+changes and later you can decide whether to commit them or basically revert the changes.
+
+19
+00:01:31,880 --> 00:01:34,440
+And finally you have Git client.
+
+20
+00:01:34,440 --> 00:01:41,920
+This could be again a user interface tool or could be a command line interface of Git.
+
+21
+00:01:41,920 --> 00:01:48,320
+And the client lets you execute Git commands to interact with the remote repository as
+
+22
+00:01:48,320 --> 00:01:50,680
+well as local repository.
+
+23
+00:01:50,680 --> 00:01:56,800
+So for example you can take your changes and commit them and push them to the remote repository.
+
+24
+00:01:56,800 --> 00:02:00,440
+You can pull the new changes and so on.
+
+25
+00:02:00,440 --> 00:02:07,000
+These are all commands that you can execute using Git client that you will have to have
+
+26
+00:02:07,000 --> 00:02:08,960
+installed locally on your machine.
+

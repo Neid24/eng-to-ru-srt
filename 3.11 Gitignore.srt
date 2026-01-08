@@ -1,0 +1,352 @@
+1
+00:00:00,000 --> 00:00:09,440
+Now, let's see something called .gitignore file in git repositories.
+
+2
+00:00:09,440 --> 00:00:16,120
+So whenever we create a project and we initiate it as git repository, we can actually add
+
+3
+00:00:16,120 --> 00:00:17,880
+gitignore file.
+
+4
+00:00:17,880 --> 00:00:25,640
+And what this file basically does is it excludes folders or files from the project from getting
+
+5
+00:00:25,640 --> 00:00:29,240
+checked into the remote repository.
+
+6
+00:00:29,240 --> 00:00:34,800
+And these kind of files are something that, for example, is specific to your editor, right?
+
+7
+00:00:34,800 --> 00:00:39,960
+Something that other developers do not need to download in their own projects, right?
+
+8
+00:00:39,960 --> 00:00:44,960
+This is something specific for every developer, and it doesn't have to do anything with the
+
+9
+00:00:44,960 --> 00:00:46,200
+overall project.
+
+10
+00:00:46,200 --> 00:00:53,440
+In my case, because I'm using IntelliJ, when I opened the project, IntelliJ automatically
+
+11
+00:00:53,440 --> 00:00:57,320
+created this .idea folder, right?
+
+12
+00:00:57,320 --> 00:01:02,640
+Now if my fellow developers are using visual code, for example, and not IntelliJ, they
+
+13
+00:01:02,640 --> 00:01:05,200
+obviously don't need this folder, right?
+
+14
+00:01:05,200 --> 00:01:09,400
+So this shouldn't be checked into the repository.
+
+15
+00:01:09,400 --> 00:01:15,040
+Another example of folders that should be excluded is, for example, build folders.
+
+16
+00:01:15,040 --> 00:01:22,240
+Whenever you build your application, for example, if I start the application with IntelliJ,
+
+17
+00:01:22,240 --> 00:01:24,720
+it creates build folder, right?
+
+18
+00:01:24,720 --> 00:01:31,080
+And this build folder basically has the compiled files or transpiled files and some other generated
+
+19
+00:01:31,080 --> 00:01:38,340
+files that is important to run the application locally, but it shouldn't be part of the code.
+
+20
+00:01:38,340 --> 00:01:41,920
+So how do I exclude these files?
+
+21
+00:01:41,920 --> 00:01:44,440
+Using this .gitignore file.
+
+22
+00:01:44,440 --> 00:01:49,520
+So it is called .gitignore.
+
+23
+00:01:49,520 --> 00:01:53,720
+And here, basically, I can just list those files or folders.
+
+24
+00:01:53,720 --> 00:01:56,520
+I can do .idea.
+
+25
+00:01:56,520 --> 00:01:57,920
+So I want to exclude this folder.
+
+26
+00:01:57,920 --> 00:02:03,000
+If I had a build folder, for example, here, I would exclude that one as well.
+
+27
+00:02:03,000 --> 00:02:09,600
+Now, before I created this gitignore, I actually checked in my whole code into the repository.
+
+28
+00:02:09,600 --> 00:02:14,440
+So I actually have this .idea already checked in.
+
+29
+00:02:14,440 --> 00:02:18,040
+So let's go back here and see, I have this one here.
+
+30
+00:02:18,040 --> 00:02:23,120
+So I want to remove .idea folder from the repository.
+
+31
+00:02:23,120 --> 00:02:27,200
+And I also want to remove the node modules folder.
+
+32
+00:02:27,200 --> 00:02:28,200
+Why?
+
+33
+00:02:28,200 --> 00:02:33,320
+Because these are dependencies that everyone should install locally from the package JSON.
+
+34
+00:02:33,320 --> 00:02:37,740
+So it shouldn't be in the remote repository, right?
+
+35
+00:02:37,740 --> 00:02:42,920
+Because this is needed for running the application and either locally or on production server.
+
+36
+00:02:42,920 --> 00:02:45,120
+And we don't need this as part of the code.
+
+37
+00:02:45,120 --> 00:02:50,480
+So I'm going to exclude that one as well.
+
+38
+00:02:50,480 --> 00:02:58,880
+And now, if I go to my command line and to git status, here you see gitignore file has
+
+39
+00:02:58,880 --> 00:03:01,360
+been added and changed.
+
+40
+00:03:01,360 --> 00:03:07,440
+But I also see the .idea workspace XML changed.
+
+41
+00:03:07,440 --> 00:03:08,840
+Now why is that?
+
+42
+00:03:08,840 --> 00:03:13,360
+Because we just excluded this .idea in the gitignore file, right?
+
+43
+00:03:13,360 --> 00:03:18,800
+So why do we see the changes in that folder to be committed?
+
+44
+00:03:18,800 --> 00:03:25,840
+The problem is that because we already committed this folder in the repository, git is tracking
+
+45
+00:03:25,840 --> 00:03:26,840
+it.
+
+46
+00:03:26,840 --> 00:03:33,200
+Meaning every change in that folder in any of the files is tracked by git and things
+
+47
+00:03:33,200 --> 00:03:37,240
+that we should now add that change and commit that change.
+
+48
+00:03:37,240 --> 00:03:41,560
+So we need to tell git, hey, forget about the folder.
+
+49
+00:03:41,560 --> 00:03:43,880
+We are not tracking that anymore.
+
+50
+00:03:43,880 --> 00:03:47,440
+We want to ignore that from any git activity.
+
+51
+00:03:47,440 --> 00:03:53,180
+And in order to do that, we have to remove it from git's cache, right?
+
+52
+00:03:53,180 --> 00:04:01,360
+So git, remove, recursive, cached.
+
+53
+00:04:01,360 --> 00:04:08,040
+And we can either say with dot or we can actually put the name of the folder.
+
+54
+00:04:08,040 --> 00:04:14,120
+And you see that everything inside idea folder was removed from the git cache.
+
+55
+00:04:14,120 --> 00:04:20,280
+And now if I do status, you see the git wants to remove that file from the remote repository.
+
+56
+00:04:20,280 --> 00:04:31,480
+So let's actually check everything in, edit gitignore file.
+
+57
+00:04:31,480 --> 00:04:34,920
+And if I commit or push this.
+
+58
+00:04:34,920 --> 00:04:40,040
+So now if I go back to the UI and choose the branch, because we made all those changes
+
+59
+00:04:40,040 --> 00:04:46,120
+in the branch, here you see the dot idea folder is gone.
+
+60
+00:04:46,120 --> 00:04:57,440
+Now we can do the same with node modules, git remove, cached node modules.
+
+61
+00:04:57,440 --> 00:05:02,840
+And if I do status, we need to remove that from the remote repository.
+
+62
+00:05:02,840 --> 00:05:08,440
+So actually, this was already added to commit.
+
+63
+00:05:08,440 --> 00:05:21,640
+So removed node modules from repo.
+
+64
+00:05:21,640 --> 00:05:26,920
+And if I push this and reload, the node modules are gone as well.
+
+65
+00:05:26,920 --> 00:05:30,560
+Of course, they stay in the local folder.
+
+66
+00:05:30,560 --> 00:05:35,960
+I have node modules and dot idea here, but they're not tracked anymore by git.
+
+67
+00:05:35,960 --> 00:05:39,020
+Because we have excluded them in gitignore.
+
+68
+00:05:39,020 --> 00:05:43,480
+But because I had already added them to the remote repository, I had to remove it from
+
+69
+00:05:43,480 --> 00:05:49,680
+cache so that git deleted it entirely, the old tracking as well.
+
+70
+00:05:49,680 --> 00:05:55,680
+And we can do the same with dot ds store file, which is a mechOS specific file that stores
+
+71
+00:05:55,680 --> 00:05:59,120
+some metadata about your local folder, basically.
+
+72
+00:05:59,120 --> 00:06:03,520
+So of course, it's not needed in code and doesn't need to be shared with other developers
+
+73
+00:06:03,520 --> 00:06:04,720
+in the team.
+
+74
+00:06:04,720 --> 00:06:07,480
+It's specific to your local environment.
+
+75
+00:06:07,480 --> 00:06:11,120
+So let's also add that to the gitignore file.
+
+76
+00:06:11,120 --> 00:06:15,480
+And since it's a file and not a directory, we just type the name of the file here.
+
+77
+00:06:15,480 --> 00:06:18,960
+Now I'm going to switch back to the terminal window.
+
+78
+00:06:18,960 --> 00:06:23,400
+And we're going to remove this file from the cache first, because it has already been committed
+
+79
+00:06:23,400 --> 00:06:25,080
+and pushed to the repository.
+
+80
+00:06:25,080 --> 00:06:29,240
+So we're going to remove that from cache and then commit our changes with the commit
+
+81
+00:06:29,240 --> 00:06:35,520
+message, removed ds store file, and let's push this.
+
+82
+00:06:35,520 --> 00:06:37,680
+Now I'm going to go back to the browser.
+
+83
+00:06:37,680 --> 00:06:43,000
+And if I refresh the page, we can see the file has also been removed from our remote
+
+84
+00:06:43,000 --> 00:06:44,720
+repository.
+
+85
+00:06:44,720 --> 00:06:49,960
+And as I said in most of the projects where you are working with some editor and you're
+
+86
+00:06:49,960 --> 00:06:55,600
+running application locally, you will get these generated folders like build and node
+
+87
+00:06:55,600 --> 00:07:01,960
+modules or dot idea or for Java, for example, some other generated folders.
+
+88
+00:07:01,960 --> 00:07:06,160
+So most of the projects you will need gitignore file.
+

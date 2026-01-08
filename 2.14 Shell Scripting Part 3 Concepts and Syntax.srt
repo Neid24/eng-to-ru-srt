@@ -1,0 +1,612 @@
+1
+00:00:00,000 --> 00:00:12,280
+And finally, the last concept that I want to explain in batch scripting is a concept of
+
+2
+00:00:12,280 --> 00:00:21,120
+functions. Now, let's look at our batch script. And even though we have this very simple,
+
+3
+00:00:21,120 --> 00:00:27,920
+super basic examples here, our batch script is already a couple of lines long, right?
+
+4
+00:00:27,920 --> 00:00:33,760
+We have some conditions here with if statements and loops, etc. So imagine if you're actually
+
+5
+00:00:33,760 --> 00:00:42,200
+writing an actual server configuration script, or a monitoring script or whatever, some complex
+
+6
+00:00:42,200 --> 00:00:47,200
+logic with your batch script, you're going to have lots and lots of code inside, maybe
+
+7
+00:00:47,200 --> 00:00:55,080
+hundreds of lines. And the whole thing will actually become very difficult to read. And
+
+8
+00:00:55,080 --> 00:01:02,400
+for you to have an overview of what's going on in the script. Also, if you're doing similar
+
+9
+00:01:02,400 --> 00:01:08,880
+things on a server, you may end up with lots of code that actually do almost the same logic,
+
+10
+00:01:08,880 --> 00:01:14,960
+but you have to repeat them in many different places, because you want to execute that task,
+
+11
+00:01:14,960 --> 00:01:22,120
+right? Well, to solve these issues and to basically help you clean up your script a little bit,
+
+12
+00:01:22,600 --> 00:01:30,400
+we have this concept of functions. So function is basically a way of grouping a set of logic,
+
+13
+00:01:30,400 --> 00:01:39,280
+a set of commands, a block of code basically into a reusable component. So basically, it's
+
+14
+00:01:39,280 --> 00:01:47,640
+like a container for a block of logic for a bunch of commands that you can give a name to,
+
+15
+00:01:48,280 --> 00:01:53,840
+and then you can reference that whole block of code using that name, just like we did with the
+
+16
+00:01:53,840 --> 00:01:59,680
+variable. So if you have a similar logic that you want to execute in three different places in
+
+17
+00:01:59,680 --> 00:02:06,560
+your script, then you can save that code into a function. And then you can reference that function
+
+18
+00:02:06,560 --> 00:02:12,000
+in your script. And also, as I said, function is a way to clean up your script. So basically to
+
+19
+00:02:12,000 --> 00:02:18,960
+group things together and give them some logical names. So your script is easier to read and
+
+20
+00:02:18,960 --> 00:02:25,120
+maintain. And let's see how it works. So right here, instead of having this block of code,
+
+21
+00:02:25,120 --> 00:02:32,480
+so basically a program that does something specific, I want to put it into a function,
+
+22
+00:02:32,480 --> 00:02:39,840
+give it a name, and then basically decide where and how many times I want to execute this logic.
+
+23
+00:02:40,120 --> 00:02:46,320
+So to put that into a function, we have a function keyword, and then we have the name of the
+
+24
+00:02:46,320 --> 00:02:52,200
+function, just like we named our variables, we need to name our functions. And let's call these a
+
+25
+00:02:52,200 --> 00:03:06,920
+score game or score sum. And then we have the curly braces, like this. And between those curly
+
+26
+00:03:06,960 --> 00:03:14,960
+braces, we can write the logic of our function. In our case, we just want to put all of these into
+
+27
+00:03:14,960 --> 00:03:24,080
+a function. So I'm going to copy that and paste it in here. Again, know the indentations that we
+
+28
+00:03:24,080 --> 00:03:30,840
+use. So basically we have this outer line function definition, and then everything is inside. So
+
+29
+00:03:30,840 --> 00:03:35,920
+everything inside the function is basically just a little bit indented. So we see that all these
+
+30
+00:03:35,920 --> 00:03:45,040
+belong to a function. Again, it's very much user preference for easy readability. And I'm just
+
+31
+00:03:45,040 --> 00:03:56,000
+going to delete 10 lines here, maybe more. And there you go. Great. So we have our first function
+
+32
+00:03:56,000 --> 00:04:02,840
+that contains that problem that we wrote before. Now, let's see what happens if I save this,
+
+33
+00:04:03,640 --> 00:04:11,920
+and we execute our script. See, nothing actually happened. We just have these two lines here from
+
+34
+00:04:11,920 --> 00:04:21,200
+here. The for loop got executed, but we didn't have any parameters or nothing got printed here. But
+
+35
+00:04:21,200 --> 00:04:27,120
+all these actually didn't happen. So we were not asked for a score. And this program didn't run. So
+
+36
+00:04:27,120 --> 00:04:33,360
+what happened here is that whenever we create a function, we're just defining a function. Just
+
+37
+00:04:33,360 --> 00:04:40,520
+like we create a variable, we just define the name, my bar, and then we assign a value to it. This
+
+38
+00:04:40,520 --> 00:04:45,960
+doesn't print the variable value, right, it just creates a variable. And that's it, we can then
+
+39
+00:04:45,960 --> 00:04:53,520
+later actually use that variable to print it or do whatever we want with it. And it works the same
+
+40
+00:04:53,600 --> 00:05:01,440
+way for functions, we create the function, but we have to use it if we want to actually see that
+
+41
+00:05:01,440 --> 00:05:11,240
+function execution. And to execute a function, we just use its name, like this. And that's it.
+
+42
+00:05:11,480 --> 00:05:25,440
+And let's save this and execute. And now we have a program running. Let's quit. So again, very
+
+43
+00:05:25,440 --> 00:05:31,560
+similar concept with variables, we create them, we define them, and then later we can use them as
+
+44
+00:05:31,920 --> 00:05:43,920
+many times as we want. Now, as I said, functions are usually used to contain or to group similar
+
+45
+00:05:43,920 --> 00:05:50,680
+logs of code, not the same, but similar. It means that one or two values may be different, but
+
+46
+00:05:50,680 --> 00:05:57,440
+other than that, the rest of the logic is pretty much the same. So for example, we might have a
+
+47
+00:05:57,640 --> 00:06:11,160
+function that we use to create a file. And we're going to call this create file function. And we
+
+48
+00:06:11,160 --> 00:06:18,520
+want to use that function for any type of file. So whenever inside the script, we want to create
+
+49
+00:06:18,520 --> 00:06:24,000
+any file, we're going to call this function. However, every time we create a file, we are going
+
+50
+00:06:24,080 --> 00:06:30,040
+to give it a different value, right? So want to tell the function, create a file with this specific
+
+51
+00:06:30,040 --> 00:06:39,480
+name. And that name can actually be provided as a parameter. So just like before, we have this
+
+52
+00:06:39,480 --> 00:06:48,680
+function definition. And after the function name, we can also provide empty brackets. And then inside
+
+53
+00:06:48,720 --> 00:06:57,360
+the function, we have the actual logic of creating that file using touch command. And then we have
+
+54
+00:06:57,360 --> 00:07:02,880
+the name of the file. So how can we actually read that parameter that we provide the function with?
+
+55
+00:07:02,880 --> 00:07:08,920
+The syntax is actually the same as reading a parameter when executing a bash script itself.
+
+56
+00:07:08,920 --> 00:07:15,040
+So using dollar sign and one, we're going to grab the first parameter of that function. And we can
+
+57
+00:07:15,080 --> 00:07:22,040
+also assign it to a variable. So let's save it into a variable called file name. And after that,
+
+58
+00:07:22,040 --> 00:07:30,360
+we can create a file using whatever the file name is. And again, remember, this is just a function
+
+59
+00:07:30,360 --> 00:07:36,280
+creation, it's not going to call anything or it's not going to do anything. Unless we actually call
+
+60
+00:07:36,280 --> 00:07:46,440
+the function and execute it. So I'm going to do create file. And to pass parameter, very simple,
+
+61
+00:07:46,440 --> 00:07:56,040
+just space and then the value of the first parameter. In our case, let's call these test.txt. And
+
+62
+00:07:56,040 --> 00:08:03,120
+maybe in another place in our script, we're going to need the same logic of creating a file again,
+
+63
+00:08:03,360 --> 00:08:10,200
+but with a different file name, or also different type. And let's say this is going to be my file dot
+
+64
+00:08:11,200 --> 00:08:18,480
+YAML, another place in the script where we want to create a shell script. And let's call it my
+
+65
+00:08:18,480 --> 00:08:27,680
+script dot sh. And we can now test our function. Before we do that, I actually want to ignore the
+
+66
+00:08:27,680 --> 00:08:35,560
+output right here. So these two echo commands. However, I don't want to remove them from my code
+
+67
+00:08:35,560 --> 00:08:42,760
+because I may need them later. So a convenient way to ignore execution of a command without
+
+68
+00:08:42,760 --> 00:08:50,480
+actually removing it is by what's called commenting it out in bash. Whenever you start a line with a
+
+69
+00:08:50,520 --> 00:08:59,360
+pound character, it will be ignored by the program. So it's not going to be executed as a command,
+
+70
+00:08:59,360 --> 00:09:04,680
+it's just going to be interpreted as a comment. And that's actually pretty nice because you can
+
+71
+00:09:04,680 --> 00:09:11,400
+give yourself some information and some notes throughout your bash script, using the comments,
+
+72
+00:09:11,400 --> 00:09:17,000
+where you can just write normal sentences that maybe describe what a function is doing or what a
+
+73
+00:09:17,000 --> 00:09:24,720
+block of code is doing or why you decided for the specific logic, etc. So that's what the comments
+
+74
+00:09:24,720 --> 00:09:31,160
+are for. So we're not going to have that unneeded output. Now let's actually just echo here,
+
+75
+00:09:31,160 --> 00:09:54,800
+file with whatever file name we provide created like this. And let's save and execute. And there
+
+76
+00:09:54,800 --> 00:10:06,080
+we go. If I do ls, I should see all three files are here. Now let's remove them again. Using the
+
+77
+00:10:06,080 --> 00:10:16,520
+RM command. Go back to the script. And let's see how we can provide another parameter, because
+
+78
+00:10:16,520 --> 00:10:22,680
+functions can have multiple parameters, just like our script can have multiple parameters. And the
+
+79
+00:10:22,720 --> 00:10:29,480
+more configurable or more reusable you want the function to be, more parameters you would need to
+
+80
+00:10:29,480 --> 00:10:36,040
+add. However, there is a standard guideline of best practice of how many parameters per function
+
+81
+00:10:36,040 --> 00:10:42,480
+you should accept. So more than five parameters per function is too much. And the reason for that is
+
+82
+00:10:42,480 --> 00:10:50,760
+that one of the concepts of function is to have small reusable chunks of code. So if you were
+
+83
+00:10:51,120 --> 00:10:57,360
+basically providing lots of parameters to a function, then your function may be doing too much. So
+
+84
+00:10:57,360 --> 00:11:04,120
+you may want to actually split it into smaller functions. However, that's one of the examples of
+
+85
+00:11:04,120 --> 00:11:11,480
+best practices of how to write proper script, which is readable, maintainable, etc. So with that,
+
+86
+00:11:11,480 --> 00:11:19,320
+let's actually see the second parameter usage. And let's say, as a second parameter, we want to
+
+87
+00:11:19,440 --> 00:11:27,080
+accept a Boolean flag that tells us whether this file that we're creating is a shell script or not.
+
+88
+00:11:27,880 --> 00:11:35,560
+What is a Boolean or Boolean value? Boolean is basically data type that represents two possible
+
+89
+00:11:35,560 --> 00:11:43,400
+values. And this is actually something common in all programming languages, including bash. So one
+
+90
+00:11:43,400 --> 00:11:49,560
+of the values of Boolean is true and other is false. With the if statements and while looks,
+
+91
+00:11:49,560 --> 00:11:56,600
+we learned conditionals, where we evaluate some logic and we decide whether it's true or false.
+
+92
+00:11:57,400 --> 00:12:03,880
+And the value that it returns is actually Boolean. So again, we want to provide this function with
+
+93
+00:12:03,880 --> 00:12:11,240
+a Boolean value true or false that tells the function whether the file that we're creating is
+
+94
+00:12:11,320 --> 00:12:19,240
+a shell script or not. So the second parameter is going to be ease shell script.
+
+95
+00:12:21,240 --> 00:12:26,200
+And we read it from the second parameter. And after we create the file,
+
+96
+00:12:28,040 --> 00:12:38,120
+if the file that we're creating is a shell script.sh, we want to add an execute permission to it.
+
+97
+00:12:38,920 --> 00:12:39,640
+So if
+
+98
+00:12:42,840 --> 00:12:52,280
+ease shell script equals true. So true is one of the values of Boolean. And this is basically
+
+99
+00:12:52,280 --> 00:12:56,760
+just hard coding a condition is true. We also have false
+
+100
+00:12:59,560 --> 00:13:06,440
+like this. So we're saying ease shell script parameter value is true. Then
+
+101
+00:13:08,680 --> 00:13:17,640
+execute change mode command for user add an execute permission on whatever the file name is.
+
+102
+00:13:19,000 --> 00:13:24,520
+And we need to end the if statement. That's why we have the red line here.
+
+103
+00:13:26,760 --> 00:13:33,240
+And when creating the my script.sh file, we're going to pass in a second parameter
+
+104
+00:13:33,240 --> 00:13:38,520
+with a value of true. You see the syntax highlighting here because true and false
+
+105
+00:13:39,320 --> 00:13:46,280
+are actually keywords in bash. So bash actually knows that we mean the Boolean value of true,
+
+106
+00:13:46,920 --> 00:13:54,040
+which is handled differently as a special value. So basically that's our second parameter.
+
+107
+00:13:55,400 --> 00:14:01,640
+And for those two files, this will be skipped because we're not providing the second parameter.
+
+108
+00:14:01,640 --> 00:14:10,680
+So it's not true automatically. And for my script.sh, it will try to add the execute permission.
+
+109
+00:14:10,680 --> 00:14:19,160
+And of course, ease shell script is a variable. So we have to reference it as a variable using
+
+110
+00:14:20,840 --> 00:14:28,520
+double quotes. And let's also echo right here saying edit execute permission.
+
+111
+00:14:28,520 --> 00:14:36,760
+Let's save. And let's execute the script. And there you go. We have three files that were
+
+112
+00:14:36,760 --> 00:14:47,480
+created plus edit execute permission. So now if we do ls minus l my script.sh has an execute
+
+113
+00:14:47,480 --> 00:14:57,000
+permission or the user. And finally, another great thing about functions is that we can
+
+114
+00:14:57,000 --> 00:15:04,200
+actually return values as a result of function execution. So for example, if I want to return
+
+115
+00:15:05,560 --> 00:15:09,640
+something at the end of the function, I'm just going to write return.
+
+116
+00:15:11,400 --> 00:15:17,720
+And whatever that value is, this could be the file name itself, this could be usually when you
+
+117
+00:15:17,720 --> 00:15:23,800
+call a function, the function processes does something with the provided values. And then it
+
+118
+00:15:23,800 --> 00:15:33,560
+gives you that resulting value back a classic example of that would be a function that calculates
+
+119
+00:15:33,560 --> 00:15:50,200
+basically or sums up two numbers. And then basically just gives us the result of the execution. So
+
+120
+00:15:50,200 --> 00:16:00,600
+let's do some variable or total doesn't matter equals. And then using our expression syntax,
+
+121
+00:16:01,320 --> 00:16:11,240
+we have parameter one plus parameter two. So adding two values together, and then we can echo it
+
+122
+00:16:12,200 --> 00:16:25,720
+back. Or as I said, we can return that value. So if we execute some function with two and 10,
+
+123
+00:16:26,600 --> 00:16:34,600
+this function execution will return the total or some of those two values. And we can actually
+
+124
+00:16:34,600 --> 00:16:41,400
+save the result of that execution into a variable. And one way of doing is basically assigning
+
+125
+00:16:44,600 --> 00:16:46,120
+the result to a variable.
+
+126
+00:16:48,760 --> 00:16:54,920
+Like this result of command execution, which we already saw a syntax for. And another
+
+127
+00:16:55,560 --> 00:17:02,600
+interesting way of doing it is actually calling the function. And then on the next line,
+
+128
+00:17:03,560 --> 00:17:10,200
+assigning the result of the previous command execution to the variable. That is actually
+
+129
+00:17:10,200 --> 00:17:18,600
+also a common use case and valuable thing to know getting the result or accessing the result of the
+
+130
+00:17:18,600 --> 00:17:26,520
+previous command execution. And for that, we have also a special variable, dollar sign, question mark.
+
+131
+00:17:26,520 --> 00:17:34,600
+So this will give us actually the return value of these commands execution. And we are going to
+
+132
+00:17:34,600 --> 00:17:42,200
+store it into a variable called results. And now if we echo the result like this, you can also say
+
+133
+00:17:42,920 --> 00:17:49,640
+two and 10, or some of two and 10 is
+
+134
+00:17:52,760 --> 00:17:55,960
+like this. And if I execute
+
+135
+00:17:59,960 --> 00:18:07,160
+like this, there you go, we have some of two and 10 is 12. So that's the value of
+
+136
+00:18:07,800 --> 00:18:10,840
+result that we stored right here.
+
+137
+00:18:14,520 --> 00:18:22,200
+So that's the basics of bash scripting. And what you just learned are the main building blocks
+
+138
+00:18:22,200 --> 00:18:28,760
+and concepts of batch scripting. And again, you can combine all these concepts, you can use functions
+
+139
+00:18:28,760 --> 00:18:35,960
+in the loops, you can use conditionals to check for different cases, etc. And there are many
+
+140
+00:18:35,960 --> 00:18:44,200
+different use cases for using bash scripts. We can have scripts that basically run every 60
+
+141
+00:18:44,200 --> 00:18:50,680
+seconds or every couple of minutes that do backups, for example, that basically copy the
+
+142
+00:18:50,680 --> 00:18:58,200
+folders and files and then back them up somewhere else. We can have scripts that monitor the network,
+
+143
+00:18:58,200 --> 00:19:03,880
+that basically scans the network and checks that hosts are accessible, or that a specific program
+
+144
+00:19:03,880 --> 00:19:09,240
+is running, some ports are open and accessible. We can have scripts that basically configure
+
+145
+00:19:09,240 --> 00:19:14,600
+the whole server by installing new software, creating Linux users, etc. And we can also
+
+146
+00:19:14,600 --> 00:19:20,280
+have scripts that talk to external services, external APIs, and so on. So there is a lot you
+
+147
+00:19:20,280 --> 00:19:27,400
+can do with bash scripting. And as you progress in the bootcamp and as you learn new technologies
+
+148
+00:19:27,400 --> 00:19:32,920
+and different tasks that as a DevOps engineer would do on a daily basis, you will see a lot of
+
+149
+00:19:32,920 --> 00:19:39,640
+use cases for using bash scripts or generally scripting. So whenever you want to automate your
+
+150
+00:19:39,640 --> 00:19:45,480
+work of configuring servers with bash commands, as a DevOps engineer, you can write bash scripts.
+
+151
+00:19:45,480 --> 00:19:50,440
+And with bash scripts, you have a portable file that serves as a documentation of what needs to
+
+152
+00:19:50,440 --> 00:19:56,760
+be executed in which order. And of course, it can be shared with colleagues and can be executed
+
+153
+00:19:56,760 --> 00:20:00,600
+as many times as you want on different servers.
+

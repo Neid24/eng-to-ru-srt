@@ -1,0 +1,84 @@
+1
+00:00:00,000 --> 00:00:07,680
+Before we move on to the demos, we will need to install a couple of tools.
+
+2
+00:00:07,680 --> 00:00:12,600
+And we're going to install them together step by step in the next lectures.
+
+3
+00:00:12,600 --> 00:00:16,720
+We will use build tools to build a Java application.
+
+4
+00:00:16,720 --> 00:00:21,600
+So first we're going to install Java, then we're going to install Maven which is a build
+
+5
+00:00:21,600 --> 00:00:24,280
+tool for Java applications.
+
+6
+00:00:24,280 --> 00:00:30,200
+After that we will install Gradle which is an alternative build tool for Java applications.
+
+7
+00:00:30,200 --> 00:00:32,840
+And finally we will build a JavaScript application.
+
+8
+00:00:32,840 --> 00:00:36,440
+So we're going to need to install NPM and Node.
+
+9
+00:00:36,440 --> 00:00:40,320
+Also important to have a good code editor to work with.
+
+10
+00:00:40,320 --> 00:00:45,080
+We're going to be using IntelliJ which is great and makes it easy to set up and run
+
+11
+00:00:45,080 --> 00:00:48,700
+your applications, especially Java applications.
+
+12
+00:00:48,700 --> 00:00:50,840
+So we're going to install that as well.
+
+13
+00:00:50,840 --> 00:00:55,240
+And as I said we're going to install all these tools and configure them step by step
+
+14
+00:00:55,240 --> 00:00:57,920
+together in the next demo videos.
+
+15
+00:00:57,920 --> 00:01:02,400
+Now the installation is going to differ based on your operating system.
+
+16
+00:01:02,400 --> 00:01:07,000
+So I created separate installation guides for Windows and macOS.
+
+17
+00:01:07,000 --> 00:01:14,240
+Linux is similar to macOS so you can watch the respective video for your operating system.
+
+18
+00:01:14,240 --> 00:01:19,880
+Also note that installing different tools on servers on different operating systems
+
+19
+00:01:19,880 --> 00:01:24,040
+is something that DevOps engineer would have to do very often.
+
+20
+00:01:24,040 --> 00:01:29,520
+So being comfortable with it and knowing how to install things on operating system is a
+
+21
+00:01:29,520 --> 00:01:30,720
+skill in itself.
+

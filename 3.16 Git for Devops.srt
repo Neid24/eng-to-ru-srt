@@ -1,0 +1,192 @@
+1
+00:00:00,000 --> 00:00:10,000
+Now we saw use cases for how to use Git locally for development, how to execute different
+
+2
+00:00:10,000 --> 00:00:13,120
+commands, how to manage the Git repository and so on.
+
+3
+00:00:13,120 --> 00:00:20,960
+Now the question is when or for which use cases you would need Git as a DevOps engineer.
+
+4
+00:00:20,960 --> 00:00:27,680
+The first use case is when working with infrastructure as code concept.
+
+5
+00:00:27,760 --> 00:00:34,400
+For example, if you are working with developer team that is deploying their application to
+
+6
+00:00:34,400 --> 00:00:40,880
+Kubernetes, for example, you would be probably responsible for creating various Kubernetes
+
+7
+00:00:40,880 --> 00:00:45,200
+configuration files and these files have to be managed somewhere, right?
+
+8
+00:00:45,200 --> 00:00:50,480
+So let's say you have files for creating volumes or deploying some databases.
+
+9
+00:00:50,480 --> 00:00:56,720
+Maybe you have your home charts for applications, so a lot of different configuration files
+
+10
+00:00:56,800 --> 00:00:58,480
+that you may need in Kubernetes.
+
+11
+00:00:59,280 --> 00:01:04,720
+In addition to that, let's say your Kubernetes cluster is deployed on AWS, right?
+
+12
+00:01:04,720 --> 00:01:11,280
+And in order to communicate with AWS and to manage the service on AWS, you don't do that
+
+13
+00:01:11,280 --> 00:01:17,680
+manually but rather use automation tools like Terraform and maybe also use Ansible for deployment.
+
+14
+00:01:18,240 --> 00:01:24,240
+And Terraform and Ansible configuration are also in form of configuration files.
+
+15
+00:01:24,960 --> 00:01:30,400
+And let's say in addition you have some scripts like some batch scripts and Python scripts
+
+16
+00:01:30,400 --> 00:01:38,800
+configured for various tasks. Now all of those are files that you probably change over time and
+
+17
+00:01:38,800 --> 00:01:43,360
+you also need some kind of tracking, some history of what has changed in those files,
+
+18
+00:01:43,360 --> 00:01:50,240
+but also some place where all of these files are stored securely in one place instead of
+
+19
+00:01:50,240 --> 00:01:57,040
+just laying around on your local computer, right? And that's only if you're working alone
+
+20
+00:01:57,920 --> 00:02:03,760
+as one person who is managing all this stuff. But usually you would probably be part of a DevOps
+
+21
+00:02:03,760 --> 00:02:10,800
+team where you have two, three, maybe even more DevOps engineers working and managing the same
+
+22
+00:02:10,800 --> 00:02:16,560
+infrastructure together. And that would mean that you would need some kind of collaboration to work
+
+23
+00:02:16,560 --> 00:02:22,240
+on the Terraform files on Ansible configuration files to write the scripts and so on. So just
+
+24
+00:02:22,240 --> 00:02:27,760
+like developers are working on the same code base and synchronizing and communicating with each other,
+
+25
+00:02:27,760 --> 00:02:34,800
+you as a DevOps team would need some kind of collaboration on those configuration files. So
+
+26
+00:02:34,800 --> 00:02:41,200
+you would use Git repository for that. So that's part of the infrastructure as code concept. So
+
+27
+00:02:41,200 --> 00:02:46,640
+you don't manually manage the infrastructure, but rather you write scripts or some automated
+
+28
+00:02:47,280 --> 00:02:53,680
+workflows to manage the infrastructure. And that is represented in files and code. And that is then
+
+29
+00:02:53,680 --> 00:03:02,560
+stored hosted on Git repositories. That's the first use case for why you would need Git as a DevOps
+
+30
+00:03:02,560 --> 00:03:10,080
+engineer. The second use case is when you are working with CI city pipeline, or generally a
+
+31
+00:03:10,080 --> 00:03:17,040
+build automation tool. So the basis of build automation or continuous integration continuous
+
+32
+00:03:17,040 --> 00:03:22,400
+delivery pipeline is that you check out the application code, you test it, you build the
+
+33
+00:03:22,400 --> 00:03:28,240
+application based on that code, and you do some other stuff with it. So this means that you need
+
+34
+00:03:28,240 --> 00:03:34,320
+integration of that build automation tool with the code, the application code Git repository,
+
+35
+00:03:34,400 --> 00:03:42,080
+and you also may need some Git commands specific for build automation tool. So to examine these
+
+36
+00:03:42,080 --> 00:03:48,320
+two points in more detail, you as a DevOps engineer may be responsible in some cases
+
+37
+00:03:48,320 --> 00:03:53,600
+to set up integration between the build automation tool and a Git repository. And
+
+38
+00:03:54,240 --> 00:03:59,440
+depending on the build automation tool, and depending on the Git repository, the integration may be
+
+39
+00:03:59,440 --> 00:04:06,080
+different. So having some kind of experience and understanding the concepts of how this integration
+
+40
+00:04:06,080 --> 00:04:11,200
+works is of course very important. And we're going to learn that, of course, in more detail and see
+
+41
+00:04:11,200 --> 00:04:18,560
+that in action in the build automation module. And another part that I mentioned is Git command
+
+42
+00:04:18,560 --> 00:04:25,040
+specific to build pipeline. And some of the examples of such commands can be, for example,
+
+43
+00:04:25,040 --> 00:04:31,040
+getting a commit hash of a specific commit, for example, the last commit, it could be, for example,
+
+44
+00:04:31,040 --> 00:04:39,360
+checking whether changes have happened in front end code or in back end code in order to decide
+
+45
+00:04:39,360 --> 00:04:45,840
+whether to run tests for that part, and so on. So these are some of the examples. And this is
+
+46
+00:04:45,840 --> 00:04:53,680
+for you to understand where you would need Git as a DevOps engineer. But as I mentioned,
+
+47
+00:04:53,680 --> 00:05:01,760
+we're going to see both scenarios using Git for Jenkins, CI CD pipeline and using Git repository
+
+48
+00:05:01,760 --> 00:05:07,360
+for infrastructures called tools in action in later modules.
+

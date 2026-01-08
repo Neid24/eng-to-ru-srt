@@ -1,0 +1,252 @@
+1
+00:00:00,000 --> 00:00:06,680
+So this time let's actually go to the editor locally.
+
+2
+00:00:06,680 --> 00:00:15,360
+So let's go to the server.js and I'm going to change something here, right?
+
+3
+00:00:15,360 --> 00:00:17,920
+So now I have a change locally.
+
+4
+00:00:17,920 --> 00:00:29,320
+So I can add those changes.
+
+5
+00:00:29,320 --> 00:00:33,840
+So I've committed my changes locally, now let's go to remote.
+
+6
+00:00:33,840 --> 00:00:41,320
+And now I'm going to edit the same line that I did locally right here, right?
+
+7
+00:00:41,320 --> 00:00:43,600
+So I have my local changes yet.
+
+8
+00:00:43,600 --> 00:00:49,280
+So I can do changes in parallel, let's say for remote.
+
+9
+00:00:49,280 --> 00:00:55,200
+So I have edited exactly the same line, the same code place that I did locally.
+
+10
+00:00:55,200 --> 00:01:00,560
+And this is something very realistic, two developers or even three developers can actually
+
+11
+00:01:00,560 --> 00:01:07,320
+change code in exactly the same place, exactly the same file in parallel without knowing.
+
+12
+00:01:07,320 --> 00:01:10,840
+And this will of course cause merge conflicts, right?
+
+13
+00:01:10,840 --> 00:01:13,320
+So I have changes on the remote.
+
+14
+00:01:13,320 --> 00:01:21,480
+So before I can actually push my local changes, I have to fetch that change first.
+
+15
+00:01:21,480 --> 00:01:26,080
+So now if I do git push, again, I see there are some changes locally.
+
+16
+00:01:26,080 --> 00:01:28,960
+So my push was rejected.
+
+17
+00:01:28,960 --> 00:01:39,800
+And if I do git pull rebase, here you see that I got conflict, git pull rebase.
+
+18
+00:01:39,800 --> 00:01:41,080
+This is all the information.
+
+19
+00:01:41,080 --> 00:01:46,400
+And here somewhere we see conflict, merge conflict in server.js.
+
+20
+00:01:46,400 --> 00:01:53,080
+So what happened is that merge wasn't possible because git doesn't know which version of
+
+21
+00:01:53,080 --> 00:01:55,720
+those two changes you actually want to take, right?
+
+22
+00:01:55,720 --> 00:01:57,600
+Both could be legitimate.
+
+23
+00:01:57,600 --> 00:02:01,020
+So it can automatically decide one or the other.
+
+24
+00:02:01,020 --> 00:02:09,480
+So you have to now manually decide which change actually stays and which one gets removed.
+
+25
+00:02:09,480 --> 00:02:12,880
+First let's see how that conflict actually looks like in the editor.
+
+26
+00:02:12,880 --> 00:02:16,960
+Here you also see that you are in a different state or different mode during the rebase
+
+27
+00:02:16,960 --> 00:02:19,080
+mode, but it's not completed.
+
+28
+00:02:19,080 --> 00:02:24,520
+So if I go back to editor, you see my conflict is actually highlighted here.
+
+29
+00:02:24,520 --> 00:02:28,960
+So the way you can do that easily, there are different editors and command lines for that.
+
+30
+00:02:28,960 --> 00:02:33,960
+You can do that in git clients with UI, you can do it in command line, or you can actually
+
+31
+00:02:33,960 --> 00:02:37,160
+do this in the editor, like IntelliJ.
+
+32
+00:02:37,160 --> 00:02:42,600
+This is what I prefer because you have good visualization of the conflict.
+
+33
+00:02:42,600 --> 00:02:54,200
+So what I do is in git resolve conflicts, you see a view, this is the changes locally
+
+34
+00:02:54,200 --> 00:02:56,520
+and these are the changes remotely.
+
+35
+00:02:56,520 --> 00:02:58,440
+And this is the end result.
+
+36
+00:02:58,440 --> 00:03:03,920
+So you basically have to decide what the end result will look like.
+
+37
+00:03:03,920 --> 00:03:08,400
+And usually the way this happens is, let's say this is from developer Emily and this
+
+38
+00:03:08,400 --> 00:03:11,120
+is your code changes.
+
+39
+00:03:11,120 --> 00:03:15,680
+So what you do is that you go to Emily and you ask, hey, we have a conflict here, can
+
+40
+00:03:15,680 --> 00:03:17,440
+we see what happened there?
+
+41
+00:03:17,440 --> 00:03:22,800
+So why did you change the code to this and then explain why you made those changes?
+
+42
+00:03:22,800 --> 00:03:27,720
+And at some point you agree on something and you decide, you know what, Emily's changes
+
+43
+00:03:27,720 --> 00:03:33,400
+were correct, or maybe both of our changes need to be merged, right?
+
+44
+00:03:33,400 --> 00:03:40,460
+So what you can do is pull this one in, so for remote and locally.
+
+45
+00:03:40,460 --> 00:03:43,700
+So now both of your changes are in there.
+
+46
+00:03:43,700 --> 00:03:46,860
+Let's actually remove this.
+
+47
+00:03:46,860 --> 00:03:49,100
+And this will be the end product.
+
+48
+00:03:49,100 --> 00:03:53,100
+So you and Emily agreed, you know what, both of our changes make sense.
+
+49
+00:03:53,100 --> 00:03:57,820
+So let's actually add them together and merge them like this.
+
+50
+00:03:57,820 --> 00:04:00,820
+And when you're done, you save.
+
+51
+00:04:00,820 --> 00:04:07,620
+And if you go back to editor and do get status, now git tells you what status you're in.
+
+52
+00:04:07,620 --> 00:04:11,940
+And here you see once you're done fixing all the conflicts, it could be more files than
+
+53
+00:04:11,940 --> 00:04:18,900
+just one in real case, it could be actually multiple files that all were changed.
+
+54
+00:04:18,900 --> 00:04:23,740
+And once you're done with that, you can actually run git rebase continue.
+
+55
+00:04:23,740 --> 00:04:28,900
+This is also something that is very helpful because whenever you have all these cases,
+
+56
+00:04:28,900 --> 00:04:34,540
+you can always type in git status and git tells you what status you're in, what is your current
+
+57
+00:04:34,540 --> 00:04:41,380
+state, and it also gives you suggestion what to do next based on your state, right?
+
+58
+00:04:41,380 --> 00:04:43,420
+So you can refer to this.
+
+59
+00:04:43,420 --> 00:04:46,500
+So I'm going to do git rebase continue.
+
+60
+00:04:46,500 --> 00:04:51,180
+And here you see this is my commit, and I'm in different mode now.
+
+61
+00:04:51,180 --> 00:05:03,260
+So now I can actually push my change to remote and remote gets updated.
+
+62
+00:05:03,260 --> 00:05:13,620
+And here if I go back to files and server, I see for remote and locally.
+
+63
+00:05:13,620 --> 00:05:15,620
+So this is the resolved conflict.
+

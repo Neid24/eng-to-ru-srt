@@ -1,0 +1,536 @@
+1
+00:00:00,000 --> 00:00:10,000
+In this lecture we will learn how to use a very fast and efficient Unix text editor called VIM, VIM.
+
+2
+00:00:10,000 --> 00:00:19,000
+This is a text editor we use in command line interface and which is very fast and efficient to work with once you learn how to use it.
+
+3
+00:00:19,000 --> 00:00:24,000
+So first I will explain why we need it and what are the main advantages of using VIM
+
+4
+00:00:24,000 --> 00:00:30,000
+and then we will jump into a hands on part and learn how to work with VIM editor.
+
+5
+00:00:32,000 --> 00:00:42,000
+We saw how to create files, how to rename and copy them as well as how to display contents of a file in a command line interface.
+
+6
+00:00:42,000 --> 00:00:46,000
+Now how do we write to a file on a command line?
+
+7
+00:00:46,000 --> 00:00:51,000
+Is it actually possible because we don't have a text editor in here, right?
+
+8
+00:00:51,000 --> 00:01:04,000
+Well actually Linux command line has a built in text editor called VI or it's richer, more modern version called VIM, VIM.
+
+9
+00:01:04,000 --> 00:01:13,000
+So this editor comes packaged in most of the Linux distributions and you can write into that editor just like you would in a normal text editor.
+
+10
+00:01:13,000 --> 00:01:25,000
+However since it's integrated into the command line interface you would need to know the specific VI editor commands to navigate inside the editor and work with the files.
+
+11
+00:01:25,000 --> 00:01:36,000
+Now you may be thinking why would I want to use an editor in a command line interface because visual text editors are much nicer and easier to use.
+
+12
+00:01:36,000 --> 00:01:39,000
+Well there are actually some good use cases for that.
+
+13
+00:01:39,000 --> 00:01:50,000
+First of all you may want to quickly edit a file like a configuration file where you just want to comment something out or adjust a value.
+
+14
+00:01:50,000 --> 00:02:03,000
+So you need to do very small adjustment in a file and it's actually quicker to do that in the command line interface than opening some editor, finding that file and then making changes there.
+
+15
+00:02:03,000 --> 00:02:22,000
+Also if you want to create a file in your current directory and then basically just write to that file you can create the file and open that using VI or VIM editor very fast instead of navigating to a folder and then creating a file there from a graphical editor etc.
+
+16
+00:02:22,000 --> 00:02:37,000
+VIM also supports opening all types of file formats and finally another important advantage of using VIM is sometimes you'll have to edit a file on a system where there is no visual text editor so VIM is the only option available.
+
+17
+00:02:37,000 --> 00:02:45,000
+A classic example is of course when working on a remote server where you just have a command line interface of that server.
+
+18
+00:02:45,000 --> 00:02:57,000
+And I personally use it for a couple of different use cases when working with a git in the command line interface just writing the commit message using the VI text editor.
+
+19
+00:02:57,000 --> 00:03:08,000
+I also use it to display Kubernetes configuration files maybe just to check that they are correct or maybe look up something instead of opening that in a graphical editor.
+
+20
+00:03:08,000 --> 00:03:15,000
+It's much faster especially again if I'm working in the command line interface executing some Kubernetes commands.
+
+21
+00:03:15,000 --> 00:03:27,000
+And the third common use case where I use VI or VIM editor is if I want to change a configuration file maybe of an application where there is just one line or one word that I want to edit.
+
+22
+00:03:27,000 --> 00:03:32,000
+So again faster to open it directly in the command line interface.
+
+23
+00:03:33,000 --> 00:03:50,000
+However, since it's integrated into the command line interface you would need to know the VI or VIM editor commands to navigate the editor and the contents of the file inside and to work with files.
+
+24
+00:03:50,000 --> 00:03:56,000
+And by default you get VI editor packaged into the operating system.
+
+25
+00:03:56,000 --> 00:04:00,000
+As I mentioned, however, we don't have beam editor.
+
+26
+00:04:00,000 --> 00:04:11,000
+So we would need to install that and to check we can just try to execute beam or VIM with a file name doesn't matter.
+
+27
+00:04:11,000 --> 00:04:21,000
+Test.txt, a text file and you will see that command wasn't found.
+
+28
+00:04:21,000 --> 00:04:31,000
+So we're going to install the VIM editor using our package manager like this.
+
+29
+00:04:31,000 --> 00:04:35,000
+And now we can use it and see how it works.
+
+30
+00:04:35,000 --> 00:04:46,000
+So first of all let's actually switch to documents Java app folder where we have a file an existing readme markdown file.
+
+31
+00:04:46,000 --> 00:04:53,000
+So with VIM you can actually open existing files whatever extension they may have.
+
+32
+00:04:53,000 --> 00:04:57,000
+This could be a Python file, a Java file, a simple configuration file.
+
+33
+00:04:57,000 --> 00:05:01,000
+It doesn't really matter you can open all sorts of files with VIM.
+
+34
+00:05:01,000 --> 00:05:06,000
+So for that we type in VIM as a command and then the file name.
+
+35
+00:05:06,000 --> 00:05:10,000
+And if I enter you see the file contents here.
+
+36
+00:05:10,000 --> 00:05:13,000
+VIM editor has two modes.
+
+37
+00:05:13,000 --> 00:05:17,000
+The first one is the default which you see right here.
+
+38
+00:05:17,000 --> 00:05:23,000
+This is the mode you're in automatically when you open a file and this is called a command mode.
+
+39
+00:05:23,000 --> 00:05:30,000
+In command mode you can't type anything here but you can do anything other than that.
+
+40
+00:05:30,000 --> 00:05:40,000
+You can navigate the contents, you can create new lines, you can delete lines, you can search in the file, undo changes and so on.
+
+41
+00:05:40,000 --> 00:05:44,000
+And the second mode is called an edit mode or insert mode.
+
+42
+00:05:44,000 --> 00:05:48,000
+And in this mode you can actually type characters and edit text.
+
+43
+00:05:48,000 --> 00:05:58,000
+So you navigate inside the file with command mode and write characters or edit text in edit mode which means you will switch back and forth very often.
+
+44
+00:05:58,000 --> 00:06:11,000
+To switch from the command mode to an edit mode you would have to type in I which is for insert and then you see that you have this insert mode here.
+
+45
+00:06:11,000 --> 00:06:17,000
+So you know in which mode you're in and now you can actually start typing stuff.
+
+46
+00:06:18,000 --> 00:06:21,000
+And so on.
+
+47
+00:06:21,000 --> 00:06:27,000
+So basically you can just edit the file and we're in insert mode now.
+
+48
+00:06:27,000 --> 00:06:36,000
+If you're done changing the file or editing the file you would want to close your editor and save the changes that you made to the file.
+
+49
+00:06:36,000 --> 00:06:42,000
+For that you will have to go back to the command mode and you do that using escape.
+
+50
+00:06:42,000 --> 00:06:47,000
+So just click escape here and you are in command mode again.
+
+51
+00:06:47,000 --> 00:06:58,000
+And to save the file and close it you would type column which you see right here and then write quit.
+
+52
+00:06:58,000 --> 00:07:04,000
+And if I do enter you see that the file was closed or the editor was actually closed.
+
+53
+00:07:04,000 --> 00:07:13,000
+And now if we display or if we print the contents of readme it will show our changes.
+
+54
+00:07:13,000 --> 00:07:21,000
+Now let's go back to the file and switch to insert mode and make some more changes.
+
+55
+00:07:35,000 --> 00:07:38,000
+I'm just writing some text here it doesn't really matter.
+
+56
+00:07:38,000 --> 00:07:44,000
+But let's say at some point you decide you don't want to save the changes that you just made.
+
+57
+00:07:44,000 --> 00:07:48,000
+You want to close the file and basically discard the changes.
+
+58
+00:07:48,000 --> 00:07:58,000
+Again you would do escape to go back to the command mode and instead of typing write and quit you just say quit and then exclamation mark.
+
+59
+00:07:58,000 --> 00:08:04,000
+And that will basically discard the changes and close the file.
+
+60
+00:08:04,000 --> 00:08:13,000
+And if we do concat file contents again you see that the change wasn't saved.
+
+61
+00:08:13,000 --> 00:08:22,000
+So these two are commands that you will always need when working with the vim editor because either you're changing stuff in your file
+
+62
+00:08:22,000 --> 00:08:27,000
+and you want to save them or you want to discard them and you want to then close the editor.
+
+63
+00:08:27,000 --> 00:08:31,000
+So you should practice and remember them actually by heart these two commands.
+
+64
+00:08:31,000 --> 00:08:39,000
+And in addition to that there are just a few useful commands that you should learn to be able to use vim.
+
+65
+00:08:39,000 --> 00:08:47,000
+So these are around 10 commands and if you learn them you would basically be able to navigate the vim editor freely
+
+66
+00:08:47,000 --> 00:08:50,000
+and you would be able to do basically anything inside.
+
+67
+00:08:50,000 --> 00:08:55,000
+So nothing really complex to learn here just a handful of other commands.
+
+68
+00:08:55,000 --> 00:08:59,000
+Now we've been editing an existing file with vim.
+
+69
+00:08:59,000 --> 00:09:03,000
+However we can also create new files with a vim editor.
+
+70
+00:09:03,000 --> 00:09:09,000
+For that you would just type vim and a file name of a new file you want to create.
+
+71
+00:09:09,000 --> 00:09:17,000
+Let's call it config.yaml again could be of any format that you want.
+
+72
+00:09:17,000 --> 00:09:21,000
+And if you click you see that a new file was created.
+
+73
+00:09:21,000 --> 00:09:27,000
+You see that here and it also opened it in this default command mode.
+
+74
+00:09:27,000 --> 00:09:31,000
+So now you can again start editing and typing here.
+
+75
+00:09:31,000 --> 00:09:35,000
+So I'm going to paste in the contents from another file in here.
+
+76
+00:09:35,000 --> 00:09:41,000
+So first of all you see this nice syntax highlighting that you get in command line editor which is pretty cool.
+
+77
+00:09:41,000 --> 00:09:45,000
+And we can now learn a few useful commands with this file example.
+
+78
+00:09:45,000 --> 00:09:51,000
+And this is a Kubernetes configuration file example but it doesn't really matter this could be any file.
+
+79
+00:09:51,000 --> 00:09:53,000
+It could also be a text file.
+
+80
+00:09:53,000 --> 00:10:00,000
+First of all if you want to delete lines in a vim editor let's say we want to delete this line right here.
+
+81
+00:10:00,000 --> 00:10:10,000
+Instead of basically going and deleting the character by character you can delete the whole line in a command mode.
+
+82
+00:10:10,000 --> 00:10:17,000
+So we switch to a command mode first by escape and then you type in 2 times d.
+
+83
+00:10:17,000 --> 00:10:21,000
+So dd and that will remove the whole line.
+
+84
+00:10:21,000 --> 00:10:25,000
+You can also remove multiple lines at once.
+
+85
+00:10:25,000 --> 00:10:33,000
+So for example you have this huge configuration code and you found some part of the configuration that you don't need at all.
+
+86
+00:10:33,000 --> 00:10:37,000
+And these are maybe 10 lines and you want to delete all those 10 lines at once.
+
+87
+00:10:37,000 --> 00:10:44,000
+You can actually do that very easily by typing in d and then 10.
+
+88
+00:10:44,000 --> 00:10:49,000
+And then d again and that will remove 10 lines.
+
+89
+00:10:49,000 --> 00:10:57,000
+Now let's say you deleted 10 lines and you realized actually you need that configuration so you want to undo your change.
+
+90
+00:10:57,000 --> 00:11:02,000
+For that you just click on you and that will undo the changes.
+
+91
+00:11:02,000 --> 00:11:10,000
+And if you want to undo the previous change as well you just do u again and it will undo both changes.
+
+92
+00:11:10,000 --> 00:11:14,000
+And again note that for all this we are in a command mode.
+
+93
+00:11:14,000 --> 00:11:17,000
+That's where all the commands will be executed.
+
+94
+00:11:17,000 --> 00:11:23,000
+Some other useful keys are jumping to the end of the line right.
+
+95
+00:11:23,000 --> 00:11:32,000
+Let's say we want to edit this container port and to directly jump to the end of the line instead of getting there with arrows.
+
+96
+00:11:32,000 --> 00:11:36,000
+You can just type in capital A so shift A.
+
+97
+00:11:36,000 --> 00:11:42,000
+And this will take you to the end of the line and also switch to the insert mode.
+
+98
+00:11:42,000 --> 00:11:45,000
+So now we can actually just type stuff here.
+
+99
+00:11:45,000 --> 00:11:54,000
+And let's go back to the command mode and the same way you can actually jump to the beginning of the line by typing in zero.
+
+100
+00:11:54,000 --> 00:11:59,000
+So it jumped to the beginning of the line and we're still in the command mode.
+
+101
+00:11:59,000 --> 00:12:10,000
+We can also change to or jump to the end of the line without switching to the insert mode by typing in dollar sign like this.
+
+102
+00:12:10,000 --> 00:12:22,000
+So basically with zero and dollar sign you can navigate the file and basically get to whatever place you want pretty fast like this.
+
+103
+00:12:22,000 --> 00:12:32,000
+And the one last command which is very convenient in navigating your file is to jump to a specific line inside your file.
+
+104
+00:12:32,000 --> 00:12:40,000
+Let's say you have a file with 100 lines of code or configuration and you get an error that says on line 12 there is an error.
+
+105
+00:12:40,000 --> 00:12:50,000
+You want to jump to that line directly and you can actually do that by typing in the line number let's say 12 and then capital G.
+
+106
+00:12:50,000 --> 00:12:58,000
+So shift G and they will basically jump to the 12th line in your configuration file.
+
+107
+00:12:58,000 --> 00:13:03,000
+Now let's jump to line 16 and there you go.
+
+108
+00:13:03,000 --> 00:13:10,000
+So these commands that I showed you are the basic commands that you need to know to navigate a file.
+
+109
+00:13:10,000 --> 00:13:21,000
+And if you learn them if you use them frequently you will be fast in using them and you will find it actually very easy to write files and edit files in Vim editor.
+
+110
+00:13:21,000 --> 00:13:36,000
+And there are two other commands that I want to show which are very practical when you're searching something in a file or you want to replace all occurrences of a certain word or certain string in a file.
+
+111
+00:13:36,000 --> 00:13:47,000
+So the first command is for searching in a file and for that in the command mode you are going to type in forward slash and you see that we have a cursor here.
+
+112
+00:13:47,000 --> 00:13:52,000
+And here you can actually type whatever text you're looking for.
+
+113
+00:13:52,000 --> 00:13:57,000
+Let's say we're looking for all the places where nginx is written.
+
+114
+00:13:57,000 --> 00:14:10,000
+So it's going to find the first match for this search text so to say and now you can actually jump to the next match like this.
+
+115
+00:14:10,000 --> 00:14:16,000
+Or you can also jump to the previous match using the capital N.
+
+116
+00:14:16,000 --> 00:14:23,000
+So shift N will jump back to the previous occurrence of that word you're looking for.
+
+117
+00:14:23,000 --> 00:14:35,000
+Again this is more useful if you have a huge configuration file or maybe a log file where you're looking for a specific value so you can search for that value using forward slash.
+
+118
+00:14:35,000 --> 00:14:44,000
+And another interesting use case is if you want to replace certain word in all the places in a file.
+
+119
+00:14:44,000 --> 00:14:50,000
+And let's say we want to rename this application from nginx to web app.
+
+120
+00:14:50,000 --> 00:14:56,000
+But since we have nginx here five times we don't want to do that one by one.
+
+121
+00:14:56,000 --> 00:15:00,000
+We want to write a command that replaces all the occurrences of nginx.
+
+122
+00:15:00,000 --> 00:15:07,000
+To replace a string with a new one we type colon percent s.
+
+123
+00:15:07,000 --> 00:15:16,000
+So we're basically replacing a string and then we need the original string that we're replacing and then new one like this.
+
+124
+00:15:16,000 --> 00:15:24,000
+And if I hit enter you see all nginx occurrences change to web app.
+
+125
+00:15:24,000 --> 00:15:28,000
+And I also have this kind of summary right here.
+
+126
+00:15:28,000 --> 00:15:34,000
+And again if I want to undo my changes I just click you and there you go.
+
+127
+00:15:34,000 --> 00:15:52,000
+So these are basically all the commands you need to know to be able to use beam editor comfortably and to also make it useful for you and efficient working with files with beam editor.
+
+128
+00:15:52,000 --> 00:16:01,000
+So for a recap you saw that we can switch to an insert mode and start typing here whatever we want.
+
+129
+00:16:01,000 --> 00:16:14,000
+We can switch back to a command mode and then we can do all sorts of things like delete a line or undo the changes we can delete multiple lines at once.
+
+130
+00:16:14,000 --> 00:16:21,000
+We can jump to the end of the line as well as to the start of the line with one command.
+
+131
+00:16:21,000 --> 00:16:29,000
+And you also saw that we can search a certain value in a file and also replace it with a new string in all the places it's used.
+
+132
+00:16:29,000 --> 00:16:40,000
+And again if I want to save my changes and close in a command mode I'm just going to type colon write quit and there you go.
+
+133
+00:16:40,000 --> 00:16:47,000
+I suggest you practice these commands so that you get comfortable using them and you also remember these commands.
+
+134
+00:16:47,000 --> 00:16:53,000
+And also for simple use cases start using beam editor so that you can practice it even more.
+

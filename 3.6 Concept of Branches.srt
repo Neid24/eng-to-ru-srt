@@ -1,0 +1,720 @@
+1
+00:00:00,000 --> 00:00:11,400
+You see we have a branch called master right here, we just have one branch, which is created
+
+2
+00:00:11,400 --> 00:00:14,480
+by default when we create a repository.
+
+3
+00:00:14,480 --> 00:00:19,900
+So what are the branches and why is it called master?
+
+4
+00:00:19,900 --> 00:00:25,720
+Typical use case in a development team is you develop new features for an application
+
+5
+00:00:25,720 --> 00:00:29,400
+or you fix bugs in existing features.
+
+6
+00:00:29,400 --> 00:00:34,000
+And now imagine three developers are developing new features and two other developers are
+
+7
+00:00:34,000 --> 00:00:38,960
+fixing some bugs and each does their own code changes.
+
+8
+00:00:38,960 --> 00:00:46,520
+Now we said it's important to commit changes often and in small chunks to the master branch,
+
+9
+00:00:46,520 --> 00:00:49,400
+to the main branch in the repository.
+
+10
+00:00:49,400 --> 00:00:54,440
+Imagine if each developer pushed their changes to the repository, what a mess that repository
+
+11
+00:00:54,440 --> 00:00:55,440
+will be.
+
+12
+00:00:55,440 --> 00:00:58,280
+We don't know the actual state of the repository.
+
+13
+00:00:58,280 --> 00:01:02,480
+Are the two bugs fully fixed or just partially done?
+
+14
+00:01:02,480 --> 00:01:07,480
+Are the three features fully implemented or are they not fully working yet?
+
+15
+00:01:07,480 --> 00:01:13,120
+No one could tell when the repository is in a state that you can build the application
+
+16
+00:01:13,120 --> 00:01:19,520
+and deploy it somewhere based on that current state in the repository.
+
+17
+00:01:19,520 --> 00:01:27,320
+So the concept of branches exists in order to cleanly divide the work of different developers.
+
+18
+00:01:27,320 --> 00:01:33,160
+Best practice is to create branch for each feature and each bug fits.
+
+19
+00:01:33,160 --> 00:01:37,760
+And this git repository is also support those best practices.
+
+20
+00:01:37,760 --> 00:01:46,640
+So if I go to branches here, I just have one branch as you see, I can create new branch.
+
+21
+00:01:46,640 --> 00:01:53,720
+The naming standard for feature and bug fix branches is actually to have them prefixed
+
+22
+00:01:53,720 --> 00:01:55,360
+with either feature.
+
+23
+00:01:55,360 --> 00:02:04,160
+And then you have the name of the feature, for example, authentication, user authentication.
+
+24
+00:02:04,160 --> 00:02:14,040
+Or if I'm fixing a bug, for example, it would be bug fix user authentication error or whatever.
+
+25
+00:02:14,040 --> 00:02:21,320
+So basically, we use branches also as a description of what is happening in the branch, what code
+
+26
+00:02:21,320 --> 00:02:27,720
+changes are in progress, is there a new feature that is developed, or what bug is getting
+
+27
+00:02:27,720 --> 00:02:30,560
+fixed in that branch, right?
+
+28
+00:02:30,560 --> 00:02:34,080
+So again, good for clear separation.
+
+29
+00:02:34,080 --> 00:02:40,560
+And you have one branch per bug fix or per feature, these are the best practices.
+
+30
+00:02:40,560 --> 00:02:47,320
+And now developer can commit its half done or work in progress changes as often as they
+
+31
+00:02:47,320 --> 00:02:50,440
+want without breaking other people's code.
+
+32
+00:02:50,440 --> 00:02:56,400
+And once fully implemented and tested locally, developer can now say, my feature or my bug
+
+33
+00:02:56,400 --> 00:03:01,560
+fix is done, I can merge it into the master branch.
+
+34
+00:03:01,560 --> 00:03:04,800
+So everyone else can also use that.
+
+35
+00:03:04,800 --> 00:03:11,960
+And also now the new feature can be deployed with the next release version.
+
+36
+00:03:11,960 --> 00:03:15,200
+So each developer works with their own branch.
+
+37
+00:03:15,200 --> 00:03:20,600
+And when done with your own changes, they merge it back to the master.
+
+38
+00:03:20,600 --> 00:03:27,000
+Important to note here is that if the features are too big, it may take long to fully implement
+
+39
+00:03:27,000 --> 00:03:28,520
+the feature.
+
+40
+00:03:28,520 --> 00:03:35,200
+And it will increase the chance of conflicts when it's time to merge multiple of such features
+
+41
+00:03:35,200 --> 00:03:36,600
+in the master.
+
+42
+00:03:36,600 --> 00:03:41,200
+So that's why it's important also to have small features that don't take a lot of
+
+43
+00:03:41,200 --> 00:03:44,120
+days or weeks to implement.
+
+44
+00:03:44,120 --> 00:03:48,560
+Otherwise developers will have to communicate and solve the merge conflicts all the time.
+
+45
+00:03:48,560 --> 00:03:53,560
+So as a result in the team, you always know what the current state of the master is and
+
+46
+00:03:53,560 --> 00:04:00,680
+you always know there are no half or in progress features or bug fixes in the master.
+
+47
+00:04:00,680 --> 00:04:05,840
+And that it's always deployable, so to say, it's always ready for the release.
+
+48
+00:04:05,840 --> 00:04:10,520
+So there are two ways to create a branch, either we can create it in the UI, as I showed
+
+49
+00:04:10,520 --> 00:04:18,160
+you here, every repository allows you to create branch in UI, we can do that here, we can
+
+50
+00:04:18,160 --> 00:04:21,600
+actually leave that bug fix create branch.
+
+51
+00:04:21,600 --> 00:04:26,120
+And note here that we created the branch based on master, right?
+
+52
+00:04:26,120 --> 00:04:33,040
+So we have now exactly the same code copied from master and branched it into a new branch.
+
+53
+00:04:33,040 --> 00:04:36,880
+And now we can make changes in this branch.
+
+54
+00:04:36,880 --> 00:04:39,920
+And that will divert the branch from master, right?
+
+55
+00:04:39,920 --> 00:04:43,200
+But we have to base it on some branch.
+
+56
+00:04:43,200 --> 00:04:47,840
+And again, best practice is to do that from master.
+
+57
+00:04:47,840 --> 00:04:55,040
+And now if I want to work with this branch that I created in UI, my local git repository
+
+58
+00:04:55,040 --> 00:04:57,760
+doesn't know that this branch was created.
+
+59
+00:04:57,760 --> 00:05:03,240
+This means if I do git branch here, I see just one branch, right?
+
+60
+00:05:03,240 --> 00:05:05,240
+I just see master.
+
+61
+00:05:05,240 --> 00:05:08,560
+So my local git repository has to know there's a new branch.
+
+62
+00:05:08,560 --> 00:05:13,760
+So we do that by just pulling the changes from the repository.
+
+63
+00:05:13,760 --> 00:05:19,320
+And here you see, I get update, the new branch was created, and this is the name, right?
+
+64
+00:05:19,320 --> 00:05:21,600
+So now I'm still in the master.
+
+65
+00:05:21,600 --> 00:05:25,680
+So how do I get started working in that new branch?
+
+66
+00:05:25,680 --> 00:05:30,760
+I do that using git checkout command.
+
+67
+00:05:30,760 --> 00:05:37,220
+So git checkout basically lets me change the branch that I'm working in.
+
+68
+00:05:37,220 --> 00:05:42,400
+So if I do this, you see now I have a local copy of the branch which is connected to the
+
+69
+00:05:42,400 --> 00:05:44,960
+remote branch.
+
+70
+00:05:44,960 --> 00:05:48,000
+And now I have switched to that branch.
+
+71
+00:05:48,000 --> 00:05:54,760
+So every change I make now in the code will only affect this branch right here.
+
+72
+00:05:54,760 --> 00:06:01,360
+Another way to create a new branch is something that I use most often because it's more convenient
+
+73
+00:06:01,360 --> 00:06:05,080
+and faster is using command line, right?
+
+74
+00:06:05,080 --> 00:06:10,880
+So let's say I'm starting to work on a feature that will add some new functionality.
+
+75
+00:06:10,880 --> 00:06:14,200
+Let's say I'm connecting to a new database.
+
+76
+00:06:14,200 --> 00:06:19,720
+The first thing I need to do is go back to the master because again, we're basing our
+
+77
+00:06:19,720 --> 00:06:25,320
+new feature branch or a bug fix branch on the master code, right?
+
+78
+00:06:25,320 --> 00:06:31,280
+So I'm going to check out master.
+
+79
+00:06:31,280 --> 00:06:37,400
+And now when I have the up to date state of the master, I can create a new branch and
+
+80
+00:06:37,400 --> 00:06:43,320
+I can do that using git checkout.
+
+81
+00:06:43,320 --> 00:06:52,040
+And here I provide the flag, the option minus B. And now I can write the name of my feature
+
+82
+00:06:52,040 --> 00:06:53,040
+branch.
+
+83
+00:06:53,040 --> 00:06:57,480
+Let's say database connection, right?
+
+84
+00:06:57,480 --> 00:06:59,840
+Now this feature branch doesn't exist yet.
+
+85
+00:06:59,840 --> 00:07:07,320
+So with this option, git will create that branch with this command and also check out
+
+86
+00:07:07,320 --> 00:07:08,320
+to the branch.
+
+87
+00:07:08,320 --> 00:07:10,960
+So it's going to do two things in one command.
+
+88
+00:07:10,960 --> 00:07:16,040
+So here you see the branch was created and I automatically switched to that branch.
+
+89
+00:07:16,040 --> 00:07:19,280
+This is way faster and more efficient for me.
+
+90
+00:07:19,280 --> 00:07:23,680
+I don't have to go back to UI and create the branch there and then pull it.
+
+91
+00:07:23,680 --> 00:07:26,600
+I can just do it locally faster.
+
+92
+00:07:26,600 --> 00:07:33,280
+Now I have a branch now locally, that's again do git branch, I have master branch, I have
+
+93
+00:07:33,280 --> 00:07:38,680
+the bug fix that I pulled and I have the feature branch that I just created.
+
+94
+00:07:38,680 --> 00:07:42,720
+Now the remote repository doesn't know about this feature branch.
+
+95
+00:07:42,720 --> 00:07:49,880
+So if I go back and refresh, you see here, I only see the two branches, right?
+
+96
+00:07:49,880 --> 00:07:55,960
+So now we have the same thing as before on my local repository has the branch, but remote
+
+97
+00:07:55,960 --> 00:07:57,840
+should know about it, right?
+
+98
+00:07:57,840 --> 00:08:04,200
+So the bug fix branch, we pulled it from the repository, the feature branch new branch,
+
+99
+00:08:04,200 --> 00:08:07,400
+we have to push to remote repository.
+
+100
+00:08:07,400 --> 00:08:10,520
+So it knows about the new feature branch.
+
+101
+00:08:10,520 --> 00:08:13,200
+So first of all, let's make some changes.
+
+102
+00:08:13,200 --> 00:08:18,160
+Right now it's exactly on the same state as master.
+
+103
+00:08:18,160 --> 00:08:21,120
+So let's do something very trivial.
+
+104
+00:08:21,120 --> 00:08:28,680
+Let's just update read me just to have some change to commit.
+
+105
+00:08:28,680 --> 00:08:36,320
+Let's just change this here, installing all the dependencies.
+
+106
+00:08:36,320 --> 00:08:42,120
+Of course, in realistic case, I would change them code that actually connects the database,
+
+107
+00:08:42,120 --> 00:08:56,440
+have some code changes, and then I will commit those changes, say, doesn't really matter.
+
+108
+00:08:56,440 --> 00:09:01,080
+And let's clear this up and do git status.
+
+109
+00:09:01,080 --> 00:09:05,880
+Nothing to commit, but I have a new commit to push to the repository.
+
+110
+00:09:05,880 --> 00:09:08,960
+So what happens if I do git push?
+
+111
+00:09:08,960 --> 00:09:16,200
+Here we see git push alone doesn't work because as I said, the remote repository doesn't know
+
+112
+00:09:16,200 --> 00:09:17,640
+about the feature branch.
+
+113
+00:09:17,640 --> 00:09:24,840
+So it says I don't have a branch where I can merge these changes from from your local repository
+
+114
+00:09:24,840 --> 00:09:26,160
+to right.
+
+115
+00:09:26,160 --> 00:09:29,960
+So that means we have to push the branch itself.
+
+116
+00:09:29,960 --> 00:09:32,080
+And then the changes in the branch.
+
+117
+00:09:32,080 --> 00:09:35,920
+So we do that using this command.
+
+118
+00:09:35,920 --> 00:09:45,040
+Git push set upstream origin feature branch of this push pushes the branch to remote repository.
+
+119
+00:09:45,040 --> 00:09:55,600
+And now if I go back, drop down, I see the feature branch right here.
+
+120
+00:09:55,600 --> 00:10:02,880
+And one thing to remember here is that you don't have to memorize all these comments.
+
+121
+00:10:02,880 --> 00:10:08,840
+For example, I never type out these git push set upstream, because I know that when I type
+
+122
+00:10:08,840 --> 00:10:15,640
+git push, it will give me the suggestion of the command that I can just copy, right?
+
+123
+00:10:15,640 --> 00:10:19,840
+So you don't have to memorize these things, you don't have to memorize the pull requests,
+
+124
+00:10:19,840 --> 00:10:26,480
+and so on with the with the attributes, because git gives you a lot of cheat sheet suggestions,
+
+125
+00:10:26,480 --> 00:10:27,980
+so to say.
+
+126
+00:10:27,980 --> 00:10:31,840
+But it's important to know the concepts, it's important to know that when you create a branch
+
+127
+00:10:31,840 --> 00:10:37,320
+in remote repository, the local branch has to pull that change, because otherwise it
+
+128
+00:10:37,320 --> 00:10:39,200
+doesn't know there's a new branch.
+
+129
+00:10:39,200 --> 00:10:43,640
+And the same way, if you do some changes in the local repository, you have to let the
+
+130
+00:10:43,640 --> 00:10:45,520
+remote know.
+
+131
+00:10:45,520 --> 00:10:50,000
+And when you know the concepts, you can look up the commands, or you can just basically
+
+132
+00:10:50,000 --> 00:10:53,160
+use the ones that git suggests to you.
+
+133
+00:10:53,160 --> 00:10:59,080
+Another thing to note here is that a lot of projects and a lot of teams actually have
+
+134
+00:10:59,080 --> 00:11:01,360
+two main branches in their projects.
+
+135
+00:11:01,360 --> 00:11:08,440
+So they have the master branch, and they have the develop branch or dev branch, so to say.
+
+136
+00:11:08,440 --> 00:11:11,240
+It's a very common practice.
+
+137
+00:11:11,240 --> 00:11:16,680
+So dev branch basically represents the intermediary master, right?
+
+138
+00:11:16,680 --> 00:11:22,000
+We said that the master should always be in a state where all the developers know this
+
+139
+00:11:22,000 --> 00:11:25,600
+is a state that is ready for production, right?
+
+140
+00:11:25,600 --> 00:11:27,440
+It's a tested code.
+
+141
+00:11:27,440 --> 00:11:32,240
+It's something that is candidate for the next release, so to say.
+
+142
+00:11:32,240 --> 00:11:38,180
+So how this works is that the teams that are developing in sprints, they create their feature
+
+143
+00:11:38,180 --> 00:11:43,400
+branch and bug fix branches, and they merge them to develop branch.
+
+144
+00:11:43,400 --> 00:11:48,080
+And at the end of the sprint, be a two week period or three week period or whatever it
+
+145
+00:11:48,080 --> 00:11:52,880
+is, develop branch then gets merged into master, right?
+
+146
+00:11:52,880 --> 00:11:58,320
+So they test develop branch and all the changes that were made there and then merge it into
+
+147
+00:11:58,320 --> 00:11:59,320
+master.
+
+148
+00:11:59,320 --> 00:12:02,400
+Now, what is the difference between these two practices?
+
+149
+00:12:02,400 --> 00:12:07,120
+What is the difference between having just master branch and then having those branches
+
+150
+00:12:07,120 --> 00:12:12,160
+constantly merged into that or having an additional develop branch?
+
+151
+00:12:12,160 --> 00:12:19,600
+Now, if you are doing or if you are developing and setting up continuous integration, continuous
+
+152
+00:12:19,600 --> 00:12:25,760
+delivery pipeline, then you should use only master branch because the way it works is
+
+153
+00:12:25,760 --> 00:12:33,040
+that every change that you make to the code, meaning every time a new feature gets completed
+
+154
+00:12:33,040 --> 00:12:38,600
+and merged into master branch or every time a bug fix gets completed and merged into master
+
+155
+00:12:38,600 --> 00:12:44,600
+branch, that will trigger a pipeline that will test the code and that will build the
+
+156
+00:12:44,600 --> 00:12:49,240
+application and deploy it at least to the staging server, right?
+
+157
+00:12:49,240 --> 00:12:51,640
+So that's continuous delivery.
+
+158
+00:12:51,640 --> 00:12:57,040
+And for that, you need a dev branch because you're not collecting your changes.
+
+159
+00:12:57,040 --> 00:13:02,120
+And then at the end of the sprint, merging it to master and deploying it, but rather
+
+160
+00:13:02,120 --> 00:13:09,400
+you're deploying every single bug fix, every single feature right to staging server.
+
+161
+00:13:09,400 --> 00:13:11,200
+That's important to understand.
+
+162
+00:13:11,200 --> 00:13:16,000
+When you have develop branch as an intermediary to master, what happens is the developers
+
+163
+00:13:16,000 --> 00:13:23,920
+basically collect the new features, the bug fixes and all the different changes in dev.
+
+164
+00:13:23,920 --> 00:13:29,680
+And then they take that big chunk of changes at the end of the sprint, merge it to master.
+
+165
+00:13:29,680 --> 00:13:34,040
+So they have releases once every end of the sprint, right?
+
+166
+00:13:34,040 --> 00:13:38,320
+And there are some complications with that because dev branch can actually end up being
+
+167
+00:13:38,320 --> 00:13:44,800
+the work in progress state and they have to be careful and synchronize when it's time
+
+168
+00:13:44,800 --> 00:13:47,840
+to merge develop into master and someone.
+
+169
+00:13:47,840 --> 00:13:54,440
+So the best practice in DevOps, and if you want to do it the modern way, so to say, meaning
+
+170
+00:13:54,440 --> 00:13:59,440
+set up the continuous integration, set up the continuous delivery, the proper way, then
+
+171
+00:13:59,440 --> 00:14:05,960
+you have to go with having master branch and you don't need the intermediary dev branch
+
+172
+00:14:05,960 --> 00:14:06,960
+anymore.
+
+173
+00:14:06,960 --> 00:14:09,840
+So that should be the best practice actually.
+
+174
+00:14:09,840 --> 00:14:13,440
+But for DevOps engineers, it's important to know that there are teams of developers
+
+175
+00:14:13,480 --> 00:14:19,280
+that are working this way and have dev branch, some even have third branch, which is a staging
+
+176
+00:14:19,280 --> 00:14:21,360
+or test branch in addition.
+
+177
+00:14:21,360 --> 00:14:25,160
+So it's important to know that these are the practices they're working with.
+
+178
+00:14:25,160 --> 00:14:31,360
+And if you want to move to the proper DevOps pipeline with continuous delivery, you have
+
+179
+00:14:31,360 --> 00:14:37,560
+to move away from that and implement just one master branch and build and deliver the
+
+180
+00:14:37,560 --> 00:14:41,000
+changes after every merge to the master branch.
+

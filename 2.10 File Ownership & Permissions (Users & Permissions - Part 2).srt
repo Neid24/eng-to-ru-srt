@@ -1,0 +1,1032 @@
+1
+00:00:00,000 --> 00:00:10,100
+As we already learned, everything in Linux is a file.
+
+2
+00:00:10,100 --> 00:00:17,940
+So permissions for users in Linux system are related to the files.
+
+3
+00:00:17,940 --> 00:00:24,440
+So basically each user in the system will have a set of permissions to access and execute
+
+4
+00:00:24,440 --> 00:00:26,000
+different files.
+
+5
+00:00:26,000 --> 00:00:31,440
+So let's look at files and permissions on those files to see how that works.
+
+6
+00:00:31,440 --> 00:00:39,160
+You remember the LS command that we used to list files and folders in a directory, right?
+
+7
+00:00:39,160 --> 00:00:49,360
+We also had ls-a flag that we had to ls-command in order to display the hidden files and folders
+
+8
+00:00:49,360 --> 00:00:50,360
+in addition.
+
+9
+00:00:50,360 --> 00:00:59,600
+Well, we also have another flag here called l that shows us permissions of files and folders
+
+10
+00:00:59,600 --> 00:01:00,880
+in that directory.
+
+11
+00:01:00,880 --> 00:01:08,880
+So if I execute this, you see that the command displays a bunch of information on each file
+
+12
+00:01:08,880 --> 00:01:15,040
+or folder in the directory in addition to just displaying their names.
+
+13
+00:01:15,040 --> 00:01:20,080
+And this additional information that you see here actually contains permissions on
+
+14
+00:01:20,080 --> 00:01:21,800
+those files and folders.
+
+15
+00:01:21,800 --> 00:01:28,520
+So let's go through this information one by one.
+
+16
+00:01:28,520 --> 00:01:33,640
+First of all, when we're talking about users and their privileges or permissions, we have
+
+17
+00:01:33,640 --> 00:01:36,840
+two concepts that we need to consider.
+
+18
+00:01:36,840 --> 00:01:39,840
+The first one is a concept called ownership.
+
+19
+00:01:39,840 --> 00:01:46,440
+The ownership basically means who owns the files or folders or who has basically any
+
+20
+00:01:46,440 --> 00:01:49,640
+permission at all for those files.
+
+21
+00:01:49,640 --> 00:01:53,240
+And each file has two different owners.
+
+22
+00:01:53,240 --> 00:01:57,920
+The first one is the user and the second one is the group.
+
+23
+00:01:57,920 --> 00:02:05,080
+So what do you see here is the user owner of a file or folder.
+
+24
+00:02:05,080 --> 00:02:10,400
+And the second one is the group as an owner of a file or a folder.
+
+25
+00:02:10,400 --> 00:02:15,640
+And the owner of a file is usually the user that created that file.
+
+26
+00:02:15,640 --> 00:02:21,480
+And the group, the owning group is the primary group of that user.
+
+27
+00:02:21,480 --> 00:02:32,280
+So for example, if I create a file here, let's just do text, let's just create a text file.
+
+28
+00:02:32,280 --> 00:02:42,280
+And if I do LS minus L, you see the owner of this test or text file is my user, user
+
+29
+00:02:42,280 --> 00:02:47,440
+Nana and group Nana, in this case, they're both called the same.
+
+30
+00:02:47,440 --> 00:02:54,280
+So owner of the file is basically someone who has any permission or any access permission
+
+31
+00:02:54,280 --> 00:02:55,680
+to that file.
+
+32
+00:02:55,680 --> 00:03:00,360
+This could be a permission to just read the file, to just view the file, or it could be
+
+33
+00:03:00,360 --> 00:03:03,400
+also to edit and delete the file.
+
+34
+00:03:03,400 --> 00:03:09,040
+And even though the default owner of each file is the user that created that file and
+
+35
+00:03:09,040 --> 00:03:15,440
+it's primary group, we can actually change this information using a command called C H
+
+36
+00:03:15,440 --> 00:03:18,120
+own, right?
+
+37
+00:03:18,120 --> 00:03:20,280
+So change ownership.
+
+38
+00:03:20,280 --> 00:03:25,280
+And then we need the username who we want to give the ownership to.
+
+39
+00:03:25,280 --> 00:03:30,340
+We have a user that we created called Tom, let's say we want to give make Tom the owner
+
+40
+00:03:30,340 --> 00:03:31,960
+of that file.
+
+41
+00:03:31,960 --> 00:03:37,180
+And the group should be admin.
+
+42
+00:03:37,180 --> 00:03:43,780
+And then we have the name of the file ownership of which we're changing.
+
+43
+00:03:43,780 --> 00:03:48,820
+And if I execute this, first of all, this is a super user command.
+
+44
+00:03:48,820 --> 00:03:50,820
+So we need pseudo here.
+
+45
+00:03:50,820 --> 00:04:03,540
+And right here, you see that user and group owners for this specific file have changed.
+
+46
+00:04:03,540 --> 00:04:09,020
+We can also see the owners of files in some of the root folders.
+
+47
+00:04:09,020 --> 00:04:18,180
+So for example, let's see who is owning the files or folders in slash ETC folder, for
+
+48
+00:04:18,180 --> 00:04:19,580
+example.
+
+49
+00:04:20,540 --> 00:04:22,740
+We scroll all the way up.
+
+50
+00:04:22,740 --> 00:04:25,740
+There are lots of folders and files here.
+
+51
+00:04:25,740 --> 00:04:31,820
+And you see that most of them, which is a couple of exceptions, are owned by the root
+
+52
+00:04:31,820 --> 00:04:33,780
+user and root group.
+
+53
+00:04:33,780 --> 00:04:40,340
+Why because these are all system files that were created by the system itself, which is
+
+54
+00:04:40,340 --> 00:04:48,620
+the root user again, going back to our folder.
+
+55
+00:04:48,620 --> 00:04:58,700
+We can also change only the group owner or the user owner of a file.
+
+56
+00:04:58,700 --> 00:04:59,700
+Very easy.
+
+57
+00:04:59,700 --> 00:05:06,220
+Instead of specifying user colon group, we just specify the user like this.
+
+58
+00:05:06,220 --> 00:05:13,540
+And let's change it to admin user, for example.
+
+59
+00:05:13,540 --> 00:05:20,340
+And if I display it again, there you go, we have admin user as an owner of this test.txt
+
+60
+00:05:20,340 --> 00:05:21,340
+file now.
+
+61
+00:05:21,340 --> 00:05:29,900
+In the same way, we can change only the group here with another command, ch group.
+
+62
+00:05:29,900 --> 00:05:33,380
+And we have a DevOps group here on our system.
+
+63
+00:05:33,380 --> 00:05:39,900
+So we'll make DevOps group the owner of the test.txt file.
+
+64
+00:05:39,900 --> 00:05:42,900
+And again, print out, and there you go.
+
+65
+00:05:42,900 --> 00:05:50,100
+So this is how you can change permissions of a specific file or folder for a user owner
+
+66
+00:05:50,100 --> 00:05:55,260
+and group owner.
+
+67
+00:05:55,260 --> 00:06:01,500
+Now you're probably already wondering, sure, we have these owners as users or groups, but
+
+68
+00:06:01,500 --> 00:06:07,460
+what is the point of this, or how does it actually define what permissions a user or
+
+69
+00:06:07,460 --> 00:06:09,840
+group has on a file, right?
+
+70
+00:06:09,840 --> 00:06:12,420
+So where are those permissions actually defined?
+
+71
+00:06:12,420 --> 00:06:17,660
+Do I get read only access as an owner, or do I get a write permission or edit permission?
+
+72
+00:06:17,660 --> 00:06:23,500
+Can I remove the files or folders with this user or group, etc.
+
+73
+00:06:23,500 --> 00:06:29,820
+And those permissions are actually defined in another section, which is this one right
+
+74
+00:06:29,820 --> 00:06:30,820
+here.
+
+75
+00:06:30,820 --> 00:06:38,420
+So this block contains the permissions for each of the different owners.
+
+76
+00:06:38,420 --> 00:06:45,780
+So basically, if Nana user is the owner of this folder, I can define what permissions
+
+77
+00:06:45,780 --> 00:06:49,020
+that user has on that folder.
+
+78
+00:06:49,020 --> 00:06:55,500
+And the same way, what permission does group DevOps has on this file.
+
+79
+00:06:55,500 --> 00:06:59,580
+So let's look at this block now one by one.
+
+80
+00:06:59,580 --> 00:07:06,980
+As a first character here, we have D or dash, which is actually very simple to understand
+
+81
+00:07:07,180 --> 00:07:08,940
+for directories.
+
+82
+00:07:08,940 --> 00:07:13,820
+It shows D that's basically the type of a file.
+
+83
+00:07:13,820 --> 00:07:16,900
+Because again, we said everything is file in a Linux system.
+
+84
+00:07:16,900 --> 00:07:19,740
+However, these files have different types, right?
+
+85
+00:07:19,740 --> 00:07:22,860
+Directory is, for example, one file type.
+
+86
+00:07:22,860 --> 00:07:26,980
+And this type of a file is displayed right here.
+
+87
+00:07:26,980 --> 00:07:33,500
+Right now we just have a normal standard file, which is represented by dash, or we have a
+
+88
+00:07:33,500 --> 00:07:37,860
+folder directory file type represented by D.
+
+89
+00:07:37,860 --> 00:07:41,460
+Okay, so we know what the first character here stands for.
+
+90
+00:07:41,460 --> 00:07:42,460
+That's the file type.
+
+91
+00:07:42,460 --> 00:07:47,580
+And then we have permissions divided in three parts.
+
+92
+00:07:47,580 --> 00:07:56,540
+The first part here, the first three characters that you see, RWX actually represent permissions
+
+93
+00:07:56,540 --> 00:08:01,940
+for the user who is the owner of that file.
+
+94
+00:08:01,940 --> 00:08:05,140
+R stands for read permission.
+
+95
+00:08:05,140 --> 00:08:10,500
+So the user Nana can see and access the contents of the file.
+
+96
+00:08:10,500 --> 00:08:15,740
+Then we have W for write, which means I can edit the file.
+
+97
+00:08:15,740 --> 00:08:19,260
+I can change the contents, I can write into it.
+
+98
+00:08:19,260 --> 00:08:21,460
+So that's the right permission.
+
+99
+00:08:21,460 --> 00:08:24,940
+And the third one is X for execute.
+
+100
+00:08:24,940 --> 00:08:28,540
+And that is a permission to execute a file.
+
+101
+00:08:28,540 --> 00:08:33,860
+The permission will allow a user or a group to actually run that script, to execute that
+
+102
+00:08:33,860 --> 00:08:34,860
+script.
+
+103
+00:08:34,860 --> 00:08:41,300
+Or if we have binary files for different programs or commands, for example, again, these are
+
+104
+00:08:41,300 --> 00:08:42,900
+executable files.
+
+105
+00:08:42,900 --> 00:08:52,540
+So X permission will give a user or group to execute that binary file.
+
+106
+00:08:52,540 --> 00:08:57,900
+So this is one block of permission that applies to the user owner.
+
+107
+00:08:57,900 --> 00:09:04,020
+Then we have a second block of permissions with exactly same permissions, read, write,
+
+108
+00:09:04,020 --> 00:09:05,020
+execute.
+
+109
+00:09:05,020 --> 00:09:08,980
+These are the only permission values basically you can have here.
+
+110
+00:09:08,980 --> 00:09:13,900
+And this permission applies to the group owner of that file.
+
+111
+00:09:13,900 --> 00:09:15,500
+Very easy concept.
+
+112
+00:09:15,500 --> 00:09:20,180
+First block applies to the user, second block applies to group.
+
+113
+00:09:20,300 --> 00:09:28,340
+That means that with the combination of the owner of the file and the permission, you
+
+114
+00:09:28,340 --> 00:09:33,540
+can see basically who has permission to do what on that file.
+
+115
+00:09:33,540 --> 00:09:42,020
+For these three files, for example, you see that instead of X, we have a dash.
+
+116
+00:09:42,020 --> 00:09:48,020
+And dash basically means that there is no execution permission on those files.
+
+117
+00:09:48,020 --> 00:09:54,380
+So user Nana and group Nana doesn't have an execute permission on that file.
+
+118
+00:09:54,380 --> 00:09:57,780
+Same goes for these other two files.
+
+119
+00:09:57,780 --> 00:10:05,620
+So dash instead of the actual letter, instead of R, W or X means that there is no read,
+
+120
+00:10:05,620 --> 00:10:07,620
+write or execute permission.
+
+121
+00:10:07,620 --> 00:10:15,380
+Now we have a third block here that says R dash, which means no write permission, but
+
+122
+00:10:15,380 --> 00:10:17,020
+an execute permission.
+
+123
+00:10:17,020 --> 00:10:20,500
+So who does this third block actually belong to?
+
+124
+00:10:20,500 --> 00:10:22,740
+Because we just have a user and group here.
+
+125
+00:10:22,740 --> 00:10:25,900
+So what is the third block for?
+
+126
+00:10:25,900 --> 00:10:32,820
+The third block actually belongs to the third owner of the file, which is everybody else.
+
+127
+00:10:32,820 --> 00:10:41,580
+So all the other users who are not user Nana or who don't belong to the group called Nana.
+
+128
+00:10:41,580 --> 00:10:46,780
+So everybody else who is not covered by these two is the third owner.
+
+129
+00:10:46,780 --> 00:10:49,660
+And this owner is actually called other.
+
+130
+00:10:49,660 --> 00:10:55,860
+For example, in this case, this will be user Tom, which is not part of the Nana group.
+
+131
+00:10:55,860 --> 00:10:59,820
+This could be admin user, which is not part of the Nana group.
+
+132
+00:10:59,820 --> 00:11:06,300
+So basically we need permissions for all the other users on the system.
+
+133
+00:11:06,300 --> 00:11:10,180
+And that's who this permission block here belongs to.
+
+134
+00:11:10,180 --> 00:11:17,140
+That means everybody else who is not either this user or part of this group has a read
+
+135
+00:11:17,140 --> 00:11:21,500
+permission on this folder as well as execute permission.
+
+136
+00:11:21,500 --> 00:11:22,820
+And this is a default.
+
+137
+00:11:22,820 --> 00:11:25,420
+So execute permission here doesn't make sense.
+
+138
+00:11:25,420 --> 00:11:28,940
+This was assigned by default when we created the folder.
+
+139
+00:11:28,940 --> 00:11:33,380
+However, for those three files, it actually looks pretty reasonable.
+
+140
+00:11:33,380 --> 00:11:38,780
+We have read write permission for the owner, the user who created the file as well as the
+
+141
+00:11:38,780 --> 00:11:40,060
+group.
+
+142
+00:11:40,060 --> 00:11:46,860
+And for everybody else, for all the other users who exist on the system, the file is
+
+143
+00:11:46,860 --> 00:11:50,580
+read only so they can execute it or they can edit it.
+
+144
+00:11:50,580 --> 00:11:59,180
+So that's basically how permissions work again, combination of owner, which is the user group
+
+145
+00:11:59,180 --> 00:12:00,180
+or other.
+
+146
+00:12:00,180 --> 00:12:05,580
+That's the third owner, which you don't see here because it's always the rest of the users.
+
+147
+00:12:05,580 --> 00:12:12,780
+And each one of those owners has their own specifically defined block of permissions.
+
+148
+00:12:12,780 --> 00:12:17,740
+And of course, these are default permissions when you create a file, but you can change
+
+149
+00:12:17,740 --> 00:12:24,780
+each one of those permission values.
+
+150
+00:12:24,780 --> 00:12:26,820
+And let's actually do that.
+
+151
+00:12:26,820 --> 00:12:33,060
+And let's remove the execute permission for this folder for all three owners.
+
+152
+00:12:33,060 --> 00:12:38,340
+And here we have actually multiple different ways of changing permissions.
+
+153
+00:12:38,340 --> 00:12:43,980
+One way to remove a permission, a specific permission, in this case, execute permission
+
+154
+00:12:43,980 --> 00:12:53,780
+from a file is chmod, which is change mode.
+
+155
+00:12:53,780 --> 00:12:57,220
+And then we do minus x.
+
+156
+00:12:57,220 --> 00:13:04,420
+So take away the execute permission for API folder.
+
+157
+00:13:04,420 --> 00:13:07,300
+And let's display the results.
+
+158
+00:13:07,300 --> 00:13:17,600
+And as you see, all those execute permissions for all the owners was removed.
+
+159
+00:13:17,600 --> 00:13:23,460
+So as you saw this removed permission for all the owners, but maybe want to just change
+
+160
+00:13:23,460 --> 00:13:26,620
+permissions for one specific owner.
+
+161
+00:13:26,620 --> 00:13:27,660
+How do we do that?
+
+162
+00:13:27,660 --> 00:13:37,100
+So for example, we want to take away the right permission for config.yaml file from the group.
+
+163
+00:13:37,100 --> 00:13:42,140
+Again, sudo change mode.
+
+164
+00:13:42,140 --> 00:13:45,740
+And we want to adjust permission of a group.
+
+165
+00:13:45,740 --> 00:13:51,740
+And because of that, we type in g as for group, and we take away the right permission from
+
+166
+00:13:51,740 --> 00:13:52,860
+a group.
+
+167
+00:13:52,860 --> 00:13:57,220
+And we have to specify the file as well, of course, and execute.
+
+168
+00:13:57,220 --> 00:14:02,940
+And now let's see the group doesn't have a right permission anymore.
+
+169
+00:14:02,940 --> 00:14:09,100
+Now if you want to add a permission for a specific owner, in this case, let's add the
+
+170
+00:14:09,100 --> 00:14:15,500
+execute permission to the group none for this file.
+
+171
+00:14:15,500 --> 00:14:20,340
+Also very easy, we have group, first of all, and instead of minus, so taking away the permission
+
+172
+00:14:20,340 --> 00:14:25,380
+we do plus, which adds a permission and then we specify which permission that is going
+
+173
+00:14:25,380 --> 00:14:29,540
+to be and the file name.
+
+174
+00:14:29,540 --> 00:14:30,820
+And there you go.
+
+175
+00:14:30,820 --> 00:14:32,620
+And we can do the same for user.
+
+176
+00:14:32,620 --> 00:14:39,980
+For example, we want to add an execute permission to the config.yaml.
+
+177
+00:14:39,980 --> 00:14:49,140
+And let's take away the permission again, for the group, because again, as I said, the
+
+178
+00:14:49,580 --> 00:14:52,980
+execute permission obviously makes sense for files that are executable.
+
+179
+00:14:52,980 --> 00:15:01,580
+So what we're going to do is we're going to change the test.txt file to script.sh.
+
+180
+00:15:01,580 --> 00:15:07,540
+So this is going to be the executable file.
+
+181
+00:15:07,540 --> 00:15:12,620
+And let's say we write a script that starts the program, and that is something that you
+
+182
+00:15:12,620 --> 00:15:15,700
+can run or execute on the system.
+
+183
+00:15:15,700 --> 00:15:21,460
+Now let's say we want to give the user admin permission to execute this file.
+
+184
+00:15:21,460 --> 00:15:31,460
+For that, we're going to do u for user instead of g for group and plus x for script.sh.
+
+185
+00:15:31,700 --> 00:15:34,020
+And there you go, we have the result.
+
+186
+00:15:34,020 --> 00:15:40,820
+And if you want to give that permission to other owners, then instead of u, we just type
+
+187
+00:15:40,820 --> 00:15:44,020
+o for others.
+
+188
+00:15:44,020 --> 00:15:45,580
+And there you go.
+
+189
+00:15:45,580 --> 00:15:53,460
+So to wrap up, you can change permission of each specific owner by adding a permission
+
+190
+00:15:53,460 --> 00:16:03,540
+or taking away permission using u, g, or o symbols for user group and other, and then
+
+191
+00:16:03,540 --> 00:16:06,620
+plus permission or minus permission.
+
+192
+00:16:06,620 --> 00:16:12,820
+Or as we also saw, we can add the same permission or remove the same permission for all the
+
+193
+00:16:12,820 --> 00:16:22,340
+users by either omitting the user symbol here or specifying a which stands for all.
+
+194
+00:16:22,340 --> 00:16:27,380
+And this will basically apply this change to all the owners.
+
+195
+00:16:27,380 --> 00:16:34,620
+So that is one way of changing permissions for different owners.
+
+196
+00:16:34,620 --> 00:16:41,940
+Another way of changing permissions is convenient when we want to change multiple permission
+
+197
+00:16:41,940 --> 00:16:44,020
+for one owner.
+
+198
+00:16:44,020 --> 00:16:51,740
+So for example, for group Nana, we want to add write and execute permissions for config.yaml
+
+199
+00:16:51,740 --> 00:16:52,740
+file.
+
+200
+00:16:52,740 --> 00:16:54,940
+How do we do that?
+
+201
+00:16:54,940 --> 00:16:59,580
+Again, we have g.
+
+202
+00:16:59,580 --> 00:17:07,980
+And instead of specifying plus w and then plus x, we can do equals, and then we can write
+
+203
+00:17:07,980 --> 00:17:12,980
+out whole block of permissions like this.
+
+204
+00:17:12,980 --> 00:17:20,460
+So we want that group to have read write exec and the file name like this.
+
+205
+00:17:20,460 --> 00:17:30,100
+And the same way we can specify a different permission where it only has read write permission
+
+206
+00:17:30,100 --> 00:17:32,660
+or it has only write permission.
+
+207
+00:17:32,660 --> 00:17:37,260
+So basically you can type out this whole block here as you wish.
+
+208
+00:17:37,260 --> 00:17:45,860
+And this will set all three permissions for a group or user for all other users or for
+
+209
+00:17:45,860 --> 00:17:53,980
+everyone on the system and including the user and group owners.
+
+210
+00:17:53,980 --> 00:18:00,820
+So that's a second way of changing multiple permissions for the owners.
+
+211
+00:18:00,820 --> 00:18:08,340
+And the third way, which is also very common way of doing it, probably most common of these
+
+212
+00:18:08,340 --> 00:18:13,300
+three options is using numeric values.
+
+213
+00:18:13,300 --> 00:18:19,500
+So right now we saw permissions with so-called symbolic values with letters.
+
+214
+00:18:19,500 --> 00:18:22,020
+Now we're going to use numeric values.
+
+215
+00:18:22,020 --> 00:18:23,580
+So how does it look like?
+
+216
+00:18:23,580 --> 00:18:26,780
+Again, let's display our permissions.
+
+217
+00:18:26,780 --> 00:18:33,500
+And let's say we want to set permission for all the owners in one value.
+
+218
+00:18:33,500 --> 00:18:43,580
+We can do that by specifying a digit in numeric value for each of those blocks.
+
+219
+00:18:43,580 --> 00:18:49,820
+So we have three digits for each of the permission blocks for each owner.
+
+220
+00:18:49,820 --> 00:18:55,720
+And these are the digits and this is basically a mapping to the permission blocks.
+
+221
+00:18:55,720 --> 00:19:01,260
+So all dashes, which means no permission is number zero.
+
+222
+00:19:01,260 --> 00:19:06,940
+And all the permissions read, write, execute permission is digit seven.
+
+223
+00:19:06,940 --> 00:19:12,660
+So with these numbers, we can actually represent the whole block of permissions.
+
+224
+00:19:12,660 --> 00:19:17,920
+So for example, if I want to give everyone on this file read, write, execute permission,
+
+225
+00:19:17,920 --> 00:19:24,200
+I'm just going to do 777 and the filing.
+
+226
+00:19:24,200 --> 00:19:25,200
+Let's see.
+
+227
+00:19:25,200 --> 00:19:27,780
+There you go.
+
+228
+00:19:27,780 --> 00:19:33,860
+And this is actually very convenient, as I said, to define permission blocks for all
+
+229
+00:19:33,860 --> 00:19:39,500
+the owners and to define that with just one digit instead of typing out these read, write,
+
+230
+00:19:39,500 --> 00:19:40,900
+x all the time.
+
+231
+00:19:40,900 --> 00:19:47,940
+So for example, I want to give the owner, user, all the permissions, and I want to give
+
+232
+00:19:47,940 --> 00:19:54,760
+the group only read permission and I want to give everybody else zero no permissions.
+
+233
+00:19:54,760 --> 00:19:56,440
+That's going to be the number for that.
+
+234
+00:19:56,440 --> 00:20:00,880
+And again, if we check, there you go.
+
+235
+00:20:00,880 --> 00:20:07,560
+The user has all the permissions group has only read permission and other users have
+
+236
+00:20:07,560 --> 00:20:08,760
+no permission.
+
+237
+00:20:08,760 --> 00:20:13,160
+So you can use this table basically to set the values and obviously you don't have to
+
+238
+00:20:13,160 --> 00:20:15,280
+memorize this by heart.
+
+239
+00:20:15,280 --> 00:20:23,780
+But if you use that enough times that you will remember which value stands for what.
+
+240
+00:20:23,780 --> 00:20:29,180
+So these are three ways of setting permissions for different owners.
+
+241
+00:20:29,180 --> 00:20:36,460
+The first one is using symbolic mode by adding or removing individual permissions for each
+
+242
+00:20:36,460 --> 00:20:37,460
+owner.
+
+243
+00:20:37,460 --> 00:20:44,300
+The second one was just overriding the whole permission block also with symbolic values.
+
+244
+00:20:44,300 --> 00:20:52,300
+And the third one is using numeric values to define permission blocks for all the owners
+
+245
+00:20:52,300 --> 00:20:53,300
+in one commit.
+
+246
+00:20:53,300 --> 00:20:58,040
+And as I said, it may seem a little bit complex at the beginning, but once you understand
+
+247
+00:20:58,040 --> 00:21:01,020
+how this all works, it actually makes sense.
+
+248
+00:21:01,020 --> 00:21:02,340
+And it's easy to use.
+
+249
+00:21:02,340 --> 00:21:09,060
+You may choose just one of those options and just stick to it for all your use cases.
+
+250
+00:21:09,060 --> 00:21:15,700
+And finally, if you didn't already notice, we don't have a hidden file or hidden folders
+
+251
+00:21:15,700 --> 00:21:20,140
+here on the display here with LS minus L command.
+
+252
+00:21:20,140 --> 00:21:25,900
+What if we want to see and change permissions for hidden files as well?
+
+253
+00:21:25,900 --> 00:21:27,500
+They're easy actually.
+
+254
+00:21:27,500 --> 00:21:33,460
+We do LS minus L and we add this a option here as well.
+
+255
+00:21:33,460 --> 00:21:41,220
+And if I execute, you see the long output with minus L with permissions and stuff for
+
+256
+00:21:41,220 --> 00:21:43,140
+hidden files as well.
+
+257
+00:21:43,140 --> 00:21:48,220
+And exactly the same way, you can change permissions for the hidden files and folders
+
+258
+00:21:48,220 --> 00:21:50,380
+just like you would for regular files.
+

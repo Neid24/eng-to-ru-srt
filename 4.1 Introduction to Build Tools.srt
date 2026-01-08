@@ -1,0 +1,188 @@
+1
+00:00:00,000 --> 00:00:06,320
+What are build and package manager tools?
+
+2
+00:00:06,320 --> 00:00:11,200
+Say you are a group of developers writing an application for your startup or maybe a
+
+3
+00:00:11,200 --> 00:00:13,600
+project in a big company.
+
+4
+00:00:13,600 --> 00:00:19,840
+When you're done implementing your application, the application must be made available for
+
+5
+00:00:19,840 --> 00:00:21,400
+the end users, right?
+
+6
+00:00:21,400 --> 00:00:27,660
+So it needs to be deployed, meaning the application that you developed and is living in a code
+
+7
+00:00:27,660 --> 00:00:33,300
+repository must somehow end up on a production server and run there.
+
+8
+00:00:33,300 --> 00:00:36,980
+So how do you deploy a software application?
+
+9
+00:00:36,980 --> 00:00:41,860
+Meaning how do you move your code and its dependencies and everything needs to run to
+
+10
+00:00:41,860 --> 00:00:44,460
+a server where the application will run.
+
+11
+00:00:44,460 --> 00:00:47,620
+So it's accessible for end users.
+
+12
+00:00:47,620 --> 00:00:51,700
+It could be a production server or staging server.
+
+13
+00:00:51,700 --> 00:00:58,340
+Well you package your application in a single movable file and then you can get that file
+
+14
+00:00:58,340 --> 00:01:01,220
+to a server and run it there.
+
+15
+00:01:01,220 --> 00:01:08,260
+So you can move around that file and that single packaged file is called application artifact.
+
+16
+00:01:08,260 --> 00:01:13,420
+Packaging the application also called building the code of the application into a singular
+
+17
+00:01:13,420 --> 00:01:19,700
+artifact that you can move around and deploy or install on servers.
+
+18
+00:01:19,700 --> 00:01:25,180
+And that will involve compiling the code of the application, compressing the code from
+
+19
+00:01:25,180 --> 00:01:30,900
+hundreds of files into one file because you can't move around hundreds of files and also
+
+20
+00:01:30,900 --> 00:01:37,440
+make it smaller so that it's not too huge and slow to move around.
+
+21
+00:01:37,440 --> 00:01:43,380
+So after artifact is built, we don't just directly copy it to the server but rather
+
+22
+00:01:43,380 --> 00:01:46,580
+we keep it also in a storage.
+
+23
+00:01:46,580 --> 00:01:49,300
+In case we needed multiple times.
+
+24
+00:01:49,300 --> 00:01:54,420
+For example, if we deploy the artifact on a development server then we're gonna need
+
+25
+00:01:54,420 --> 00:02:00,780
+to deploy that same artifact on a test environment and later maybe on a production environment.
+
+26
+00:02:00,780 --> 00:02:06,500
+Or maybe that development server where we started the artifact, where we copied the artifact
+
+27
+00:02:06,500 --> 00:02:14,940
+directly crashes so we need the backup of that artifact to deploy it again.
+
+28
+00:02:14,940 --> 00:02:21,860
+And also you may need to give access to that artifact to testers so that they maybe can
+
+29
+00:02:21,860 --> 00:02:24,100
+run it locally and test it there.
+
+30
+00:02:24,100 --> 00:02:27,260
+So it could be a lot of different use cases.
+
+31
+00:02:27,260 --> 00:02:34,340
+And that storage where we keep the artifact once we build it is called artifact repository.
+
+32
+00:02:34,340 --> 00:02:40,540
+Examples of artifact repositories are Nexus or JFrog artifactory, etc.
+
+33
+00:02:40,540 --> 00:02:46,460
+So every time you release a new version of your application or you want to make a new
+
+34
+00:02:46,460 --> 00:02:53,120
+version available for testers to test before the release, you create an artifact, you save
+
+35
+00:02:53,120 --> 00:02:57,700
+it in the artifact repository and deploy it on the server.
+
+36
+00:02:57,700 --> 00:03:01,500
+Now you probably are wondering what these artifacts look like.
+
+37
+00:03:01,500 --> 00:03:05,060
+What kind of file formats do they have?
+
+38
+00:03:05,060 --> 00:03:06,920
+Is it a zip file?
+
+39
+00:03:06,920 --> 00:03:08,980
+Maybe some other special type?
+
+40
+00:03:08,980 --> 00:03:11,860
+And what is inside that artifact?
+
+41
+00:03:11,860 --> 00:03:16,980
+Well depending on the programming language you use for your application, this packaging
+
+42
+00:03:16,980 --> 00:03:21,220
+or this artifact file will look different.
+
+43
+00:03:21,220 --> 00:03:28,180
+For example, if you have a Java application, the artifact file will be a jar or war file.
+
+44
+00:03:28,180 --> 00:03:34,260
+AR stands for Java Archive, where AR stands for Archive.
+
+45
+00:03:34,260 --> 00:03:41,020
+And it will include the whole code plus the dependencies your code uses, like Spring libraries,
+
+46
+00:03:41,020 --> 00:03:44,900
+some daytime libraries, maybe PDF processor, etc.
+
+47
+00:03:44,900 --> 00:03:48,700
+So basically everything your application code needs to run.
+

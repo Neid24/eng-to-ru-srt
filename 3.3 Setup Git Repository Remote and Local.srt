@@ -1,0 +1,612 @@
+1
+00:00:00,000 --> 00:00:08,120
+So, first of all, what is remote Git repository and how does it look like?
+
+2
+00:00:08,120 --> 00:00:11,560
+There are a couple of different Git repositories out there.
+
+3
+00:00:11,560 --> 00:00:18,200
+There is GitHub, GitLab, they're both cloud repositories, they're hosted by the GitHub
+
+4
+00:00:18,200 --> 00:00:23,880
+and GitLab and you can create your own repositories and keep your code in there.
+
+5
+00:00:23,880 --> 00:00:29,760
+So these are platforms that everybody can register on and host their repositories.
+
+6
+00:00:29,800 --> 00:00:36,960
+However, companies do not host their code on some public cloud provider of Git repository,
+
+7
+00:00:36,960 --> 00:00:44,360
+but they have their own Git repositories hosted in the company on company servers, right?
+
+8
+00:00:44,360 --> 00:00:47,800
+So, alternatives for that is Bitbucket.
+
+9
+00:00:47,800 --> 00:00:53,880
+You can also host GitLab locally on your own servers in the company and keep your code there.
+
+10
+00:00:53,880 --> 00:00:58,200
+As a private developer, you can also host them on GitHub or GitLab
+
+11
+00:00:58,240 --> 00:01:00,480
+along with other repositories there.
+
+12
+00:01:00,480 --> 00:01:06,960
+One thing to note there is that when using GitHub or GitLab, for example, as your code repository,
+
+13
+00:01:06,960 --> 00:01:10,200
+you can decide whether to make it private or public.
+
+14
+00:01:10,200 --> 00:01:14,480
+Usually, when you're developing a software application, if you're a startup, for example,
+
+15
+00:01:14,480 --> 00:01:18,920
+you don't want your code to be available and accessible to white public, right?
+
+16
+00:01:18,920 --> 00:01:23,760
+So you would want only you to have access to it and maybe your team members.
+
+17
+00:01:23,760 --> 00:01:29,920
+So there are private repositories on those platforms and public repositories, right?
+
+18
+00:01:29,920 --> 00:01:36,920
+Public repositories are used for public libraries, for example, for different programming languages
+
+19
+00:01:36,920 --> 00:01:39,920
+or some open source projects.
+
+20
+00:01:39,920 --> 00:01:47,720
+As I mentioned, these repositories have UIs, user interface, and you can do a lot of stuff with the repository.
+
+21
+00:01:47,720 --> 00:01:51,760
+You can create, update, change files, etc.
+
+22
+00:01:51,760 --> 00:01:56,440
+You can give permissions, you can add users who will have access to the repository and so on.
+
+23
+00:01:56,440 --> 00:01:58,720
+You can do pretty much everything with it.
+
+24
+00:01:58,720 --> 00:02:01,000
+So this is how these repositories look like.
+
+25
+00:02:01,000 --> 00:02:03,000
+I have GitLab and GitHub.
+
+26
+00:02:03,000 --> 00:02:08,680
+One thing to note here is that these organizations did not create the Git itself, right?
+
+27
+00:02:08,680 --> 00:02:15,680
+These are just repositories and the naming may sound like Git kind of belongs to them,
+
+28
+00:02:15,680 --> 00:02:18,080
+but it's actually a separate project.
+
+29
+00:02:18,120 --> 00:02:26,000
+So these are just repositories that emerged with a pretty powerful and pretty good user interface.
+
+30
+00:02:26,000 --> 00:02:35,400
+So the first thing you need in order to use this publicly hosted GitLab and GitHub repositories is user accounts, right?
+
+31
+00:02:35,400 --> 00:02:39,320
+So no matter which one you choose, you can go just with one of them.
+
+32
+00:02:39,320 --> 00:02:41,600
+You have to create account.
+
+33
+00:02:41,600 --> 00:02:44,520
+I'm just going to sign in because I have an account.
+
+34
+00:02:44,520 --> 00:02:47,600
+And first of all, let's see on GitLab.
+
+35
+00:02:47,640 --> 00:02:51,680
+I already have a couple of repositories and here you see some of them are public.
+
+36
+00:02:51,680 --> 00:02:56,640
+These are things that I want others to have access to the whole public.
+
+37
+00:02:56,640 --> 00:03:01,320
+And there are some that are my own projects and I'm working on them myself.
+
+38
+00:03:01,320 --> 00:03:05,320
+So they're made private, only I can access those projects.
+
+39
+00:03:05,320 --> 00:03:12,040
+And creating a new repository is as easy as just clicking on create new project.
+
+40
+00:03:12,040 --> 00:03:14,120
+I'm going to name it My Project.
+
+41
+00:03:14,120 --> 00:03:18,560
+And in the project URL, we need to select a group or namespace.
+
+42
+00:03:18,560 --> 00:03:20,360
+You probably don't have any groups.
+
+43
+00:03:20,360 --> 00:03:21,600
+So don't worry about that.
+
+44
+00:03:21,600 --> 00:03:25,000
+You will see users with your account username.
+
+45
+00:03:25,000 --> 00:03:28,080
+So that will be the namespace for this project.
+
+46
+00:03:28,080 --> 00:03:29,280
+So you can select that.
+
+47
+00:03:29,280 --> 00:03:33,760
+I'm going to select one of my groups, but it doesn't actually matter for this case.
+
+48
+00:03:33,760 --> 00:03:36,600
+And here I choose the private repository.
+
+49
+00:03:36,600 --> 00:03:42,000
+And for this test project, we will not create a readme file during creation.
+
+50
+00:03:42,000 --> 00:03:43,760
+And the repository is ready.
+
+51
+00:03:43,800 --> 00:03:49,720
+And here you see the whole section where you can interact with the project, right?
+
+52
+00:03:49,720 --> 00:03:51,240
+I can create new files.
+
+53
+00:03:51,240 --> 00:03:53,040
+I can add a readme file.
+
+54
+00:03:53,040 --> 00:03:56,120
+I can set up continuous integration.
+
+55
+00:03:56,120 --> 00:03:57,920
+And I can do all sorts of things.
+
+56
+00:03:57,920 --> 00:04:02,880
+I can push my code to this remote repository and so on.
+
+57
+00:04:02,880 --> 00:04:04,960
+In the same way, it's pretty similar.
+
+58
+00:04:04,960 --> 00:04:08,200
+I can create a new repository just like that.
+
+59
+00:04:08,200 --> 00:04:12,360
+Private public repository name and create repository.
+
+60
+00:04:12,360 --> 00:04:15,440
+So very simple concept.
+
+61
+00:04:15,440 --> 00:04:18,240
+Those two UIs are also pretty similar.
+
+62
+00:04:18,240 --> 00:04:22,480
+So it doesn't really matter which one you choose for your own project.
+
+63
+00:04:22,480 --> 00:04:27,960
+In this case, we can actually go with GitLab because I have most of my projects here.
+
+64
+00:04:27,960 --> 00:04:31,360
+So I have my project repository created.
+
+65
+00:04:31,360 --> 00:04:34,520
+And now we have a remote repository.
+
+66
+00:04:38,160 --> 00:04:41,960
+Now, how do we get this repository locally?
+
+67
+00:04:41,960 --> 00:04:48,200
+So if I want to work in this, how do I access this remote repository from my machine?
+
+68
+00:04:48,200 --> 00:04:52,520
+The first thing is that you have to install Git Client.
+
+69
+00:04:52,520 --> 00:04:54,480
+It could be a UI tool.
+
+70
+00:04:54,480 --> 00:04:57,000
+Git Client, they're multiple out there.
+
+71
+00:04:57,000 --> 00:05:03,120
+I personally use Git command line because it's very straightforward.
+
+72
+00:05:03,120 --> 00:05:06,600
+You have a handful of commands that you have to memorize and that's it.
+
+73
+00:05:06,600 --> 00:05:09,440
+And you can work pretty easily with that.
+
+74
+00:05:09,440 --> 00:05:15,920
+So depending on which operating system you're using, you can install Git command line on your machine.
+
+75
+00:05:15,920 --> 00:05:22,000
+Before we begin to work with Git via the command line, we can actually customize the terminal
+
+76
+00:05:22,000 --> 00:05:28,000
+so that it displays useful information such as what branch we are working on.
+
+77
+00:05:28,000 --> 00:05:36,200
+To do this, we need to modify the shell configuration file already here on my machine using VIM.
+
+78
+00:05:36,200 --> 00:05:43,040
+If the file does not exist yet on your computer, you will need to create one using the touch command.
+
+79
+00:05:43,040 --> 00:05:48,000
+You just need to copy and paste the configuration found in the video description,
+
+80
+00:05:48,000 --> 00:05:54,640
+save your changes to the file and reload the terminal to have the same configuration as me.
+
+81
+00:05:54,640 --> 00:06:00,160
+So once you have customized the terminal and have the Git Client installed,
+
+82
+00:06:00,160 --> 00:06:03,000
+we can actually clone the repository.
+
+83
+00:06:03,000 --> 00:06:08,480
+So the first time when you do not have a local copy of that remote repository,
+
+84
+00:06:08,480 --> 00:06:11,640
+you have to clone the repository.
+
+85
+00:06:11,640 --> 00:06:17,120
+And also very helpful, whenever you create a repository, either in GitLab or GitHub,
+
+86
+00:06:17,120 --> 00:06:21,840
+you actually get the whole instruction list of how to clone the repository,
+
+87
+00:06:21,840 --> 00:06:28,120
+how to fetch it locally and make it accessible, how to download and start working with it.
+
+88
+00:06:28,120 --> 00:06:32,560
+So the first command is git clone repository name.
+
+89
+00:06:32,560 --> 00:06:35,080
+And this is actually the repository name.
+
+90
+00:06:35,080 --> 00:06:38,240
+This is GitLab endpoint.
+
+91
+00:06:38,240 --> 00:06:43,160
+This is my username and this is the repository name.
+
+92
+00:06:43,160 --> 00:06:49,360
+However, before I can clone the repository and the repository on GitLab or GitHub,
+
+93
+00:06:49,360 --> 00:06:54,320
+I have to connect my Git Client with GitLab or GitHub.
+
+94
+00:06:54,320 --> 00:06:57,320
+And with connecting, I mean, I have to tell GitLab,
+
+95
+00:06:57,320 --> 00:06:59,480
+hey, I have an account on GitLab.
+
+96
+00:06:59,480 --> 00:07:01,880
+This is me as a user.
+
+97
+00:07:01,880 --> 00:07:05,920
+And I'm trying to connect from my machine using a Git Client.
+
+98
+00:07:05,920 --> 00:07:11,040
+So I have to authenticate, basically, to GitLab from the command line.
+
+99
+00:07:11,040 --> 00:07:18,600
+And the way to do that is by adding my SSH public key to GitLab.
+
+100
+00:07:18,600 --> 00:07:23,040
+And again, everything I configure here is exactly the same on GitHub.
+
+101
+00:07:23,080 --> 00:07:25,840
+So I'm just going to use GitLab as an example,
+
+102
+00:07:25,840 --> 00:07:29,360
+but know that everything works the same on GitHub.
+
+103
+00:07:29,360 --> 00:07:33,160
+In order to do that, I have to go to my user settings,
+
+104
+00:07:33,160 --> 00:07:36,120
+which I can find under my GitLab profile.
+
+105
+00:07:36,120 --> 00:07:43,800
+And in settings, I have SSH keys and I have to add my public SSH key here
+
+106
+00:07:43,800 --> 00:07:50,960
+so that Git can identify my client, so to say, where I'm sending the request to.
+
+107
+00:07:51,040 --> 00:07:53,080
+And then I'll have to authenticate.
+
+108
+00:07:53,080 --> 00:08:00,760
+And also, a very clear guide to an instruction to how to add that key to GitLab.
+
+109
+00:08:00,760 --> 00:08:03,440
+So we're going to do that next.
+
+110
+00:08:03,440 --> 00:08:05,600
+So first, if you already have that key,
+
+111
+00:08:05,600 --> 00:08:09,680
+you can check that actually in your home directory.ssh.
+
+112
+00:08:09,680 --> 00:08:14,760
+You can basically just copy it here and create the key.
+
+113
+00:08:14,760 --> 00:08:18,360
+Or if you don't have it, they also have an instruction guide
+
+114
+00:08:18,360 --> 00:08:20,080
+to how to generate that key.
+
+115
+00:08:20,080 --> 00:08:24,600
+And then you would copy that and add as a key, right?
+
+116
+00:08:24,600 --> 00:08:28,240
+So very descriptive, very easy to follow.
+
+117
+00:08:28,240 --> 00:08:31,000
+So first, let's do that.
+
+118
+00:08:31,000 --> 00:08:33,200
+So this is going to be my public key.
+
+119
+00:08:33,200 --> 00:08:39,720
+And I can basically print it out and copy the output as a key.
+
+120
+00:08:39,720 --> 00:08:43,520
+So I can copy that output right here and just add the key.
+
+121
+00:08:43,520 --> 00:08:46,080
+And I already have added my key here.
+
+122
+00:08:46,120 --> 00:08:52,720
+So now I can access GitLab using my Git client.
+
+123
+00:08:52,720 --> 00:08:57,960
+So let's close that and actually clone the repository.
+
+124
+00:08:57,960 --> 00:09:03,680
+So I'm going to do it clone repository and it worked.
+
+125
+00:09:03,680 --> 00:09:06,360
+It's just a warning that I have an empty repository.
+
+126
+00:09:06,360 --> 00:09:07,800
+There is nothing there.
+
+127
+00:09:07,800 --> 00:09:14,840
+So if I do LS, I see that this folder got created,
+
+128
+00:09:14,840 --> 00:09:18,360
+which has the name of the project.
+
+129
+00:09:18,360 --> 00:09:21,640
+And if I go inside, so now this means
+
+130
+00:09:21,640 --> 00:09:29,680
+that I am in a local copy of that remote Git repository.
+
+131
+00:09:29,680 --> 00:09:31,880
+And let's actually see what's in there.
+
+132
+00:09:31,880 --> 00:09:33,240
+It's completely empty.
+
+133
+00:09:33,240 --> 00:09:36,160
+There is one thing that is inside the repository
+
+134
+00:09:36,160 --> 00:09:38,840
+and that is .git folder.
+
+135
+00:09:39,840 --> 00:09:44,840
+And .git basically has information about the repository itself.
+
+136
+00:09:44,840 --> 00:09:47,840
+It has information about the branches.
+
+137
+00:09:47,840 --> 00:09:50,840
+It has the history, the log, as I mentioned,
+
+138
+00:09:50,840 --> 00:09:56,840
+and it has the configuration endpoint, obviously, the remote endpoint
+
+139
+00:09:56,840 --> 00:09:59,840
+where this repository lives, and so on.
+
+140
+00:09:59,840 --> 00:10:04,840
+And this kind of stuff like who is the user and what is the user email
+
+141
+00:10:04,840 --> 00:10:07,840
+that is interacting with the Git repository and so on.
+
+142
+00:10:07,840 --> 00:10:11,840
+You can also execute these two config commands
+
+143
+00:10:11,840 --> 00:10:16,840
+to configure username and email globally for all your Git projects.
+
+144
+00:10:16,840 --> 00:10:20,840
+So every user that clones the repository locally
+
+145
+00:10:20,840 --> 00:10:23,840
+will have this .git folder
+
+146
+00:10:23,840 --> 00:10:29,840
+and they can actually configure whatever they want in this Git folder, right?
+
+147
+00:10:29,840 --> 00:10:31,840
+This is just for login.
+
+148
+00:10:31,840 --> 00:10:33,840
+In this Git folder, right?
+
+149
+00:10:33,840 --> 00:10:36,840
+This is just for local use, you can say.
+
+150
+00:10:36,840 --> 00:10:39,840
+So now because we have added our SSH key,
+
+151
+00:10:39,840 --> 00:10:43,840
+GitHub will be able to authenticate us whenever we pull
+
+152
+00:10:43,840 --> 00:10:47,840
+or push from the repository or we interact in some way
+
+153
+00:10:47,840 --> 00:10:51,840
+without having to provide username and password all the time.
+

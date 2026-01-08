@@ -1,0 +1,152 @@
+1
+00:00:00,000 --> 00:00:12,500
+Let's see another use case where I have some changes in the feature branch or bug fix branch.
+
+2
+00:00:12,500 --> 00:00:15,920
+Let's make some changes here, for example.
+
+3
+00:00:15,920 --> 00:00:21,480
+Let's say I remove this line, so I have some local changes in this branch.
+
+4
+00:00:21,480 --> 00:00:25,080
+So if I do status, I see the change here.
+
+5
+00:00:25,080 --> 00:00:30,640
+So let's say I need to move to another branch, like a master branch or maybe some other feature
+
+6
+00:00:30,640 --> 00:00:35,320
+branch, but I don't want to commit those changes because it's not done yet.
+
+7
+00:00:35,320 --> 00:00:43,320
+I'm in the work in progress state and these are just some changes that I'm playing around.
+
+8
+00:00:43,320 --> 00:00:52,360
+So if I do git checkout master, it won't lend me because it says you have local changes.
+
+9
+00:00:52,360 --> 00:00:57,040
+So git doesn't know what to do with my local changes when I move to another branch.
+
+10
+00:00:57,040 --> 00:01:03,600
+A perfect use case for this could be, let's say I'm fixing a bug, for example, and I can't
+
+11
+00:01:03,600 --> 00:01:08,920
+reproduce it or I need some more information about how to test that bug.
+
+12
+00:01:08,920 --> 00:01:16,200
+So I decide to change to master branch to see how it works there with master branch's code
+
+13
+00:01:16,200 --> 00:01:18,880
+status, right?
+
+14
+00:01:18,880 --> 00:01:24,040
+But as you see, I can't just leave a branch if I have local changes, right?
+
+15
+00:01:24,040 --> 00:01:27,720
+So what I can do in this case is I can stash my changes.
+
+16
+00:01:27,720 --> 00:01:37,640
+So if I do git stash, it will take my working changes and it will hide them, so to say, right?
+
+17
+00:01:37,640 --> 00:01:39,000
+It will save it for later.
+
+18
+00:01:39,000 --> 00:01:46,520
+So if I do git status now, I have no changes that are active or displayed.
+
+19
+00:01:46,520 --> 00:01:51,480
+So now I can check out another branch.
+
+20
+00:01:51,480 --> 00:01:54,720
+And let's say I do my testing here in master branch.
+
+21
+00:01:54,720 --> 00:01:58,800
+I see that it doesn't work in a master branch.
+
+22
+00:01:58,800 --> 00:02:04,720
+I see some differences and I want to continue with my code changes in the branch.
+
+23
+00:02:04,720 --> 00:02:09,680
+So again, I check out my bug fix branch.
+
+24
+00:02:09,680 --> 00:02:11,280
+My changes aren't here.
+
+25
+00:02:11,280 --> 00:02:14,040
+So how do I get my changes back from the stash?
+
+26
+00:02:14,040 --> 00:02:23,520
+I do git stash pop and here I get back my changes and I can continue.
+
+27
+00:02:23,520 --> 00:02:30,640
+Another use case for stashing your changes could be also in the same branch, actually.
+
+28
+00:02:30,640 --> 00:02:35,720
+So for example, let's say I have made some changes in the code and something isn't working.
+
+29
+00:02:35,720 --> 00:02:40,840
+Some other feature that I'm not even messing around with is not working anymore.
+
+30
+00:02:40,840 --> 00:02:48,600
+So I want to see, did I break that feature with my changes somehow accidentally or maybe
+
+31
+00:02:48,600 --> 00:02:50,960
+didn't work even before.
+
+32
+00:02:50,960 --> 00:02:58,040
+And to be sure, I can revert or I can hide my changes, my local code changes and test
+
+33
+00:02:58,040 --> 00:03:03,720
+the application to see if that feature works without my code changes.
+
+34
+00:03:03,720 --> 00:03:09,520
+And again, the way to do that is to stash my changes.
+
+35
+00:03:09,520 --> 00:03:14,720
+So all the code that I added or removed will be gone.
+
+36
+00:03:14,720 --> 00:03:20,000
+I can test if the feature worked before I did anything in the code and then I can bring
+
+37
+00:03:20,000 --> 00:03:23,560
+my changes back using git stash pop.
+
+38
+00:03:23,560 --> 00:03:26,840
+So this could be another scenario where you will need this comment.
+

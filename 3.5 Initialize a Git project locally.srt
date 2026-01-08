@@ -1,0 +1,288 @@
+1
+00:00:00,000 --> 00:00:06,960
+Now, what if you already have a code locally?
+
+2
+00:00:06,960 --> 00:00:12,080
+Let's say you created some boilerplate code and you want to check it to get repository
+
+3
+00:00:12,080 --> 00:00:15,160
+instead of cloning an existing one.
+
+4
+00:00:15,160 --> 00:00:22,440
+In that case, you can create a local repository in your code and then push that local repository
+
+5
+00:00:22,440 --> 00:00:24,000
+to the remote.
+
+6
+00:00:24,000 --> 00:00:29,880
+And this can be a pretty legitimate use case, especially when you start working on a code
+
+7
+00:00:30,880 --> 00:00:34,960
+you develop stuff on your machine, especially if it's a private project.
+
+8
+00:00:34,960 --> 00:00:42,400
+And at some point you decide to host it on GitLab or GitHub or some other Git repository.
+
+9
+00:00:42,400 --> 00:00:50,160
+So now you need to move your existing code from your local machine to GitLab, for example.
+
+10
+00:00:50,160 --> 00:00:53,480
+So let's actually see how that use case works.
+
+11
+00:00:53,480 --> 00:00:57,640
+So I have a project locally that is not a Git repository, right?
+
+12
+00:00:57,640 --> 00:01:02,240
+I have some files there, I have the application code and so on.
+
+13
+00:01:02,240 --> 00:01:09,840
+And if I do Git status here, here you see not a Git repository or any of the parent directories.
+
+14
+00:01:09,840 --> 00:01:16,000
+So this basically means there is no dot Git folder in this project, something that we
+
+15
+00:01:16,000 --> 00:01:23,600
+have in here that contains the information about the remote Git repository about my Git
+
+16
+00:01:23,600 --> 00:01:26,120
+user and email and so on.
+
+17
+00:01:26,120 --> 00:01:33,800
+So we have to transform that project, this Node.js app project to local Git repository.
+
+18
+00:01:33,800 --> 00:01:37,440
+And we do that using Git init.
+
+19
+00:01:37,440 --> 00:01:48,120
+And here you see initialize empty Git repository and if I do A, I see dot Git was created.
+
+20
+00:01:48,120 --> 00:01:56,080
+So now if I do Git status, here I have a bunch of files that I can now commit.
+
+21
+00:01:56,360 --> 00:02:02,600
+And then push to a remote repository.
+
+22
+00:02:02,600 --> 00:02:10,080
+So I can do git add dot, this will add all the files that were marked red.
+
+23
+00:02:10,080 --> 00:02:18,400
+Here's the whole list and let's commit and say this is initial code, right?
+
+24
+00:02:18,400 --> 00:02:24,000
+Let's clear that again and Git status will show us that there is nothing to commit.
+
+25
+00:02:24,000 --> 00:02:32,520
+We have no changes, however we have local commit for the initial code.
+
+26
+00:02:32,520 --> 00:02:37,640
+And another change you probably also notice is that the moment that we transformed it
+
+27
+00:02:37,640 --> 00:02:44,280
+into a Git repository, a default branch name, the master branch name, got created and edit
+
+28
+00:02:44,280 --> 00:02:48,240
+here and we see that in the command line as well.
+
+29
+00:02:48,240 --> 00:02:55,160
+Now we have a local Git repository but it doesn't know anything about a remote repository.
+
+30
+00:02:55,160 --> 00:03:02,160
+So if I do git push here, basically it says no configuration for push destination.
+
+31
+00:03:02,160 --> 00:03:09,960
+So it doesn't know where to push this code to, it isn't connected to any remote repository.
+
+32
+00:03:09,960 --> 00:03:17,280
+So what we can do in this case is go back to our Git lab and create a new empty project
+
+33
+00:03:17,280 --> 00:03:22,800
+and let's call it some test node app, keep it private.
+
+34
+00:03:22,800 --> 00:03:28,600
+So now my local Git repository and this remote repository do not know anything about each
+
+35
+00:03:28,600 --> 00:03:32,300
+other so we have to connect them.
+
+36
+00:03:32,300 --> 00:03:37,600
+And the way to do that is actually also described here with this command.
+
+37
+00:03:37,600 --> 00:03:44,960
+So git remote, we already did the git init and git remote add origin, the address of
+
+38
+00:03:44,960 --> 00:03:46,520
+the repository.
+
+39
+00:03:46,520 --> 00:03:50,360
+And if I go back here, basically I have the same suggestion written here.
+
+40
+00:03:50,360 --> 00:03:55,240
+So it's very descriptive and they give very good instructions of how to do stuff.
+
+41
+00:03:55,240 --> 00:04:01,920
+So I'm just going to copy this command because it already has the name of our remote repository,
+
+42
+00:04:01,920 --> 00:04:07,640
+the endpoint of the remote repository in the command and I'm going to copy it here.
+
+43
+00:04:07,640 --> 00:04:15,600
+So what this does is basically tells my local Git repository where to push the changes to.
+
+44
+00:04:15,600 --> 00:04:20,800
+So it tells what the remote repository for this local repository should be.
+
+45
+00:04:20,800 --> 00:04:29,080
+And origin is the name of the destination and this is the URL of the destination.
+
+46
+00:04:29,080 --> 00:04:38,520
+And now if we do push, we see another error and this one says now it knows where the remote
+
+47
+00:04:38,520 --> 00:04:45,760
+repository is and how to connect to it, however now it cannot connect the branch, right?
+
+48
+00:04:45,760 --> 00:04:50,840
+It says the current branch master has no upstream branch.
+
+49
+00:04:50,840 --> 00:04:57,080
+So what this means is that now the repositories are connected, a remote repository is connected
+
+50
+00:04:57,080 --> 00:04:59,840
+to the remote, now we have to connect the branches.
+
+51
+00:04:59,840 --> 00:05:07,200
+Now we have to say master branch locally has to connect to the master branch on the remote
+
+52
+00:05:07,200 --> 00:05:08,720
+repository.
+
+53
+00:05:08,720 --> 00:05:12,120
+So we have to push the branch as well.
+
+54
+00:05:12,120 --> 00:05:20,920
+So if I do git push set upstream origin master, here we see branch master set up to track
+
+55
+00:05:20,920 --> 00:05:24,000
+remote branch master from origin.
+
+56
+00:05:24,000 --> 00:05:32,640
+So now they're connected and if I refresh this here, I see my whole code in the remote
+
+57
+00:05:32,640 --> 00:05:35,840
+repository.
+
+58
+00:05:35,840 --> 00:05:42,080
+And note that these changes that I just made here, git remote at origin and setting this
+
+59
+00:05:42,080 --> 00:05:50,680
+upstream of my master branch, this information actually got added to this dot git folder.
+
+60
+00:05:50,680 --> 00:05:54,400
+So this is where all of these gets configured.
+
+61
+00:05:54,400 --> 00:05:58,440
+And it stores the information about how to connect to the remote, where's the remote,
+
+62
+00:05:58,440 --> 00:06:02,220
+which endpoint and how the branches actually connect to each other.
+
+63
+00:06:02,220 --> 00:06:11,860
+If I deleted that dot git folder, then my project will not be a git repository anymore.
+
+64
+00:06:11,860 --> 00:06:18,320
+And I would have to connect or reconnect my local repository to the remote again.
+
+65
+00:06:18,320 --> 00:06:24,640
+So this has basically everything I need for that connection between the remote and local
+
+66
+00:06:24,640 --> 00:06:25,640
+repositories.
+
+67
+00:06:25,640 --> 00:06:29,820
+So if I decided that I don't want to host this project anymore, I want to delete that
+
+68
+00:06:29,820 --> 00:06:36,320
+from here, but I also want to delete any git configuration that I can basically just
+
+69
+00:06:36,320 --> 00:06:39,920
+remove this folder and that will be it.
+
+70
+00:06:39,920 --> 00:06:47,160
+So if I remove that, see, I don't have the branch name displayed here anymore.
+
+71
+00:06:47,160 --> 00:06:50,560
+If I do status, not a git repository.
+
+72
+00:06:50,560 --> 00:06:55,140
+So the connection is lost with the remote repository.
+

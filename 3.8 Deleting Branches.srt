@@ -1,0 +1,148 @@
+1
+00:00:00,000 --> 00:00:08,840
+Another thing to note here is that there are two options for dealing with the branch once
+
+2
+00:00:08,840 --> 00:00:10,920
+it's merged into master, right?
+
+3
+00:00:10,920 --> 00:00:17,160
+Either we can leave the branch in case someone finds a bug or we have to add something in
+
+4
+00:00:17,160 --> 00:00:19,360
+the feature branch so we can leave that.
+
+5
+00:00:19,360 --> 00:00:24,440
+So in case we need to do some other changes in the branch later, or we can delete that
+
+6
+00:00:24,440 --> 00:00:25,920
+right after merging it.
+
+7
+00:00:25,960 --> 00:00:29,880
+Again, there are best practices for that and which one to choose.
+
+8
+00:00:29,920 --> 00:00:35,520
+Usually a lot of teams, they leave the branches and then clean up at some point later.
+
+9
+00:00:35,600 --> 00:00:40,520
+However, the better option is to delete the branches when they are merged.
+
+10
+00:00:40,960 --> 00:00:47,840
+And if there's some bugs that emerge from that or something isn't really working, then
+
+11
+00:00:47,920 --> 00:00:52,080
+you can create a new branch, a bug fix branch, for example, to fix that issue.
+
+12
+00:00:52,200 --> 00:00:58,440
+If something needs to be added or some addition needs to be done to that feature, then create
+
+13
+00:00:58,440 --> 00:01:00,360
+a new branch for that as well.
+
+14
+00:01:00,960 --> 00:01:06,360
+And the advantage is that you don't end up with hundreds of branches where nobody knows
+
+15
+00:01:06,360 --> 00:01:12,880
+which one is active, which one is completed, or even which one is merged into another branch.
+
+16
+00:01:14,360 --> 00:01:19,120
+By deleting the branch, you can avoid this confusion that will arise if you don't delete
+
+17
+00:01:19,120 --> 00:01:20,440
+the branch right away.
+
+18
+00:01:22,200 --> 00:01:27,720
+So if I go to branches, I can see the list of all the branches here.
+
+19
+00:01:28,000 --> 00:01:34,120
+Master one is protected so no one can delete that, but I can delete one of the feature
+
+20
+00:01:34,120 --> 00:01:39,760
+branches or even one of the bug fix branches completely from the remote repository.
+
+21
+00:01:42,200 --> 00:01:45,000
+The branch has been deleted in the remote repository.
+
+22
+00:01:45,040 --> 00:01:48,000
+However, I still have it locally.
+
+23
+00:01:48,240 --> 00:01:53,320
+So if I do git branch, I see my local branch and I'm actually still on it.
+
+24
+00:01:53,760 --> 00:02:00,480
+And if I do git status here, I stay in the branch and I can actually do some more changes
+
+25
+00:02:00,520 --> 00:02:01,040
+in the branch.
+
+26
+00:02:01,040 --> 00:02:07,440
+So it's my job, so to say, my responsibility to clean up the branches that has been deleted
+
+27
+00:02:07,480 --> 00:02:09,360
+remotely locally, right?
+
+28
+00:02:10,200 --> 00:02:19,920
+So if I do git pull, I get actually information from remote that my configuration that references
+
+29
+00:02:19,920 --> 00:02:26,720
+a remote branch with the same name doesn't work anymore or isn't valid anymore because
+
+30
+00:02:26,720 --> 00:02:29,000
+there is no such reference remotely.
+
+31
+00:02:29,480 --> 00:02:35,080
+And the way to delete the branches locally that have been deleted on the remote repository
+
+32
+00:02:35,120 --> 00:02:44,840
+is first we're going to go to master and then do git pull because some changes have been made.
+
+33
+00:02:46,960 --> 00:02:50,760
+So we have to pull that merge basically because the master branch changed.
+
+34
+00:02:51,080 --> 00:02:59,240
+Now we have those changes locally and we do that using it branch minus D and the name
+
+35
+00:02:59,240 --> 00:03:00,400
+of that branch.
+
+36
+00:03:02,000 --> 00:03:08,480
+And now if I do git branch, you see that local branch got deleted as well.
+
+37
+00:03:08,480 --> 00:03:14,200
+I just have master and bug fix locally and master and bug fix remotely.
+

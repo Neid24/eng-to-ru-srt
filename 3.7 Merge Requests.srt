@@ -1,0 +1,312 @@
+1
+00:00:00,000 --> 00:00:08,360
+A common practice when working on code with Git is that when developer is done with feature
+
+2
+00:00:08,360 --> 00:00:15,820
+implementation or bug fix, other developer reviews the changes until merging it to master.
+
+3
+00:00:15,820 --> 00:00:18,720
+Because we said master has to be protected.
+
+4
+00:00:18,720 --> 00:00:27,640
+It has to be in the state that everyone knows is tested and can be deployed anytime to production
+
+5
+00:00:27,640 --> 00:00:33,340
+and has no half implemented or broken things inside as much as possible.
+
+6
+00:00:33,340 --> 00:00:39,320
+Most common use cases is when feature implementation required a lot of code changes, or maybe you
+
+7
+00:00:39,320 --> 00:00:44,040
+have a junior developer in the team, or maybe backend developer changed something in the
+
+8
+00:00:44,040 --> 00:00:50,560
+frontend code or vice versa, you have developers helping and checking each other's code, right?
+
+9
+00:00:50,560 --> 00:00:56,360
+So maybe a senior developer checks the code of the junior developer until it gets merged
+
+10
+00:00:56,360 --> 00:01:01,360
+to master, or the frontend developer or expert checks that the backend developer made the
+
+11
+00:01:01,360 --> 00:01:04,080
+changes in frontend in a correct way.
+
+12
+00:01:04,080 --> 00:01:10,200
+And if not, it's a great chance for developers to learn and grow from each other and from
+
+13
+00:01:10,200 --> 00:01:12,020
+each other's expertise.
+
+14
+00:01:12,020 --> 00:01:17,560
+So they can actually suggest how it should be done better, or maybe find a major mistake
+
+15
+00:01:17,560 --> 00:01:23,240
+themselves and tell the other developer how they should improve the code, or maybe write
+
+16
+00:01:23,240 --> 00:01:25,400
+the code in a cleaner way.
+
+17
+00:01:25,400 --> 00:01:28,880
+And of course, it makes sure the code stays clean.
+
+18
+00:01:28,880 --> 00:01:33,340
+And no major mistakes get merged to the master branch.
+
+19
+00:01:33,340 --> 00:01:38,520
+So there's some validation before adding changes to master branch.
+
+20
+00:01:38,520 --> 00:01:43,400
+And the way to do that is using pull requests.
+
+21
+00:01:43,400 --> 00:01:45,680
+And this is a very simple concept.
+
+22
+00:01:45,680 --> 00:01:50,720
+For example, so let's say I'm working on my feature branch, and I have just completed
+
+23
+00:01:50,720 --> 00:01:55,480
+the implementation, the database connection is done, and everything works.
+
+24
+00:01:55,480 --> 00:02:00,200
+I have tested it locally, and I think that it's ready.
+
+25
+00:02:00,200 --> 00:02:04,800
+So now it should be time to merge it to master, right?
+
+26
+00:02:04,800 --> 00:02:09,960
+So in order to do that, I'm going to create a pull request that some other developer in
+
+27
+00:02:09,960 --> 00:02:17,760
+my team maybe with more experience in doing the database connection can review and approve
+
+28
+00:02:17,760 --> 00:02:20,960
+that it can be merged into master.
+
+29
+00:02:20,960 --> 00:02:26,200
+So the way to do that is go back and go to branches.
+
+30
+00:02:26,200 --> 00:02:30,540
+Along the feature branch here, I see a merge request.
+
+31
+00:02:30,540 --> 00:02:37,320
+And here I see that there is one change or one commit in this feature branch that is
+
+32
+00:02:37,320 --> 00:02:39,360
+different from the master, right?
+
+33
+00:02:39,360 --> 00:02:47,640
+So let's say if I did another change, let's again change some small thing here.
+
+34
+00:02:48,640 --> 00:02:51,560
+It doesn't really matter what I change.
+
+35
+00:02:51,560 --> 00:03:00,360
+Just want to do a new commit.
+
+36
+00:03:00,360 --> 00:03:08,320
+And now if I push the changes and I refresh here, I see two commits.
+
+37
+00:03:08,320 --> 00:03:13,960
+So there are two changes in this feature branch that aren't in master.
+
+38
+00:03:13,960 --> 00:03:17,360
+So this need to be merged, so to say.
+
+39
+00:03:17,360 --> 00:03:20,600
+So what is the first one, the first number here?
+
+40
+00:03:20,600 --> 00:03:26,200
+These are the changes that master has that my feature branch doesn't have, right?
+
+41
+00:03:26,200 --> 00:03:29,960
+Because obviously it can happen that another developer is ready with the bug fix.
+
+42
+00:03:29,960 --> 00:03:34,760
+They merge their changes into master, but I don't have them yet, right?
+
+43
+00:03:34,760 --> 00:03:39,960
+So now the master branch has changes that my feature branch doesn't have and the other
+
+44
+00:03:39,960 --> 00:03:41,320
+way around as well.
+
+45
+00:03:41,320 --> 00:03:44,000
+My feature branch has changes that master doesn't have.
+
+46
+00:03:44,000 --> 00:03:49,280
+In order to create the pull request or the merge request, it is actually named differently
+
+47
+00:03:49,280 --> 00:03:53,960
+in different repositories, so it could be called either merge request or pull request.
+
+48
+00:03:53,960 --> 00:03:56,360
+So in GitLab, it's merge request.
+
+49
+00:03:56,360 --> 00:04:01,600
+So if I click on that, here you see the feature branch will be merged to master branch, which
+
+50
+00:04:01,600 --> 00:04:03,280
+is exactly what we want.
+
+51
+00:04:03,280 --> 00:04:09,040
+Here we can add the title or description of what the branch actually includes.
+
+52
+00:04:09,040 --> 00:04:13,480
+And then you can assign it to one of the developers in the team for approval.
+
+53
+00:04:13,960 --> 00:04:18,920
+You can also select someone as a reviewer for your code here as well, or you can leave
+
+54
+00:04:18,920 --> 00:04:20,640
+both of them unassigned.
+
+55
+00:04:20,640 --> 00:04:26,840
+So the way it works is that you may know that someone in the team has expertise exactly
+
+56
+00:04:26,840 --> 00:04:31,720
+in the area that you have worked on, so you can assign it to that person.
+
+57
+00:04:31,720 --> 00:04:37,400
+Or if you think that anybody can review the code and you can leave it unassigned and submit
+
+58
+00:04:37,400 --> 00:04:38,600
+merge request.
+
+59
+00:04:38,600 --> 00:04:42,600
+And now another developer will see your merge request and will see the changes that you
+
+60
+00:04:42,600 --> 00:04:43,600
+have made.
+
+61
+00:04:43,600 --> 00:04:45,920
+You will see the commits, maybe, separately.
+
+62
+00:04:45,920 --> 00:04:48,160
+Again, there are different UIs.
+
+63
+00:04:48,160 --> 00:04:52,960
+For this, it looks differently in Bitbucket, for example, or in GitHub.
+
+64
+00:04:52,960 --> 00:04:58,040
+But there are two things you can do once a merge request has been assigned to you.
+
+65
+00:04:58,040 --> 00:05:02,520
+The first one is to approve or decline the merge request.
+
+66
+00:05:02,520 --> 00:05:08,240
+For example, if you find there's something wrong with these changes, for example, you
+
+67
+00:05:08,240 --> 00:05:12,000
+don't think this is a correct change, then you can add some comments.
+
+68
+00:05:12,000 --> 00:05:17,280
+Basically as a reviewer, you don't change the stuff here and fix the issues yourself.
+
+69
+00:05:17,280 --> 00:05:22,720
+You leave comments, so the person who implemented this can actually learn from this.
+
+70
+00:05:22,720 --> 00:05:25,480
+So that's the actual idea behind it.
+
+71
+00:05:25,480 --> 00:05:30,480
+So the person who made those mistakes can learn from them and you basically give them
+
+72
+00:05:30,480 --> 00:05:33,040
+some suggestions and inputs.
+
+73
+00:05:33,040 --> 00:05:38,760
+So in that case, you can actually reject the merge request, then the developer will go
+
+74
+00:05:38,760 --> 00:05:45,360
+back and do the changes based on your suggestion and then create a pull request again.
+
+75
+00:05:45,360 --> 00:05:51,080
+And once it looks fine, you can approve it and you can also merge it.
+
+76
+00:05:51,080 --> 00:05:58,280
+So if I click merge, the changes were merged in master.
+
+77
+00:05:58,280 --> 00:06:08,640
+If I go back to the repository, here you see the changes are in master, which means the
+
+78
+00:06:08,640 --> 00:06:09,920
+merge is complete.
+

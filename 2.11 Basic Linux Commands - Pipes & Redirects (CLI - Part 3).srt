@@ -1,0 +1,928 @@
+1
+00:00:00,000 --> 00:00:08,740
+Till now, we saw many Linux commands for different use cases, like displaying the contents of
+
+2
+00:00:08,740 --> 00:00:17,040
+a directory, creating users and assigning them to groups, etc.
+
+3
+00:00:17,040 --> 00:00:23,200
+And in Linux, every command can have an input and output.
+
+4
+00:00:23,200 --> 00:00:30,920
+And there is a very important concept also in Linux, which allows the output of one command
+
+5
+00:00:30,920 --> 00:00:34,400
+to be the input of another command.
+
+6
+00:00:34,400 --> 00:00:40,160
+So basically, you can chain the execution of multiple commands on a command line interface,
+
+7
+00:00:40,160 --> 00:00:47,960
+for example, and basically use the result of command execution of one command as input
+
+8
+00:00:47,960 --> 00:00:49,560
+for another command.
+
+9
+00:00:49,560 --> 00:00:56,320
+So the concept is that the output of one program can become the input of another program.
+
+10
+00:00:56,320 --> 00:01:02,240
+And let's say with examples, what I mean, for example, let's say we have a file like
+
+11
+00:01:02,240 --> 00:01:06,200
+syslog that we want to display.
+
+12
+00:01:06,200 --> 00:01:12,600
+And that is in var, which is the directory where many log files, for example, or caches
+
+13
+00:01:12,600 --> 00:01:20,560
+are stored, then we have a log directory there, which has a system or syslog file.
+
+14
+00:01:20,560 --> 00:01:26,160
+So if I print the contents of the syslog file, you will see that there are lots and lots
+
+15
+00:01:26,160 --> 00:01:33,360
+of log entries in this file, because it basically collects and logs every single thing that you
+
+16
+00:01:33,360 --> 00:01:38,080
+do on the system, opening programs, creating folders and files, etc.
+
+17
+00:01:38,080 --> 00:01:47,080
+So you'll have to basically scroll in the terminal to see the start of the file.
+
+18
+00:01:47,080 --> 00:01:53,800
+Now if we want to see the contents in the command line interface in a more convenient
+
+19
+00:01:53,800 --> 00:02:00,320
+and user friendly way, what we can do is we can take the output of that command.
+
+20
+00:02:00,320 --> 00:02:09,680
+So basically the file contents that the concatenate command gives us, and we can pass that as
+
+21
+00:02:09,680 --> 00:02:16,720
+input to a program that is able to display large content page by page.
+
+22
+00:02:16,720 --> 00:02:19,720
+And that program is called less.
+
+23
+00:02:19,720 --> 00:02:29,000
+And the syntax for passing the output to the next command as an input is a pipe character,
+
+24
+00:02:29,000 --> 00:02:34,800
+which looks like this, and depending on your keyboard layout and language that you have,
+
+25
+00:02:34,800 --> 00:02:36,920
+this will be a different key combination.
+
+26
+00:02:36,920 --> 00:02:44,200
+And then the program that we are passing the input to, right, the name of that program.
+
+27
+00:02:44,200 --> 00:02:50,600
+And the concept of passing the output of one command to the next one is actually called
+
+28
+00:02:50,600 --> 00:02:52,200
+piping.
+
+29
+00:02:52,200 --> 00:02:58,440
+So we are piping the output of concatenate command to less, which again, as I said, less
+
+30
+00:02:58,440 --> 00:03:07,120
+is a program that displays large pieces of information of text files in more user friendly
+
+31
+00:03:07,120 --> 00:03:08,840
+manner like this.
+
+32
+00:03:08,840 --> 00:03:11,280
+So we can read it page by page.
+
+33
+00:03:11,280 --> 00:03:15,800
+So this is the beginning, the start of the file contents.
+
+34
+00:03:15,800 --> 00:03:17,280
+And this is one page.
+
+35
+00:03:17,280 --> 00:03:25,960
+And with space character, you can jump to the next page like this and all the way to
+
+36
+00:03:25,960 --> 00:03:27,360
+the end.
+
+37
+00:03:27,360 --> 00:03:34,960
+And when you reach the end, you can just type in Q, and this will quit the program.
+
+38
+00:03:34,960 --> 00:03:42,200
+So as you saw, we don't have the output of the concatenate program in the terminal itself,
+
+39
+00:03:42,200 --> 00:03:43,520
+like we did here.
+
+40
+00:03:43,520 --> 00:03:49,400
+So here it basically just printed everything in the command line interface itself.
+
+41
+00:03:49,400 --> 00:03:54,240
+But with this line, it didn't print anything to the command line.
+
+42
+00:03:54,240 --> 00:03:55,240
+Why?
+
+43
+00:03:55,720 --> 00:04:04,040
+We redirected that printing or that results, the contents of that file to another program
+
+44
+00:04:04,040 --> 00:04:09,360
+that doesn't print the output to a command line interface, but it rather just lets you
+
+45
+00:04:09,360 --> 00:04:11,520
+read it in this interactive mode.
+
+46
+00:04:11,520 --> 00:04:14,400
+So that's mainly the concept of piping.
+
+47
+00:04:14,400 --> 00:04:20,160
+And now let's actually see a couple of more use cases where you will see that it's actually
+
+48
+00:04:20,160 --> 00:04:24,520
+very useful in many situations.
+
+49
+00:04:24,520 --> 00:04:30,880
+So let's clear this up.
+
+50
+00:04:30,880 --> 00:04:41,720
+And now let's actually print out the contents of slash user slash bin folder.
+
+51
+00:04:41,720 --> 00:04:51,120
+And as you see, there are lots of different programs and command binaries in that folder
+
+52
+00:04:51,120 --> 00:04:55,000
+which get all printed right here.
+
+53
+00:04:55,000 --> 00:05:03,920
+Again, not very convenient to basically be scrolling up and down to see the first entries
+
+54
+00:05:03,920 --> 00:05:04,920
+of the command.
+
+55
+00:05:04,920 --> 00:05:14,320
+Again, the same way we can pipe the output, which is again display of all these file names
+
+56
+00:05:14,320 --> 00:05:20,760
+basically and pass that as input to program less.
+
+57
+00:05:20,760 --> 00:05:30,920
+And this will give us page by page view of all those directory contents basically.
+
+58
+00:05:30,920 --> 00:05:36,320
+So we see it starts with a so this is the first page, then we have the next one and basically
+
+59
+00:05:36,320 --> 00:05:41,480
+using the space, you can jump to the next page.
+
+60
+00:05:41,480 --> 00:05:47,280
+If you want to move to the previous page, you could just hit the key B and this will
+
+61
+00:05:47,280 --> 00:05:50,360
+basically move you back and so on.
+
+62
+00:05:50,360 --> 00:05:57,080
+So there are actually some other subcommands of less that you can use here to navigate
+
+63
+00:05:57,080 --> 00:06:02,440
+this view, instead of just having the static view printed out in the command line that
+
+64
+00:06:02,440 --> 00:06:05,480
+you just have to scroll up and down to view it.
+
+65
+00:06:05,480 --> 00:06:09,960
+And again, if I hit Q here, it will just quit the program.
+
+66
+00:06:09,960 --> 00:06:17,720
+So much more convenient way to consume information which has basically multiple pages of display.
+
+67
+00:06:17,720 --> 00:06:24,920
+Another very useful use case where you could use less program to basically see the output
+
+68
+00:06:24,920 --> 00:06:31,400
+in a more manageable way is if you want to print out the history of your comments, right?
+
+69
+00:06:31,400 --> 00:06:37,120
+If you're executing lots of comments on your operating system, you're going to have lots
+
+70
+00:06:37,120 --> 00:06:39,120
+of comments, right?
+
+71
+00:06:39,120 --> 00:06:43,600
+We've been working on this operating system for just a couple of days and we already have
+
+72
+00:06:43,600 --> 00:06:45,880
+a couple of hundred comments here.
+
+73
+00:06:45,880 --> 00:06:56,840
+So again, if you don't want to have this history all printed out here in the terminal window,
+
+74
+00:06:56,840 --> 00:06:57,760
+we can do the same.
+
+75
+00:06:57,760 --> 00:07:06,840
+We can do history, pipe, whatever history command gives us to program less so that it can display
+
+76
+00:07:06,840 --> 00:07:07,840
+it better.
+
+77
+00:07:07,840 --> 00:07:12,960
+Again, you see the very first command that we executed, which was this one right here.
+
+78
+00:07:12,960 --> 00:07:21,400
+And then again, we can navigate back and forth using space for next page and B for previous
+
+79
+00:07:21,400 --> 00:07:24,000
+page and Q to quit.
+
+80
+00:07:24,000 --> 00:07:31,360
+So these are some of the useful use cases for using piping and specifically piping loads
+
+81
+00:07:31,360 --> 00:07:39,960
+of output into a less program, but that's just one example.
+
+82
+00:07:39,960 --> 00:07:45,000
+We can pipe the output of commands into any other program.
+
+83
+00:07:45,000 --> 00:07:49,400
+For example, let's take history command again.
+
+84
+00:07:49,400 --> 00:07:57,400
+And let's say we want to filter all the commands that have sudo in it.
+
+85
+00:07:57,400 --> 00:08:06,280
+So basically want to see all the commands that we executed using sudo as a super user.
+
+86
+00:08:06,280 --> 00:08:08,640
+And how do we do that?
+
+87
+00:08:08,640 --> 00:08:10,920
+History pipe again.
+
+88
+00:08:10,920 --> 00:08:19,280
+And there is another program that is able to filter whatever output you give as input.
+
+89
+00:08:19,280 --> 00:08:27,040
+And that is called g R E P and this program takes the filter string as an input in addition
+
+90
+00:08:27,040 --> 00:08:31,320
+to the contents that it should filter, right?
+
+91
+00:08:31,320 --> 00:08:37,560
+So it has the contents that it should look for a specific pattern and filter out the
+
+92
+00:08:37,560 --> 00:08:38,560
+results.
+
+93
+00:08:38,560 --> 00:08:42,480
+So we can do grab sudo.
+
+94
+00:08:42,480 --> 00:08:50,400
+So basically look for any commands that history provides as an output that has sudo word in
+
+95
+00:08:50,400 --> 00:08:51,400
+it.
+
+96
+00:08:51,400 --> 00:08:58,800
+And if I execute, you see that grab, first of all, outputs the comments also in the command
+
+97
+00:08:58,800 --> 00:09:00,080
+line interface.
+
+98
+00:09:00,080 --> 00:09:01,960
+So we see that here.
+
+99
+00:09:01,960 --> 00:09:07,960
+And first of all, we see that the word that we are searching for is highlighted in color,
+
+100
+00:09:07,960 --> 00:09:11,160
+which is very nice display.
+
+101
+00:09:11,160 --> 00:09:12,920
+So we can see it right away.
+
+102
+00:09:12,920 --> 00:09:17,000
+Plus we have a list of all the comments that we executed using sudo.
+
+103
+00:09:17,000 --> 00:09:24,200
+So it's a very nice traceability in case we want that history basically of all the sudo
+
+104
+00:09:24,200 --> 00:09:25,200
+comments.
+
+105
+00:09:25,200 --> 00:09:32,680
+The filter pattern here, the string that we are passing or giving grab program to search
+
+106
+00:09:32,680 --> 00:09:36,240
+for can be anything that you want here.
+
+107
+00:09:36,240 --> 00:09:39,480
+This could be a part of an actual word.
+
+108
+00:09:39,480 --> 00:09:43,640
+It could be at the beginning of the line at the end, doesn't really matter.
+
+109
+00:09:43,640 --> 00:09:50,840
+We can also search for multiple words or basically sentences or phrases using this grab command.
+
+110
+00:09:50,840 --> 00:09:57,480
+So for example, we want to see all the sudo commands that we executed for changing file
+
+111
+00:09:57,480 --> 00:09:59,360
+permissions, right?
+
+112
+00:09:59,360 --> 00:10:08,560
+So sudo change mode, for example, however, in this case, we have to basically tell grab
+
+113
+00:10:08,560 --> 00:10:12,640
+program explicitly that this is a phrase that we're looking for.
+
+114
+00:10:12,640 --> 00:10:16,420
+And we have to enclose it into double quotes.
+
+115
+00:10:16,420 --> 00:10:24,020
+So if we just have one word, not space separated, then we can do it without the quotes, otherwise
+
+116
+00:10:24,020 --> 00:10:27,340
+we have to enclose the sentence or phrase in quotes.
+
+117
+00:10:27,340 --> 00:10:33,300
+And again, executed, and now we see sudo change mode commands.
+
+118
+00:10:33,300 --> 00:10:40,980
+As I said, any command can take an input from the previous commands output.
+
+119
+00:10:40,980 --> 00:10:49,340
+And that means we can pass in the output of this command also to the next command.
+
+120
+00:10:49,340 --> 00:10:55,260
+For example, let's clear this up.
+
+121
+00:10:55,260 --> 00:11:02,300
+And let's see that this grab, for example, gives us still a ton of output, right?
+
+122
+00:11:02,300 --> 00:11:08,020
+Let's say it gives us hundreds of entries because we have executed a lot of commands
+
+123
+00:11:08,020 --> 00:11:09,540
+using sudo.
+
+124
+00:11:09,540 --> 00:11:16,860
+So we want to see that also in a digestible and more user friendly way.
+
+125
+00:11:16,860 --> 00:11:22,500
+So we can actually pipe that also to another program, like less.
+
+126
+00:11:22,500 --> 00:11:28,860
+So now what will happen is history will basically give us all the history entries.
+
+127
+00:11:28,860 --> 00:11:35,300
+It will then give that output to the grab program, which will filter the total history
+
+128
+00:11:35,300 --> 00:11:42,180
+outputs, and that will then give its output or pass that as a parameter to the next program.
+
+129
+00:11:42,180 --> 00:11:49,220
+So now if I execute this, you see the sudo entries that are displayed by the less program.
+
+130
+00:11:49,220 --> 00:11:55,500
+And again, you can navigate to the next page, to the previous page, etc.
+
+131
+00:11:55,500 --> 00:12:02,300
+And you can have this endless chain of commands basically using this piping concept.
+
+132
+00:12:02,300 --> 00:12:08,140
+And the grab command can actually be used to filter certain strings in any type of content.
+
+133
+00:12:08,140 --> 00:12:09,580
+This could be file contents.
+
+134
+00:12:09,580 --> 00:12:15,180
+This could be a list of commands or a list of files and folders itself.
+
+135
+00:12:15,180 --> 00:12:24,460
+So to see another example, let's say we want to basically filter all the files inside this
+
+136
+00:12:24,460 --> 00:12:30,660
+user slash bin to look for a specific program or application.
+
+137
+00:12:30,660 --> 00:12:38,900
+Because if I click on the tab completion here, it will show me that there are 1386 entries
+
+138
+00:12:38,900 --> 00:12:39,900
+in this folder.
+
+139
+00:12:39,900 --> 00:12:42,660
+So obviously we don't want to display all of them, right?
+
+140
+00:12:42,660 --> 00:12:51,340
+So instead, we can grab for a specific program like Java, for example, and this will show
+
+141
+00:12:51,340 --> 00:12:59,940
+us whether there is a program Java in this bin directory.
+
+142
+00:12:59,940 --> 00:13:05,580
+We can do the same for Python, which as you see displays that there are multiple Python
+
+143
+00:13:05,580 --> 00:13:06,820
+files here.
+
+144
+00:13:06,820 --> 00:13:13,900
+So the grep program can be used for finding whether there is a certain file or program
+
+145
+00:13:13,900 --> 00:13:16,100
+or whatever in a directory.
+
+146
+00:13:16,100 --> 00:13:23,660
+And we can also use it to find specific phrases or texts in a file content.
+
+147
+00:13:23,660 --> 00:13:33,020
+So for example, in our Java project, we have config YAML file that has some YAML contents.
+
+148
+00:13:33,020 --> 00:13:38,740
+And let's say if this was a much larger YAML file with lots of lines of code, we could
+
+149
+00:13:38,740 --> 00:13:47,180
+actually grep a specific value, like for example, we can see all the places where ports are
+
+150
+00:13:47,180 --> 00:13:57,580
+defined using ports string as a filter, or using a port number as a filter, like this.
+
+151
+00:13:57,580 --> 00:14:03,060
+So these are some of the use cases where the concept of piping or basically passing the
+
+152
+00:14:03,060 --> 00:14:12,220
+output of one command to the next command as input can be very useful.
+
+153
+00:14:12,220 --> 00:14:19,300
+Another similar concept in Linux that is also very helpful in many cases is something called
+
+154
+00:14:19,300 --> 00:14:20,460
+a redirection.
+
+155
+00:14:20,460 --> 00:14:28,020
+So basically we redirect the results of a command execution into a file, for example.
+
+156
+00:14:28,020 --> 00:14:31,620
+Again, let's see a specific use case.
+
+157
+00:14:31,620 --> 00:14:40,220
+Previously we saw that we filtered all the history entries or pseudo commands, like this.
+
+158
+00:14:40,220 --> 00:14:46,180
+Now let's say we want to save that output into a file, because I don't know, maybe we
+
+159
+00:14:46,180 --> 00:14:51,660
+want to save it for later as a history, want to share it with someone in our team, whatever.
+
+160
+00:14:51,660 --> 00:14:54,900
+So basically we want to have all these in a file.
+
+161
+00:14:54,900 --> 00:15:07,820
+We can do that actually very easily by redirecting the result of these programs execution into
+
+162
+00:15:07,820 --> 00:15:14,620
+a file using this greater than sign, which also kind of looks like an arrow with a direction,
+
+163
+00:15:14,620 --> 00:15:21,420
+which makes sense because we're basically putting all or funneling the output of this
+
+164
+00:15:21,420 --> 00:15:23,620
+command here into a file.
+
+165
+00:15:23,620 --> 00:15:25,700
+And we can call this file whatever we want.
+
+166
+00:15:25,700 --> 00:15:35,900
+I'm going to call this pseudo commands dot txt or dot ch, it doesn't really matter, and
+
+167
+00:15:35,900 --> 00:15:36,900
+execute.
+
+168
+00:15:36,900 --> 00:15:44,660
+Now if I do LS, here is my pseudo commands dot text file, which has the same contents
+
+169
+00:15:44,660 --> 00:15:52,660
+as the output of these two commands.
+
+170
+00:15:52,660 --> 00:15:57,700
+And now we have a shareable and portable file.
+
+171
+00:15:57,700 --> 00:16:04,020
+Now let's say we decided, you know what, we also want to add some other commands in the
+
+172
+00:16:04,020 --> 00:16:15,180
+pseudo commands dot text file, in addition to what we already have there.
+
+173
+00:16:15,180 --> 00:16:20,420
+For example, this could be all the removed commands that we executed on the system.
+
+174
+00:16:20,420 --> 00:16:25,940
+We want them also in this commence file.
+
+175
+00:16:25,940 --> 00:16:31,180
+In addition to what we have in the pseudo commands file, but one that as a separate
+
+176
+00:16:31,180 --> 00:16:32,180
+file.
+
+177
+00:16:32,180 --> 00:16:37,340
+So what we can do is we can actually copy the contents, whatever is in here into a new
+
+178
+00:16:37,340 --> 00:16:43,980
+file, also using the redirect of one commands output into another.
+
+179
+00:16:43,980 --> 00:16:51,380
+So let's say concatenating the contents of this file, and then redirecting that into
+
+180
+00:16:51,380 --> 00:16:52,380
+another file.
+
+181
+00:16:52,380 --> 00:16:58,420
+And let's say these are pseudo and remove comments.
+
+182
+00:16:58,420 --> 00:17:04,420
+That's what we're going to call this, execute.
+
+183
+00:17:04,420 --> 00:17:12,860
+And now if we print the contents, you see that we have exactly the same contents here.
+
+184
+00:17:12,860 --> 00:17:22,020
+And as I said, we want to add all the commands to this file that basically removed something
+
+185
+00:17:22,020 --> 00:17:23,460
+on the system.
+
+186
+00:17:23,460 --> 00:17:28,820
+So if I execute this, these are the results.
+
+187
+00:17:28,820 --> 00:17:38,180
+And we can also redirect all that into pseudo remove comments.
+
+188
+00:17:38,180 --> 00:17:47,940
+However, note here that if I use the syntax, then everything that is in the existing content
+
+189
+00:17:47,940 --> 00:17:49,980
+here will be overwritten.
+
+190
+00:17:49,980 --> 00:17:56,180
+So these lines will basically overwrite whatever is inside here.
+
+191
+00:17:56,180 --> 00:18:01,900
+If I want to append new lines or new content to the existing one, then I have to use a
+
+192
+00:18:01,900 --> 00:18:06,340
+syntax with double greater than signs.
+
+193
+00:18:06,340 --> 00:18:14,380
+Again, if I execute and display or print the contents, there you go, we have the pseudo
+
+194
+00:18:14,380 --> 00:18:22,380
+comments that we had previously, plus the remove comments were added in addition.
+
+195
+00:18:22,380 --> 00:18:29,900
+Now a very useful use case where piping and redirecting the outputs of commands can be
+
+196
+00:18:29,900 --> 00:18:38,820
+used is, for example, if you are collecting logs of a program that is maybe printing to
+
+197
+00:18:38,820 --> 00:18:44,140
+the command line, the console basically, so you can grab all these logs, you can filter
+
+198
+00:18:44,140 --> 00:18:49,860
+them and you can save them into a file, and you can either back them up or share with
+
+199
+00:18:49,860 --> 00:18:56,420
+someone for troubleshooting, etc.
+
+200
+00:18:56,420 --> 00:19:03,860
+So these are some of the use cases of using piping and redirecting concepts in Linux to
+
+201
+00:19:03,860 --> 00:19:10,140
+basically combine multiple command executions and do something useful with it.
+
+202
+00:19:10,140 --> 00:19:15,420
+So you run one command or one program and then pipe or redirect the output from that
+
+203
+00:19:15,420 --> 00:19:19,300
+command into another and then another and so on.
+
+204
+00:19:19,300 --> 00:19:24,940
+And as I mentioned at the very beginning, each command in Linux can have an input and
+
+205
+00:19:24,940 --> 00:19:26,620
+output.
+
+206
+00:19:26,620 --> 00:19:33,540
+And this input and output actually have formal or official terms in Linux called standard
+
+207
+00:19:33,540 --> 00:19:39,860
+input or STD in and standard output STD out.
+
+208
+00:19:39,860 --> 00:19:45,300
+So with these terms, we're talking about piping or redirecting the standard output from one
+
+209
+00:19:45,300 --> 00:19:48,580
+command to the standard input of another command.
+
+210
+00:19:48,580 --> 00:19:55,980
+However, if the command results in an error, for example, if we are trying to display a
+
+211
+00:19:55,980 --> 00:20:07,020
+file that doesn't exist, then it will display an error message through standard error stream,
+
+212
+00:20:07,020 --> 00:20:08,020
+right?
+
+213
+00:20:08,020 --> 00:20:12,380
+So in input stream, we have the output stream for successful outputs, and then we have the
+
+214
+00:20:12,380 --> 00:20:16,820
+error stream or the error outputs like this.
+
+215
+00:20:16,820 --> 00:20:18,540
+So again, the concepts are very similar.
+
+216
+00:20:18,540 --> 00:20:23,100
+However, if you see these terms, you will know what they're talking about.
+
+217
+00:20:23,100 --> 00:20:29,300
+And one final thing that I want to mention here is that you can actually also execute
+
+218
+00:20:29,300 --> 00:20:35,020
+commands independent from each other, not sharing output and input streams, just one
+
+219
+00:20:35,020 --> 00:20:38,300
+by one on one line.
+
+220
+00:20:38,300 --> 00:20:42,340
+And you can do that by separating them using semi columns.
+
+221
+00:20:42,340 --> 00:20:46,620
+A good example of that would be, let's say we have a clear command.
+
+222
+00:20:46,620 --> 00:20:53,500
+And after that, we want to maybe execute a sleep command, which is weights for a couple
+
+223
+00:20:53,500 --> 00:21:00,820
+of seconds, and then execute another command like echo that basically just prints out to
+
+224
+00:21:00,820 --> 00:21:14,540
+the console, whatever we pass as an input, like this sentence right here.
+
+225
+00:21:14,540 --> 00:21:19,380
+And if I execute this, again, these don't share any output or input.
+
+226
+00:21:19,380 --> 00:21:25,300
+These are just independently executed commands that will be executed one after another in
+
+227
+00:21:25,300 --> 00:21:26,300
+this order.
+
+228
+00:21:26,660 --> 00:21:36,460
+You see, clear was executed, then one second was passed, and then we saw the echo execution.
+
+229
+00:21:36,460 --> 00:21:42,660
+And this could also be a useful thing to know if you're writing maybe one line where you
+
+230
+00:21:42,660 --> 00:21:46,220
+want multiple commands to be executed one by one.
+
+231
+00:21:46,220 --> 00:21:52,580
+So in this lecture, we learned about very important concepts in Linux, which are piping
+
+232
+00:21:52,580 --> 00:21:59,060
+and redirecting and a couple of very useful Linux commands.
+

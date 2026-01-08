@@ -1,0 +1,180 @@
+1
+00:00:00,000 --> 00:00:14,640
+Another interesting concept in Git is history or the log of commits.
+
+2
+00:00:14,640 --> 00:00:18,200
+So I have a bunch of commits that I have made in this branch.
+
+3
+00:00:18,200 --> 00:00:21,160
+So I have a history of my activities.
+
+4
+00:00:21,160 --> 00:00:28,440
+Now as you see here, each commit has this unique hash that identifies that specific
+
+5
+00:00:28,440 --> 00:00:30,320
+commit.
+
+6
+00:00:30,320 --> 00:00:36,800
+And there are some cases where this commit hash, the unique hash is actually very useful.
+
+7
+00:00:36,800 --> 00:00:45,400
+So let's say we have some bug in the code that we are trying to understand or debug
+
+8
+00:00:45,400 --> 00:00:47,040
+how this bug happened.
+
+9
+00:00:47,040 --> 00:00:50,520
+So we don't know which code change actually caused that bug.
+
+10
+00:00:50,520 --> 00:00:55,120
+It could be something complex, so we don't know how to reproduce or how to find out
+
+11
+00:00:55,120 --> 00:00:57,200
+the cause or the issue.
+
+12
+00:00:57,200 --> 00:01:01,000
+So we are doing some testing.
+
+13
+00:01:01,000 --> 00:01:07,760
+And let's say that the tester notices that since the changes of this commit, so from this
+
+14
+00:01:07,760 --> 00:01:14,720
+commit on or from this date on, the bug appeared and something isn't working.
+
+15
+00:01:14,720 --> 00:01:20,480
+So what we can do is in order to reproduce the issue, we can actually go back in time
+
+16
+00:01:20,480 --> 00:01:25,080
+and check out the commit using that hash.
+
+17
+00:01:25,080 --> 00:01:32,320
+And checking our commit means that we are going back to the version of the whole application,
+
+18
+00:01:32,320 --> 00:01:37,520
+so the whole code at the time of this commit.
+
+19
+00:01:37,520 --> 00:01:48,000
+So if I copy this and I can do git checkout commit hash, I have local changes so it doesn't
+
+20
+00:01:48,000 --> 00:01:51,880
+allow me to check out another commit.
+
+21
+00:01:51,880 --> 00:01:58,960
+So let's stash that and let's check out again.
+
+22
+00:01:58,960 --> 00:02:03,020
+And here you see I am in a detached head state.
+
+23
+00:02:03,020 --> 00:02:10,480
+This means that this is basically just information that tells me that I'm not in the most up-to-date
+
+24
+00:02:10,480 --> 00:02:13,120
+state of the branch.
+
+25
+00:02:13,120 --> 00:02:18,240
+I am somewhere in the previous state, some specific commit hash.
+
+26
+00:02:18,240 --> 00:02:25,480
+And what's interesting is that I can actually create a new branch based on the code version
+
+27
+00:02:25,480 --> 00:02:29,040
+that I had at this point in time.
+
+28
+00:02:29,040 --> 00:02:35,920
+So if I go back to my editor, I see that the whole application gets rearranged, maybe some
+
+29
+00:02:35,920 --> 00:02:42,440
+deleted files get reedited, maybe some current files get reverted so they're not shown in
+
+30
+00:02:42,440 --> 00:02:43,800
+the application anymore.
+
+31
+00:02:43,800 --> 00:02:50,760
+So I go back to a state of the application code that I had at the time of this commit.
+
+32
+00:02:50,760 --> 00:02:55,280
+If it was two months ago, then I go back to the code version two months ago.
+
+33
+00:02:55,280 --> 00:03:01,480
+And now I have a version of the code that I can use to replicate a bug that maybe happened
+
+34
+00:03:01,480 --> 00:03:02,720
+some time ago.
+
+35
+00:03:02,720 --> 00:03:09,220
+You also see that I'm not in the branch name anymore, but rather in a commit hash.
+
+36
+00:03:09,220 --> 00:03:15,260
+And as I said, you can do some changes from this version of the application and create
+
+37
+00:03:15,260 --> 00:03:17,380
+a branch based on that.
+
+38
+00:03:17,380 --> 00:03:24,220
+But this is not a very common scenario that you actually make changes in some previous
+
+39
+00:03:24,220 --> 00:03:26,100
+state of the application.
+
+40
+00:03:26,100 --> 00:03:33,220
+So mostly it's actually used for testing or to reproduce a bug that was maybe reported
+
+41
+00:03:33,220 --> 00:03:34,900
+for some time ago.
+
+42
+00:03:34,900 --> 00:03:41,100
+So now if I want to go back to the up-to-date state of the branch, then I can just do git
+
+43
+00:03:41,100 --> 00:03:44,780
+checkout the branch name.
+
+44
+00:03:44,780 --> 00:03:46,880
+And I'm at the head position.
+
+45
+00:03:46,880 --> 00:03:52,980
+Head in git basically means the top commit, so the latest commit state in the branch.
+

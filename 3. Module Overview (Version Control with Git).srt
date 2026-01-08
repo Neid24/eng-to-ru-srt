@@ -1,0 +1,80 @@
+1
+00:00:00,000 --> 00:00:09,000
+In this module, you will learn about version control and one of its most popular implementations,
+
+2
+00:00:09,000 --> 00:00:10,000
+Git.
+
+3
+00:00:10,000 --> 00:00:15,280
+Version control is used in software development to manage the application code, but it's
+
+4
+00:00:15,280 --> 00:00:22,120
+becoming more and more important in the DevOps space in order to manage the application configuration
+
+5
+00:00:22,120 --> 00:00:25,840
+as part of the infrastructure as code concept.
+
+6
+00:00:25,840 --> 00:00:30,400
+So as a DevOps engineer, you should learn and know how to use Git.
+
+7
+00:00:30,400 --> 00:00:35,560
+So first, we will look at the concepts of version control systems in general and then
+
+8
+00:00:35,560 --> 00:00:38,080
+specifically how Git works.
+
+9
+00:00:38,080 --> 00:00:43,800
+We will create a simple Git repository on GitLab and work with it locally using the
+
+10
+00:00:43,800 --> 00:00:46,080
+Git command line interface.
+
+11
+00:00:46,080 --> 00:00:51,840
+You will also learn all the relevant Git commands that you need when working with Git repository.
+
+12
+00:00:51,840 --> 00:00:57,720
+I will also explain some useful concepts like reverting mistakes, resolving merge conflicts
+
+13
+00:00:57,720 --> 00:00:58,720
+and so on.
+
+14
+00:00:58,720 --> 00:01:03,560
+In addition, we will look at the concepts of branches and learn how to work with them
+
+15
+00:01:03,560 --> 00:01:07,200
+using hands-on practical demos.
+
+16
+00:01:07,200 --> 00:01:12,800
+And throughout the whole module, while learning all the different concepts, I will also explain
+
+17
+00:01:12,800 --> 00:01:16,640
+the best practices when working with Git.
+
+18
+00:01:16,640 --> 00:01:21,640
+We will actually be using Git throughout the whole bootcamp in different modules for
+
+19
+00:01:21,640 --> 00:01:23,440
+different use cases.
+
+20
+00:01:23,440 --> 00:01:29,400
+So by the end of the bootcamp, you will feel really comfortable using Git in your own projects.
+

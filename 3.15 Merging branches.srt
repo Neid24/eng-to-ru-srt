@@ -1,0 +1,176 @@
+1
+00:00:00,000 --> 00:00:09,580
+Another git command is git merge that we can look into in this part.
+
+2
+00:00:09,580 --> 00:00:17,580
+So let's say that you have this bugfix branch that has been open for some days already and
+
+3
+00:00:17,580 --> 00:00:20,420
+a lot of things have been merged into master.
+
+4
+00:00:20,420 --> 00:00:25,500
+So you're way behind the master changes in your bugfix branch.
+
+5
+00:00:25,500 --> 00:00:33,220
+And let's also say that changes from other branches, from other developers, are needed
+
+6
+00:00:33,220 --> 00:00:37,500
+so that you can test your bugfix in this branch.
+
+7
+00:00:37,500 --> 00:00:44,140
+So what this means is that before you are done with fixing the bug here, you want to
+
+8
+00:00:44,140 --> 00:00:48,680
+merge the changes from the master to your branch.
+
+9
+00:00:48,680 --> 00:00:55,120
+So you want to pull the changes from the master branch to your bugfix branch.
+
+10
+00:00:55,120 --> 00:01:00,940
+So the way to do that is first of all make sure that your local master branch is up to
+
+11
+00:01:00,940 --> 00:01:01,940
+date.
+
+12
+00:01:01,940 --> 00:01:04,300
+So we pull all the changes.
+
+13
+00:01:04,300 --> 00:01:09,900
+So let's say two or three other branches have been merged to master and now we are trying
+
+14
+00:01:09,900 --> 00:01:13,620
+to merge that into our bugfix, right?
+
+15
+00:01:13,620 --> 00:01:16,980
+Now let's go back to our branch.
+
+16
+00:01:16,980 --> 00:01:23,140
+And the way to pull the changes from master in our bugfix branch is using git merge.
+
+17
+00:01:23,140 --> 00:01:29,320
+And with git merge, we need the parameter, which is the source where we are pulling the
+
+18
+00:01:29,320 --> 00:01:31,280
+code changes from.
+
+19
+00:01:31,280 --> 00:01:39,480
+So this here will take the changes from master branch, merge it into our bugfix branch.
+
+20
+00:01:39,480 --> 00:01:44,400
+This will create a new commit with merge branch master into bugfix.
+
+21
+00:01:44,400 --> 00:01:57,100
+And now if I do git log, you see the revert test commit from master is in our branch now.
+
+22
+00:01:57,100 --> 00:02:04,020
+And let's say I push that merge into the remote branch of bugfix.
+
+23
+00:02:04,020 --> 00:02:11,220
+Let's say I test my changes and it all works perfectly and I'm done fixing the bug.
+
+24
+00:02:11,220 --> 00:02:16,560
+So now I can actually create a pull request that can be merged into the master.
+
+25
+00:02:16,560 --> 00:02:20,920
+And here we see that there are a number of commits that are different from the master
+
+26
+00:02:20,920 --> 00:02:21,920
+branch.
+
+27
+00:02:21,920 --> 00:02:26,240
+So we can create a merge request from here.
+
+28
+00:02:26,240 --> 00:02:32,880
+We are going to delete the source branch when merge request is accepted.
+
+29
+00:02:32,880 --> 00:02:38,440
+And let's say someone reviews your code in the bugfix branch and everything looks fine.
+
+30
+00:02:38,440 --> 00:02:43,780
+And in this case, we are approving the pull request or the merge request.
+
+31
+00:02:43,780 --> 00:02:51,100
+And we're doing the git merge that I did here or that I showed here from the UI of GitLab.
+
+32
+00:02:51,100 --> 00:02:56,060
+So this is the same command that we executed on the command line.
+
+33
+00:02:56,060 --> 00:03:05,580
+So with merge, we are merging the bugfix branch back into the master.
+
+34
+00:03:05,580 --> 00:03:10,000
+So as you saw, you can do it either from UI or from command line.
+
+35
+00:03:10,000 --> 00:03:14,040
+And you can merge any branch into any other branch.
+
+36
+00:03:14,040 --> 00:03:19,440
+But normal case or the standard case for this is either you are merging a master branch
+
+37
+00:03:19,440 --> 00:03:24,680
+into your feature branch or bugfix branch because you have that branch open for far
+
+38
+00:03:24,680 --> 00:03:31,120
+too long and you need the up to date changes because it has diverged too much or you are
+
+39
+00:03:31,120 --> 00:03:35,320
+done implementing your feature or you are done fixing your bug and now you're merging
+
+40
+00:03:35,320 --> 00:03:37,500
+it back to the master branch.
+
+41
+00:03:37,500 --> 00:03:42,820
+So these are the two cases where you need the merge command.
+
+42
+00:03:42,820 --> 00:03:50,180
+And if I go back to repository, we have one master branch and everything has been merged.
+
+43
+00:03:50,180 --> 00:03:56,300
+We have the git ignore, the ignored folders are also gone and all the changes from that
+
+44
+00:03:56,300 --> 00:03:58,140
+bugfix branch are here.
+

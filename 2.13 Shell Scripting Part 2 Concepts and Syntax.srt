@@ -1,0 +1,2040 @@
+1
+00:00:00,000 --> 00:00:13,200
+Now, let's open that file again and let's see some more interesting syntax here.
+
+2
+00:00:13,200 --> 00:00:19,200
+First of all, we have a very important concept of variables in scripting to store a value
+
+3
+00:00:19,200 --> 00:00:23,360
+once and then reference it multiple times throughout the script.
+
+4
+00:00:23,360 --> 00:00:29,560
+For example, we may have a certain file that we need in many different commands.
+
+5
+00:00:29,560 --> 00:00:36,280
+So we can save the name of that file once in a variable called file name, which we can
+
+6
+00:00:36,280 --> 00:00:42,400
+write either using underscore like this file underscore name, or we can also use something
+
+7
+00:00:42,400 --> 00:00:47,600
+called a camel case like this, I'm going to use the underscore syntax.
+
+8
+00:00:47,600 --> 00:00:52,240
+And these are just standards you can name your variables, however you want.
+
+9
+00:00:52,240 --> 00:00:59,880
+And we can assign a value to that variable using equal sign, and then the actual value.
+
+10
+00:00:59,880 --> 00:01:05,640
+And let's say that file is config.yaml doesn't really matter.
+
+11
+00:01:05,640 --> 00:01:06,640
+That's our file.
+
+12
+00:01:06,640 --> 00:01:12,680
+And then we can use that variable in all the commands where we want to reference this
+
+13
+00:01:12,680 --> 00:01:13,680
+file.
+
+14
+00:01:13,680 --> 00:01:18,800
+Now, how do we reference or use the variables that we created in a script, again, using
+
+15
+00:01:18,800 --> 00:01:27,960
+our echo command, we can say using file, and then we do dollar sign name of the variable
+
+16
+00:01:27,960 --> 00:01:36,980
+like this, using file name of the file to configure something doesn't really matter.
+
+17
+00:01:36,980 --> 00:01:45,680
+So that's basically a syntax for using referencing variables in a script.
+
+18
+00:01:45,680 --> 00:01:51,960
+Another cool thing about variables is that you can actually assign values to variables
+
+19
+00:01:51,960 --> 00:01:55,320
+that are the output of command execution.
+
+20
+00:01:55,320 --> 00:02:02,560
+So for example, if I do LS, and let's say I want to list all the contents in a folder
+
+21
+00:02:02,560 --> 00:02:09,000
+called config, let's say, I can save the result of this command execution into a variable
+
+22
+00:02:09,000 --> 00:02:13,600
+and then reference it multiple times in a script wherever I need it.
+
+23
+00:02:13,600 --> 00:02:21,920
+To do that, the syntax is dollar sign, and then wrap the command basically in brackets,
+
+24
+00:02:21,920 --> 00:02:23,960
+and then we assign it to a variable.
+
+25
+00:02:23,960 --> 00:02:31,760
+And let's say these are config files, or all config files that we need.
+
+26
+00:02:31,760 --> 00:02:43,880
+And again, to reference that variable, let's do another echo here, contents of config folder,
+
+27
+00:02:43,880 --> 00:03:01,200
+or you can also write, here are all configuration files, and use config files variable here.
+
+28
+00:03:01,200 --> 00:03:09,000
+And again, let's actually save this and try to execute, even though we don't have a config
+
+29
+00:03:09,000 --> 00:03:12,760
+folder here.
+
+30
+00:03:12,760 --> 00:03:18,240
+And let's see what's going to happen.
+
+31
+00:03:18,240 --> 00:03:24,040
+So first we see our echo command, then we have cannot access config, no such file or
+
+32
+00:03:24,040 --> 00:03:26,680
+directory, same as here.
+
+33
+00:03:26,680 --> 00:03:30,880
+This is the file name, which we used in echo command.
+
+34
+00:03:30,880 --> 00:03:35,400
+And this is basically another echo command which shows nothing because we don't have
+
+35
+00:03:35,400 --> 00:03:45,920
+a config, because LS config command right here basically returned nothing an empty result.
+
+36
+00:03:45,920 --> 00:03:47,800
+And that's what we have at the end.
+
+37
+00:03:47,800 --> 00:03:50,840
+So basically we have an error in the execution.
+
+38
+00:03:50,840 --> 00:03:56,440
+And this actually may happen very often, because we don't always control the environment.
+
+39
+00:03:57,440 --> 00:04:07,220
+So a very useful concept that we use in script files is something called conditionals.
+
+40
+00:04:07,220 --> 00:04:12,680
+So before we execute certain commands, that we're not sure is going to be successful,
+
+41
+00:04:12,680 --> 00:04:19,360
+we check first, for example, we check whether config folder exists or not, before we do
+
+42
+00:04:19,360 --> 00:04:25,520
+LS config, for example, or before we try to open and execute or do something with a file
+
+43
+00:04:25,600 --> 00:04:30,080
+like config.yaml, we check whether this file actually exists on the system.
+
+44
+00:04:30,080 --> 00:04:35,180
+And if it doesn't, maybe we create the folder or file or we do something else.
+
+45
+00:04:35,180 --> 00:04:39,900
+So let's see how that works.
+
+46
+00:04:39,900 --> 00:04:48,040
+So right here before we create the variable with LS config command execution, we're going
+
+47
+00:04:48,040 --> 00:04:54,600
+to add this conditional and the syntax for that is if that's the keyword that allows
+
+48
+00:04:54,680 --> 00:05:00,840
+us to provide a condition, like does config folder exist on the system.
+
+49
+00:05:00,840 --> 00:05:06,480
+And that condition actually goes between square brackets like this.
+
+50
+00:05:06,480 --> 00:05:12,800
+And here we can type config, and to check whether this config is a directory or not,
+
+51
+00:05:12,800 --> 00:05:20,000
+we can do minus D. And this expression here between the square brackets basically is called
+
+52
+00:05:20,000 --> 00:05:24,760
+a condition, and it checks whether config is a directory or not.
+
+53
+00:05:24,760 --> 00:05:31,920
+So if this is true, if config is a directory, then that's another keyword.
+
+54
+00:05:31,920 --> 00:05:38,360
+So we do whatever comes after then in case this is true.
+
+55
+00:05:38,360 --> 00:05:51,200
+So we can do echo config or reading config directory contents.
+
+56
+00:05:51,200 --> 00:05:57,240
+And we can also add a logic of what we would do if there is no config directory.
+
+57
+00:05:57,240 --> 00:06:04,360
+And for that, we're going to use else again, let's do some echo, this is basically echoes
+
+58
+00:06:04,360 --> 00:06:07,880
+are just messages or information for you.
+
+59
+00:06:07,880 --> 00:06:12,760
+When you're executing script, you don't actually need that for command execution.
+
+60
+00:06:12,760 --> 00:06:14,200
+Just adds more information.
+
+61
+00:06:14,200 --> 00:06:19,400
+So let's say if config directories and found, then we're going to print the message saying
+
+62
+00:06:19,400 --> 00:06:31,440
+config, you're not found creating one.
+
+63
+00:06:31,440 --> 00:06:34,920
+And then let's actually create a directory called config.
+
+64
+00:06:34,920 --> 00:06:44,080
+And you know the command for that already, it's make directory mkdir and config.
+
+65
+00:06:44,080 --> 00:06:51,800
+And once we're done with our conditional logic, also called if else statement, because we
+
+66
+00:06:51,800 --> 00:06:55,760
+have if and else conditions here.
+
+67
+00:06:55,760 --> 00:07:02,080
+And once we're done with it, we tell the program that we're done by typing here fi, which is
+
+68
+00:07:02,080 --> 00:07:06,680
+basically a reverse of if that's just the syntax.
+
+69
+00:07:06,680 --> 00:07:11,960
+And the program will know that this is a start, this is the end of this logic.
+
+70
+00:07:11,960 --> 00:07:18,520
+So again, a recap, whenever we want to check some logic, check some condition, we can write
+
+71
+00:07:18,520 --> 00:07:23,720
+this if else statements where we check if something is true, then we execute a certain
+
+72
+00:07:23,720 --> 00:07:25,080
+logic else.
+
+73
+00:07:25,080 --> 00:07:29,120
+So otherwise, this is not true, then we execute another logic.
+
+74
+00:07:29,120 --> 00:07:33,680
+And this lets us basically prepare for different scenarios.
+
+75
+00:07:33,680 --> 00:07:39,320
+So let's save this and execute.
+
+76
+00:07:39,320 --> 00:07:40,320
+And there you go.
+
+77
+00:07:40,320 --> 00:07:45,680
+So we have the first echo, and we have config dir not found creating one.
+
+78
+00:07:45,680 --> 00:07:48,720
+And then we have the two final echo statements.
+
+79
+00:07:48,720 --> 00:07:58,520
+And if I do LS config, right here, we have the config folder that our script created.
+
+80
+00:07:58,520 --> 00:08:06,800
+So now if we run this again, instead of config dir not found, we have reading config directory
+
+81
+00:08:06,800 --> 00:08:07,960
+contents.
+
+82
+00:08:07,960 --> 00:08:15,180
+So basically, the first time we executed the script config directory wasn't there.
+
+83
+00:08:15,180 --> 00:08:20,960
+So this was not true or false.
+
+84
+00:08:20,960 --> 00:08:23,920
+So the else block got executed.
+
+85
+00:08:23,920 --> 00:08:29,440
+The second time, once the config folder was already created, this was true or this condition
+
+86
+00:08:29,440 --> 00:08:30,840
+was actually true.
+
+87
+00:08:30,840 --> 00:08:33,880
+So then block was executed.
+
+88
+00:08:33,880 --> 00:08:40,960
+So that's how conditionals and if else statements work.
+
+89
+00:08:40,960 --> 00:08:46,000
+And what we saw here are also called file conditions.
+
+90
+00:08:46,000 --> 00:08:53,040
+And these are basically a set of conditions that you can execute on file types.
+
+91
+00:08:53,040 --> 00:08:59,200
+So for example, checking whether this name we provide here is a directory.
+
+92
+00:08:59,200 --> 00:09:05,760
+We can also check whether a name provided is a file.
+
+93
+00:09:05,760 --> 00:09:12,680
+So if we do config.yaml, for example, we can check whether we have a file with this name.
+
+94
+00:09:12,680 --> 00:09:17,600
+Apart from checking whether a file or directory exists, we can also check permissions on a
+
+95
+00:09:17,600 --> 00:09:19,600
+file or directory.
+
+96
+00:09:19,600 --> 00:09:26,480
+We can check whether a file is readable or writable or executable.
+
+97
+00:09:26,480 --> 00:09:32,720
+We can also check whether a file is empty or there is actually something inside.
+
+98
+00:09:32,720 --> 00:09:38,240
+But checking whether it has a non-zero size with dash s.
+
+99
+00:09:38,240 --> 00:09:43,840
+And we can also see whether user ID or group ID is set on a file.
+
+100
+00:09:43,840 --> 00:09:50,720
+And again, these conditions are very useful when we don't actually know exactly the environment
+
+101
+00:09:50,720 --> 00:09:53,760
+where we're executing our script in.
+
+102
+00:09:53,760 --> 00:09:59,880
+And we want to check is the file empty before we maybe want to override something there.
+
+103
+00:09:59,880 --> 00:10:10,000
+Apart from file conditions, we also have number comparisons.
+
+104
+00:10:10,000 --> 00:10:15,280
+So for example, if I had a variable here, this could be number of files, number of processes
+
+105
+00:10:15,280 --> 00:10:18,320
+running, maybe a file size.
+
+106
+00:10:18,320 --> 00:10:21,040
+So whatever can be represented as a number.
+
+107
+00:10:21,040 --> 00:10:26,880
+In our case, let's say we have a number of files, which is configured from outside.
+
+108
+00:10:26,880 --> 00:10:32,360
+So let's say this is some unknown value that we can later configure for the script.
+
+109
+00:10:32,360 --> 00:10:38,480
+And since we don't know the actual value, we can check in the if statement.
+
+110
+00:10:38,480 --> 00:10:48,880
+So we can say if number of files is 10, for example, we can have some logic here.
+
+111
+00:10:48,880 --> 00:10:56,860
+We can also check whether it's less than 10 with LT.
+
+112
+00:10:56,860 --> 00:11:02,880
+So let's say number of files is less than 10, we can execute them in one go.
+
+113
+00:11:02,880 --> 00:11:06,380
+We can also check if it's greater than 10.
+
+114
+00:11:06,380 --> 00:11:10,880
+Maybe we decide it's too many files, so we don't want to overload the system.
+
+115
+00:11:10,880 --> 00:11:17,840
+We also have greater than equal with GE or less than or equal.
+
+116
+00:11:17,840 --> 00:11:20,240
+And finally, we also have not equal.
+
+117
+00:11:20,240 --> 00:11:25,720
+Again, you can do a lot of useful checks with number comparisons.
+
+118
+00:11:25,720 --> 00:11:31,480
+For example, you can check whether a port that an application is running on is equal
+
+119
+00:11:31,480 --> 00:11:38,880
+to specific value, or maybe a number of processes running is higher than an accepted value or
+
+120
+00:11:38,880 --> 00:11:39,880
+whatever.
+
+121
+00:11:39,880 --> 00:11:42,880
+So we have file conditions, we have number comparisons.
+
+122
+00:11:42,880 --> 00:11:49,760
+We also have string comparisons, where we basically just compare to set of characters
+
+123
+00:11:49,760 --> 00:11:50,760
+to strings.
+
+124
+00:11:50,760 --> 00:11:55,520
+Again, let's say this is a variable that is passed from outside, and let's say this is
+
+125
+00:11:55,520 --> 00:12:05,440
+a group or user group with some value that we can set when executing the script.
+
+126
+00:12:05,440 --> 00:12:11,120
+And here in if condition, we can actually check the value of that string.
+
+127
+00:12:11,120 --> 00:12:18,920
+So we can say if user group equals, and we do the comparison either with single equal
+
+128
+00:12:18,920 --> 00:12:23,200
+sign or double equal sign like this, what's the difference?
+
+129
+00:12:23,200 --> 00:12:29,680
+Well double equality is bash specific, while single equal sign is a posix standard, which
+
+130
+00:12:29,680 --> 00:12:34,740
+means that it's cross compatible for all shell programs.
+
+131
+00:12:34,740 --> 00:12:46,940
+So if user group equals Nana, that's user group name for my user, then I'll have some
+
+132
+00:12:46,940 --> 00:12:53,340
+logic here, we'll take configure the server and else.
+
+133
+00:12:53,340 --> 00:13:03,860
+So if the user group is not Nana, then maybe we echo something like no permission to configure
+
+134
+00:13:04,860 --> 00:13:17,420
+server wrong user group and end the if statement with fi.
+
+135
+00:13:17,420 --> 00:13:22,700
+So we can compare two strings with each other using these double equal signs.
+
+136
+00:13:22,700 --> 00:13:25,980
+Now what if we want to check for two different values?
+
+137
+00:13:25,980 --> 00:13:30,420
+So first we want to check whether user group is Nana, if not, then we want to check another
+
+138
+00:13:30,420 --> 00:13:33,620
+value like user group equals admin.
+
+139
+00:13:33,620 --> 00:13:39,780
+And if both of them is not true, then we want to execute this block right here.
+
+140
+00:13:39,780 --> 00:13:41,380
+So how do we do that?
+
+141
+00:13:41,380 --> 00:13:50,060
+Between if and else, we have another statement called else if, which shortly is written with
+
+142
+00:13:50,060 --> 00:13:58,340
+L if, and that takes a condition of its own, where we can check again for another value
+
+143
+00:13:58,340 --> 00:13:59,460
+like this.
+
+144
+00:13:59,460 --> 00:14:07,200
+So if user group is Nana, then do this else if, so this is not true, then check whether
+
+145
+00:14:07,200 --> 00:14:09,300
+user group is admin.
+
+146
+00:14:09,300 --> 00:14:22,060
+If yes, then do some other logic like administer the server, whatever.
+
+147
+00:14:22,060 --> 00:14:29,060
+And if both of these are not true, so user group is neither Nana nor admin.
+
+148
+00:14:29,540 --> 00:14:33,740
+Then we execute another logic in else.
+
+149
+00:14:33,740 --> 00:14:40,020
+And of course, this logic is not only for strings, but for any type of conditionals.
+
+150
+00:14:40,020 --> 00:14:44,220
+That's basic if else, if else statement.
+
+151
+00:14:44,220 --> 00:14:53,300
+And finally, for strings, you can also check whether this string contains a substring.
+
+152
+00:14:53,300 --> 00:14:56,820
+And we can also check whether string is empty or not.
+
+153
+00:14:56,820 --> 00:15:00,820
+So these are basically conditionals and how you can use them with numbers, strings or
+
+154
+00:15:00,820 --> 00:15:09,780
+files to check certain conditions and define certain logic in your script based on what
+
+155
+00:15:09,780 --> 00:15:11,900
+these conditions are.
+
+156
+00:15:11,900 --> 00:15:20,220
+Now, in these examples, I mentioned that there could be some values that get configured
+
+157
+00:15:20,220 --> 00:15:25,740
+from outside whenever we execute the script, we can basically pass these as parameters
+
+158
+00:15:25,740 --> 00:15:28,620
+or configure them from outside.
+
+159
+00:15:28,620 --> 00:15:30,660
+So how does that actually work?
+
+160
+00:15:30,660 --> 00:15:38,540
+How can we provide values externally to our script that we can then read inside the script
+
+161
+00:15:38,540 --> 00:15:45,340
+or reference by checking its value and doing some conditional checks, etc.
+
+162
+00:15:45,340 --> 00:15:52,460
+And that is another concept in best scripting, which is you can actually provide parameters
+
+163
+00:15:52,460 --> 00:15:55,580
+to your script when you execute them.
+
+164
+00:15:55,580 --> 00:16:00,660
+So let's say we want to provide user group as a parameter, and we want to read that parameter
+
+165
+00:16:00,660 --> 00:16:01,980
+here.
+
+166
+00:16:01,980 --> 00:16:09,100
+To read a parameter that is provided in best script execution, we have a special variable
+
+167
+00:16:09,100 --> 00:16:15,180
+that we can access using the syntax, remember, the syntax of accessing any variable is dollar
+
+168
+00:16:15,180 --> 00:16:19,780
+sign, like here, or in those echo commands.
+
+169
+00:16:19,780 --> 00:16:24,060
+And then after dollar sign, we have one.
+
+170
+00:16:24,060 --> 00:16:29,660
+So that's going to be the first parameter that we pass to the best script.
+
+171
+00:16:29,660 --> 00:16:39,300
+And if I save this and execute the best script without passing the parameter first, we have
+
+172
+00:16:39,300 --> 00:16:50,540
+an echo line that says no permission to configure server, because we didn't pass in any parameter.
+
+173
+00:16:50,540 --> 00:16:53,460
+And this was basically just empty, right?
+
+174
+00:16:53,460 --> 00:16:55,580
+There was no value here.
+
+175
+00:16:55,580 --> 00:16:59,660
+So these both of these if statements were wrong.
+
+176
+00:16:59,660 --> 00:17:02,580
+So the else block was executed.
+
+177
+00:17:02,580 --> 00:17:11,060
+And for better display, let's actually separate the output.
+
+178
+00:17:11,060 --> 00:17:16,020
+And now let's execute our script with a parameter.
+
+179
+00:17:16,020 --> 00:17:19,100
+And I'm going to pass in admin.
+
+180
+00:17:19,100 --> 00:17:31,100
+And I actually forgot to reference this variable here with dollar sign in quotes like this.
+
+181
+00:17:31,100 --> 00:17:39,180
+So basically we are assigning a parameter variable that we get from outside to a user
+
+182
+00:17:39,180 --> 00:17:40,180
+group variable.
+
+183
+00:17:40,180 --> 00:17:44,100
+And then we're using that user group variable to check its value.
+
+184
+00:17:44,100 --> 00:17:47,940
+So let's try again with group admin.
+
+185
+00:17:47,940 --> 00:17:48,940
+And there you go.
+
+186
+00:17:48,940 --> 00:17:54,700
+We have an outputs or administered the server when group name is admin.
+
+187
+00:17:54,700 --> 00:18:02,660
+And it's also tasked with Anna, which says configure the server.
+
+188
+00:18:02,660 --> 00:18:09,380
+So that's basically how you can accept parameters from outside into your best script.
+
+189
+00:18:09,380 --> 00:18:15,940
+And then you can use reference those parameters by first assigning that to a variable and
+
+190
+00:18:15,940 --> 00:18:18,220
+then referencing that variable.
+
+191
+00:18:18,220 --> 00:18:27,020
+We can also pass multiple parameters to our best script to make it even more configurable.
+
+192
+00:18:27,020 --> 00:18:33,020
+For example, let's say we want to pass in this directory name as a parameter instead
+
+193
+00:18:33,020 --> 00:18:35,900
+of hard coding it in the script.
+
+194
+00:18:35,900 --> 00:18:45,660
+So let's say config directory variable name equals let's make this the first
+
+195
+00:18:45,660 --> 00:18:49,060
+parameter in this second.
+
+196
+00:18:49,060 --> 00:18:54,580
+So whatever parameter we pass in the value of that will be assigned to config dear variable
+
+197
+00:18:54,580 --> 00:18:58,740
+and the second parameter will be assigned to a variable called user group.
+
+198
+00:18:58,740 --> 00:19:03,660
+And now we can use that config dear value in our script.
+
+199
+00:19:03,660 --> 00:19:07,980
+So let's say we want to replace this string here.
+
+200
+00:19:07,980 --> 00:19:13,620
+So again, double quotes, dollar sign, name of the variable.
+
+201
+00:19:13,620 --> 00:19:21,980
+So we're checking whether the provided parameter name of the directory exists on the system.
+
+202
+00:19:21,980 --> 00:19:32,140
+And then if it does
+
+203
+00:19:32,140 --> 00:19:35,700
+we print out the contents of that folder.
+
+204
+00:19:35,700 --> 00:19:43,100
+And here again, we create a folder with that provided name.
+
+205
+00:19:43,900 --> 00:19:49,180
+To have some output here when we list the contents, let's actually also create a file
+
+206
+00:19:49,180 --> 00:20:09,660
+inside the directory called config dot SH and let's execute.
+
+207
+00:20:09,660 --> 00:20:13,980
+And let's give it another name because we already have the config folder.
+
+208
+00:20:13,980 --> 00:20:19,700
+Let's call these set up scripts.
+
+209
+00:20:19,700 --> 00:20:22,140
+And then we have the group name.
+
+210
+00:20:22,140 --> 00:20:24,940
+Let's call this admin and let's execute.
+
+211
+00:20:24,940 --> 00:20:28,660
+So first we have config dear not found creating one.
+
+212
+00:20:28,660 --> 00:20:31,140
+And let's execute again.
+
+213
+00:20:31,140 --> 00:20:32,140
+And there you go.
+
+214
+00:20:32,140 --> 00:20:34,500
+We have reading config directory contents.
+
+215
+00:20:34,500 --> 00:20:44,700
+And right here we have here all configuration files, config dot SH.
+
+216
+00:20:44,700 --> 00:20:55,980
+So again, to recap, we provided two parameters to our script by just listing them separated
+
+217
+00:20:55,980 --> 00:20:58,260
+by space one by one.
+
+218
+00:20:58,260 --> 00:21:03,260
+So this way we can provide even more parameters, all space separated.
+
+219
+00:21:03,260 --> 00:21:11,700
+And then we can read each parameter using dollar sign and digit from one to nine.
+
+220
+00:21:11,700 --> 00:21:15,540
+So this is the first parameter, this is the second parameter, etc.
+
+221
+00:21:15,540 --> 00:21:20,380
+And that value that is stored in that parameter, we can assign that to a variable and then
+
+222
+00:21:20,380 --> 00:21:28,660
+we can use and reference that variable throughout our script, like we're doing it here.
+
+223
+00:21:28,660 --> 00:21:34,860
+And the syntax for referencing variables as you saw is dollar sign and name of the variable
+
+224
+00:21:34,860 --> 00:21:37,420
+enclosed in double quotes.
+
+225
+00:21:37,420 --> 00:21:43,980
+So this basically tells our bash program that we are reading the value of a variable.
+
+226
+00:21:43,980 --> 00:21:51,580
+And we can use that in conditionals as well as different shell commands that you see here.
+
+227
+00:21:51,580 --> 00:21:57,360
+So in our case, we are passing the name of the config directory as a parameter.
+
+228
+00:21:57,360 --> 00:21:59,920
+We are checking whether that directory exists.
+
+229
+00:21:59,920 --> 00:22:05,920
+If it does, then we are basically reading the contents of the directory and storing it
+
+230
+00:22:05,920 --> 00:22:13,480
+or saving it in config files variable that we can then use later in the script, which
+
+231
+00:22:13,480 --> 00:22:16,560
+is right here.
+
+232
+00:22:16,560 --> 00:22:24,640
+And that's basically the syntax for executing an LS command with the variable as a reference,
+
+233
+00:22:24,640 --> 00:22:26,880
+and then we're saving the output of that.
+
+234
+00:22:26,880 --> 00:22:33,440
+Now the main advantage of having parameters that you can pass to your bash script is having
+
+235
+00:22:33,440 --> 00:22:36,160
+a script that is configurable.
+
+236
+00:22:36,160 --> 00:22:40,480
+So instead of hard coding all the values in the script, we can actually dynamically set
+
+237
+00:22:40,480 --> 00:22:44,460
+different values that we don't want to be hard coded, right?
+
+238
+00:22:44,460 --> 00:22:50,200
+So maybe we want the version to be configurable for an application that we're installing.
+
+239
+00:22:50,200 --> 00:22:55,620
+Maybe we want a Linux username that we're creating using that script to be configurable.
+
+240
+00:22:55,620 --> 00:22:59,980
+So whoever uses that bash script can decide for themselves what they want to call the
+
+241
+00:22:59,980 --> 00:23:03,980
+user or make the group configurable, etc.
+
+242
+00:23:03,980 --> 00:23:09,780
+And parameterizing your bash script is actually very powerful because it allows you to write
+
+243
+00:23:09,780 --> 00:23:19,500
+a script once and then use it for many different use cases by providing different parameters.
+
+244
+00:23:19,500 --> 00:23:26,660
+Now there is actually a second way of passing values to your bash script or providing values
+
+245
+00:23:26,660 --> 00:23:29,100
+to your bash script externally.
+
+246
+00:23:29,100 --> 00:23:34,700
+And that is by reading, explicitly reading user input.
+
+247
+00:23:34,700 --> 00:23:40,380
+So let's actually get rid of all these lines here and start with a fresh state.
+
+248
+00:23:40,380 --> 00:23:47,100
+And as we saw in the theme tutorial, we can switch to the command mode and then do dd,
+
+249
+00:23:47,100 --> 00:23:54,140
+and this will basically remove the lines one by one, or we can do d and then number
+
+250
+00:23:54,140 --> 00:23:59,740
+of lines they want to delete, like 10 and d again.
+
+251
+00:23:59,740 --> 00:24:04,740
+And this will basically delete 10 or more lines.
+
+252
+00:24:04,740 --> 00:24:15,260
+So now let's see, we want to ask whoever is running the bash script for their input because
+
+253
+00:24:15,500 --> 00:24:20,220
+maybe they don't know that the bash script actually expects parameters or maybe there
+
+254
+00:24:20,220 --> 00:24:26,700
+is some sensitive data that they don't want to pass in as a parameter, but we want to
+
+255
+00:24:26,700 --> 00:24:29,340
+read that explicitly from the command line.
+
+256
+00:24:29,340 --> 00:24:31,260
+So let's see how that works.
+
+257
+00:24:31,260 --> 00:24:37,500
+Let's do echo reading user input.
+
+258
+00:24:37,740 --> 00:24:47,740
+The way we can read user input in our script is using read and then prompt with minus p.
+
+259
+00:24:47,740 --> 00:24:50,940
+And this prompt is basically what we present the user.
+
+260
+00:24:50,940 --> 00:24:55,580
+So we say, please enter your password.
+
+261
+00:24:57,900 --> 00:24:59,180
+So this is the prompt.
+
+262
+00:24:59,900 --> 00:25:06,060
+And then obviously we want to save whatever the user entered into a variable.
+
+263
+00:25:06,060 --> 00:25:11,260
+In case of parameters, we had the parameters automatically saved into a variable called
+
+264
+00:25:11,260 --> 00:25:13,020
+one, two, et cetera.
+
+265
+00:25:13,020 --> 00:25:17,180
+So we can reference them using dollar sign one, dollar sign two, and so on.
+
+266
+00:25:17,180 --> 00:25:24,060
+Here we actually have to explicitly name the variable, which will store the user input.
+
+267
+00:25:24,620 --> 00:25:26,300
+And we can call it whatever we want.
+
+268
+00:25:26,940 --> 00:25:32,140
+In our case, I'm going to do user password like this.
+
+269
+00:25:33,100 --> 00:25:39,100
+And obviously you can use the password to authenticate the user or do whatever,
+
+270
+00:25:39,100 --> 00:25:42,940
+make some calls to a service with their password.
+
+271
+00:25:42,940 --> 00:25:45,340
+In our case, we're just going to echo it.
+
+272
+00:25:45,340 --> 00:25:48,940
+Obviously this is not secure, but this is just an example.
+
+273
+00:25:48,940 --> 00:25:50,940
+So we're going to echo back the password.
+
+274
+00:25:51,740 --> 00:25:54,380
+Thanks for your password.
+
+275
+00:25:55,180 --> 00:26:01,580
+And then the actual password value.
+
+276
+00:26:01,660 --> 00:26:03,500
+And let's execute this
+
+277
+00:26:12,460 --> 00:26:13,500
+without parameters.
+
+278
+00:26:14,380 --> 00:26:15,100
+And there you go.
+
+279
+00:26:15,100 --> 00:26:17,660
+We have reading user input echo.
+
+280
+00:26:17,660 --> 00:26:20,220
+And then we have a prompt.
+
+281
+00:26:20,220 --> 00:26:25,740
+You see this blinking cursor here, which is waiting for our input.
+
+282
+00:26:25,740 --> 00:26:27,500
+Please enter your password.
+
+283
+00:26:27,500 --> 00:26:33,500
+Let's say this is my password and it just echoes it back to me.
+
+284
+00:26:35,900 --> 00:26:44,700
+So using read and the prompt, we can basically ask for any number of user input
+
+285
+00:26:44,700 --> 00:26:46,380
+that we may need in our bash script.
+
+286
+00:26:47,260 --> 00:26:53,740
+Now going back to the parameters concept for passing values to our shell script,
+
+287
+00:26:53,740 --> 00:26:58,220
+what if we don't know how many parameters user will provide?
+
+288
+00:26:58,220 --> 00:27:02,460
+Or what if we just want to accept any number of parameters
+
+289
+00:27:02,460 --> 00:27:06,940
+without specifying exactly how many it should be?
+
+290
+00:27:06,940 --> 00:27:11,820
+So how do we know how many parameters user actually provided to our script?
+
+291
+00:27:11,820 --> 00:27:17,260
+And to show that as an example, let's do echo user.
+
+292
+00:27:18,060 --> 00:27:25,820
+And then the first parameter, and then we have group and the second parameter.
+
+293
+00:27:29,020 --> 00:27:29,660
+And that's it.
+
+294
+00:27:31,260 --> 00:27:33,340
+And now when we execute,
+
+295
+00:27:36,700 --> 00:27:39,100
+let's do user and group.
+
+296
+00:27:39,100 --> 00:27:43,100
+And let's do another parameter here, like finally.
+
+297
+00:27:47,580 --> 00:27:53,100
+And let's also do a directory name for the location of all the scripts,
+
+298
+00:27:54,140 --> 00:27:54,780
+like this.
+
+299
+00:27:54,780 --> 00:27:58,860
+And if I execute, you see that the first two parameters were read,
+
+300
+00:27:58,860 --> 00:28:01,100
+just fine because that's what our script accepted.
+
+301
+00:28:02,300 --> 00:28:04,060
+User and group.
+
+302
+00:28:04,620 --> 00:28:07,580
+However, the other parameters were ignored.
+
+303
+00:28:07,580 --> 00:28:11,740
+So how do we actually rewrite our script so that we can handle accepting
+
+304
+00:28:11,740 --> 00:28:16,380
+and actually reading in all the parameters that the user provides?
+
+305
+00:28:17,260 --> 00:28:26,540
+First of all, we have another special variable that reads or that basically stores the values
+
+306
+00:28:26,540 --> 00:28:30,220
+of all the parameters that were provided to the script.
+
+307
+00:28:30,220 --> 00:28:39,420
+So right here, I'm going to do all params and then dollar sign and these s-tricks
+
+308
+00:28:40,060 --> 00:28:40,860
+character here.
+
+309
+00:28:41,980 --> 00:28:45,020
+And if I save this and execute again,
+
+310
+00:28:45,660 --> 00:28:52,300
+you see that the dollar sign s-tricks special variable actually prints out
+
+311
+00:28:53,020 --> 00:28:55,580
+all the parameters that we provided.
+
+312
+00:28:55,580 --> 00:29:01,580
+So we have a variable that gives us access to all the provided parameters.
+
+313
+00:29:02,220 --> 00:29:05,260
+And no matter how many parameters we pass in here,
+
+314
+00:29:07,340 --> 00:29:10,780
+we will have them all in this special variable.
+
+315
+00:29:11,580 --> 00:29:20,060
+We also have another special variable which gives us the number of parameters provided.
+
+316
+00:29:26,220 --> 00:29:29,100
+And that is dollar sign and pound.
+
+317
+00:29:33,420 --> 00:29:35,900
+And let's test that again.
+
+318
+00:29:35,900 --> 00:29:40,620
+So we have five parameters and the actual values of those parameters.
+
+319
+00:29:41,660 --> 00:29:52,300
+Now, how to actually read all those individual parameters one by one in our BASH program?
+
+320
+00:29:52,300 --> 00:29:59,100
+Whenever we have a list that we're working with, list of numbers, list of characters,
+
+321
+00:29:59,100 --> 00:30:06,940
+list of strings, list of files, whatever you name it, we are working with a concept called loops.
+
+322
+00:30:07,580 --> 00:30:15,420
+So loop is basically a program that runs over and over again and executes a specific logic
+
+323
+00:30:15,420 --> 00:30:18,700
+for each individual item in a list.
+
+324
+00:30:19,660 --> 00:30:25,980
+So in our example, let's say, let's actually remove this too.
+
+325
+00:30:27,020 --> 00:30:32,140
+And let's say we want to go through all the values that we have as parameters,
+
+326
+00:30:32,140 --> 00:30:33,980
+whatever user provided, we don't know.
+
+327
+00:30:34,620 --> 00:30:39,820
+And we want to execute specific logic for these parameters.
+
+328
+00:30:39,820 --> 00:30:45,660
+And to read these parameter values one by one from the parameter's list,
+
+329
+00:30:45,660 --> 00:30:48,620
+we're going to use what's called a for loop.
+
+330
+00:30:48,620 --> 00:30:51,020
+And the syntax for that is for.
+
+331
+00:30:51,020 --> 00:30:55,900
+And then we reference the individual value in the list by name,
+
+332
+00:30:55,900 --> 00:30:58,060
+which is whatever we want to call it.
+
+333
+00:30:58,060 --> 00:31:05,420
+Let's say a param or individual parameter, whatever in.
+
+334
+00:31:05,420 --> 00:31:11,020
+And now we have the list of parameters that we want to go through one by one.
+
+335
+00:31:12,540 --> 00:31:15,900
+And for that, we know the syntax is dollar sign star.
+
+336
+00:31:16,540 --> 00:31:21,260
+And now for that individual value that we have here that we're referencing.
+
+337
+00:31:21,340 --> 00:31:26,380
+So for each parameter in that list, we want to execute some logic.
+
+338
+00:31:26,380 --> 00:31:30,540
+And to do that, we have, again, another keyword called the do.
+
+339
+00:31:31,740 --> 00:31:33,660
+And we're going to indent that a little bit.
+
+340
+00:31:34,620 --> 00:31:39,820
+And the do block basically will contain the logic that we want to execute
+
+341
+00:31:39,820 --> 00:31:44,220
+for each specific element in that list that we are going through.
+
+342
+00:31:44,220 --> 00:31:48,780
+In our case, let's just print out the actual values one by one.
+
+343
+00:31:48,780 --> 00:31:51,340
+So I'm just going to do echo and param.
+
+344
+00:31:52,300 --> 00:31:57,340
+And just like my if statement, in order to tell the program,
+
+345
+00:31:57,340 --> 00:32:00,060
+hey, we are done here, we are going to do done.
+
+346
+00:32:02,140 --> 00:32:03,340
+And that will beat.
+
+347
+00:32:03,980 --> 00:32:07,820
+So now a couple of things to mention here.
+
+348
+00:32:07,820 --> 00:32:12,780
+First of all, we have this indentation just like we had with if statements.
+
+349
+00:32:12,780 --> 00:32:18,220
+And this is basically just for us so that it's easier and cleaner for us to read
+
+350
+00:32:18,220 --> 00:32:19,020
+for the program.
+
+351
+00:32:19,020 --> 00:32:20,140
+It doesn't really matter.
+
+352
+00:32:20,140 --> 00:32:22,940
+Actually, we can write this all on one line.
+
+353
+00:32:22,940 --> 00:32:27,420
+The indentation just gives a little bit cleaner view of the logic.
+
+354
+00:32:28,060 --> 00:32:34,620
+A second point that I want to mention is that this is basically the same as assigning
+
+355
+00:32:34,620 --> 00:32:38,220
+a specific parameter to a variable called param.
+
+356
+00:32:38,220 --> 00:32:44,460
+Just like we did in the previous cases where we basically read in the first parameter and
+
+357
+00:32:44,460 --> 00:32:51,020
+assigned it to a variable called config file like this.
+
+358
+00:32:51,020 --> 00:32:52,300
+That's what we're doing here.
+
+359
+00:32:52,300 --> 00:32:57,180
+But instead, we're doing this for every element in the params list.
+
+360
+00:32:57,180 --> 00:33:00,220
+And we're referencing them as a param variable.
+
+361
+00:33:02,860 --> 00:33:03,340
+Like this.
+
+362
+00:33:03,980 --> 00:33:09,980
+So when this runs the first time, it will see that this is a list with maybe five,
+
+363
+00:33:09,980 --> 00:33:16,620
+four parameters, whatever, it will assign the first parameter to this param variable
+
+364
+00:33:16,620 --> 00:33:18,540
+and it will echo it.
+
+365
+00:33:18,540 --> 00:33:20,540
+Then it will go through the list.
+
+366
+00:33:20,540 --> 00:33:27,260
+Again, it will see there is a second element and it will now assign the parameter two
+
+367
+00:33:27,260 --> 00:33:33,500
+to a param variable and then print it and so on until there is nothing left in that list.
+
+368
+00:33:34,460 --> 00:33:41,820
+So to show that execution, let's run our script.
+
+369
+00:33:42,380 --> 00:33:49,660
+And when we do not provide any parameters, you see that nothing happens in the for loop.
+
+370
+00:33:49,660 --> 00:33:51,660
+Basically, we don't see any output.
+
+371
+00:33:51,660 --> 00:34:01,740
+Now let's do name and last name and let's actually execute our previous example with
+
+372
+00:34:01,980 --> 00:34:03,340
+five parameters.
+
+373
+00:34:03,340 --> 00:34:04,060
+And there you go.
+
+374
+00:34:04,060 --> 00:34:12,540
+So we have each value in the parameters list basically output one by one by this for loop.
+
+375
+00:34:13,900 --> 00:34:20,300
+Now obviously just printing the values one by one is not a useful use case.
+
+376
+00:34:20,300 --> 00:34:26,620
+However, you can write any logic and you can execute any logic using for loop for individual
+
+377
+00:34:26,620 --> 00:34:28,060
+values in a list.
+
+378
+00:34:28,060 --> 00:34:32,300
+For example, in our case, we can check for each parameter.
+
+379
+00:34:32,300 --> 00:34:39,020
+For example, whether it's a file or maybe it's a directory name or a location of something
+
+380
+00:34:39,020 --> 00:34:43,180
+and then based on that condition, we can decide what to do with that value.
+
+381
+00:34:43,180 --> 00:34:49,900
+So for example, let's say we're expecting a location of all the config scripts in the
+
+382
+00:34:49,900 --> 00:34:51,100
+provided parameters.
+
+383
+00:34:51,100 --> 00:34:52,940
+So we can actually check that.
+
+384
+00:34:52,940 --> 00:35:05,500
+So we're going to do if one of the provided parameters is a directory, then maybe we write
+
+385
+00:35:05,500 --> 00:35:11,180
+a logic here that executes scripts in that configuration file.
+
+386
+00:35:11,180 --> 00:35:17,260
+So executing scripts in the config folder.
+
+387
+00:35:17,580 --> 00:35:25,020
+And obviously, for all the parameters that are not a directory, so this condition is false.
+
+388
+00:35:26,220 --> 00:35:28,220
+This will not be executed, right?
+
+389
+00:35:28,220 --> 00:35:36,140
+So we have else, not a directory.
+
+390
+00:35:37,020 --> 00:35:43,980
+Or we can actually also leave L statements at all, because if it's not a directory, then we
+
+391
+00:35:44,460 --> 00:35:47,900
+basically print out the parameter like before.
+
+392
+00:35:48,540 --> 00:35:52,060
+And this will apply to all the parameters.
+
+393
+00:35:52,060 --> 00:35:54,700
+And right here, we can also do ls.
+
+394
+00:35:56,780 --> 00:36:01,020
+So we can print out the contents of that folder like this.
+
+395
+00:36:01,020 --> 00:36:04,540
+And let's save and execute again.
+
+396
+00:36:04,540 --> 00:36:05,660
+And there you go.
+
+397
+00:36:05,660 --> 00:36:10,860
+So first we have nada, then admin, then config.yaml.
+
+398
+00:36:10,940 --> 00:36:14,940
+And right here is the next parameter, which is set up scripts.
+
+399
+00:36:14,940 --> 00:36:19,180
+And in if statement, it basically detected this is a directory.
+
+400
+00:36:19,180 --> 00:36:27,420
+So if then condition was executed and ls command ran, and then the last parameter.
+
+401
+00:36:27,420 --> 00:36:31,340
+And the same way you can add conditionals for each parameter.
+
+402
+00:36:31,340 --> 00:36:35,900
+So for example, we check whether this is a directory for the next one, we can check
+
+403
+00:36:35,900 --> 00:36:42,620
+whether it's a file, we can check whether it's a user and a specific name of a Linux user, etc.
+
+404
+00:36:42,620 --> 00:36:47,340
+And as I said, whenever you're working with lists, you have a list of servers,
+
+405
+00:36:47,340 --> 00:36:52,140
+you have a list of programs, a list of software that you want to install,
+
+406
+00:36:52,140 --> 00:36:56,300
+you're going to use a for loop to go through that list.
+
+407
+00:36:56,300 --> 00:37:00,940
+And for each item in the list, basically execute whatever logic you want.
+
+408
+00:37:00,940 --> 00:37:06,860
+So whenever you want to execute something for a number of times or for each item in a list,
+
+409
+00:37:06,860 --> 00:37:09,340
+that's what for loop is for.
+
+410
+00:37:09,340 --> 00:37:17,260
+However, we have another loop called while loop, which is not used for iterating through a list,
+
+411
+00:37:17,260 --> 00:37:19,500
+and then doing something for each item.
+
+412
+00:37:19,500 --> 00:37:25,740
+But rather, it's a loop that runs while a certain condition is matched.
+
+413
+00:37:25,740 --> 00:37:33,420
+For example, we want to write a program that pings a service that was just currently started
+
+414
+00:37:33,420 --> 00:37:35,580
+until it becomes accessible.
+
+415
+00:37:35,580 --> 00:37:40,860
+And then maybe at the end prints a success message like the service was successfully started.
+
+416
+00:37:40,860 --> 00:37:48,060
+Or maybe we want to run a script that runs every 10 seconds and basically monitors
+
+417
+00:37:48,060 --> 00:37:52,940
+some endpoint, right, that checks that application is accessible every 10 seconds.
+
+418
+00:37:53,740 --> 00:37:56,700
+So it has to run over and over again in a loop.
+
+419
+00:37:56,700 --> 00:38:04,300
+Or maybe we have a script that installs a software and then waits until the installation is done
+
+420
+00:38:04,300 --> 00:38:08,940
+to validate that a command of that software is available.
+
+421
+00:38:08,940 --> 00:38:14,060
+So wait until a condition like command is available is met.
+
+422
+00:38:14,060 --> 00:38:16,380
+And that is a while loop.
+
+423
+00:38:16,380 --> 00:38:19,740
+And the syntax for that is actually also very simple.
+
+424
+00:38:19,740 --> 00:38:25,020
+We have while, and then we have a condition just like with if statement.
+
+425
+00:38:25,020 --> 00:38:29,260
+So we can have the same type of condition here as with if statements.
+
+426
+00:38:29,260 --> 00:38:35,420
+So whatever condition we write here, while that condition is true, the loop will get executed.
+
+427
+00:38:35,420 --> 00:38:41,260
+So whatever logic you have in the loop that will get executed, a very common use case with while,
+
+428
+00:38:41,260 --> 00:38:49,340
+with a very common condition is running this in an indefinite loop using the condition that is
+
+429
+00:38:49,340 --> 00:38:58,620
+always true. So by hard coding true here, while true, and then using the same syntax as before,
+
+430
+00:38:59,420 --> 00:39:01,500
+do, and then done.
+
+431
+00:39:02,220 --> 00:39:04,300
+And then we have our logic here.
+
+432
+00:39:04,300 --> 00:39:10,300
+So what we do is we run this loop indefinitely, and we have the logic for breaking out the loop
+
+433
+00:39:10,940 --> 00:39:11,820
+inside.
+
+434
+00:39:11,820 --> 00:39:17,900
+For example, let's write a simple program that accepts a user input.
+
+435
+00:39:18,540 --> 00:39:25,180
+So we're going to do read, and then prompt, enter a score.
+
+436
+00:39:27,100 --> 00:39:29,500
+And then we save that score into a variable.
+
+437
+00:39:32,300 --> 00:39:34,300
+And let's call it score.
+
+438
+00:39:36,380 --> 00:39:40,460
+So basically, we're going to write a simple program that runs over and over again asking
+
+439
+00:39:40,460 --> 00:39:43,180
+user for its input for a score.
+
+440
+00:39:43,180 --> 00:39:47,180
+And then we just add all these input scores together.
+
+441
+00:39:47,180 --> 00:39:48,620
+So we basically sum them up.
+
+442
+00:39:49,740 --> 00:39:59,420
+So score, the user provided will be added to a variable called sum.
+
+443
+00:39:59,420 --> 00:40:03,180
+And we can define that variable outside like this.
+
+444
+00:40:03,820 --> 00:40:05,580
+So we have sum zero.
+
+445
+00:40:07,260 --> 00:40:08,620
+We're starting at zero.
+
+446
+00:40:08,620 --> 00:40:15,020
+And then we basically change this variable that we have to define outside the loop
+
+447
+00:40:15,900 --> 00:40:17,100
+inside the wild loop.
+
+448
+00:40:17,100 --> 00:40:26,540
+So every time a user enters a new score, we add that score to the existing value right here
+
+449
+00:40:26,540 --> 00:40:29,660
+and assign it back to the sum variable.
+
+450
+00:40:29,660 --> 00:40:33,900
+So the score will be added and added on each user input.
+
+451
+00:40:34,860 --> 00:40:44,700
+And at some point, we can echo the overall total score
+
+452
+00:40:46,940 --> 00:40:50,780
+by printing out the sum variable value.
+
+453
+00:40:51,500 --> 00:40:57,180
+However, this loop will run indefinitely because we have a hard coding condition,
+
+454
+00:40:57,180 --> 00:40:58,620
+which is always true.
+
+455
+00:40:59,340 --> 00:41:04,540
+So we need a way to break out of the loop when a condition is met.
+
+456
+00:41:04,540 --> 00:41:10,860
+So what we're going to do is we're going to let a user complete the program or basically
+
+457
+00:41:11,660 --> 00:41:14,380
+let the user say, hey, I'm done with this program.
+
+458
+00:41:14,380 --> 00:41:17,180
+I want to quit or I want to end the program.
+
+459
+00:41:17,180 --> 00:41:24,940
+So we are going to allow user to enter instead of the score to enter Q letter Q.
+
+460
+00:41:24,940 --> 00:41:27,900
+And right here, we're going to validate if
+
+461
+00:41:31,020 --> 00:41:37,180
+the input the user provided here is the letter Q.
+
+462
+00:41:38,860 --> 00:41:43,420
+And again, don't forget the double quotes here.
+
+463
+00:41:44,380 --> 00:41:50,540
+So if this is true, it means user wants to quit the program.
+
+464
+00:41:51,500 --> 00:41:55,500
+So then we want to break.
+
+465
+00:41:56,860 --> 00:41:59,020
+So we're breaking out of the loop.
+
+466
+00:41:59,820 --> 00:42:02,300
+And then we end the if statement.
+
+467
+00:42:03,980 --> 00:42:09,180
+So this will basically execute over and over again, asking user for their input for a score.
+
+468
+00:42:09,740 --> 00:42:17,340
+And whenever user provides a score number, it will basically sum that score and print
+
+469
+00:42:18,060 --> 00:42:22,060
+the total score here after each iteration.
+
+470
+00:42:22,060 --> 00:42:27,180
+However, there has to be some way to stop the program and stop the loop execution.
+
+471
+00:42:27,180 --> 00:42:31,260
+So we allow user to enter Q, which means we're breaking the program.
+
+472
+00:42:31,260 --> 00:42:32,540
+We are exiting.
+
+473
+00:42:32,540 --> 00:42:36,540
+However, before we execute this program, there is one thing that we need to fix.
+
+474
+00:42:36,540 --> 00:42:41,180
+And that is the calculation right here.
+
+475
+00:42:41,180 --> 00:42:49,180
+Right now with this logic, this expression will be interpreted as adding two strings
+
+476
+00:42:49,180 --> 00:42:50,700
+to each other instead of two numbers.
+
+477
+00:42:51,420 --> 00:42:56,140
+For arithmetic operations, we use the syntax of a double brackets like this.
+
+478
+00:42:57,180 --> 00:43:01,100
+And that's a holder for an expression in bash.
+
+479
+00:43:01,100 --> 00:43:03,420
+So this actually fixes the issue.
+
+480
+00:43:03,420 --> 00:43:07,740
+And this will actually be calculated as adding two numbers.
+
+481
+00:43:08,300 --> 00:43:13,020
+And let's save this and execute without parameters.
+
+482
+00:43:13,820 --> 00:43:17,660
+And now let's enter a score, which is 10.
+
+483
+00:43:17,660 --> 00:43:19,820
+We have a total score right away.
+
+484
+00:43:19,820 --> 00:43:22,060
+Then we enter another score like 20.
+
+485
+00:43:22,060 --> 00:43:25,420
+Let's enter 12 and so on.
+
+486
+00:43:25,420 --> 00:43:31,500
+So basically, this program will get executed endlessly because we have a condition
+
+487
+00:43:32,060 --> 00:43:35,740
+called true, which is hard coded true condition.
+
+488
+00:43:36,700 --> 00:43:46,860
+And it will run over and over again until we actually type in Q instead of the actual score.
+
+489
+00:43:46,860 --> 00:43:52,620
+And if I execute this, the program will end because we have a condition inside
+
+490
+00:43:52,620 --> 00:43:59,260
+that checks for input, which is equal to Q, and then breaks the loop.
+
+491
+00:43:59,260 --> 00:44:00,940
+So the program will end there.
+
+492
+00:44:01,740 --> 00:44:07,660
+Another interesting detail is that bash has an alternative syntax for the square brackets,
+
+493
+00:44:08,220 --> 00:44:11,900
+which we use for conditionals and if expressions.
+
+494
+00:44:11,900 --> 00:44:15,340
+And the alternative to that is double square brackets.
+
+495
+00:44:15,340 --> 00:44:20,620
+So if you see bash scripts with double square brackets, that's basically the same thing,
+
+496
+00:44:20,620 --> 00:44:22,860
+but with more features.
+
+497
+00:44:22,860 --> 00:44:27,180
+So it's like an improved version of the single square brackets.
+
+498
+00:44:27,180 --> 00:44:30,700
+One improvement, for example, is that when using double brackets,
+
+499
+00:44:30,700 --> 00:44:34,540
+you don't have to enclose the variable names in quotes.
+
+500
+00:44:34,540 --> 00:44:38,780
+So in general, as you see, bash scripting has quite a complex syntax,
+
+501
+00:44:38,780 --> 00:44:40,700
+which is not very intuitive.
+
+502
+00:44:40,700 --> 00:44:45,180
+So even though it is very useful in automating DevOps tasks,
+
+503
+00:44:45,180 --> 00:44:48,620
+there are better alternatives for some of these tasks.
+
+504
+00:44:49,260 --> 00:44:52,140
+Using a programming language, Python, for example,
+
+505
+00:44:52,700 --> 00:44:59,980
+or a configuration tool like Ansible, which you can also use to automate some of the same processes.
+
+506
+00:44:59,980 --> 00:45:03,260
+And we're going to learn both of these tools in this bootcamp.
+
+507
+00:45:03,260 --> 00:45:09,580
+However, you will still have a huge advantage by learning all these different options,
+
+508
+00:45:09,580 --> 00:45:14,780
+including the bash scripting, because you will know what are the advantages and disadvantages
+
+509
+00:45:14,780 --> 00:45:17,980
+of each and how they compare to each other.
+
+510
+00:45:17,980 --> 00:45:22,780
+And all this knowledge will definitely make you a very valuable DevOps engineer.
+

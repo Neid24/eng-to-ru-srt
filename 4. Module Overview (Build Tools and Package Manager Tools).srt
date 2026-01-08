@@ -1,0 +1,60 @@
+1
+00:00:00,000 --> 00:00:08,520
+In this module, you will learn about build tools and package manager tools.
+
+2
+00:00:08,520 --> 00:00:14,800
+These are technologies that are used in software development process and as part of the application
+
+3
+00:00:14,800 --> 00:00:19,760
+building process something that DevOps engineers should also understand.
+
+4
+00:00:19,760 --> 00:00:25,100
+So we will look at what role these tools have in software development process and how to
+
+5
+00:00:25,100 --> 00:00:26,320
+use them.
+
+6
+00:00:26,320 --> 00:00:32,380
+This is going to be a general overview and comparison of these technologies and not a
+
+7
+00:00:32,380 --> 00:00:35,020
+deep dive into any of these tools.
+
+8
+00:00:35,020 --> 00:00:40,780
+However, to showcase the comparison and different concepts, we will see specific examples with
+
+9
+00:00:40,780 --> 00:00:43,460
+two popular programming languages.
+
+10
+00:00:43,460 --> 00:00:50,180
+For Java, we will use Gradle and Maven and for JavaScript, we will look at NPM.
+
+11
+00:00:50,180 --> 00:00:56,120
+So we will learn how to build and package Java and then JavaScript applications into
+
+12
+00:00:56,120 --> 00:01:02,580
+artifacts using these tools as well as how to add and install application dependencies
+
+13
+00:01:02,580 --> 00:01:03,940
+and so on.
+
+14
+00:01:03,940 --> 00:01:09,220
+So we will see some common shared concepts of these tools as well as the main differences
+
+15
+00:01:09,220 --> 00:01:09,980
+between them.
+

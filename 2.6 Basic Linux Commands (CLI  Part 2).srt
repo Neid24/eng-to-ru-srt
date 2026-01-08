@@ -1,0 +1,1512 @@
+1
+00:00:00,000 --> 00:00:11,720
+So let's say the parallels and comparison between doing something in graphical user interface
+
+2
+00:00:11,720 --> 00:00:14,040
+and in a command line interface.
+
+3
+00:00:14,040 --> 00:00:21,200
+So first of all, in a file explorer program of your operating system, you have this visual
+
+4
+00:00:21,200 --> 00:00:30,680
+view of which folder you're in at the moment and which folders or files are inside that
+
+5
+00:00:30,680 --> 00:00:32,000
+current directory.
+
+6
+00:00:32,000 --> 00:00:34,920
+And you can do that in a command line interface as well.
+
+7
+00:00:34,920 --> 00:00:39,120
+First of all, you can display which folder you are currently in.
+
+8
+00:00:39,120 --> 00:00:43,680
+And this is a default folder that you are in when you open the terminal.
+
+9
+00:00:43,680 --> 00:00:49,840
+And I can display that using command called PWD, which basically means print working
+
+10
+00:00:49,840 --> 00:00:50,840
+directory.
+
+11
+00:00:50,840 --> 00:00:59,320
+And I'm going to execute, and you see that location that I am in right now in my terminal.
+
+12
+00:00:59,320 --> 00:01:05,600
+And that is the same as this location here, slash home slash Nana.
+
+13
+00:01:05,600 --> 00:01:11,680
+And we learned that in the previous file system lecture, that every user has a folder in a
+
+14
+00:01:11,680 --> 00:01:18,840
+home directory, and as a user Nana, by default, I am inside that directory in the graphic
+
+15
+00:01:18,840 --> 00:01:22,120
+user interface as well as in terminal.
+
+16
+00:01:22,120 --> 00:01:30,080
+Now how can I display the folders or files which are in my current working directory?
+
+17
+00:01:30,080 --> 00:01:35,720
+I can do that using LS, which basically means list and enter.
+
+18
+00:01:35,720 --> 00:01:40,680
+And I see the same list of folders right here.
+
+19
+00:01:40,680 --> 00:01:44,280
+Currently I don't have any files here, I just have folders.
+
+20
+00:01:44,280 --> 00:01:49,600
+Now what about going into a different directory in graphical user interface?
+
+21
+00:01:49,600 --> 00:01:56,000
+I can just click inside a folder, and I'm inside documents directory now, right?
+
+22
+00:01:56,000 --> 00:01:59,080
+In command line interface, it's also super easy.
+
+23
+00:01:59,080 --> 00:02:05,560
+I just do CD, which means change directory, and then directory name, which is documents.
+
+24
+00:02:05,560 --> 00:02:12,560
+And if I execute, now you see in the path here, before the cursor, now it shows tilled
+
+25
+00:02:12,560 --> 00:02:14,720
+slash documents.
+
+26
+00:02:14,720 --> 00:02:21,240
+And tilled is, as we learned already, is the same as, or it's a shortcut actually of this
+
+27
+00:02:21,240 --> 00:02:23,280
+path here.
+
+28
+00:02:23,280 --> 00:02:31,040
+So now if I do WPD, that's the location inside my operating system, which I'm currently
+
+29
+00:02:31,040 --> 00:02:32,080
+in.
+
+30
+00:02:32,080 --> 00:02:40,400
+So using the CD command, I can actually navigate my file system by going up and down the file
+
+31
+00:02:40,400 --> 00:02:43,200
+system hierarchy.
+
+32
+00:02:43,200 --> 00:02:46,000
+In GUI, I can also create folders, right?
+
+33
+00:02:46,000 --> 00:02:56,120
+So using this button here, let's say I want to create a folder for my application.
+
+34
+00:02:56,120 --> 00:02:57,120
+And there you go.
+
+35
+00:02:57,120 --> 00:03:02,280
+The same way I can create folders very easily in a command line interface.
+
+36
+00:03:02,280 --> 00:03:11,200
+So that I have a command called mkdir, which stands for make directory, and the directory
+
+37
+00:03:11,200 --> 00:03:12,200
+name.
+
+38
+00:03:12,200 --> 00:03:16,960
+Let's say we are creating a folder for a Python project.
+
+39
+00:03:16,960 --> 00:03:21,360
+So I'm going to call this Python project.
+
+40
+00:03:21,360 --> 00:03:26,440
+And now you see that we have another folder here.
+
+41
+00:03:26,440 --> 00:03:37,160
+In the same way, I can display the current list of folders inside the documents folder.
+
+42
+00:03:37,160 --> 00:03:41,320
+Now what about creating files in the directories?
+
+43
+00:03:41,320 --> 00:03:44,240
+I'm going to go inside the web application.
+
+44
+00:03:44,240 --> 00:03:52,840
+And to create a file in user interface, you would have some kind of editor, a simple text
+
+45
+00:03:52,840 --> 00:03:57,360
+editor doesn't matter, could be also a document writer.
+
+46
+00:03:57,360 --> 00:04:04,320
+And we're going to write some text here and save it.
+
+47
+00:04:04,320 --> 00:04:14,000
+And let's say this is a readme file for our application and save it.
+
+48
+00:04:14,000 --> 00:04:19,840
+So in GUI, I have to open an editor, I have to save that file into a folder, etc.
+
+49
+00:04:19,840 --> 00:04:22,760
+In command line, I can actually do that with one command.
+
+50
+00:04:22,760 --> 00:04:29,600
+So first, I'm going to go inside the Python project.
+
+51
+00:04:29,600 --> 00:04:32,320
+And inside that, I'm going to create a file.
+
+52
+00:04:32,320 --> 00:04:37,360
+And command for that is touch, and then filing.
+
+53
+00:04:37,360 --> 00:04:43,560
+And let's say this is a main dot Python file.
+
+54
+00:04:43,560 --> 00:04:47,800
+This could be a text file, this could be HTML file, whatever you want, you just have this
+
+55
+00:04:47,800 --> 00:04:52,680
+dot extension, and it will create any type of file.
+
+56
+00:04:52,680 --> 00:04:54,840
+So you don't need any editor for that.
+
+57
+00:04:54,840 --> 00:05:01,940
+I'm going to enter, and if I do ls, in Python project, I have this main dot py file.
+
+58
+00:05:01,940 --> 00:05:05,440
+And the same way I can remove files and folders.
+
+59
+00:05:05,440 --> 00:05:12,960
+So if I want to remove this, this file, I can just do rm, which stands for remove, main
+
+60
+00:05:12,960 --> 00:05:19,000
+dot py, and there you go, the folder is empty.
+
+61
+00:05:19,000 --> 00:05:21,840
+Now let's actually delete the Python project folder.
+
+62
+00:05:21,840 --> 00:05:26,080
+Now how do I navigate up the file system hierarchy?
+
+63
+00:05:26,080 --> 00:05:36,480
+For that, with CD, I can do dot dot, and that will basically take me one step, or one level
+
+64
+00:05:36,480 --> 00:05:39,520
+up the file system tree.
+
+65
+00:05:39,520 --> 00:05:44,480
+So now I'm in the documents again, and if I want to remove the Python project, I can
+
+66
+00:05:44,480 --> 00:05:47,520
+use the same remove command.
+
+67
+00:05:47,520 --> 00:05:54,440
+Now if I do remove Python project, and execute, you see that it gives me a warning, cannot
+
+68
+00:05:54,440 --> 00:05:56,920
+remove Python project, it's a directory.
+
+69
+00:05:56,920 --> 00:06:02,360
+So basically when you're removing folders, not files with the remove command, you have
+
+70
+00:06:02,360 --> 00:06:10,520
+to add a flag here with minus r, that stands for recursive.
+
+71
+00:06:10,520 --> 00:06:14,760
+So basically, for folders, we want to recursively remove everything.
+
+72
+00:06:14,760 --> 00:06:20,680
+So if I had other folders inside the Python project, and files, all of them will be recursively
+
+73
+00:06:20,680 --> 00:06:22,200
+removed.
+
+74
+00:06:22,200 --> 00:06:27,320
+And enter, there you go, Python project is gone.
+
+75
+00:06:27,320 --> 00:06:37,000
+So this dash here, with some character, is actually a very common way to pass additional
+
+76
+00:06:37,000 --> 00:06:39,240
+parameters to your command, right?
+
+77
+00:06:39,240 --> 00:06:44,000
+To tell your command, hey, remove this folder, but do this recursively.
+
+78
+00:06:44,000 --> 00:06:48,280
+And we're going to see some other examples of that later.
+
+79
+00:06:48,280 --> 00:06:56,000
+In the previous video, we also checked out the directories in a root folder, right?
+
+80
+00:06:56,000 --> 00:06:59,680
+So folders that are on the same level as the home directory.
+
+81
+00:06:59,680 --> 00:07:05,360
+So if we needed to check some logs here, system logs, or do something here, how do we actually
+
+82
+00:07:05,360 --> 00:07:09,360
+navigate to the root folder from a command line interface?
+
+83
+00:07:09,360 --> 00:07:16,600
+Well, the root folder in command line interface is actually represented with the character
+
+84
+00:07:16,600 --> 00:07:19,080
+of forward slash.
+
+85
+00:07:19,080 --> 00:07:25,080
+And if I execute this, this will actually bring me to the root folder.
+
+86
+00:07:25,080 --> 00:07:29,680
+And since we're at the bottom of the terminal window and we need some more space, I'm actually
+
+87
+00:07:29,680 --> 00:07:33,260
+going to execute another command called clear.
+
+88
+00:07:33,260 --> 00:07:38,880
+And this will clean up the terminal history and give us more space.
+
+89
+00:07:38,880 --> 00:07:45,040
+So as you see here, we have, instead of tilt, we now have a forward slash.
+
+90
+00:07:45,040 --> 00:07:51,120
+And if I do pwd, we are in a root folder.
+
+91
+00:07:51,120 --> 00:07:58,800
+And if I do ls here, it will show me all the folders inside the root directory.
+
+92
+00:07:58,800 --> 00:08:04,120
+Now there is one interesting point about Linux, and that's that everything in Linux is actually
+
+93
+00:08:04,120 --> 00:08:05,880
+a file.
+
+94
+00:08:05,880 --> 00:08:12,720
+So obviously, the text document or picture is a file, but also a directory is represented
+
+95
+00:08:12,720 --> 00:08:14,400
+as a file.
+
+96
+00:08:14,400 --> 00:08:22,040
+Linux commands that we are executing here, like pwd or ls or cd, these are all represented
+
+97
+00:08:22,040 --> 00:08:30,120
+as binary files, which are located in one of those bin folders, either here or in user
+
+98
+00:08:30,120 --> 00:08:32,360
+directory.
+
+99
+00:08:32,360 --> 00:08:39,360
+The devices that you connect to your computer, like mouse, keyboard, USB, whatever, which
+
+100
+00:08:39,360 --> 00:08:45,920
+are then shown in the dev folder, they're also represented as files.
+
+101
+00:08:45,920 --> 00:08:51,040
+And since everything is a file in Linux, you can actually work with them just like files.
+
+102
+00:08:51,040 --> 00:08:57,080
+You can copy them, you can move them from one place to another, you can show the contents
+
+103
+00:08:57,080 --> 00:08:59,240
+of those files, etc.
+
+104
+00:08:59,240 --> 00:09:06,040
+As I said, you shouldn't be changing anything here in the root directory, but just as an
+
+105
+00:09:06,040 --> 00:09:12,040
+interesting info to be aware of.
+
+106
+00:09:12,040 --> 00:09:19,240
+Now from command line, you can actually easily navigate the hierarchy of the file system
+
+107
+00:09:19,240 --> 00:09:20,880
+through multiple layers.
+
+108
+00:09:20,880 --> 00:09:29,040
+So for example, if I wanted to go to a bin folder in a user's local directory, I would
+
+109
+00:09:29,040 --> 00:09:32,720
+have to basically follow this path.
+
+110
+00:09:32,720 --> 00:09:39,640
+In command line, it's just one command, which basically lets you specify the whole path
+
+111
+00:09:39,640 --> 00:09:40,640
+like this.
+
+112
+00:09:40,640 --> 00:09:46,640
+So you have user folder, you have local inside, and you have bin.
+
+113
+00:09:46,640 --> 00:09:51,640
+If I do that, I'm inside that folder.
+
+114
+00:09:51,640 --> 00:09:58,200
+Now if I wanted to go back to the user folder, I could either do this.
+
+115
+00:09:58,200 --> 00:10:09,920
+So basically move to here case up the file system, or do root folder user.
+
+116
+00:10:09,920 --> 00:10:10,920
+And there you go.
+
+117
+00:10:10,920 --> 00:10:18,400
+So basically from anywhere in your file system, you can specify an absolute path of any location.
+
+118
+00:10:18,400 --> 00:10:23,440
+So for example, if I want to check my network configuration by providing what's called an
+
+119
+00:10:23,440 --> 00:10:24,760
+absolute path.
+
+120
+00:10:24,760 --> 00:10:32,720
+So absolute path is a term that's basically used for describing the full, the complete
+
+121
+00:10:32,720 --> 00:10:35,560
+path of any location.
+
+122
+00:10:35,560 --> 00:10:42,400
+So basically, if I wanted to switch to the network folder inside etc, I can provide the
+
+123
+00:10:42,400 --> 00:10:49,880
+absolute path that starts with root, and I will switch there.
+
+124
+00:10:49,880 --> 00:10:56,480
+The same way I can go out back to my home directory like this, or as we also learned
+
+125
+00:10:56,480 --> 00:11:03,480
+as a shortcut from anywhere in the file system, I can just do tilt.
+
+126
+00:11:03,480 --> 00:11:09,040
+So with a tilt character, we can actually go back to our home directory.
+
+127
+00:11:09,040 --> 00:11:14,640
+Now one convenience of using an LS or list command is that we don't actually have to
+
+128
+00:11:14,640 --> 00:11:21,840
+switch to another location to display the contents of a folder, right, of a directory.
+
+129
+00:11:21,840 --> 00:11:28,360
+So for example, if I wanted to see the network configuration without actually switching to
+
+130
+00:11:28,360 --> 00:11:34,840
+that folder, and I wanted to stay in the home directory, I can just do ls slash etc.
+
+131
+00:11:34,840 --> 00:11:44,880
+And remember absolute path starting from the root folder slash etc slash network.
+
+132
+00:11:44,880 --> 00:11:45,880
+And there you go.
+
+133
+00:11:45,880 --> 00:11:51,280
+I'm still inside the home directory, but I can display files or contents from any other
+
+134
+00:11:51,280 --> 00:11:52,280
+directory.
+
+135
+00:11:52,280 --> 00:11:54,280
+Again, let's clean this up.
+
+136
+00:11:54,280 --> 00:12:00,720
+And now let's actually move back to our documents folder with Sydney.
+
+137
+00:12:00,720 --> 00:12:06,760
+And another great thing about command line is that when I type the first couple of letters,
+
+138
+00:12:06,760 --> 00:12:13,400
+I can actually hit the tab key on my keyboard, and it will actually show me all the folders
+
+139
+00:12:13,400 --> 00:12:16,040
+that start with those letters.
+
+140
+00:12:16,040 --> 00:12:22,360
+So right now I have documents and downloads, and if I do doc and hit the tab again, it's
+
+141
+00:12:22,360 --> 00:12:24,480
+going to autocomplete that, right.
+
+142
+00:12:24,480 --> 00:12:29,440
+So I don't have to remember or type out the folder names all the time.
+
+143
+00:12:29,440 --> 00:12:33,820
+That's obviously helpful when navigating up and down the directories.
+
+144
+00:12:33,820 --> 00:12:41,480
+So let's switch to the documents folder.
+
+145
+00:12:41,480 --> 00:12:48,160
+And let's say we want to rename the web application folder to Java app, because that's what we
+
+146
+00:12:48,160 --> 00:12:50,160
+decided on as a name.
+
+147
+00:12:50,160 --> 00:12:54,840
+So to change the name for that, there is a command called mv, which actually stands
+
+148
+00:12:54,840 --> 00:12:56,640
+for move.
+
+149
+00:12:56,640 --> 00:13:02,560
+And we need an original name after that, and the new name.
+
+150
+00:13:02,560 --> 00:13:07,320
+So we are basically moving or changing web application to Java app.
+
+151
+00:13:07,320 --> 00:13:13,520
+And I'm going to execute and we have renamed the folder.
+
+152
+00:13:13,520 --> 00:13:21,200
+And again, I can check the contents of that folder without entering it and with autocomplete.
+
+153
+00:13:21,200 --> 00:13:26,880
+And let's say I have added some Java files here, create some application, and I actually
+
+154
+00:13:26,880 --> 00:13:33,720
+want to keep a copy of this folder to create another project, another Java project based
+
+155
+00:13:33,720 --> 00:13:35,040
+on that, right.
+
+156
+00:13:35,040 --> 00:13:39,760
+So basically I want to copy the folder with all the contents.
+
+157
+00:13:39,760 --> 00:13:47,720
+For that I can do CP, which stands for copy Java app.
+
+158
+00:13:47,720 --> 00:13:55,160
+And let's call this something else like my project.
+
+159
+00:13:55,160 --> 00:13:58,600
+And again, we see the warning on folders.
+
+160
+00:13:58,600 --> 00:14:05,560
+When we're copying a folder and it includes files or folders inside, we need to tell the
+
+161
+00:14:05,560 --> 00:14:14,120
+copy command to do it recursively, again, adding this minus r flag.
+
+162
+00:14:14,120 --> 00:14:21,640
+And if we do ls, and if we display my project, it should also have the read me file copied
+
+163
+00:14:21,640 --> 00:14:23,240
+from Java.
+
+164
+00:14:23,240 --> 00:14:29,160
+The same way we can actually copy and rename files.
+
+165
+00:14:29,160 --> 00:14:33,680
+So first let's say I want to create another copy of adjusted read me.
+
+166
+00:14:33,680 --> 00:14:40,360
+So let's say I want to have another read me for test environment, right, which has mostly
+
+167
+00:14:40,360 --> 00:14:44,080
+the same thing, but I want to adjust it a little bit.
+
+168
+00:14:44,080 --> 00:14:54,160
+So I can copy that with files, I don't need recursive because just one file.
+
+169
+00:14:54,160 --> 00:14:58,600
+And now I have two files, and let's say I find just read me confusing.
+
+170
+00:14:58,600 --> 00:15:08,000
+So I want to rename that to read me deaf.
+
+171
+00:15:08,000 --> 00:15:09,820
+And there you go.
+
+172
+00:15:09,820 --> 00:15:15,940
+So same commands for copying or renaming it.
+
+173
+00:15:15,940 --> 00:15:18,140
+Cool.
+
+174
+00:15:18,140 --> 00:15:23,900
+Let's go back to our home directory and clear our window.
+
+175
+00:15:23,900 --> 00:15:27,940
+And let's see some other cool and practical commands.
+
+176
+00:15:27,940 --> 00:15:35,780
+So we already saw that with ls and the folder name, I can display directories in a certain
+
+177
+00:15:35,780 --> 00:15:36,780
+location.
+
+178
+00:15:36,780 --> 00:15:41,340
+Now let's say that I wanted to display these two folders, but I also wanted to display
+
+179
+00:15:41,340 --> 00:15:45,420
+the contents inside those two folders.
+
+180
+00:15:45,420 --> 00:15:53,500
+First of all, for that, I can add a flag here with minus with dash and that flag is capital
+
+181
+00:15:53,500 --> 00:15:59,060
+R this time, which again stands for recursive and documents.
+
+182
+00:15:59,060 --> 00:16:05,980
+And if I execute, you see that I see those directories inside, but per directory, I also
+
+183
+00:16:05,980 --> 00:16:11,740
+see the contents inside Java app and my project as well.
+
+184
+00:16:11,740 --> 00:16:16,220
+And again, that could be practical if you don't want to switch up and down and navigate
+
+185
+00:16:16,220 --> 00:16:21,380
+up and down the directories, you just want to see everything in one display.
+
+186
+00:16:21,380 --> 00:16:25,700
+Another cool thing with command line is that you don't have to retype everything all the
+
+187
+00:16:25,700 --> 00:16:32,020
+time with the arrow keys on your keyboard for up and down, you can actually navigate
+
+188
+00:16:32,020 --> 00:16:36,560
+the commands from your history of command execution.
+
+189
+00:16:36,560 --> 00:16:42,260
+So for example, if you want to execute a command from the previous execution again, you can
+
+190
+00:16:42,260 --> 00:16:47,300
+just search it here in the history and execute it.
+
+191
+00:16:47,300 --> 00:16:54,140
+And that brings us to another topic related to command line, which is a history of command
+
+192
+00:16:54,140 --> 00:17:00,020
+line by default, whatever commands you're executing in this window will be saved into
+
+193
+00:17:00,020 --> 00:17:01,960
+a history file, right?
+
+194
+00:17:01,960 --> 00:17:04,920
+So you have your command execution history.
+
+195
+00:17:04,920 --> 00:17:11,320
+And if we type a command called history here, it will actually display us line by line,
+
+196
+00:17:11,320 --> 00:17:15,440
+all the commands that we executed in this session.
+
+197
+00:17:15,440 --> 00:17:21,600
+And this could be very practical if, for example, you want to remember what you did on the command
+
+198
+00:17:21,600 --> 00:17:27,020
+line, or maybe you want to remember the command that you executed and maybe copy that and
+
+199
+00:17:27,020 --> 00:17:28,680
+execute it again.
+
+200
+00:17:28,680 --> 00:17:37,480
+Another practical way of finding a command that you previously executed is by searching
+
+201
+00:17:37,480 --> 00:17:39,320
+it on the command line.
+
+202
+00:17:39,320 --> 00:17:45,120
+And you can do that by using a key combination on your keyboard, which will be control and
+
+203
+00:17:45,120 --> 00:17:53,480
+R. And this will give you a search input, so to say, reverse search where you can type
+
+204
+00:17:53,480 --> 00:18:01,400
+a command that you're looking for, for example, s or cd, and I will see the commands that
+
+205
+00:18:01,400 --> 00:18:09,920
+I executed that start with these characters, let's also do rm.
+
+206
+00:18:09,920 --> 00:18:15,400
+So that will be another convenient way of finding the old commands that you executed.
+
+207
+00:18:15,400 --> 00:18:22,120
+Another useful key combination is whenever you want to break out of a command execution
+
+208
+00:18:22,120 --> 00:18:28,960
+result, or you want to stop execution of something, a program here, then you can click control
+
+209
+00:18:28,960 --> 00:18:35,880
+C, and that will basically interrupt or kill the current process that is running in the
+
+210
+00:18:35,880 --> 00:18:41,640
+terminal, like the search process right here.
+
+211
+00:18:41,640 --> 00:18:47,660
+Another useful key combination is copying and pasting in the terminal.
+
+212
+00:18:47,660 --> 00:18:55,840
+So let's say you want to find a command that shows you the last 20 commands in your history
+
+213
+00:18:55,840 --> 00:18:57,340
+of command execution.
+
+214
+00:18:57,340 --> 00:19:04,060
+By default, if I do history, you get all your commands, let's say you only want to display
+
+215
+00:19:04,060 --> 00:19:06,460
+last 20 or let's say last 10.
+
+216
+00:19:06,460 --> 00:19:14,620
+And let's say you search that in a browser, history, last 10 commands, and you find the
+
+217
+00:19:14,620 --> 00:19:21,660
+answer on stack exchange, whatever, and you copy that, obviously, this is much more practical
+
+218
+00:19:21,660 --> 00:19:23,980
+if it's a long command.
+
+219
+00:19:23,980 --> 00:19:30,860
+In this case, you would just copy that and now you want to paste it in your terminal.
+
+220
+00:19:30,860 --> 00:19:38,900
+For that, you're going to use control shift and V, and this will paste whatever you copied
+
+221
+00:19:38,900 --> 00:19:40,420
+inside the terminal.
+
+222
+00:19:40,420 --> 00:19:45,700
+And obviously, this will be very practical if you have much larger commands, much longer
+
+223
+00:19:45,700 --> 00:19:56,340
+commands that you don't want to retype here, and this will give us last 20 commands.
+
+224
+00:19:56,340 --> 00:20:00,540
+And one final command is displaying hidden files.
+
+225
+00:20:00,540 --> 00:20:05,660
+In the file system lecture, you already learned that in your home directory, you usually have
+
+226
+00:20:05,660 --> 00:20:09,380
+hidden files that you can display like this.
+
+227
+00:20:09,380 --> 00:20:15,340
+And these are basically all sorts of hidden files or hidden folders that different programs
+
+228
+00:20:15,340 --> 00:20:21,940
+and applications generate to store their configuration there or to store binaries or whatever.
+
+229
+00:20:21,940 --> 00:20:28,860
+And sometimes you may need to look inside them or navigate them or check some stuff.
+
+230
+00:20:28,860 --> 00:20:36,180
+For example, one of the hidden files here, which is called bash history, actually contains
+
+231
+00:20:36,180 --> 00:20:41,380
+the history of your commands that we output it right here.
+
+232
+00:20:41,380 --> 00:20:46,820
+So there will be enough use cases for navigating through and displaying the hidden files and
+
+233
+00:20:46,820 --> 00:20:47,820
+directories.
+
+234
+00:20:47,820 --> 00:20:52,700
+So how do we access them or how do we see them in a terminal?
+
+235
+00:20:52,700 --> 00:20:54,680
+And that's actually pretty easy.
+
+236
+00:20:54,680 --> 00:20:59,060
+So I'm in the home directory where I have a bunch of hidden files, and if I want to
+
+237
+00:20:59,060 --> 00:21:08,140
+display them, I'm going to pass in an argument with dash A. And if I execute, this will actually
+
+238
+00:21:08,140 --> 00:21:13,220
+show me all the files and folders, including the hidden ones.
+
+239
+00:21:13,220 --> 00:21:19,940
+And the same way as I navigate in these other directories, I can navigate in the hidden
+
+240
+00:21:19,940 --> 00:21:26,020
+folders like this and display the contents of the folder.
+
+241
+00:21:26,020 --> 00:21:29,500
+So we know how to display the contents of a folder.
+
+242
+00:21:29,500 --> 00:21:37,100
+But how do we display contents of a file, whether it's a hidden file or a regular file?
+
+243
+00:21:37,100 --> 00:21:42,660
+In graphical user interface, you just click on the file and it basically shows you the
+
+244
+00:21:42,660 --> 00:21:44,780
+contents like this.
+
+245
+00:21:44,780 --> 00:21:48,220
+In terminal, it's actually also very easy.
+
+246
+00:21:48,220 --> 00:21:52,700
+You just do CAT, which actually stands for concatenate.
+
+247
+00:21:52,700 --> 00:21:57,940
+It's a fancy word for combining words together.
+
+248
+00:21:57,940 --> 00:22:01,460
+And that's the command we use to display file contents.
+
+249
+00:22:01,460 --> 00:22:07,260
+So in this case, let's display bash.
+
+250
+00:22:07,260 --> 00:22:11,100
+And let's do tab for completion.
+
+251
+00:22:11,100 --> 00:22:17,460
+And we can display contents of regular files the same way.
+
+252
+00:22:17,460 --> 00:22:22,260
+Let's do Java app and read me.
+
+253
+00:22:22,260 --> 00:22:26,860
+And there you go.
+
+254
+00:22:26,860 --> 00:22:34,100
+Now all these commands that we just saw in this lecture, these super basic commands for
+
+255
+00:22:34,100 --> 00:22:39,460
+working with files and folders and navigating the file system.
+
+256
+00:22:39,460 --> 00:22:45,060
+These commands are actually the ones you are going to be using most of the time.
+
+257
+00:22:45,060 --> 00:22:50,900
+So people usually think that to be good at Linux, you have to memorize tons of different
+
+258
+00:22:50,900 --> 00:22:51,900
+commands.
+
+259
+00:22:51,900 --> 00:22:58,980
+And in reality, you have these around 20 commands maybe that you have to know and which you
+
+260
+00:22:58,980 --> 00:23:01,540
+will be using most of the time.
+
+261
+00:23:01,540 --> 00:23:06,660
+And the rest of the commands, either you're never going to use them or if you need them,
+
+262
+00:23:06,660 --> 00:23:10,380
+once in a while, you can just basically Google that or look that up.
+
+263
+00:23:10,380 --> 00:23:15,820
+So you don't have to memorize hundreds of commands, because you're just going to be
+
+264
+00:23:15,820 --> 00:23:18,220
+working with a handful of them.
+
+265
+00:23:18,220 --> 00:23:26,860
+So with these basic commands, you can actually already do a lot in Linux.
+
+266
+00:23:26,860 --> 00:23:31,940
+Also some people may think at the beginning, why would use command line interface when
+
+267
+00:23:31,940 --> 00:23:38,180
+you have a graphical user interface, which is more visual and much easier to navigate
+
+268
+00:23:38,180 --> 00:23:39,180
+and use.
+
+269
+00:23:39,180 --> 00:23:44,280
+Well, first of all, if you get used to the command line interface, you can actually work
+
+270
+00:23:44,280 --> 00:23:50,740
+much more efficiently and much quickly, because you don't have to click through all these
+
+271
+00:23:50,740 --> 00:23:56,700
+folders and applications and stuff, you have everything in just one window, right in one
+
+272
+00:23:56,700 --> 00:24:01,500
+terminal and you just basically execute commands inside that, right.
+
+273
+00:24:01,500 --> 00:24:07,660
+So you save a lot of time and some commands actually make it easier, certain stuff than
+
+274
+00:24:07,660 --> 00:24:11,180
+if you did them on a graphical user interface.
+
+275
+00:24:11,180 --> 00:24:16,620
+Another advantage of command line is that if you are doing some bulk operations on your
+
+276
+00:24:16,620 --> 00:24:22,580
+files or folders, so basically you're changing a lot of stuff at the same time, you can do
+
+277
+00:24:22,580 --> 00:24:29,140
+that much easier on a command line interface through a command than doing that through
+
+278
+00:24:29,140 --> 00:24:35,820
+a GUI, like bulk creating folders, files, renaming them or moving stuff around command
+
+279
+00:24:35,820 --> 00:24:39,620
+line interface may actually be much easier for that.
+
+280
+00:24:39,620 --> 00:24:45,820
+And finally, command line interface can actually do more than graphical user interface.
+
+281
+00:24:45,820 --> 00:24:51,820
+So command line is actually much more powerful than graphical user interface, and also for
+
+282
+00:24:51,820 --> 00:24:58,660
+certain repetitive tasks, or bulk commands, you can actually do that faster in the terminal
+
+283
+00:24:58,660 --> 00:25:04,820
+than in the GUI, this could be updating or moving 100 files or renaming them, etc.
+
+284
+00:25:04,820 --> 00:25:09,980
+But of course there are tasks where you can't replace the graphical user interface with
+
+285
+00:25:09,980 --> 00:25:14,980
+the command line, and these are visual tasks like editing images or videos or browsing
+
+286
+00:25:14,980 --> 00:25:22,740
+internet, obviously you would do that with graphical user interface.
+
+287
+00:25:22,740 --> 00:25:29,060
+Now in addition to working with files and folders, you can also use command line interface
+
+288
+00:25:29,060 --> 00:25:33,620
+to display some really useful information about your operating system.
+
+289
+00:25:33,620 --> 00:25:38,100
+So for example, with one command, you can display all the information about the kernel,
+
+290
+00:25:38,100 --> 00:25:42,740
+its version, which distribution, etc. you're using.
+
+291
+00:25:42,740 --> 00:25:52,180
+With uname-a, this will give us the complete information, which kernel, kernel version,
+
+292
+00:25:52,180 --> 00:25:53,820
+computer name, etc.
+
+293
+00:25:53,820 --> 00:25:56,100
+So you get all this information here.
+
+294
+00:25:56,100 --> 00:26:07,100
+You can also display operating system release, like this, by reading the file contents of
+
+295
+00:26:07,100 --> 00:26:18,220
+slashetc slash osrelease file, and this will basically tell you this is an Ubuntu distribution
+
+296
+00:26:18,220 --> 00:26:20,420
+with this version.
+
+297
+00:26:20,420 --> 00:26:22,660
+You can also check information about your hardware.
+
+298
+00:26:22,660 --> 00:26:30,500
+So for example, if I want to check CPU information for my system, I can do ls, which is command
+
+299
+00:26:30,500 --> 00:26:35,700
+we already learned, and CPU.
+
+300
+00:26:35,700 --> 00:26:41,180
+And this will give you detailed info about the architecture that you're using, how many
+
+301
+00:26:41,180 --> 00:26:47,420
+CPUs you have, how many cores, which model it is, etc.
+
+302
+00:26:47,420 --> 00:26:52,900
+And in the same way, you can display memory information like this, so you have the total
+
+303
+00:26:52,900 --> 00:26:56,820
+memory that your system is using, etc.
+
+304
+00:26:56,820 --> 00:27:01,380
+And know that, obviously, this is the memory that we allocated when we created the virtual
+
+305
+00:27:01,380 --> 00:27:04,660
+machine, and you see that information here.
+
+306
+00:27:04,660 --> 00:27:10,220
+So basically, in addition to these very common and basic commands, you have a bunch of these
+
+307
+00:27:10,220 --> 00:27:15,060
+other commands, which are also useful if you want to get some more information about your
+
+308
+00:27:15,060 --> 00:27:17,340
+system, etc.
+
+309
+00:27:17,340 --> 00:27:21,540
+But again, as I said, you're not going to be using this type of commands very often,
+
+310
+00:27:21,540 --> 00:27:22,540
+maybe.
+
+311
+00:27:22,540 --> 00:27:26,780
+So whenever you need them, you can actually look them up so you don't have to memorize
+
+312
+00:27:26,780 --> 00:27:31,580
+all the commands.
+
+313
+00:27:31,580 --> 00:27:39,060
+And finally, the last important concept with commands that we need to cover is executing
+
+314
+00:27:39,060 --> 00:27:41,860
+commands as a super user.
+
+315
+00:27:41,860 --> 00:27:49,340
+If you remember, in the file system lecture, we learned that in slash S bin folder, we
+
+316
+00:27:49,340 --> 00:27:55,220
+have all these commands that are meant for super user execution, right?
+
+317
+00:27:55,220 --> 00:28:00,260
+Administrators would basically use these commands to administer the system.
+
+318
+00:28:00,260 --> 00:28:05,220
+Some of them are managing users or managing some network configuration, etc.
+
+319
+00:28:05,220 --> 00:28:11,580
+And as I said, to execute these commands, we actually need super user privilege.
+
+320
+00:28:11,580 --> 00:28:17,620
+So one of these commands is add user, let's clear this up.
+
+321
+00:28:17,620 --> 00:28:20,460
+And let's do add user.
+
+322
+00:28:20,460 --> 00:28:26,060
+And this command actually takes a parameter, which is just a username.
+
+323
+00:28:26,060 --> 00:28:31,100
+Let's do admin.
+
+324
+00:28:31,100 --> 00:28:36,860
+And if I execute this, you see a warning that says only root may add a user or group to
+
+325
+00:28:36,860 --> 00:28:43,460
+the system, which means we can't execute that as an regular non root user, right?
+
+326
+00:28:43,460 --> 00:28:45,780
+Which we are logged in as now.
+
+327
+00:28:45,780 --> 00:28:53,200
+So to be able to do that from my nano user, what I can do is at the beginning, I can add
+
+328
+00:28:53,200 --> 00:28:55,460
+something called pseudo.
+
+329
+00:28:55,460 --> 00:29:01,380
+And this basically tells the system that I want to temporarily just for this one command
+
+330
+00:29:01,380 --> 00:29:06,580
+become a super user to be able to execute this command.
+
+331
+00:29:06,580 --> 00:29:12,260
+And now if I execute this, you see that it's asking me for my password.
+
+332
+00:29:12,260 --> 00:29:14,260
+I'm going to type that in.
+
+333
+00:29:14,260 --> 00:29:16,940
+So it's authenticating me.
+
+334
+00:29:16,940 --> 00:29:20,300
+And you see the output which is adding user admin.
+
+335
+00:29:20,300 --> 00:29:24,980
+So it has added the user with name admin.
+
+336
+00:29:24,980 --> 00:29:29,900
+It has added the user in that group and now is asking me for the password for that new
+
+337
+00:29:29,900 --> 00:29:30,900
+user.
+
+338
+00:29:30,900 --> 00:29:37,060
+Type in whatever password, submitter, and retype that.
+
+339
+00:29:37,060 --> 00:29:42,620
+Let's call it admin.
+
+340
+00:29:42,620 --> 00:29:45,940
+Leave all the defaults say yes.
+
+341
+00:29:45,940 --> 00:29:49,460
+And our admin user was created.
+
+342
+00:29:49,460 --> 00:29:54,780
+And if I check the contents of home directory, I should actually see a new folder that was
+
+343
+00:29:54,780 --> 00:30:02,420
+created for the admin user, which is empty for now, except for some hidden files.
+
+344
+00:30:02,420 --> 00:30:07,140
+So whenever you get this warning, or you know that you're executing a command that needs
+
+345
+00:30:07,140 --> 00:30:11,140
+use a privilege, you can add pseudo at the beginning.
+
+346
+00:30:11,140 --> 00:30:17,780
+And it tells the system that you want to become super user for that one specific commit.
+
+347
+00:30:17,780 --> 00:30:23,820
+And know that once you authenticate yourself with the password, it's going to save that
+
+348
+00:30:23,820 --> 00:30:25,480
+authentication data.
+
+349
+00:30:25,480 --> 00:30:31,740
+So if I execute another command with pseudo, it will not ask for my password again, which
+
+350
+00:30:31,740 --> 00:30:36,620
+is obviously convenient because you don't want to type in password every time you want
+
+351
+00:30:36,620 --> 00:30:38,740
+to execute a command with pseudo.
+
+352
+00:30:38,740 --> 00:30:47,420
+So for example, if I did a group here, and let's call this DevOps group, you see that
+
+353
+00:30:47,420 --> 00:30:51,020
+it created the group without asking for a password.
+
+354
+00:30:51,020 --> 00:30:56,380
+Now obviously, because we have another user now, we could log into our operating system
+
+355
+00:30:56,380 --> 00:31:02,900
+with admin user and its password, the same way we can actually switch the user in the
+
+356
+00:31:02,900 --> 00:31:04,900
+command line terminal as well.
+
+357
+00:31:04,900 --> 00:31:12,220
+So now if I wanted to log in as an admin user my session, so switch from Nana to admin
+
+358
+00:31:12,220 --> 00:31:21,300
+in my terminal, I can do as you dash and name of the user I want to switch to.
+
+359
+00:31:21,300 --> 00:31:27,180
+And this will ask me for password of the admin user, because I'm trying to log in as one.
+
+360
+00:31:27,180 --> 00:31:29,020
+And set that in.
+
+361
+00:31:29,020 --> 00:31:37,740
+And you see that right here, if I do PWD, I'm inside slash home slash admin.
+
+362
+00:31:37,740 --> 00:31:43,940
+And again, I can switch back to my user like this.
+
+363
+00:31:43,940 --> 00:31:49,060
+And now it's asking me for Nana users password.
+
+364
+00:31:49,060 --> 00:31:55,300
+And they go again, very convenient if you want to or if you need to switch between users
+
+365
+00:31:55,300 --> 00:32:00,940
+on one computer, you don't have to log out and log in, you basically just do everything
+
+366
+00:32:00,940 --> 00:32:01,940
+in the terminal.
+
+367
+00:32:01,940 --> 00:32:07,580
+And the final interesting small detail here is that if I close the terminal and open it
+
+368
+00:32:07,580 --> 00:32:16,620
+again, I still have my history of the commands that I executed here history.
+
+369
+00:32:16,620 --> 00:32:25,140
+And the same way using these arrows, I can basically navigate to my old commands.
+
+370
+00:32:25,140 --> 00:32:34,460
+And once I close the terminal, all these actually got stored in bash history file.
+
+371
+00:32:34,460 --> 00:32:38,620
+And we want to display the contents of the file.
+
+372
+00:32:38,620 --> 00:32:44,900
+And all the commands are right here again, pretty useful if you want to remember what
+
+373
+00:32:44,900 --> 00:32:50,980
+you actually did on the system, and what commands you executed.
+
+374
+00:32:50,980 --> 00:32:56,180
+So these were basics of command line interface and Linux commands.
+
+375
+00:32:56,180 --> 00:33:01,180
+This should give you a really good foundational knowledge about how to work with the command
+
+376
+00:33:01,180 --> 00:33:02,700
+line interface.
+
+377
+00:33:02,700 --> 00:33:07,460
+And in the next sections, we're going to build on that knowledge and learn even more commands
+
+378
+00:33:07,460 --> 00:33:08,700
+and more concepts.
+

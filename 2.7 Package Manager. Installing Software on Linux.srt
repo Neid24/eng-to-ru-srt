@@ -1,0 +1,1328 @@
+1
+00:00:00,000 --> 00:00:08,360
+In this lecture, we're going to talk about how to install software applications on Linux.
+
+2
+00:00:08,360 --> 00:00:14,680
+In Windows, you would usually go to a download page of the application and download the installer,
+
+3
+00:00:14,680 --> 00:00:19,720
+which will take you through the installation steps using some installation wizard, and
+
+4
+00:00:19,720 --> 00:00:22,520
+that's how you usually install an application.
+
+5
+00:00:22,520 --> 00:00:27,640
+In Linux, you could do the same, but it's absolutely not a recommended way of doing
+
+6
+00:00:27,640 --> 00:00:28,640
+it.
+
+7
+00:00:28,640 --> 00:00:34,800
+And on Linux, we install most of the software using a package manager tool.
+
+8
+00:00:34,800 --> 00:00:40,480
+There are exceptions, and we will see them, but probably 90% of software you're going
+
+9
+00:00:40,480 --> 00:00:44,600
+to install will be available through your package manager.
+
+10
+00:00:44,600 --> 00:00:46,960
+And that's how you will install them.
+
+11
+00:00:46,960 --> 00:00:53,800
+So to understand how installing applications on Linux using a package manager works, let's
+
+12
+00:00:53,800 --> 00:00:58,960
+first understand what is a package manager and what is a software package.
+
+13
+00:00:58,960 --> 00:01:05,840
+A software package is a compressed archive that contains all the files that are required
+
+14
+00:01:05,840 --> 00:01:13,880
+by a specific software to run, but software applications usually have dependencies.
+
+15
+00:01:13,880 --> 00:01:16,920
+So they depend on other software to run.
+
+16
+00:01:16,920 --> 00:01:22,880
+For example, if you want to install and run Firefox, Firefox actually needs lots of different
+
+17
+00:01:22,880 --> 00:01:29,480
+other software to run properly, which are not directly packaged in the Firefox package.
+
+18
+00:01:29,480 --> 00:01:35,360
+So you need to install all those dependencies in order to be able to run Firefox.
+
+19
+00:01:35,360 --> 00:01:41,200
+Also we learned that installing software on Linux is more complicated because the files
+
+20
+00:01:41,200 --> 00:01:47,200
+are going to be spread across different folders, not like Windows where everything for one
+
+21
+00:01:47,200 --> 00:01:53,320
+application, all the files basically goes into one folder in program files.
+
+22
+00:01:53,320 --> 00:01:58,880
+So on Windows you can simply remove that program folder and all these configuration files and
+
+23
+00:01:58,880 --> 00:02:00,640
+everything will be gone.
+
+24
+00:02:00,640 --> 00:02:07,040
+Well in Linux you can do that, so you can just remove that program by deleting the files
+
+25
+00:02:07,040 --> 00:02:12,440
+because you don't know where all the program files are located because they have been just
+
+26
+00:02:12,440 --> 00:02:15,280
+spread across multiple folders.
+
+27
+00:02:15,280 --> 00:02:20,280
+So that's why we need a package manager to install that software package on your Linux
+
+28
+00:02:20,280 --> 00:02:21,280
+system.
+
+29
+00:02:21,280 --> 00:02:26,360
+So the package manager will actually resolve the dependencies for you.
+
+30
+00:02:26,360 --> 00:02:32,720
+Again with the example of Firefox, first it will find and fetch Firefox package and it
+
+31
+00:02:32,720 --> 00:02:39,560
+will see when installing Firefox that maybe needs 100 other packages and it will go and
+
+32
+00:02:39,560 --> 00:02:42,760
+find those 100 software packages and install them as well.
+
+33
+00:02:42,760 --> 00:02:47,520
+If these 100 packages have their own dependencies it will install them too.
+
+34
+00:02:47,520 --> 00:02:52,920
+Super convenient for you as a Linux user because you don't have to manage and resolve those
+
+35
+00:02:52,920 --> 00:02:55,080
+dependencies yourself.
+
+36
+00:02:55,080 --> 00:03:02,000
+In addition to that package manager will know where to put different files from the packages,
+
+37
+00:03:02,000 --> 00:03:09,840
+where to put the binary files for the application, shared files, libraries, dependencies etc.
+
+38
+00:03:09,840 --> 00:03:15,720
+So when you uninstall the software using package manager again it will clean up everything
+
+39
+00:03:15,720 --> 00:03:21,040
+because it knows where to put stuff so it will just delete them from all those places.
+
+40
+00:03:21,040 --> 00:03:26,440
+Now let's say you have an old version of a software and you want to update it.
+
+41
+00:03:26,440 --> 00:03:32,440
+Using a package manager in this case is also great because you don't have to uninstall
+
+42
+00:03:32,440 --> 00:03:38,240
+the old version of the software and install a new one like on Windows for example.
+
+43
+00:03:38,240 --> 00:03:44,560
+You can just use a command of the package manager to update the software.
+
+44
+00:03:44,560 --> 00:03:48,960
+So it will do all that's needed in the background automatically.
+
+45
+00:03:48,960 --> 00:03:49,960
+Great!
+
+46
+00:03:49,960 --> 00:03:55,020
+Now you're probably thinking where do you get that package manager or what does it actually
+
+47
+00:03:55,020 --> 00:03:56,020
+look like?
+
+48
+00:03:56,020 --> 00:04:01,720
+Well in every Linux distribution you have a package manager already bundled in.
+
+49
+00:04:01,720 --> 00:04:07,080
+So when you install the operating system like Ubuntu you have a package manager already
+
+50
+00:04:07,400 --> 00:04:08,560
+available.
+
+51
+00:04:08,560 --> 00:04:15,060
+In Ubuntu's system which we are using we have a package manager called apt-apt which stands
+
+52
+00:04:15,060 --> 00:04:21,440
+for advanced package tool and this is a very popular package manager that you will see
+
+53
+00:04:21,440 --> 00:04:23,920
+in many other distributions as well.
+
+54
+00:04:23,920 --> 00:04:30,600
+And apt package manager has commands you can use to install, uninstall or upgrade the applications
+
+55
+00:04:30,600 --> 00:04:35,360
+on your system.
+
+56
+00:04:35,360 --> 00:04:41,040
+So now that we know why a package manager is useful in Linux and that we have a package
+
+57
+00:04:41,040 --> 00:04:45,800
+manager called apt available let's see how it actually works.
+
+58
+00:04:45,800 --> 00:04:50,600
+So first of all we use the package manager in our command line interface.
+
+59
+00:04:50,600 --> 00:04:57,600
+So if I type apt here you see that we have apt command available and here you see all
+
+60
+00:04:57,600 --> 00:05:02,240
+the actions that you can execute using the apt command.
+
+61
+00:05:02,240 --> 00:05:08,960
+So first of all a very convenient way to look up a package using your package manager
+
+62
+00:05:08,960 --> 00:05:14,320
+tool is apt search and the name of the package.
+
+63
+00:05:14,320 --> 00:05:21,720
+In this example we are going to install Java on our Ubuntu system so that we can use it
+
+64
+00:05:21,720 --> 00:05:23,720
+later in the bootcamp.
+
+65
+00:05:23,720 --> 00:05:31,680
+And this is going to be an openJDK Java development kit that's what we want to install and the
+
+66
+00:05:31,680 --> 00:05:36,840
+search will basically show us all the versions and all the available packages we can install
+
+67
+00:05:36,840 --> 00:05:39,120
+using the package manager tool.
+
+68
+00:05:39,120 --> 00:05:47,280
+However we will have to execute this using a sudo command and execute and there you go.
+
+69
+00:05:47,280 --> 00:05:53,400
+Here we see the packages for openJDK and different versions here.
+
+70
+00:05:53,400 --> 00:05:59,040
+What you could also do and this is actually very convenient in Ubuntu systems is if you
+
+71
+00:05:59,040 --> 00:06:05,400
+type in a command that belongs to the package that you want to install and execute you will
+
+72
+00:06:05,400 --> 00:06:14,080
+see a list of suggestions or suggested packages that you can install that basically has this
+
+73
+00:06:14,080 --> 00:06:15,600
+command.
+
+74
+00:06:15,600 --> 00:06:18,040
+And we're going to grab one of them.
+
+75
+00:06:18,040 --> 00:06:27,640
+I'm actually going to grab openJDK version 17, copy it with shift control C and then
+
+76
+00:06:27,640 --> 00:06:33,840
+paste in with shift control V and let's execute this.
+
+77
+00:06:33,840 --> 00:06:41,240
+So we have apt install name, the exact name of the package that we want to install and
+
+78
+00:06:41,240 --> 00:06:43,160
+again with sudo.
+
+79
+00:06:43,160 --> 00:06:49,880
+And this command basically makes a lookup of the package and the dependencies and it
+
+80
+00:06:49,880 --> 00:06:55,640
+shows you what will be installed and then you can basically confirm that we are okay
+
+81
+00:06:55,640 --> 00:06:59,440
+with the results and we want to install that awesome.
+
+82
+00:06:59,440 --> 00:07:06,800
+So now if I do Java again, you see that the command is already available and let's do
+
+83
+00:07:06,800 --> 00:07:12,720
+Java version and openJDK version 17 was installed.
+
+84
+00:07:12,720 --> 00:07:20,840
+So that's how easy it is to install different software using a package manager tool.
+
+85
+00:07:20,840 --> 00:07:29,800
+And we can also uninstall a software using apt remove command and the name of the package.
+
+86
+00:07:29,800 --> 00:07:36,000
+Again, it will ask for a confirmation for what will be removed.
+
+87
+00:07:36,000 --> 00:07:42,880
+And to completely remove version 17, we must also uninstall openJDK 11, which was installed
+
+88
+00:07:42,880 --> 00:07:46,120
+as a dependency during the installation.
+
+89
+00:07:46,120 --> 00:07:51,720
+You will use the same remove command, but this time type 11 as the version.
+
+90
+00:07:51,720 --> 00:07:54,000
+And that's it.
+
+91
+00:07:54,000 --> 00:08:01,240
+And now Java command is not available anymore.
+
+92
+00:08:01,240 --> 00:08:07,360
+So the big advantage of a package manager is that you have one central place from which
+
+93
+00:08:07,360 --> 00:08:13,000
+you query, install, update or uninstall, remove your applications.
+
+94
+00:08:13,000 --> 00:08:20,200
+To your package manager knows and keeps track of the state of each installed software for
+
+95
+00:08:20,200 --> 00:08:21,600
+you.
+
+96
+00:08:21,600 --> 00:08:27,880
+In the same way you can install Docker, Docker compose, npm or node and any other tools that
+
+97
+00:08:27,880 --> 00:08:34,000
+we will use in this bootcamp.
+
+98
+00:08:34,000 --> 00:08:41,080
+Now there is another package manager called apt get that you will often come across in
+
+99
+00:08:41,080 --> 00:08:44,680
+articles or installation guides, et cetera.
+
+100
+00:08:44,680 --> 00:08:51,760
+And as its name is very close to apt or apt, it may be confusing because you may wonder
+
+101
+00:08:51,760 --> 00:08:56,680
+what is the difference between the two, or maybe you can use them interchangeably.
+
+102
+00:08:56,680 --> 00:09:06,080
+And if I do apt get here, you see that we have apt get also available on our Ubuntu system.
+
+103
+00:09:06,080 --> 00:09:09,400
+And it has a different set of commands.
+
+104
+00:09:09,400 --> 00:09:17,640
+However, the same way you can also use it to install, update and uninstall applications.
+
+105
+00:09:17,640 --> 00:09:21,000
+So what is the difference between apt and apt get?
+
+106
+00:09:21,000 --> 00:09:25,000
+Well apt is actually more user friendly than apt get.
+
+107
+00:09:25,000 --> 00:09:30,040
+So when you install an application or when you query an application, it gives you a much
+
+108
+00:09:30,040 --> 00:09:35,160
+user friendlier or much cleaner output than apt get.
+
+109
+00:09:35,160 --> 00:09:42,120
+And the apt search command that we use to look up a package that search command or query
+
+110
+00:09:42,120 --> 00:09:44,720
+command is not available in apt get.
+
+111
+00:09:44,720 --> 00:09:50,360
+So that means that if you have both available, you should be using apt because it's user
+
+112
+00:09:50,360 --> 00:09:51,520
+friendlier.
+
+113
+00:09:51,520 --> 00:09:56,880
+And it is actually available out of the box as I said bundled with the distribution in
+
+114
+00:09:56,880 --> 00:10:00,360
+more recent Linux distributions.
+
+115
+00:10:00,360 --> 00:10:04,840
+And to see the difference between apt and apt get when installing Java, for example,
+
+116
+00:10:04,840 --> 00:10:11,120
+in terms of user friendly output, let's actually install Java using apt get.
+
+117
+00:10:11,120 --> 00:10:18,720
+So apt get install name of the package and again pseudo.
+
+118
+00:10:18,720 --> 00:10:25,480
+So as you see, this is the same exact command just with apt get instead of apt.
+
+119
+00:10:25,480 --> 00:10:33,920
+And if I execute this, you have more specific output plus you don't have this progress bar
+
+120
+00:10:34,000 --> 00:10:38,080
+at the end that you have with Java.
+
+121
+00:10:38,080 --> 00:10:47,400
+So that's basically the main difference between apt and apt get package managers in a nutshell.
+
+122
+00:10:47,400 --> 00:10:53,440
+Great so we've seen how to use apt package manager to install packages, but where do
+
+123
+00:10:53,440 --> 00:10:56,640
+those packages actually come from?
+
+124
+00:10:56,640 --> 00:11:02,240
+Where does the package manager find the software we want to install and where does it find
+
+125
+00:11:02,240 --> 00:11:05,680
+all its dependencies that it also installs?
+
+126
+00:11:05,680 --> 00:11:07,880
+And these packages are files, right?
+
+127
+00:11:07,880 --> 00:11:10,880
+So they need to be stored somewhere.
+
+128
+00:11:10,880 --> 00:11:18,800
+Linux uses repositories, which are like warehouses of hundreds or thousands of software packages.
+
+129
+00:11:18,800 --> 00:11:25,440
+So each distribution like Ubuntu, for example, will have repositories that has most of the
+
+130
+00:11:25,440 --> 00:11:27,400
+software that you'll need.
+
+131
+00:11:27,400 --> 00:11:32,640
+And that's where the package manager gets these software packages from.
+
+132
+00:11:32,640 --> 00:11:37,680
+These repositories can be local, but mostly they're hosted online.
+
+133
+00:11:37,680 --> 00:11:41,600
+So the package manager can access them over the internet.
+
+134
+00:11:41,600 --> 00:11:49,560
+And usually on a fresh new operating system that we just installed, before you start installing
+
+135
+00:11:49,560 --> 00:11:58,880
+packages on your system, the first command that you should execute is actually apt update.
+
+136
+00:11:58,880 --> 00:12:04,800
+And this command, what it actually does is it refreshes the state of the repositories that
+
+137
+00:12:04,800 --> 00:12:10,160
+the distribution is using to get the latest versions of the applications to update the
+
+138
+00:12:10,160 --> 00:12:13,040
+cache, etc.
+
+139
+00:12:13,040 --> 00:12:19,920
+And this will usually also give you a summary of all the packages that have newer versions
+
+140
+00:12:19,920 --> 00:12:24,320
+in the repositories that you can actually upgrade.
+
+141
+00:12:24,320 --> 00:12:31,400
+Now there are a couple of official repositories that a distribution and the package manager
+
+142
+00:12:31,400 --> 00:12:32,800
+will use.
+
+143
+00:12:32,800 --> 00:12:41,320
+And these repositories are actually stored for apt package manager inside slash etc, which
+
+144
+00:12:41,400 --> 00:12:49,040
+if you remember is a folder that holds the system configuration files, as well as configurations
+
+145
+00:12:49,040 --> 00:12:53,320
+for different applications that you have on the system.
+
+146
+00:12:53,320 --> 00:12:56,240
+And we have a folder for apt.
+
+147
+00:12:56,240 --> 00:13:05,520
+And if we list the contents inside, we have sources dot list file.
+
+148
+00:13:05,520 --> 00:13:12,240
+And since everything is file in linux, we can just print the contents like this.
+
+149
+00:13:12,240 --> 00:13:20,360
+So this is a file that contains all the repositories that your apt package manager will use to
+
+150
+00:13:20,360 --> 00:13:23,840
+find the packages and to fetch them from.
+
+151
+00:13:23,840 --> 00:13:32,960
+And as I said, these repositories are available online, so you have the URLs of those repositories.
+
+152
+00:13:32,960 --> 00:13:37,680
+And that's how we installed Java and that's how you can install Docker, Docker compose,
+
+153
+00:13:37,680 --> 00:13:46,640
+npm and other tools from those official repositories.
+
+154
+00:13:46,640 --> 00:13:54,040
+And this will be mostly the way you install packages on your linux system.
+
+155
+00:13:54,040 --> 00:14:01,080
+However, there are exceptions when you can't install a certain software like this.
+
+156
+00:14:01,080 --> 00:14:28,520
+And this often happens because Ubuntu, like other distributions, have a procedure to verify
+
+157
+00:14:28,520 --> 00:14:34,840
+and approve a software package and every new version of the package before including it
+
+158
+00:14:34,840 --> 00:14:37,640
+into the official repositories.
+
+159
+00:14:37,640 --> 00:14:43,640
+And this verification and approval process may take days or weeks.
+
+160
+00:14:43,640 --> 00:14:48,280
+And if you don't want to wait for that, or if you need the latest version of some software
+
+161
+00:14:48,280 --> 00:14:52,520
+for your project, then you can't install it from there.
+
+162
+00:14:52,520 --> 00:14:59,160
+It could also be that Ubuntu just doesn't include a certain software packages in its
+
+163
+00:14:59,160 --> 00:15:02,200
+official repositories at all.
+
+164
+00:15:02,200 --> 00:15:08,200
+Examples for that could be some browsers or maybe code editors like Visual Studio Code
+
+165
+00:15:08,200 --> 00:15:10,240
+or IntelliJ.
+
+166
+00:15:10,240 --> 00:15:16,040
+So what is the alternative here if you can't install a software like this?
+
+167
+00:15:16,040 --> 00:15:21,560
+Well, for this type of cases, you have actually multiple alternatives.
+
+168
+00:15:21,560 --> 00:15:24,440
+And we're going to see some of them here.
+
+169
+00:15:24,440 --> 00:15:31,560
+Let's say you want to install an IntelliJ program on your Ubuntu operating system, because
+
+170
+00:15:31,560 --> 00:15:37,480
+maybe you're going to be writing some program and you need a code editor or integrated development
+
+171
+00:15:37,480 --> 00:15:39,000
+environment for that.
+
+172
+00:15:39,000 --> 00:15:47,160
+So one very easy way to install applications that are not available in the official repo
+
+173
+00:15:47,160 --> 00:15:50,720
+is using Ubuntu software application.
+
+174
+00:15:50,720 --> 00:15:57,800
+If I click on it and open, first of all, you have a tab that shows you all the installed
+
+175
+00:15:57,800 --> 00:16:01,840
+software that you can also remove using this view.
+
+176
+00:16:01,840 --> 00:16:05,360
+And in Explorer, you can search for new packages.
+
+177
+00:16:05,360 --> 00:16:09,080
+In our example, we're looking for an IntelliJ editor.
+
+178
+00:16:09,080 --> 00:16:17,320
+And if I type that in, you'll see IntelliJ community, the paid one, et cetera.
+
+179
+00:16:17,320 --> 00:16:19,200
+So you have all these options here.
+
+180
+00:16:19,200 --> 00:16:24,600
+And if I click on the community, the free version that we're going to use, you have
+
+181
+00:16:24,600 --> 00:16:27,720
+this super convenient install button.
+
+182
+00:16:27,720 --> 00:16:34,840
+And if I click on this, again, we're installing a software so you need authentication so that
+
+183
+00:16:34,840 --> 00:16:37,320
+not everyone can do that.
+
+184
+00:16:37,320 --> 00:16:41,320
+And this will just start installing the application locally.
+
+185
+00:16:41,320 --> 00:16:46,440
+And here you see the version that you're installing so you can actually choose between different
+
+186
+00:16:46,440 --> 00:16:47,800
+applications.
+
+187
+00:16:47,800 --> 00:16:54,840
+So now we have IntelliJ installed locally and the same way you can remove it from here.
+
+188
+00:16:54,840 --> 00:17:00,120
+And if you wanted to access your installed software now, let's close this.
+
+189
+00:17:00,120 --> 00:17:12,360
+And in the applications or show applications, if we type in IntelliJ, here is our application.
+
+190
+00:17:12,360 --> 00:17:16,920
+So that's one alternative for installing different applications.
+
+191
+00:17:16,920 --> 00:17:24,480
+Another one is using another package manager tool, which is actually a newer package manager
+
+192
+00:17:24,480 --> 00:17:28,320
+for Linux, which is called SNAP.
+
+193
+00:17:28,320 --> 00:17:35,160
+And SNAP is basically a software packaging and deployment system for operating systems
+
+194
+00:17:35,160 --> 00:17:37,920
+that use Linux kernels.
+
+195
+00:17:37,920 --> 00:17:47,120
+And if I type in SNAP here in my Ubuntu operating system, you see that we have SNAP also available
+
+196
+00:17:47,120 --> 00:17:48,120
+by default.
+
+197
+00:17:48,120 --> 00:17:53,040
+So this one also comes bundled with the operating system distribution.
+
+198
+00:17:53,040 --> 00:18:00,240
+And with SNAP, we can also install, remove software and execute some other commands.
+
+199
+00:18:00,240 --> 00:18:07,440
+And you will actually see installation guide for different applications like IntelliJ as
+
+200
+00:18:07,440 --> 00:18:11,760
+well or Visual Studio Code, which is another code editor.
+
+201
+00:18:11,760 --> 00:18:16,960
+You will see the installation guides for these tools with SNAP command.
+
+202
+00:18:16,960 --> 00:18:23,320
+So what makes SNAP different from installing applications using app is that it uses these
+
+203
+00:18:23,320 --> 00:18:26,400
+self-contained packages.
+
+204
+00:18:26,400 --> 00:18:32,480
+So basically package where all the dependencies are already packaged inside and everything
+
+205
+00:18:32,480 --> 00:18:37,920
+that you need to run that application is basically in one full package.
+
+206
+00:18:37,920 --> 00:18:43,560
+So all these files that application needs is in one compressed file, and the format
+
+207
+00:18:43,560 --> 00:18:46,280
+of that file is also called SNAP.
+
+208
+00:18:46,280 --> 00:18:51,280
+And here you can see one of the examples from Visual Studio Code, which again is another
+
+209
+00:18:51,280 --> 00:18:52,280
+editor.
+
+210
+00:18:52,280 --> 00:18:56,920
+You see an example with SNAP, we're installing it with SNAP.
+
+211
+00:18:56,920 --> 00:19:00,840
+And you can also use SNAP to install IntelliJ, for example.
+
+212
+00:19:00,840 --> 00:19:06,560
+So let's execute the SNAP command to install Visual Studio Code now.
+
+213
+00:19:06,560 --> 00:19:10,960
+So sudo snap install code.
+
+214
+00:19:10,960 --> 00:19:15,720
+So this is the name of Visual Studio Code, SNAP package.
+
+215
+00:19:15,720 --> 00:19:23,000
+And if I execute and enter my password, this will install Visual Studio Code in the same
+
+216
+00:19:23,000 --> 00:19:32,240
+way to validate that there you go, we see Visual Studio Code icon here in our applications.
+
+217
+00:19:32,240 --> 00:19:39,160
+And for some applications, you may have both SNAP and app commands available to install
+
+218
+00:19:39,160 --> 00:19:40,160
+them.
+
+219
+00:19:40,160 --> 00:19:48,440
+For example, if I do Docker, you see that you can install them either using SNAP or app.
+
+220
+00:19:48,440 --> 00:19:54,080
+Now obviously, the question is what is the difference and which one you should use.
+
+221
+00:19:54,080 --> 00:20:02,520
+So the main difference between these two tools is that the SNAP packages are, as I mentioned,
+
+222
+00:20:02,520 --> 00:20:07,720
+self-contained, everything is packaged inside dependencies and everything that the application
+
+223
+00:20:07,720 --> 00:20:14,800
+needs is in a SNAP package, and it will be installed as one unified application.
+
+224
+00:20:14,800 --> 00:20:19,720
+EPD, however, has this split of different files, right?
+
+225
+00:20:19,720 --> 00:20:26,000
+The binaries and libraries, as we saw previously in the file system lecture, everything will
+
+226
+00:20:26,000 --> 00:20:29,320
+be distributed and stored separately.
+
+227
+00:20:29,320 --> 00:20:31,160
+So that's the main difference.
+
+228
+00:20:31,160 --> 00:20:35,600
+And that's how usually the applications should be installed on Linux.
+
+229
+00:20:35,600 --> 00:20:41,160
+So when you have these alternative, you should always go with EPD package manager and use
+
+230
+00:20:41,160 --> 00:20:42,280
+that instead.
+
+231
+00:20:42,280 --> 00:20:48,640
+But to mention some of SNAP's advantages, it supports universal Linux packages.
+
+232
+00:20:48,640 --> 00:20:55,600
+So it's not specific to a distribution and you can use it across different Linux distributions.
+
+233
+00:20:55,600 --> 00:20:57,560
+So that's an advantage.
+
+234
+00:20:57,560 --> 00:21:03,800
+And also it refreshes and updates the applications that it manages automatically.
+
+235
+00:21:03,800 --> 00:21:09,800
+On the downside, however, because everything is packaged inside this one package for each
+
+236
+00:21:09,800 --> 00:21:16,120
+application, of course, the SNAP files are much bigger, so they need much more space
+
+237
+00:21:16,120 --> 00:21:18,520
+to download and install.
+
+238
+00:21:18,520 --> 00:21:24,560
+And that means if you install 50 applications that share the dependencies, these dependencies
+
+239
+00:21:24,560 --> 00:21:29,920
+will be downloaded multiple times for each application because each one comes bundled
+
+240
+00:21:29,920 --> 00:21:32,000
+with its own dependency.
+
+241
+00:21:32,000 --> 00:21:35,400
+As with EPD, this will be managed better.
+
+242
+00:21:35,400 --> 00:21:40,960
+So if applications share the dependencies, EPD will download this dependency once and
+
+243
+00:21:40,960 --> 00:21:45,760
+it will know when installing the next tool that needs the dependencies, it will basically
+
+244
+00:21:45,760 --> 00:21:50,320
+know that dependency is already there and it will not re-download that.
+
+245
+00:21:50,320 --> 00:21:56,600
+So basically SNAP doesn't use the storage resource as efficiently as EPD and it also
+
+246
+00:21:56,600 --> 00:22:01,560
+doesn't install applications in a way which is common for Linux.
+
+247
+00:22:01,560 --> 00:22:07,880
+So when you have these two options, you should always use EPD package manager and SNAP is
+
+248
+00:22:07,880 --> 00:22:13,360
+basically an alternative if you can't install a certain package using EPD.
+
+249
+00:22:13,360 --> 00:22:20,280
+And going back to the Ubuntu software application from which we installed IntelliJ, we have
+
+250
+00:22:20,280 --> 00:22:24,240
+a dropdown with different versions here that we can choose from.
+
+251
+00:22:24,240 --> 00:22:30,560
+If I click inside, you see that each version has a format SNAP and it comes from a SNAP
+
+252
+00:22:30,560 --> 00:22:31,560
+store.
+
+253
+00:22:31,560 --> 00:22:39,440
+So basically this is like a front-end or user interface of SNAP tool that we just use on
+
+254
+00:22:39,440 --> 00:22:43,000
+a command line interface to install Visual Studio Code.
+
+255
+00:22:43,000 --> 00:22:52,120
+So this under the hood uses the same SNAP command that we used.
+
+256
+00:22:52,120 --> 00:22:59,280
+And another way of installing applications that I want to show you is adding another
+
+257
+00:23:00,000 --> 00:23:07,040
+repository to this official repositories list that Ubuntu has or a Linux distribution like
+
+258
+00:23:07,040 --> 00:23:10,960
+Ubuntu has and then installing the package from there.
+
+259
+00:23:10,960 --> 00:23:15,360
+And the reason why I want to show you that option as well is because you will encounter
+
+260
+00:23:15,360 --> 00:23:23,880
+that option for example when installing relatively new applications or new tools that are not
+
+261
+00:23:23,880 --> 00:23:30,400
+in the official repositories yet, especially if you're working on an older version of operating
+
+262
+00:23:30,400 --> 00:23:36,120
+system and in an installation guide you will see the steps where you have to first add
+
+263
+00:23:36,120 --> 00:23:42,720
+a repository that contains the package that you're looking for and then basically install
+
+264
+00:23:42,720 --> 00:23:45,160
+the package from there.
+
+265
+00:23:45,160 --> 00:23:52,120
+So when you add the repository, it will be automatically added to the sources.list file
+
+266
+00:23:52,120 --> 00:24:00,920
+which is in the apt configuration folder under slash etc slash apt and once the repository
+
+267
+00:24:00,920 --> 00:24:07,640
+is on the list there you can use apt package manager to install packages also from the
+
+268
+00:24:07,640 --> 00:24:08,760
+repository.
+
+269
+00:24:08,760 --> 00:24:13,440
+So now when you execute apt install command it will search for that package in all the
+
+270
+00:24:13,440 --> 00:24:18,880
+repositories that are configured on your system and when it finds that package it will basically
+
+271
+00:24:18,880 --> 00:24:21,680
+just fetch it from there.
+
+272
+00:24:21,680 --> 00:24:28,520
+And some of these repositories that you add to your system are personal package archive
+
+273
+00:24:28,520 --> 00:24:32,600
+repositories, also called PPAs.
+
+274
+00:24:32,600 --> 00:24:40,600
+So PPA is basically a repository that allows application developers or private users basically
+
+275
+00:24:40,600 --> 00:24:47,960
+to create their own repository for Linux systems and then distribute the software through that
+
+276
+00:24:47,960 --> 00:24:48,960
+repository.
+
+277
+00:24:49,240 --> 00:24:55,040
+Again if there is a tool that is super cutting edge and that is not in most of the official
+
+278
+00:24:55,040 --> 00:25:00,120
+repositories but they of course want to make it available to the users they may create
+
+279
+00:25:00,120 --> 00:25:07,560
+this personal repository and host that application there so you can download it and install it
+
+280
+00:25:07,560 --> 00:25:08,760
+from there.
+
+281
+00:25:08,760 --> 00:25:17,200
+Now note that PPAs as the name suggests personal package archive these are personal repositories
+
+282
+00:25:17,200 --> 00:25:21,920
+so they are not verified by the Linux distribution that you are using.
+
+283
+00:25:21,920 --> 00:25:30,400
+So you should be very selective when adding the PPAs to your system and verify yourself
+
+284
+00:25:30,400 --> 00:25:39,160
+who this repository belongs to who is maintaining it etc.
+
+285
+00:25:39,160 --> 00:25:47,160
+So these are some of the common ways of installing software on Linux where the first option
+
+286
+00:25:47,240 --> 00:25:53,280
+which you should always use if possible and this is actually what we use most of the time
+
+287
+00:25:53,280 --> 00:26:00,280
+when installing software on Linux which is the package manager like Ept that fetches
+
+288
+00:26:00,280 --> 00:26:04,280
+packages from the official package repositories.
+
+289
+00:26:04,280 --> 00:26:09,800
+So that will be the first option for 80 to 90% of the cases.
+
+290
+00:26:09,800 --> 00:26:14,440
+If that is not possible then we have alternative and the first alternative that you should
+
+291
+00:26:14,440 --> 00:26:20,480
+use is SNAP of course if it's available on your system and using SNAP you can really
+
+292
+00:26:20,480 --> 00:26:27,880
+easily download and install different software and if none of them is an option sometimes
+
+293
+00:26:27,880 --> 00:26:34,320
+you may have to add additional repository to your system so that your package manager
+
+294
+00:26:34,320 --> 00:26:40,920
+can fetch software packages from there.
+
+295
+00:26:41,400 --> 00:26:48,400
+Now we saw how to install applications in software on Ubuntu operating system using
+
+296
+00:26:48,400 --> 00:26:55,880
+Ept package manager and some alternatives but Ubuntu is just one of the Linux distributions
+
+297
+00:26:55,880 --> 00:26:59,560
+and there are hundreds of other distributions out there.
+
+298
+00:26:59,560 --> 00:27:06,640
+Now do they all use the same package manager like Ept or does each have their own or how
+
+299
+00:27:06,640 --> 00:27:09,840
+does it work with other distributions?
+
+300
+00:27:09,840 --> 00:27:16,480
+All these hundreds of distributions can actually be grouped into categories if they are based
+
+301
+00:27:16,480 --> 00:27:24,200
+on same source code and these distributions in the same category will use the same package
+
+302
+00:27:24,200 --> 00:27:25,680
+manager.
+
+303
+00:27:25,680 --> 00:27:32,120
+There are two most used and known categories of Linux distributions which are Debian based
+
+304
+00:27:32,120 --> 00:27:42,680
+distributions such as Ubuntu, Debian, Linux Mint which all use Ept or EptGet and the
+
+305
+00:27:42,680 --> 00:27:51,440
+second one is Redhead based distributions such as RHEL or RHEL which stands for Redhead
+
+306
+00:27:51,440 --> 00:27:53,200
+Enterprise Linux.
+
+307
+00:27:53,200 --> 00:27:58,000
+We also have CentOS which is also Redhead based or Fedora.
+
+308
+00:27:58,000 --> 00:28:02,120
+We have other distributions as well in the same categories but these are some of the
+
+309
+00:28:02,120 --> 00:28:09,160
+most known ones and most commonly used ones and Redhead based distributions actually use
+
+310
+00:28:09,160 --> 00:28:15,200
+a different package manager called YUM and throughout the bootcamp we will be working
+
+311
+00:28:15,200 --> 00:28:22,520
+with different remote servers where we will use both Ept and YUM package managers.
+
+312
+00:28:22,520 --> 00:28:26,440
+So you will see examples of both in our later projects as well.
+
+313
+00:28:26,440 --> 00:28:33,160
+And even though these are two different package managers on two different categories of distributions
+
+314
+00:28:33,160 --> 00:28:35,640
+the concept is very similar.
+
+315
+00:28:35,640 --> 00:28:43,040
+So you have this package manager that uses the official repositories that are configured
+
+316
+00:28:43,040 --> 00:28:49,800
+for the system like CentOS or Fedora or RHEL and basically fetching packages from there
+
+317
+00:28:49,800 --> 00:28:55,000
+and installing them on the system by resolving all the dependencies.
+
+318
+00:28:55,000 --> 00:29:01,680
+However, there could be differences in the repositories that the distributions are using
+
+319
+00:29:01,680 --> 00:29:09,160
+such as some repositories will have more packages available than others, some will have newer
+
+320
+00:29:09,160 --> 00:29:12,840
+versions of applications than others etc.
+
+321
+00:29:12,840 --> 00:29:18,520
+So the package manager tool and the repositories that different distributions are using or
+
+322
+00:29:18,520 --> 00:29:26,600
+different categories of Linux distributions are using is usually one of the main differentiators
+
+323
+00:29:26,600 --> 00:29:30,360
+when deciding which distribution to choose.
+
+324
+00:29:30,360 --> 00:29:36,640
+So system administrators for example who configure the servers may decide which Linux distribution
+
+325
+00:29:36,640 --> 00:29:41,600
+they install based on the package manager tool they prefer.
+
+326
+00:29:41,600 --> 00:29:47,440
+However, within the same category the difference between the distributions is essentially very
+
+327
+00:29:47,480 --> 00:29:55,880
+small mostly it's the desktop environment and visuals which you can also change and adjust.
+
+328
+00:29:55,880 --> 00:30:02,080
+So now you know what package managers are and you know how to install applications in
+
+329
+00:30:02,080 --> 00:30:07,000
+Linux distributions and we saw some examples on Ubuntu.
+
+330
+00:30:07,000 --> 00:30:13,920
+We have one main way of installing software on Linux and some alternatives for rest of
+
+331
+00:30:13,920 --> 00:30:20,440
+the cases and we also saw that distributions are actually categorized based on which package
+
+332
+00:30:20,440 --> 00:30:22,120
+manager tool they use.
+

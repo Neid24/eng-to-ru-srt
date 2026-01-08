@@ -1,0 +1,132 @@
+1
+00:00:00,000 --> 00:00:21,000
+Now that you've learned Linux file system, it's time to learn basic Linux commands that you can execute in a command line interface to work with that file system to create folders, files to display the information in your system, etc.
+
+2
+00:00:22,000 --> 00:00:30,000
+So first of all, obviously we start with a graphical user interface, which is everything that you see right here.
+
+3
+00:00:30,000 --> 00:00:39,000
+It's visual, it's graphical, and as a user, it's a simple starting point to interact with your operating system.
+
+4
+00:00:39,000 --> 00:00:49,000
+You can open applications here, you can install new applications, you can create new folders, new files, etc.
+
+5
+00:00:49,000 --> 00:00:56,000
+And everything that you can do in a graphical user interface, you can also do in a command line interface.
+
+6
+00:00:56,000 --> 00:01:10,000
+And the application for displaying and working with command line interface is called a terminal, which just like all these other applications here is also an application, which we can open in our system.
+
+7
+00:01:10,000 --> 00:01:19,000
+And I'm actually going to move this unnecessary stuff here so that we have that right on display.
+
+8
+00:01:19,000 --> 00:01:31,000
+So graphical user interface and command line interface are basically two different interfaces that we as operating system users interact with the operating system.
+
+9
+00:01:31,000 --> 00:01:42,000
+And on personal computers and laptops, usually have both on servers, you would get a command line interface and no graphical user interface.
+
+10
+00:01:42,000 --> 00:01:52,000
+And that's why as a DevOps engineer, since you're going to be working with servers, you need to have the skill and you need to know how to work with command line interface.
+
+11
+00:01:52,000 --> 00:02:06,000
+However, as we're going to see this as we go along, working with command line interface also on your personal computer or laptop can actually be more convenient than just using the graphical user interface.
+
+12
+00:02:06,000 --> 00:02:08,000
+So let's get started with it.
+
+13
+00:02:08,000 --> 00:02:17,000
+First of all, what you see here is something called a terminal window, right? So we have a terminal application here.
+
+14
+00:02:17,000 --> 00:02:27,000
+And just like you have browser tips or browser windows, you have terminal windows and you can open as many of them as you want.
+
+15
+00:02:27,000 --> 00:02:32,000
+And right here you see a line with a bunch of information.
+
+16
+00:02:32,000 --> 00:02:43,000
+The first one here is the name of the Linux user that is currently logged in and using this terminal.
+
+17
+00:02:43,000 --> 00:02:49,000
+I'm logged in as a user Nana and that's why I actually see that information in the terminal.
+
+18
+00:02:49,000 --> 00:02:55,000
+The second part here, this string is the computer name.
+
+19
+00:02:55,000 --> 00:03:04,000
+So whatever your computer is called, if it has an automatically generated name or something that you named yourself, you will see that information right here.
+
+20
+00:03:04,000 --> 00:03:09,000
+And with personal computers, obviously, mostly you would know this.
+
+21
+00:03:09,000 --> 00:03:19,000
+However, when you log into a server, that's actually pretty convenient to know exactly which machine you're on and which user you're logged in as.
+
+22
+00:03:19,000 --> 00:03:24,000
+So for a server, this actually will be a host name of that computer.
+
+23
+00:03:24,000 --> 00:03:32,000
+So in server environments, when you're doing stuff on multiple different servers and you may have maybe 10 different servers open,
+
+24
+00:03:32,000 --> 00:03:40,000
+it's important to keep track on which computer you're executing different stuff.
+
+25
+00:03:40,000 --> 00:03:46,000
+And after that we have this character here called tilled, right?
+
+26
+00:03:46,000 --> 00:03:52,000
+Tilt is actually a shortcut to a home directory of the user.
+
+27
+00:03:52,000 --> 00:04:02,000
+I'm in my Nana user's home directory, and that's the path, so to say, to my home, which is this character.
+
+28
+00:04:02,000 --> 00:04:09,000
+And then we have dollar sign, which means that you are working as a regular user on an operating system.
+
+29
+00:04:09,000 --> 00:04:13,000
+You're not a super user, you're a regular user.
+
+30
+00:04:13,000 --> 00:04:22,000
+If you're logged in as a root user and executing commands as root, then this will be a pound sign instead of the dollar sign.
+
+31
+00:04:22,000 --> 00:04:33,000
+And again, all this is very practical when working on several machines at once so that you don't forget and get confused of what status is on each of those servers.
+
+32
+00:04:33,000 --> 00:04:43,000
+Great, so this is actually an interface where you write commands for a computer to execute.
+
+33
+00:04:43,000 --> 00:04:49,000
+So instead of creating a folder here, you would write a command for a computer to create a folder.
+

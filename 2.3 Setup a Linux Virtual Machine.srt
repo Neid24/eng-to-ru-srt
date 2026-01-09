@@ -1,0 +1,1248 @@
+1
+00:00:00,000 --> 00:00:07,040
+In the next video, we're going to install a virtual box hypervisor and then we're going
+
+2
+00:00:07,040 --> 00:00:11,420
+to set up a Linux Ubuntu virtual machine on it.
+
+3
+00:00:11,420 --> 00:00:17,600
+So if you have a Windows machine or Mac OS like I do, you can follow this tutorial to
+
+4
+00:00:17,600 --> 00:00:19,680
+set up a Linux virtual machine.
+
+5
+00:00:19,680 --> 00:00:25,880
+Now before we start installing the virtual box tool, I want to mention that in case you
+
+6
+00:00:25,880 --> 00:00:31,120
+have any issues during the installation, I actually added a section where I go through
+
+7
+00:00:31,120 --> 00:00:36,840
+some of the common issues that you may encounter during the installation, especially depending
+
+8
+00:00:36,840 --> 00:00:42,340
+on which operating system you're using an installing virtual box on and you may find
+
+9
+00:00:42,340 --> 00:00:43,780
+a solution there.
+
+10
+00:00:43,780 --> 00:00:48,080
+In this section, I want to go through some of the common issues that you may encounter
+
+11
+00:00:48,080 --> 00:00:53,160
+during the installation and I want to give you some options or alternatives to actually
+
+12
+00:00:53,160 --> 00:00:59,000
+fix those issues or install or create your virtual machine in a different way.
+
+13
+00:00:59,000 --> 00:01:04,400
+First of all, I want to start by saying that the main goal of the lecture is not to teach
+
+14
+00:01:04,400 --> 00:01:11,440
+you how to use virtual box or generally how the virtual machine installation works because
+
+15
+00:01:11,440 --> 00:01:16,480
+you won't actually be doing that so often as a DevOps engineer, so you don't need that
+
+16
+00:01:16,480 --> 00:01:18,360
+knowledge so much.
+
+17
+00:01:18,360 --> 00:01:21,240
+The main goal is to learn Linux.
+
+18
+00:01:21,240 --> 00:01:27,960
+So having a Linux machine available is actually the main focus of this lecture so you can
+
+19
+00:01:27,960 --> 00:01:33,560
+follow along the rest of the demos in this specific module.
+
+20
+00:01:33,560 --> 00:01:37,160
+Throughout the rest of the bootcamp, we're actually going to be working with cloud platforms
+
+21
+00:01:37,160 --> 00:01:43,320
+and creating virtual servers there, so you won't be working with virtual machines locally
+
+22
+00:01:43,320 --> 00:01:44,800
+after this module.
+
+23
+00:01:44,800 --> 00:01:50,080
+And this means if installing a virtual machine does not work or you have any issues during
+
+24
+00:01:50,080 --> 00:01:55,360
+this process, when you're following the demo that I'm showing you, don't spend too much
+
+25
+00:01:55,360 --> 00:01:56,960
+time on that.
+
+26
+00:01:56,960 --> 00:02:03,320
+You can either spin up a simple virtual machine on a cloud platform, which I actually teach
+
+27
+00:02:03,320 --> 00:02:09,360
+in the cloud basics module, and I'm going to link exactly the module and video number
+
+28
+00:02:09,360 --> 00:02:15,680
+below this video so you can find it directly, or if you don't want to pay the cloud platform
+
+29
+00:02:15,680 --> 00:02:22,240
+yet, and if you want to actually wait until we get to that module, you can spin up a virtual
+
+30
+00:02:22,240 --> 00:02:29,200
+machine for free on this online platform, and you will have a Linux Ubuntu machine available
+
+31
+00:02:29,200 --> 00:02:30,600
+through the browser.
+
+32
+00:02:30,600 --> 00:02:33,040
+And this is actually going to be the easiest option.
+
+33
+00:02:33,040 --> 00:02:37,480
+I will leave the link to this online platform below the video as well, so you will find
+
+34
+00:02:37,480 --> 00:02:39,240
+all this information there.
+
+35
+00:02:39,240 --> 00:02:44,680
+So basically find the easiest way to get a Linux machine and you are going to be good
+
+36
+00:02:44,680 --> 00:02:45,680
+to go.
+
+37
+00:02:45,680 --> 00:02:50,920
+If you already have a Linux distribution, and if you're working on a Linux computer
+
+38
+00:02:50,920 --> 00:02:56,320
+or laptop, you don't need to install any VM at all, you can skip this part, and you
+
+39
+00:02:56,320 --> 00:03:01,440
+can do the demos in the following videos with your Linux operating system.
+
+40
+00:03:01,440 --> 00:03:06,200
+I also want to mention that this is actually a very common issue with any technology or
+
+41
+00:03:06,200 --> 00:03:13,800
+tool, and it's a common problem in IT that we all have to deal with called version compatibility.
+
+42
+00:03:13,800 --> 00:03:19,720
+So in this case, you guys have different operating systems, different versions of operating systems,
+
+43
+00:03:19,720 --> 00:03:25,840
+different hardware resources, etc., so there is no one solution fits all.
+
+44
+00:03:25,840 --> 00:03:29,000
+So you may all have to do this in different ways.
+
+45
+00:03:29,000 --> 00:03:34,640
+And VirtualBox is actually the most standard tool across all operating systems, and that's
+
+46
+00:03:34,640 --> 00:03:38,680
+why I selected it, but it doesn't work for some specific cases.
+
+47
+00:03:38,680 --> 00:03:44,680
+For example, the latest Mac OS version is not supported yet by VirtualBox.
+
+48
+00:03:44,680 --> 00:03:49,000
+They will fix that in the future, but for now it's not working.
+
+49
+00:03:49,000 --> 00:03:54,720
+So that's again a typical version compatibility issue where the one tool hasn't caught up
+
+50
+00:03:54,720 --> 00:03:57,200
+with another tool yet.
+
+51
+00:03:57,200 --> 00:04:02,880
+So for those cases, I want to suggest some alternatives to follow the demos without getting
+
+52
+00:04:02,880 --> 00:04:07,200
+stuck here and interrupting your learning process.
+
+53
+00:04:07,200 --> 00:04:10,120
+So here are a couple of suggestions.
+
+54
+00:04:10,120 --> 00:04:16,760
+If you're on a Windows machine and the demo that I'm showing you is not working for you,
+
+55
+00:04:16,760 --> 00:04:21,160
+first of all, please make sure you have virtualization enabled in BIOS.
+
+56
+00:04:21,160 --> 00:04:26,160
+I will leave the resources below where you can see how that works for different Windows
+
+57
+00:04:26,160 --> 00:04:27,560
+versions.
+
+58
+00:04:27,560 --> 00:04:34,040
+And VirtualBox is actually the best VM tool for Windows, however, you will need some resources
+
+59
+00:04:34,040 --> 00:04:35,360
+on your computer.
+
+60
+00:04:35,360 --> 00:04:41,960
+And if you don't have enough CPU, enough RAM to allocate to your VM, then I suggest
+
+61
+00:04:41,960 --> 00:04:45,520
+you go with a less resource intensive option.
+
+62
+00:04:45,520 --> 00:04:53,520
+For example, you can install WSL, which is Windows subsystem for Linux, which will require
+
+63
+00:04:53,520 --> 00:04:55,280
+way less resources.
+
+64
+00:04:55,280 --> 00:05:02,520
+And again, I will leave the links below this video for guides of how to install WSL.
+
+65
+00:05:02,520 --> 00:05:08,680
+If you're on Mac, especially if you have the latest version of Mac OS operating system,
+
+66
+00:05:08,680 --> 00:05:14,920
+or if you have the latest Mac hardware with M1 chip, the VirtualBox installation is not
+
+67
+00:05:14,920 --> 00:05:16,280
+going to work for you.
+
+68
+00:05:16,280 --> 00:05:20,440
+So I suggest two easy and better alternatives.
+
+69
+00:05:20,440 --> 00:05:27,440
+The first one is installing UTM, that's a virtual machine tool for Mac OS, and another
+
+70
+00:05:27,440 --> 00:05:29,600
+one which is called Parallels.
+
+71
+00:05:29,600 --> 00:05:33,280
+They're both very easy to install and get started with.
+
+72
+00:05:33,280 --> 00:05:38,640
+And again, I will leave all the links that show you how to install each one of them below
+
+73
+00:05:38,640 --> 00:05:39,960
+this video.
+
+74
+00:05:39,960 --> 00:05:47,240
+Another issue with VirtualBox that some students also encountered is installing the extension
+
+75
+00:05:47,240 --> 00:05:53,860
+pack that basically lets you copy and paste between host and the virtual machine.
+
+76
+00:05:53,860 --> 00:05:59,200
+So that part is not working, or you're getting an error during the installation, please check
+
+77
+00:05:59,200 --> 00:06:05,880
+out the resource that I'm going to leave below this video for step by step guide of
+
+78
+00:06:05,880 --> 00:06:07,560
+how to fix that.
+
+79
+00:06:07,560 --> 00:06:10,560
+The final notes on resources.
+
+80
+00:06:10,560 --> 00:06:15,120
+As I also mentioned, many of you have different hardware resources.
+
+81
+00:06:15,120 --> 00:06:22,080
+Generally, the more RAM and CPU you allocate to your virtual machine, the faster and more
+
+82
+00:06:22,080 --> 00:06:23,880
+performant it is.
+
+83
+00:06:23,880 --> 00:06:31,320
+So if you do have enough resources, then increase RAM and CPU for your VM when you're creating
+
+84
+00:06:31,320 --> 00:06:32,840
+it.
+
+85
+00:06:32,840 --> 00:06:38,600
+But if you're working with limited resources, for example, Windows operating system itself
+
+86
+00:06:38,600 --> 00:06:41,840
+requires more resources than Linux, for example.
+
+87
+00:06:41,840 --> 00:06:48,080
+So Windows machines are usually slower because they already use up a lot of the resources.
+
+88
+00:06:48,080 --> 00:06:52,280
+So in that case, you may have some resource limitation.
+
+89
+00:06:52,680 --> 00:07:00,360
+As I suggested, in that case, please use some less resource intensive tool like WSL instead
+
+90
+00:07:00,360 --> 00:07:06,520
+of the VirtualBox or the online platform where you can spin up a virtual machine without
+
+91
+00:07:06,520 --> 00:07:08,680
+having to install it locally.
+
+92
+00:07:08,680 --> 00:07:13,880
+So overall, as I said, pick the easiest option and continue with the demos.
+
+93
+00:07:13,880 --> 00:07:18,600
+I usually say that if something is not working, you should play around with it.
+
+94
+00:07:18,600 --> 00:07:21,040
+This way you learn the tool better.
+
+95
+00:07:21,040 --> 00:07:26,000
+But local virtual machine installation is not that important of a use case.
+
+96
+00:07:26,000 --> 00:07:31,800
+So you can skip it and go with some easy option like the online virtual machine.
+
+97
+00:07:31,800 --> 00:07:34,360
+So you can proceed with your learning.
+
+98
+00:07:34,360 --> 00:07:37,840
+So first of all, we're going to need to download VirtualBox.
+
+99
+00:07:37,840 --> 00:07:43,320
+So in Google search box, I'm just going to type in VirtualBox download.
+
+100
+00:07:43,320 --> 00:07:47,920
+And we have this Oracle VirtualBox page.
+
+101
+00:07:47,920 --> 00:07:52,440
+And here you have the latest package for different operating systems.
+
+102
+00:07:52,440 --> 00:07:54,200
+So we have VirtualBox for Windows.
+
+103
+00:07:54,200 --> 00:07:56,560
+So if you're on Windows, now load this one.
+
+104
+00:07:56,560 --> 00:07:59,960
+I have Mac OS and that's the package I'm going to download.
+
+105
+00:07:59,960 --> 00:08:03,920
+So I'm going to click on install file.
+
+106
+00:08:03,920 --> 00:08:08,000
+And since it's over 100 megabytes, it may take some time to install.
+
+107
+00:08:08,000 --> 00:08:09,000
+Great.
+
+108
+00:08:09,000 --> 00:08:12,700
+Once that's done, I'm just going to click on that.
+
+109
+00:08:12,700 --> 00:08:17,860
+And this should present us with VirtualBox installation window.
+
+110
+00:08:17,860 --> 00:08:21,540
+And to install it, I'm just going to double click on it.
+
+111
+00:08:21,540 --> 00:08:25,020
+And we get this installation wizard.
+
+112
+00:08:25,020 --> 00:08:28,620
+So we're just going to click continue without changing anything.
+
+113
+00:08:28,620 --> 00:08:29,620
+Continue.
+
+114
+00:08:29,620 --> 00:08:33,540
+It tells you how much resources it's going to need on your computer.
+
+115
+00:08:33,540 --> 00:08:40,500
+We're going to do install and allow installing.
+
+116
+00:08:40,500 --> 00:08:43,060
+And installation was successful.
+
+117
+00:08:43,060 --> 00:08:51,140
+And that means we have VirtualBox now installed locally so we can use it.
+
+118
+00:08:51,140 --> 00:08:57,020
+Now if you're on Mac, actually, there is one thing that you may need to configure for
+
+119
+00:08:57,020 --> 00:09:01,140
+the VirtualBox installation to succeed.
+
+120
+00:09:01,140 --> 00:09:07,620
+So if your installment actually failed in the security and privacy settings here, you
+
+121
+00:09:07,620 --> 00:09:17,100
+may have a prompt here that says allow Oracle America basically to access your computer resources.
+
+122
+00:09:17,100 --> 00:09:21,180
+So you will need to allow that and then do the installation again.
+
+123
+00:09:21,180 --> 00:09:26,220
+So now I'm going to search for VirtualBox on my machine and you see that it is installed.
+
+124
+00:09:26,220 --> 00:09:27,220
+We have that application.
+
+125
+00:09:27,220 --> 00:09:28,700
+I'm going to click on it.
+
+126
+00:09:28,700 --> 00:09:33,260
+And we should see this VirtualBox manager window.
+
+127
+00:09:33,260 --> 00:09:38,380
+So basically we have this graphical user interface for VirtualBox to create the virtual
+
+128
+00:09:38,380 --> 00:09:44,140
+machines and to manage them, basically to change any settings on them, to remove them,
+
+129
+00:09:44,140 --> 00:09:45,900
+to create them, etc.
+
+130
+00:09:45,900 --> 00:09:49,580
+Which of course makes it easy to work with virtual machines.
+
+131
+00:09:49,580 --> 00:09:55,100
+Now one prerequisite that I want to mention here when you're creating virtual machines
+
+132
+00:09:55,100 --> 00:10:01,660
+on your computer is the prerequisite of resources.
+
+133
+00:10:01,660 --> 00:10:08,020
+So you are going to need at least four gigabytes of RAM on your computer because otherwise
+
+134
+00:10:08,020 --> 00:10:11,020
+you may have some problems creating virtual machine.
+
+135
+00:10:11,020 --> 00:10:18,140
+Because remember that we are sharing the hardware resources of the computer now among two computers.
+
+136
+00:10:18,140 --> 00:10:23,340
+So your operating system, your host operating system, in this case Mac, is already using
+
+137
+00:10:23,340 --> 00:10:29,260
+up some hardware resources and on top of that we're going to create another machine which
+
+138
+00:10:29,260 --> 00:10:33,700
+is going to require its own hardware resources.
+
+139
+00:10:33,700 --> 00:10:38,500
+And four gigabytes of RAM I would say is really the lowest limit.
+
+140
+00:10:38,500 --> 00:10:40,820
+So make sure you have that on your computer.
+
+141
+00:10:40,820 --> 00:10:41,820
+Great.
+
+142
+00:10:41,820 --> 00:10:50,260
+So next step is to actually prepare the environment for the virtual machine to be created.
+
+143
+00:10:50,260 --> 00:10:57,060
+And for that we're going to do new and we're going to set all this up.
+
+144
+00:10:57,060 --> 00:11:05,820
+And since we're creating a Linux virtual machine here let's call it Linux Ubuntu.
+
+145
+00:11:05,820 --> 00:11:10,820
+And you see that it basically intelligently detected from the name that I gave it that
+
+146
+00:11:10,820 --> 00:11:21,840
+we want Linux type of virtual machine here and version is Ubuntu 64 bit.
+
+147
+00:11:21,840 --> 00:11:27,680
+And this is basically where virtual machine will create the folders for the virtual machine
+
+148
+00:11:27,680 --> 00:11:29,000
+configuration.
+
+149
+00:11:29,000 --> 00:11:34,400
+And there is an option here to add an operating system ISO image to install on the virtual
+
+150
+00:11:34,400 --> 00:11:35,520
+machine.
+
+151
+00:11:35,520 --> 00:11:40,920
+We will leave this empty for now and upload the disk image after the VM is created in
+
+152
+00:11:40,920 --> 00:11:42,640
+virtual box.
+
+153
+00:11:42,640 --> 00:11:48,200
+And here is basically where we assign the virtual machine hardware resources.
+
+154
+00:11:48,200 --> 00:11:55,360
+So this is going to be a virtual RAM that our Linux VM will get.
+
+155
+00:11:55,360 --> 00:11:59,000
+And basically you can adjust this.
+
+156
+00:11:59,000 --> 00:12:05,960
+But again know that this shows you the entire RAM size that you have on your computer.
+
+157
+00:12:05,960 --> 00:12:08,920
+And now you have to share some of that with the VM.
+
+158
+00:12:08,920 --> 00:12:15,200
+I'm going to increase the allocated memory here to 4096 megabytes which is around four
+
+159
+00:12:15,200 --> 00:12:18,760
+gigabytes of memory which I'm going to give to my Linux VM.
+
+160
+00:12:18,760 --> 00:12:24,480
+It is also possible to allocate CPU resources to the virtual machine.
+
+161
+00:12:24,480 --> 00:12:29,600
+If you have enough computing power on your local computer you should actually allocate
+
+162
+00:12:29,600 --> 00:12:36,440
+four gigabytes of RAM and two CPUs to the virtual machine to avoid any performance issues.
+
+163
+00:12:36,440 --> 00:12:39,640
+And that is what I will do and then click next.
+
+164
+00:12:39,640 --> 00:12:45,080
+Here we will create a new virtual hard disk and we can adjust the virtual hard disk or
+
+165
+00:12:45,080 --> 00:12:49,280
+hard drive space size assigned to our VM.
+
+166
+00:12:49,280 --> 00:12:53,280
+The default option I have here is 25 gigabytes.
+
+167
+00:12:53,280 --> 00:12:59,680
+Although it is possible to allocate as little as 10 gigabytes I actually recommend allocating
+
+168
+00:12:59,680 --> 00:13:05,600
+at least 20 or even 30 gigabytes of storage if you have enough space on your host machine.
+
+169
+00:13:05,600 --> 00:13:11,560
+There is an additional storage option shown by the checkbox here next to preallocate full
+
+170
+00:13:11,560 --> 00:13:12,960
+size hard disk.
+
+171
+00:13:12,960 --> 00:13:18,200
+If you leave this box unchecked the hypervisor will actually intelligently decide how much
+
+172
+00:13:18,200 --> 00:13:23,400
+storage your virtual machine needs and basically dynamically set it.
+
+173
+00:13:23,400 --> 00:13:27,840
+So if it doesn't need 10 gigabytes of storage it's going to allocate less.
+
+174
+00:13:27,840 --> 00:13:34,600
+If it needs more storage it's going to request more storage from the host operating system.
+
+175
+00:13:34,600 --> 00:13:41,520
+If you select preallocated full size disk then it will be allocated the entire 25 gigabytes
+
+176
+00:13:41,520 --> 00:13:42,520
+and that's it.
+
+177
+00:13:42,600 --> 00:13:49,280
+We will leave the checkbox unmarked to set the storage to be dynamic and then click next.
+
+178
+00:13:49,280 --> 00:13:53,880
+The summary page will show you the settings you have chosen and you can click finish to
+
+179
+00:13:53,880 --> 00:13:55,520
+create the virtual machine.
+
+180
+00:13:55,520 --> 00:13:56,520
+Awesome.
+
+181
+00:13:56,520 --> 00:14:03,560
+So you see that we have Linux Ubuntu operating system and we have all the settings here,
+
+182
+00:14:03,560 --> 00:14:06,960
+the storage size, et cetera displayed.
+
+183
+00:14:06,960 --> 00:14:16,520
+Now what we did is actually prepare an environment for Linux virtual image to run on, right?
+
+184
+00:14:16,520 --> 00:14:23,920
+So this is like a container so to say where we're going to install Linux operating system.
+
+185
+00:14:23,920 --> 00:14:30,000
+So we need to actually install Linux operating system on this virtual machine and for that
+
+186
+00:14:30,000 --> 00:14:33,640
+we're going to need a Linux operating system image.
+
+187
+00:14:33,640 --> 00:14:38,680
+Just like you would take your laptop, your physical laptop and if you wanted to install
+
+188
+00:14:38,680 --> 00:14:43,920
+Linux Ubuntu or any other distribution on it you would have this Linux operating system
+
+189
+00:14:43,920 --> 00:14:50,240
+image on a USB or a disk or whatever and you would attach that to your laptop and you would
+
+190
+00:14:50,240 --> 00:14:53,800
+install that from that USB, right?
+
+191
+00:14:53,800 --> 00:15:00,520
+The same way we need a Linux image that we're going to install into our VM and those operating
+
+192
+00:15:00,520 --> 00:15:15,120
+system images usually have .iso extension ISO and if I type in Ubuntu downloads on
+
+193
+00:15:15,120 --> 00:15:22,920
+this website here ubuntu.com slash download you actually have all Ubuntu installation
+
+194
+00:15:22,920 --> 00:15:29,160
+images and here I want to mention that virtual box and Ubuntu they're both free or generally
+
+195
+00:15:29,160 --> 00:15:35,040
+Linux is free so basically we don't need any type of license we can just download them
+
+196
+00:15:35,040 --> 00:15:40,360
+and use them for free which is actually pretty amazing because if you want to use Windows
+
+197
+00:15:40,360 --> 00:15:44,360
+for example if you want to install Windows operating system in your virtual machine then
+
+198
+00:15:44,360 --> 00:15:47,880
+you would have to have a Windows license, right?
+
+199
+00:15:47,880 --> 00:15:54,280
+So in our case we're going to need Ubuntu desktop because I want to have a graphical user interface
+
+200
+00:15:54,280 --> 00:16:03,240
+in my Ubuntu installation so I'm going to click on it and on this page we're seeing the Ubuntu
+
+201
+00:16:03,240 --> 00:16:10,080
+versions that we can download we have the latest one which is 22.10 and we have a slightly
+
+202
+00:16:10,080 --> 00:16:17,920
+older version 22.4 which has the letters LTS at the end so LTS basically stands for long
+
+203
+00:16:18,000 --> 00:16:26,160
+term support and this means that this specific version is actually the one now which will
+
+204
+00:16:26,160 --> 00:16:32,360
+be supported by the Ubuntu team or Ubuntu developers so usually you want to download
+
+205
+00:16:32,360 --> 00:16:37,600
+the versions that are supported by the developers of the technology and I'm just going to click
+
+206
+00:16:37,600 --> 00:16:47,360
+on download and it should start automatically and as I said it has the ISO extension so
+
+207
+00:16:47,360 --> 00:16:55,800
+basically you could use this Linux Ubuntu installation file to install Linux on a virtual
+
+208
+00:16:55,800 --> 00:16:59,880
+machine but also on a physical laptop, right?
+
+209
+00:16:59,880 --> 00:17:05,920
+So if you wanted to install this on your computer directly without the hypervisor you would actually
+
+210
+00:17:05,920 --> 00:17:13,280
+use the same ISO image and the ISO file is around 3 gigabytes which means it might take
+
+211
+00:17:13,280 --> 00:17:21,760
+a while to download and I have the Ubuntu installer on my laptop so we can actually
+
+212
+00:17:21,760 --> 00:17:22,760
+use it now.
+
+213
+00:17:22,760 --> 00:17:29,320
+I'm going to go back to my virtual box window and if you click settings and then storage
+
+214
+00:17:29,320 --> 00:17:34,680
+you're able to select the icon next to the optical drive to upload your operating system
+
+215
+00:17:34,680 --> 00:17:40,600
+image to be installed so I'm going to click here and select choose disk file and we're
+
+216
+00:17:40,600 --> 00:17:47,400
+going to select this ISO image that we downloaded once we have added this image we can start
+
+217
+00:17:47,400 --> 00:17:58,320
+the virtual machine and as you see Ubuntu installation is actually starting and now
+
+218
+00:17:58,320 --> 00:18:05,320
+we have this step by step installation guide where you basically choose your language and
+
+219
+00:18:05,320 --> 00:18:10,880
+different configurations like your time zone etc to install Ubuntu.
+
+220
+00:18:10,880 --> 00:18:18,040
+So we have English here we're going to do install Ubuntu and again choose the language
+
+221
+00:18:18,040 --> 00:18:23,920
+I'm going to choose German because that's my keyboard layout and continue I would leave
+
+222
+00:18:23,920 --> 00:18:31,720
+everything on the defaults continue and here you see this warning that says that erase
+
+223
+00:18:31,720 --> 00:18:39,160
+disk and install Ubuntu option will basically delete all your programs documents photos
+
+224
+00:18:39,160 --> 00:18:41,680
+whatever in all operating systems.
+
+225
+00:18:41,680 --> 00:18:47,720
+Now don't be afraid of this warning because the disk that this refers to is actually the
+
+226
+00:18:47,720 --> 00:18:54,800
+virtual disk that we allocated to our VM right so our main operating systems disk will not
+
+227
+00:18:54,800 --> 00:19:00,680
+be affected this is really only the part that we allocated for VM which means that erasing
+
+228
+00:19:00,680 --> 00:19:06,040
+that virtual disk will not affect our main host so you don't need to worry here and
+
+229
+00:19:06,040 --> 00:19:11,880
+the reason you have this warning and it sounds so scary is because as I said this installation
+
+230
+00:19:11,880 --> 00:19:17,560
+image is actually also for the physical computers right not only for virtual machine installations
+
+231
+00:19:17,560 --> 00:19:24,080
+so obviously on a physical machine where you're installing it on your whole computer without
+
+232
+00:19:24,080 --> 00:19:30,080
+a hypervisor then you may consider the warning that everything will be erased on your computer
+
+233
+00:19:30,080 --> 00:19:36,000
+in our case we are starting with a blank virtual disk anyways so it doesn't matter and I'm
+
+234
+00:19:36,000 --> 00:19:40,640
+going to do install now and again we have this dialogue do you really want to change
+
+235
+00:19:40,640 --> 00:19:46,600
+or rewrite the disk to be really sure as I said this is just a virtual disk so go for
+
+236
+00:19:46,600 --> 00:19:55,880
+it and continue that's my location and now we're going to create the linux user and let's
+
+237
+00:19:55,880 --> 00:20:09,520
+call it nana.buntu password and I'm going to check login automatically and continue and
+
+238
+00:20:09,520 --> 00:20:15,080
+while it's installing and downloading different stuff it actually shows you all these things
+
+239
+00:20:15,080 --> 00:20:21,720
+that you can install additionally like music players and some other applications but we're
+
+240
+00:20:21,760 --> 00:20:27,400
+not going to need any of those and as I mentioned previously this linux operating system that
+
+241
+00:20:27,400 --> 00:20:32,280
+we're installing now on virtual machine doesn't actually know that it's on a virtual machine so
+
+242
+00:20:32,280 --> 00:20:39,040
+everything that it does is exactly the same way as you would install linux operating system on
+
+243
+00:20:39,040 --> 00:20:47,960
+an actual physical machine so the steps are really the same so installation completed and we're
+
+244
+00:20:48,000 --> 00:20:54,760
+actually good to go I'm going to restart while the VM is restarting remove the disk image now
+
+245
+00:20:54,760 --> 00:21:02,000
+that the installation is complete click devices optical drive and remove and we should see Ubuntu
+
+246
+00:21:02,000 --> 00:21:17,440
+desktop in our virtual machine window I'm gonna do skip and next you need to confirm some settings
+
+247
+00:21:17,440 --> 00:21:25,840
+here and we're good to go so basically have all these applications that are installed by default
+
+248
+00:21:25,840 --> 00:21:35,320
+including a Firefox browser and the linux command line now first of all you see that the input
+
+249
+00:21:35,320 --> 00:21:42,360
+output devices like obviously the screen but also mouse and keyboard they're all responsive here so
+
+250
+00:21:42,360 --> 00:21:47,840
+basically you are sharing these resources also between your main operating system so you can use
+
+251
+00:21:47,840 --> 00:21:54,320
+it here but also inside the virtual machine however other than that everything is completely
+
+252
+00:21:54,320 --> 00:22:01,440
+isolated so whatever is running inside and whatever we're doing here is completely hidden and
+
+253
+00:22:01,440 --> 00:22:08,360
+isolated from the host operating system so before we continue with linux let's actually see some of
+
+254
+00:22:08,360 --> 00:22:14,480
+the other options that we can set on our virtual machines from the virtual box so first of all if
+
+255
+00:22:14,480 --> 00:22:23,800
+I want to shut down my virtual machine I have several options one of them is saving the machine
+
+256
+00:22:23,800 --> 00:22:30,560
+state so that means that basically whatever state you were in for example you have a browser open
+
+257
+00:22:30,560 --> 00:22:36,480
+here with some tabs you have terminal window open maybe you have an editor where you are writing
+
+258
+00:22:36,480 --> 00:22:47,640
+some code you can basically save that state so all these open tabs like this so after some time if
+
+259
+00:22:47,640 --> 00:22:52,480
+you want to go back to your virtual machine and basically continue working then you can just
+
+260
+00:22:52,480 --> 00:23:01,560
+click start and you're gonna see your virtual machine window exactly as you left it another
+
+261
+00:23:01,640 --> 00:23:07,840
+option is just powering off the machine which basically just shuts down your virtual machine
+
+262
+00:23:07,840 --> 00:23:14,280
+it's basically just like shutting down your computer right so doing a basic shutdown here
+
+263
+00:23:14,280 --> 00:23:20,920
+another thing that may be very interesting especially if you're using the virtual machine to
+
+264
+00:23:20,920 --> 00:23:27,600
+basically learn something you may want to be able to copy and paste between your host and the virtual
+
+265
+00:23:27,640 --> 00:23:34,120
+machine and as I said the mouse and keyboard is active in both by default you can basically just
+
+266
+00:23:34,120 --> 00:23:41,920
+copy a text here and paste it in a virtual machine window it's not gonna work however you can
+
+267
+00:23:41,920 --> 00:23:51,360
+actually enable that in the settings advanced and right here shared clipboard so you can basically
+
+268
+00:23:51,640 --> 00:23:59,520
+set this so that you can only copy stuff from the host to the guest vice versa or you can do it by
+
+269
+00:23:59,520 --> 00:24:07,680
+directional and as I said this will make it convenient if you want to basically copy some
+
+270
+00:24:07,680 --> 00:24:13,000
+commands that you have on your operating system editor whatever and you want to basically just
+
+271
+00:24:13,000 --> 00:24:20,800
+paste in a terminal or maybe you have a link that you want to open in the browser here so then
+
+272
+00:24:20,840 --> 00:24:29,640
+may be convenient so I'm actually gonna select that and save it however for this bi-directional
+
+273
+00:24:29,640 --> 00:24:36,880
+clipboard sharing to work we first have to install something called an extension pack for the virtual
+
+274
+00:24:36,880 --> 00:24:43,880
+box so if we go back to this virtual box downloads page we have for the same version that we
+
+275
+00:24:43,880 --> 00:24:51,480
+installed here we have a VM virtual box extension pack and there is one installer for all the
+
+276
+00:24:51,480 --> 00:24:58,240
+platforms so we're gonna click on that and download so basically it's a small extra package that
+
+277
+00:24:58,240 --> 00:25:08,760
+lets you add some functionality to your virtual box so I'm gonna click on it and install and agree
+
+278
+00:25:09,120 --> 00:25:18,920
+on the licensing and there you go the extension pack was successfully installed however there is
+
+279
+00:25:18,920 --> 00:25:26,760
+one final thing we need to do here so that the copy pasting can work so I'm gonna open the virtual
+
+280
+00:25:26,760 --> 00:25:33,880
+machine first and right here on the top you have a couple of options one of them is devices and here
+
+281
+00:25:33,880 --> 00:25:40,320
+we have something called guest additions so guest additions package is actually the one
+
+282
+00:25:40,320 --> 00:25:47,400
+specifically enabling this copy paste or drag and drop functionality and if I click on insert
+
+283
+00:25:47,400 --> 00:25:55,080
+guest additions CD image to run the installer script open the contents of the disk drive right
+
+284
+00:25:55,080 --> 00:26:05,640
+click order on dot sh and select run as program authenticate so the guest additions installer
+
+285
+00:26:05,640 --> 00:26:13,320
+ran we can click to return and if I click on here you see this is the folder actually where all
+
+286
+00:26:13,320 --> 00:26:23,760
+these runners and installers are located and we can unmount it and now let's actually test the
+
+287
+00:26:23,760 --> 00:26:33,280
+functionality so I'm gonna copy the URL from my host and try to paste it right here and there you
+
+288
+00:26:33,280 --> 00:26:42,600
+go and the same way you can paste commands from your host machine to the terminal so if I'm reading
+
+289
+00:26:42,600 --> 00:26:48,280
+a tutorial and if I found some really large command that I don't want to type in I can just copy it
+
+290
+00:26:48,320 --> 00:26:57,160
+here on my host again back to the terminal paste and there you go so that's how you set up clipboard
+
+291
+00:26:57,160 --> 00:27:03,600
+sharing between the host and the virtual machine this is very convenient if you're learning or
+
+292
+00:27:03,600 --> 00:27:13,720
+testing out stuff in your VM another thing which is also very interesting is that by default virtual
+
+293
+00:27:13,720 --> 00:27:21,280
+machine actually runs in its own virtual network which is completely isolated from your host's
+
+294
+00:27:21,280 --> 00:27:27,320
+network right so your laptop your computer is running on your home network however the virtual
+
+295
+00:27:27,320 --> 00:27:33,440
+machine is not in that same network and if you actually scanned all the devices on your home
+
+296
+00:27:33,440 --> 00:27:39,880
+network you won't see your virtual machine on it and the same way if someone accessed your virtual
+
+297
+00:27:39,880 --> 00:27:45,200
+machine's network and basically hacked into it they won't be able to access your home network
+
+298
+00:27:45,200 --> 00:27:51,640
+because again they're isolated which is good for security and that's how it's set by default however
+
+299
+00:27:51,640 --> 00:27:58,000
+you can also change that and basically add your virtual machine to the same network as your host
+
+300
+00:27:58,000 --> 00:28:04,840
+operating system so it's gonna get an IP address within the same network and you can change that
+
+301
+00:28:04,840 --> 00:28:10,680
+settings in the network tab here however we don't need that so we're gonna leave that at the default
+
+302
+00:28:10,680 --> 00:28:16,600
+and there are some other things that you can basically share between the host and the guest
+
+303
+00:28:16,600 --> 00:28:25,800
+operating system like shared folders etc just note that when you start basically sharing stuff
+
+304
+00:28:25,800 --> 00:28:32,840
+between the host and guest operating systems like sharing files and folders and basically this clipboard
+
+305
+00:28:32,840 --> 00:28:39,200
+and sharing network it may be convenient because you may have use cases for that however in that
+
+306
+00:28:39,200 --> 00:28:46,240
+case we're gonna be making holes in this isolation between the host and guest operating systems right
+
+307
+00:28:46,240 --> 00:28:53,120
+which is great because the guest operating system cannot affect the host the main operating system
+
+308
+00:28:53,120 --> 00:28:59,480
+because they're completely isolated however if you start sharing resources then you are disrupting
+
+309
+00:28:59,480 --> 00:29:06,600
+that complete isolation so just important to be aware of that so with this type of sharing and the
+
+310
+00:29:06,600 --> 00:29:12,680
+settings you may be compromising security in our case the only thing we shared is clipboard and
+
+311
+00:29:12,680 --> 00:29:21,720
+everything else will stay the same and since we have linux want to set up in the next video we're
+
+312
+00:29:21,720 --> 00:29:30,440
+gonna go through linux operating system and learn some basics of it starting with the linux file system
+

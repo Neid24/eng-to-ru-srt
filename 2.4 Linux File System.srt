@@ -1,0 +1,1228 @@
+1
+00:00:00,000 --> 00:00:14,280
+Now that we have set up Linux Virtual Machine, let's actually take a look at how Linux works
+
+2
+00:00:14,280 --> 00:00:19,080
+and we'll start by learning about Linux file system.
+
+3
+00:00:19,080 --> 00:00:27,880
+Something that I briefly mentioned previously, but we'll go into more detail in this video.
+
+4
+00:00:27,880 --> 00:00:32,920
+First of all, Linux file system is a hierarchical tree structure.
+
+5
+00:00:32,920 --> 00:00:38,840
+We have the root folder, just like tree root, and inside the root folder we have a couple
+
+6
+00:00:38,840 --> 00:00:42,540
+of folders which each has its purpose.
+
+7
+00:00:42,540 --> 00:00:47,680
+And inside those folders we have other folders and files, and the hierarchy just goes on
+
+8
+00:00:47,680 --> 00:00:48,840
+like that.
+
+9
+00:00:48,840 --> 00:00:54,760
+In comparison, the Windows file system does not have one root folder where all the folders
+
+10
+00:00:54,760 --> 00:00:59,080
+stem from, but rather it has multiple root folders.
+
+11
+00:00:59,080 --> 00:01:03,020
+So at root we have disks or drives.
+
+12
+00:01:03,020 --> 00:01:09,840
+This is from the early times actually when PCs only used insertable floppy disks.
+
+13
+00:01:09,840 --> 00:01:16,400
+So Windows used letters to assign drives for each insertable disk.
+
+14
+00:01:16,400 --> 00:01:22,240
+So A and B for example were removable disks, so something that you would insert and then
+
+15
+00:01:22,240 --> 00:01:30,760
+take out again, and when hard drive was added to the PCs, the next letter which was C actually
+
+16
+00:01:30,760 --> 00:01:36,600
+became the letter for the internal disk or hard drive, and after that all the additional
+
+17
+00:01:36,600 --> 00:01:39,880
+disks were given the next available letter.
+
+18
+00:01:39,880 --> 00:01:43,520
+And it basically stayed mostly the same to this day.
+
+19
+00:01:43,520 --> 00:01:51,440
+So that's how file system works in Windows compared to Linux.
+
+20
+00:01:51,440 --> 00:01:57,000
+So now let's actually look at the Linux file system in Linux itself.
+
+21
+00:01:57,000 --> 00:02:02,760
+First of all in operating systems with graphical user interface we always have this graphical
+
+22
+00:02:02,760 --> 00:02:05,200
+file system view, right?
+
+23
+00:02:05,200 --> 00:02:11,440
+So this file explorer program that basically shows us the folders and files and all these
+
+24
+00:02:11,440 --> 00:02:16,760
+in a graphical user interface so that we can navigate them easily.
+
+25
+00:02:16,760 --> 00:02:22,480
+And when I opened that program by default I'm inside the home directory of my user,
+
+26
+00:02:22,480 --> 00:02:27,080
+the user that I am actually logged in with, which is called Nana, right?
+
+27
+00:02:27,080 --> 00:02:28,800
+This is the user that we created.
+
+28
+00:02:28,800 --> 00:02:35,960
+So every user on Linux will get its own folder, basically own space inside the home directory.
+
+29
+00:02:35,960 --> 00:02:41,160
+And this is where I'm at and there are some default directories that are created for each
+
+30
+00:02:41,160 --> 00:02:44,400
+user and you see the list of them right here.
+
+31
+00:02:44,400 --> 00:02:48,080
+We have the desktop folder, documents, downloads, etc.
+
+32
+00:02:48,080 --> 00:02:55,040
+Now this is actually one of the folders in the root of the file system.
+
+33
+00:02:55,040 --> 00:03:01,840
+So how do we actually get to the root folder instead of being in our home directory?
+
+34
+00:03:01,840 --> 00:03:10,280
+If I click on other locations here and computer and click on it you see that now I'm actually
+
+35
+00:03:10,280 --> 00:03:13,400
+inside the root directory, right?
+
+36
+00:03:13,840 --> 00:03:18,720
+Inside the computer root and inside the root folder you see home directory.
+
+37
+00:03:18,720 --> 00:03:23,320
+And this is basically where all Linux user spaces are located.
+
+38
+00:03:23,320 --> 00:03:29,760
+So each user will have its own space in the home directory except for the root user, which
+
+39
+00:03:29,760 --> 00:03:36,000
+actually has its own isolated folder separate from all other users.
+
+40
+00:03:36,000 --> 00:03:39,400
+And that is the root directory right here.
+
+41
+00:03:39,400 --> 00:03:44,280
+So this is the home directory for a root user and this is the home directory for all
+
+42
+00:03:44,280 --> 00:03:45,680
+other users.
+
+43
+00:03:45,680 --> 00:03:52,240
+So let's click inside that home directory and you see that I have a directory folder
+
+44
+00:03:52,240 --> 00:03:54,800
+for my user with the username.
+
+45
+00:03:54,800 --> 00:04:00,280
+And if I click inside you see that I go back to my default location, right?
+
+46
+00:04:00,280 --> 00:04:03,720
+This is basically my user's home space.
+
+47
+00:04:03,720 --> 00:04:09,360
+So this is one of the most important folder locations basically you have to know in Linux.
+
+48
+00:04:10,040 --> 00:04:15,400
+And it works pretty similar on other operating systems where every user basically has their
+
+49
+00:04:15,400 --> 00:04:16,960
+own space.
+
+50
+00:04:16,960 --> 00:04:20,920
+And it's important to isolate them because most of the operating systems, most of the
+
+51
+00:04:20,920 --> 00:04:26,400
+computers actually support multi-user on their systems, right?
+
+52
+00:04:26,400 --> 00:04:31,440
+So you have multiple users on your computer, obviously you don't want to mess with each
+
+53
+00:04:31,440 --> 00:04:35,080
+other's programs or settings or whatever.
+
+54
+00:04:35,080 --> 00:04:43,480
+So each user can have their own personal configuration for browser configuration for maybe an editor,
+
+55
+00:04:43,480 --> 00:04:47,160
+maybe programs that only the user wants to use and so on.
+
+56
+00:04:47,160 --> 00:04:50,600
+And all of that happens in that user's home directory.
+
+57
+00:04:50,600 --> 00:04:58,160
+However, in addition to the programs and files that only your user needs to see, there are
+
+58
+00:04:58,160 --> 00:05:02,520
+also programs that has to be available system-wide.
+
+59
+00:05:02,520 --> 00:05:06,760
+System-wide basically means installed on a computer which is automatically available
+
+60
+00:05:06,760 --> 00:05:08,800
+to all the users, right?
+
+61
+00:05:08,800 --> 00:05:13,600
+So they're not in a home directory of your user, they are basically available on the
+
+62
+00:05:13,600 --> 00:05:20,560
+outer level, so outside the home directory and available for all the users of your computer.
+
+63
+00:05:20,560 --> 00:05:27,120
+And this could be applications or also commands, Linux commands that are available on the whole
+
+64
+00:05:27,120 --> 00:05:30,040
+system and for all the users.
+
+65
+00:05:30,040 --> 00:05:32,840
+So where are those actually located?
+
+66
+00:05:32,840 --> 00:05:38,960
+Again going back to the root on a computer, you see that we have a bunch of other folders
+
+67
+00:05:38,960 --> 00:05:44,480
+here in addition to home.
+
+68
+00:05:44,480 --> 00:05:49,640
+And let's actually start with folder bin which stands for binary.
+
+69
+00:05:49,640 --> 00:05:58,000
+So if I click inside, so bin folder inside the root directory contains the most basic
+
+70
+00:05:58,000 --> 00:06:02,160
+commands you have available on your operating system.
+
+71
+00:06:02,160 --> 00:06:07,280
+Some of these commands are for example, cat which basically shows you the contents of
+
+72
+00:06:07,280 --> 00:06:13,480
+a file, you also have cp which basically copies a file, echo and so on.
+
+73
+00:06:13,480 --> 00:06:20,640
+So basically all these basic commands that you use in Linux, they are all located or
+
+74
+00:06:20,640 --> 00:06:26,760
+the binary files for those commands are all located in this bin directory.
+
+75
+00:06:26,760 --> 00:06:31,680
+And that means that they are available system wide for all the users but also to the system
+
+76
+00:06:31,680 --> 00:06:34,040
+itself.
+
+77
+00:06:34,040 --> 00:06:37,040
+Now what is binary exactly?
+
+78
+00:06:37,040 --> 00:06:44,000
+Binary is simply a format that computer understands, so instead of text, binary values are represented
+
+79
+00:06:44,000 --> 00:06:49,880
+in zeros and ones and that's what a computer can interpret.
+
+80
+00:06:49,880 --> 00:06:55,600
+So to execute a command, it must be in a binary format, so a computer can actually understand
+
+81
+00:06:55,600 --> 00:06:56,920
+that command.
+
+82
+00:06:56,920 --> 00:07:04,280
+And that's why all these commands that we use on a command line are in binary files.
+
+83
+00:07:04,280 --> 00:07:08,080
+And that's why they're in a folder called bin which stands for binary.
+
+84
+00:07:08,080 --> 00:07:12,480
+And we're going to actually go through those basic commands in more detail in the next
+
+85
+00:07:12,480 --> 00:07:16,600
+section.
+
+86
+00:07:16,600 --> 00:07:23,160
+Now going back to the root, we have another folder which is called sbin.
+
+87
+00:07:23,160 --> 00:07:30,200
+So these are binaries but for different commands, these are system binaries.
+
+88
+00:07:30,200 --> 00:07:36,240
+Again if I click inside, you will see a bunch of other commands and the difference between
+
+89
+00:07:36,240 --> 00:07:44,400
+the two is actually that these commands are system relevant, that these commands actually
+
+90
+00:07:44,400 --> 00:07:48,600
+need a super user permission to execute them.
+
+91
+00:07:48,600 --> 00:07:55,480
+Now the commands are, as you see, add user, so adding users, also setting passwords for
+
+92
+00:07:55,480 --> 00:08:03,280
+those users, or changing passwords, doing network configuration with IP tables, etc.
+
+93
+00:08:03,280 --> 00:08:09,840
+So all these commands that you see here need super user privilege so you can't actually
+
+94
+00:08:09,840 --> 00:08:12,600
+execute them with a normal user.
+
+95
+00:08:12,600 --> 00:08:18,720
+So the system bin commands would be used by administrators to administer the system
+
+96
+00:08:18,720 --> 00:08:23,160
+but also by the system itself to run some commands.
+
+97
+00:08:23,160 --> 00:08:32,720
+And again we will see how to execute commands with a super user privilege in the next section.
+
+98
+00:08:32,720 --> 00:08:40,760
+And we also have these leap or library folders which basically hold the libraries for those
+
+99
+00:08:41,320 --> 00:08:44,040
+binaries or for those commands, right?
+
+100
+00:08:44,040 --> 00:08:50,240
+Because they are just executables but if they need a library to do something else, those
+
+101
+00:08:50,240 --> 00:08:53,760
+libraries are actually located here.
+
+102
+00:08:53,760 --> 00:08:59,440
+So one program can actually be split into different locations, having the executable
+
+103
+00:08:59,440 --> 00:09:05,520
+files here and having the libraries here, or the same way having the executable binary
+
+104
+00:09:05,520 --> 00:09:08,560
+files here and having the libraries here.
+
+105
+00:09:08,560 --> 00:09:13,840
+And that's kind of a common way of splitting the location of a program when you install
+
+106
+00:09:13,840 --> 00:09:18,720
+them on Linux.
+
+107
+00:09:18,720 --> 00:09:26,040
+Now let's actually go to a folder called usr which stands for user originally.
+
+108
+00:09:26,040 --> 00:09:31,920
+So this folder was actually the user location before home directory was added.
+
+109
+00:09:31,920 --> 00:09:39,120
+And if you look inside the user folder, we actually see a bunch of folders, however,
+
+110
+00:09:39,120 --> 00:09:47,800
+we have binary folder here as well, S binary or system binary folder as well, and library
+
+111
+00:09:47,800 --> 00:09:49,480
+or library folders.
+
+112
+00:09:49,480 --> 00:09:55,240
+So the same concept as we saw on the root level but inside the user folder.
+
+113
+00:09:55,240 --> 00:09:57,200
+So what is this about?
+
+114
+00:09:57,200 --> 00:10:04,560
+If I click inside, you will actually see the same commands that we saw in the binary
+
+115
+00:10:04,560 --> 00:10:07,680
+and the root folder here as well.
+
+116
+00:10:07,680 --> 00:10:15,600
+So we have the package manager command, apt, for example, cat command, copy command, echo
+
+117
+00:10:15,600 --> 00:10:16,600
+and so on.
+
+118
+00:10:16,600 --> 00:10:22,040
+So basically the same commands that we saw in the root folders binary folder.
+
+119
+00:10:22,040 --> 00:10:24,120
+So what's going on here?
+
+120
+00:10:24,120 --> 00:10:30,360
+Basically this is also a binary folder for all those commands and the same way if we
+
+121
+00:10:30,360 --> 00:10:36,440
+look inside the S bin, we would see those administrator commands here, right?
+
+122
+00:10:36,440 --> 00:10:39,400
+And they have their libraries basically located here.
+
+123
+00:10:39,400 --> 00:10:47,480
+And that actually has a historical reason of how this was designed originally in Unix.
+
+124
+00:10:47,480 --> 00:10:54,160
+So basically because of the limitations of a storage, the split was made to store some
+
+125
+00:10:54,160 --> 00:11:01,000
+of the binaries in the root folder binary or system binary folders and the rest of them
+
+126
+00:11:01,000 --> 00:11:02,440
+in the user folder.
+
+127
+00:11:02,440 --> 00:11:07,520
+And the limitation was of course, because back in the time the storages were much more
+
+128
+00:11:07,520 --> 00:11:09,360
+limited in size.
+
+129
+00:11:09,360 --> 00:11:15,120
+However since that limitation actually doesn't exist anymore, now we have those binary files
+
+130
+00:11:15,120 --> 00:11:18,640
+actually duplicated in those two places.
+
+131
+00:11:18,640 --> 00:11:25,320
+So the split doesn't make sense anymore, however the concept still remains from the old times
+
+132
+00:11:25,320 --> 00:11:31,280
+and that's why we have these duplicated binaries basically till now.
+
+133
+00:11:31,280 --> 00:11:37,800
+And be aware that when we execute those commands, ls and copy and some basic commands, whenever
+
+134
+00:11:37,800 --> 00:11:46,120
+we execute them on a terminal, they are usually executed from the user bin folder.
+
+135
+00:11:46,120 --> 00:11:52,920
+Another difference between those two locations are that on some operating systems, the outer
+
+136
+00:11:52,920 --> 00:11:59,520
+level bin and S bin folders actually contain less number of commands.
+
+137
+00:11:59,520 --> 00:12:06,320
+So they basically have just a handful of commands inside and then the user folder bin and S
+
+138
+00:12:06,320 --> 00:12:09,120
+bin would have much more commands.
+
+139
+00:12:09,120 --> 00:12:17,540
+So just be aware that those two are very similar, so you have the system wide essential commands
+
+140
+00:12:17,540 --> 00:12:20,960
+basically located in those two places.
+
+141
+00:12:20,960 --> 00:12:28,880
+Now inside the user folder there is another folder called local and this local folder
+
+142
+00:12:28,880 --> 00:12:35,560
+also has bin, S bin and lib folders plus some other stuff and here the differentiation is
+
+143
+00:12:35,560 --> 00:12:41,760
+actually pretty clear because this is a location where the applications that you as a Linux
+
+144
+00:12:41,760 --> 00:12:46,840
+user are installing yourself will actually go.
+
+145
+00:12:46,840 --> 00:12:53,320
+So that's where third party applications that you install on the system will be located.
+
+146
+00:12:53,320 --> 00:13:00,440
+For example, this could be Docker, Docker compose, Minicube, Java, Python, whatever.
+
+147
+00:13:00,440 --> 00:13:07,280
+So these extra applications that you installed on your system will go here and that's why
+
+148
+00:13:07,280 --> 00:13:09,120
+it's called local.
+
+149
+00:13:09,120 --> 00:13:16,720
+And again, as I said, the application installation will be split into these different folders.
+
+150
+00:13:16,720 --> 00:13:21,840
+So if you're installing Java, for example, the binary files of Java commands will go
+
+151
+00:13:21,840 --> 00:13:28,540
+here, the libraries will go here, the documentation will go somewhere else, configuration in another
+
+152
+00:13:28,540 --> 00:13:30,040
+folder and so on.
+
+153
+00:13:30,040 --> 00:13:37,120
+And we're going to actually install some applications like Java and Docker, etc. on Linux and we're
+
+154
+00:13:37,120 --> 00:13:42,800
+going to see that the installer or the package manager tool that we're going to use to install
+
+155
+00:13:42,800 --> 00:13:49,640
+that will automatically put the program files in these locations.
+
+156
+00:13:49,640 --> 00:13:55,400
+And note again that the user folder is actually inside the root.
+
+157
+00:13:55,400 --> 00:14:00,080
+So everything that you install here in this local folder will be available for all the
+
+158
+00:14:00,080 --> 00:14:01,760
+users on your computer.
+
+159
+00:14:01,760 --> 00:14:05,620
+So these are going to be system wide application installations.
+
+160
+00:14:05,620 --> 00:14:12,000
+So if you install Docker here, every user on your computer will actually have Docker available
+
+161
+00:14:12,000 --> 00:14:13,720
+in their home space, right?
+
+162
+00:14:13,720 --> 00:14:17,280
+So they will be able to use Docker, the same goes for Java.
+
+163
+00:14:17,280 --> 00:14:23,180
+However, on Linux, you can actually install applications only for your user, which makes
+
+164
+00:14:23,180 --> 00:14:28,820
+sense because maybe only you're interested in having Docker and other users on the same
+
+165
+00:14:28,820 --> 00:14:31,620
+computer do not actually need Docker.
+
+166
+00:14:31,620 --> 00:14:42,300
+So in that case, you would install it in your user's home directory.
+
+167
+00:14:42,300 --> 00:14:50,260
+Now there is another location in Linux where the third party or external applications will
+
+168
+00:14:50,260 --> 00:14:51,500
+be installed.
+
+169
+00:14:51,500 --> 00:14:53,980
+And that is this optional folder.
+
+170
+00:14:53,980 --> 00:14:59,580
+And if I click inside, first of all, you see it's empty because we haven't installed any
+
+171
+00:14:59,580 --> 00:15:01,540
+applications yet.
+
+172
+00:15:01,540 --> 00:15:04,740
+We're just starting from an empty Linux installation.
+
+173
+00:15:04,740 --> 00:15:10,540
+So this folder is empty as well as user local bin folder, right?
+
+174
+00:15:10,540 --> 00:15:13,440
+We haven't installed any external applications yet.
+
+175
+00:15:13,440 --> 00:15:15,900
+So both of these locations are empty.
+
+176
+00:15:15,900 --> 00:15:21,900
+So what is the difference between this opt directory and user local directory?
+
+177
+00:15:21,900 --> 00:15:29,900
+The difference is that there are actually some applications that do not split their code
+
+178
+00:15:29,900 --> 00:15:37,900
+or their files in different directories, like having the binaries in the bin folder, libraries
+
+179
+00:15:37,900 --> 00:15:39,900
+in the lib folder, etc.
+
+180
+00:15:39,900 --> 00:15:44,460
+These programs would install everything in one directory.
+
+181
+00:15:44,460 --> 00:15:49,380
+And because of that, there is this opt or optional folder where such applications will
+
+182
+00:15:49,380 --> 00:15:50,380
+be installed.
+
+183
+00:15:50,380 --> 00:15:56,180
+An example of such an application would be most of the IDEs, which are basically code
+
+184
+00:15:56,180 --> 00:15:59,220
+editors for different programming languages.
+
+185
+00:15:59,220 --> 00:16:05,660
+So that would be actually installed in slash opt, where everything will be in one folder,
+
+186
+00:16:05,660 --> 00:16:09,540
+the binaries, libraries, documentation, shared files, etc.
+
+187
+00:16:09,540 --> 00:16:13,920
+This could also be, for example, web browsers that you install, and so on.
+
+188
+00:16:13,920 --> 00:16:18,280
+So that is a dedicated location for those type of applications.
+
+189
+00:16:18,280 --> 00:16:24,200
+Again, whatever you install here will be system-wide available for all the users.
+
+190
+00:16:24,200 --> 00:16:30,320
+So these are basically the most essential or most important directories in Linux file
+
+191
+00:16:30,320 --> 00:16:34,880
+system, but we also have some other ones that are also interesting.
+
+192
+00:16:34,880 --> 00:16:40,600
+So let's go through them very quickly.
+
+193
+00:16:40,600 --> 00:16:45,360
+First of all, we have this boot directory, which is basically for booting the system.
+
+194
+00:16:45,360 --> 00:16:47,600
+And that means that we should never touch that.
+
+195
+00:16:47,600 --> 00:16:53,000
+This is actually a folder where we, as users, never do anything.
+
+196
+00:16:53,000 --> 00:16:57,320
+This is exclusively for the system itself.
+
+197
+00:16:57,320 --> 00:17:02,200
+And at this point, I want to mention that all the folders that I showed you till now
+
+198
+00:17:02,200 --> 00:17:04,920
+are actually read-only folders.
+
+199
+00:17:04,920 --> 00:17:10,560
+So when an application is installed, for example, it will go in this opt or use a local directory,
+
+200
+00:17:10,560 --> 00:17:13,520
+once, so everything will be installed once.
+
+201
+00:17:13,520 --> 00:17:16,080
+And after that, that will be read-only, right?
+
+202
+00:17:16,080 --> 00:17:21,520
+You don't change the binary files, you don't change the libraries, etc.
+
+203
+00:17:21,520 --> 00:17:31,480
+However, there is a location in the root directory where the system configuration is stored.
+
+204
+00:17:31,480 --> 00:17:34,600
+This would be network interface configuration, etc.
+
+205
+00:17:34,600 --> 00:17:38,580
+This could be the Linux user data and the passwords.
+
+206
+00:17:38,580 --> 00:17:43,580
+So basically things that are writable, not only read-only, but we can change them.
+
+207
+00:17:43,580 --> 00:17:49,580
+And this configuration is located in this etc or etc. folder.
+
+208
+00:17:49,580 --> 00:17:57,660
+Originally, it was for etc., meaning everything else, which was not here, but it actually
+
+209
+00:17:57,660 --> 00:18:05,620
+emerged into being the main configuration location for different applications, as I said,
+
+210
+00:18:05,660 --> 00:18:11,100
+for users, groups, network configuration, etc.
+
+211
+00:18:11,100 --> 00:18:16,540
+So for example, here you see MySQL, so we have the MySQL configuration here.
+
+212
+00:18:16,540 --> 00:18:23,860
+We have Python configuration and a bunch of other .conf or configuration files for other
+
+213
+00:18:23,860 --> 00:18:25,100
+applications.
+
+214
+00:18:25,100 --> 00:18:33,940
+So all of them are located in one place, which is etc.
+
+215
+00:18:33,940 --> 00:18:40,460
+Another folder, which is interesting, is dev folder, which actually stands for devices.
+
+216
+00:18:40,460 --> 00:18:46,860
+And this is where the devices that are connected to your computer will actually be stored.
+
+217
+00:18:46,860 --> 00:18:53,900
+So mouse, keyboard, monitor, external devices that you connect to your computer, like USBs,
+
+218
+00:18:53,900 --> 00:18:55,900
+etc.
+
+219
+00:18:55,900 --> 00:19:00,660
+Or the hard drive, that would all be in this dev location.
+
+220
+00:19:00,660 --> 00:19:09,300
+So all the files that system needs to interact with this hardware basically will be here.
+
+221
+00:19:09,300 --> 00:19:14,340
+When the operating system starts, it actually logs some data.
+
+222
+00:19:14,340 --> 00:19:20,860
+And these logs are actually stored in a folder called bar inside the log folder.
+
+223
+00:19:20,860 --> 00:19:26,500
+And that means if something went wrong or you want to see your system logs, basically,
+
+224
+00:19:26,500 --> 00:19:28,020
+they're all located here.
+
+225
+00:19:28,020 --> 00:19:29,540
+We also have cache.
+
+226
+00:19:29,540 --> 00:19:34,380
+So basically all the cache data from your applications will be stored here.
+
+227
+00:19:34,380 --> 00:19:40,100
+And generally this var folder is for storing logs from different processes that are running
+
+228
+00:19:40,100 --> 00:19:44,620
+on your computer.
+
+229
+00:19:44,620 --> 00:19:50,660
+We also have a temp directory that basically stores some temporary files for different applications.
+
+230
+00:19:50,660 --> 00:19:56,380
+So for example, if an application in the background is doing some process and it needs to temporarily
+
+231
+00:19:56,380 --> 00:20:00,340
+save the data, it will be written here.
+
+232
+00:20:00,340 --> 00:20:06,060
+And at some point they will be then deleted.
+
+233
+00:20:06,060 --> 00:20:08,900
+We also have media and mount folders.
+
+234
+00:20:08,900 --> 00:20:16,660
+So media is basically where your external media is mounted into.
+
+235
+00:20:16,660 --> 00:20:23,020
+External hard drive, maybe a network drive or USB, when you plug that into your computer,
+
+236
+00:20:23,020 --> 00:20:29,060
+they will be automatically in the background actually mounted into this media folder.
+
+237
+00:20:29,060 --> 00:20:33,500
+And they will also be referenced in the devices folder.
+
+238
+00:20:33,500 --> 00:20:41,180
+And for manually mounting, for example, file systems to your operating system, you have
+
+239
+00:20:41,180 --> 00:20:43,220
+this mount folder.
+
+240
+00:20:43,220 --> 00:20:45,300
+So as I said, this happens automatically.
+
+241
+00:20:45,300 --> 00:20:50,820
+But if you want to manually mount, for example, a file system to your operating system, then
+
+242
+00:20:50,820 --> 00:20:56,420
+you can use the mount folder for that.
+
+243
+00:20:56,420 --> 00:21:03,500
+Now one thing to note here is that usually you will not be interacting with these folders.
+
+244
+00:21:03,500 --> 00:21:09,780
+When you install applications using a package manager tool or installer or whatever, and
+
+245
+00:21:09,780 --> 00:21:15,220
+when you interact with your operating system, you will not be directly updating this stuff
+
+246
+00:21:15,220 --> 00:21:16,220
+here.
+
+247
+00:21:16,220 --> 00:21:21,820
+Whether the application installer or package manager tool or the operating system itself
+
+248
+00:21:21,820 --> 00:21:24,860
+will be actually updating the folders here, right?
+
+249
+00:21:24,860 --> 00:21:30,860
+So as I said, if you plug in a USB, basically, it will automatically be mounted in your system.
+
+250
+00:21:30,860 --> 00:21:36,460
+And then you will see basically the folders or files on that USB without you having to
+
+251
+00:21:36,460 --> 00:21:38,900
+mount anything manually here.
+
+252
+00:21:38,900 --> 00:21:43,140
+And the same way when you change configuration in your system, they will automatically be
+
+253
+00:21:43,140 --> 00:21:48,380
+updated in this configuration, location in the ETC, et cetera.
+
+254
+00:21:48,380 --> 00:21:53,340
+And when you install an application, the package manager tool, for example, which you used,
+
+255
+00:21:53,340 --> 00:21:56,820
+will handle putting the right files into right locations.
+
+256
+00:21:56,820 --> 00:21:59,440
+It will track where everything is going.
+
+257
+00:21:59,440 --> 00:22:04,940
+So when you remove the package or application, it basically cleans up everything and it removes
+
+258
+00:22:04,940 --> 00:22:07,420
+those files from all the different locations.
+
+259
+00:22:07,420 --> 00:22:11,580
+So you don't have to actually do anything manually here.
+
+260
+00:22:11,580 --> 00:22:15,820
+But if you're debugging or troubleshooting, it's actually good to know where things are
+
+261
+00:22:15,820 --> 00:22:22,700
+located so you know where to look for them.
+
+262
+00:22:22,700 --> 00:22:29,700
+And finally, an important concept related to file system is something called hidden files.
+
+263
+00:22:29,700 --> 00:22:35,340
+To show you what that is, let's head back to our user's home directory.
+
+264
+00:22:35,340 --> 00:22:38,140
+And you see here we have a couple of folders.
+
+265
+00:22:38,140 --> 00:22:44,420
+Well, actually there are some other files and folders right here in this home directory
+
+266
+00:22:44,420 --> 00:22:48,580
+of my user that you don't see by default.
+
+267
+00:22:48,580 --> 00:22:54,460
+And to see them, we can actually go here in the settings options and check show hidden
+
+268
+00:22:54,460 --> 00:23:01,180
+files and you see those hidden files and folders displayed here.
+
+269
+00:23:01,180 --> 00:23:03,220
+So what are these?
+
+270
+00:23:03,220 --> 00:23:09,980
+The hidden files and folders are usually automatically generated by different applications.
+
+271
+00:23:09,980 --> 00:23:12,580
+And they all start with a dot.
+
+272
+00:23:12,580 --> 00:23:18,660
+And that's why in Unix operating systems, the hidden files are also called dot files.
+
+273
+00:23:18,660 --> 00:23:24,140
+And different applications will automatically create them to store configurations, some
+
+274
+00:23:24,140 --> 00:23:27,020
+scripts they need to execute, etc.
+
+275
+00:23:27,020 --> 00:23:34,500
+For example, right here you see a dot Mozilla folder for the Mozilla Firefox browser, right?
+
+276
+00:23:34,500 --> 00:23:40,660
+So here Firefox browser will actually store some configuration options as well as maybe
+
+277
+00:23:40,660 --> 00:23:46,780
+application logs and generally data that that application would need.
+
+278
+00:23:46,780 --> 00:23:52,660
+In addition to applications themselves generating these folders and files, you also have operating
+
+279
+00:23:52,660 --> 00:23:59,700
+system itself generating some of these folders and files specifically for your user.
+
+280
+00:23:59,700 --> 00:24:03,620
+Again we are in one specific user's home directory.
+
+281
+00:24:03,620 --> 00:24:10,460
+And these are actually some of the files that hold the configuration for your user.
+
+282
+00:24:10,460 --> 00:24:16,300
+So if you have some user preferences that you've configured in your operating system
+
+283
+00:24:16,300 --> 00:24:19,060
+only for your user, they will be stored here.
+
+284
+00:24:19,180 --> 00:24:26,780
+So you have this profile for a user, you have cache where applications that you use in your
+
+285
+00:24:26,780 --> 00:24:29,660
+user space will store some cache data.
+
+286
+00:24:29,660 --> 00:24:35,580
+You have configuration from different applications and operating system again specific to your
+
+287
+00:24:35,580 --> 00:24:36,580
+user.
+
+288
+00:24:36,580 --> 00:24:41,700
+And this way every user can basically configure the operating system to their needs and have
+
+289
+00:24:41,700 --> 00:24:45,620
+their own preferences without interfering with each other.
+
+290
+00:24:45,620 --> 00:24:48,700
+And that will be all stored right here.
+
+291
+00:24:48,700 --> 00:24:54,500
+So the difference is basically that these are automatically created files and folders
+
+292
+00:24:54,500 --> 00:25:01,220
+either by the operating system or applications where you don't usually modify some stuff.
+
+293
+00:25:01,220 --> 00:25:07,020
+And the main purpose of hiding these files by default is basically to have a cleaner
+
+294
+00:25:07,020 --> 00:25:11,220
+overview when you're displaying your folders.
+
+295
+00:25:11,220 --> 00:25:16,740
+So you don't see a bunch of automatically generated files and folders in each directory.
+
+296
+00:25:16,740 --> 00:25:22,340
+So basically it's just for a cleaner visual display of directories.
+
+297
+00:25:22,340 --> 00:25:28,500
+And you have hidden folders in all operating systems and they use them in the same way.
+
+298
+00:25:28,500 --> 00:25:34,740
+So Windows has them, Mac OS has them and obviously Linux distributions have them.
+
+299
+00:25:34,740 --> 00:25:40,620
+And we're going to actually see the usage, the actual usage of some of those hidden files
+
+300
+00:25:40,620 --> 00:25:43,140
+and folders in the next sections.
+
+301
+00:25:43,140 --> 00:25:50,420
+And you as a user could also actually create hidden folders and files if you need it to.
+
+302
+00:25:50,420 --> 00:25:56,820
+So when creating a folder or file, you just have to prepend dot and then basically name
+
+303
+00:25:56,820 --> 00:26:00,820
+of the file or folder, let's just call it test.
+
+304
+00:26:00,820 --> 00:26:07,740
+And you just get a note here that it's going to be a hidden folder, create and now if we
+
+305
+00:26:07,740 --> 00:26:10,660
+hide them again, you don't see it here.
+
+306
+00:26:10,660 --> 00:26:16,300
+And we're going to see some specific cases where you would create a hidden file.
+
+307
+00:26:16,300 --> 00:26:22,620
+But as I said, mostly they're automatically generated by program or operating system itself.
+
